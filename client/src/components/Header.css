@@ -1,0 +1,302 @@
+:root{
+    --blue:#147499;
+    --white:#ffffff;
+    --orange:#F6852B;
+}
+a{
+    cursor: pointer;
+    text-decoration: none !important;
+    z-index: 1;
+}
+
+/*==========Header===========*/
+
+.header{
+width: 100%;
+display: flex;
+flex-direction: column;
+/*align-content: center;*/
+justify-content: center;
+/*background-color:rgba(0,0,0,0.4);*/
+position: relative;
+/*padding-top: 1%;*/
+flex-wrap: wrap;
+/*margin: 0;
+padding: 0;*/
+}
+
+/*============Un order list============*/
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header .container{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    padding: 1vw;
+}
+
+.header .nav{
+    width: 100%;
+    height: 3.3vw;
+    
+    color:var(--white);
+    
+}
+
+.header .nav .un--list{
+    width: 100%;
+    height: 100%;
+    background-color: var(--blue);
+    
+}
+
+.header .nav .un--list ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding:0 2.5%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;   
+}
+.header .nav .un--list ul li{
+    width: 100%;
+    height: 100%;
+    font-size: 1.1vw;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.header .nav .un--list .Maa--Ul > li:hover{
+    background-color:var(--orange);
+    transition: .5s;
+}
+.header .nav .un--list li .Drop--Down--Add{
+    position: absolute;
+    top:3.3vw;
+    left: .01vw;
+    z-index: 1;
+    color: black;
+    display: none;
+    width: 20vw;  
+}
+
+
+.header .nav .un--list li .Drop--Down--Add .admins--form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    transition: .3s;
+}
+.header .nav .un--list li .Drop--Down--Add .In--Unor{
+    flex-direction: column;
+}
+.header .nav .un--list li .Drop--Down--Add .In--Unor li{
+    justify-content: flex-start;
+    
+}
+.header .nav .un--list li .Drop--Down--Add .In--Unor li:not(:last-child) a{
+    border-bottom: .2vw solid var(--orange);
+}
+.header .nav .un--list li .Drop--Down--Add .In--Unor li a{
+    width: 100%;
+    padding: 0.5vw 0;
+}
+
+.header .nav .un--list li .Drop--Down--Add ul a:hover {
+color: var(--orange);
+ padding-inline-start: 5px;
+ transition: .5s;
+}
+.header .nav .un--list .Drop--Down--Add{
+    background-color: rgba(221, 221, 221, 0.4);
+}
+/*.header .nav .un--list #Admins:hover .Drop--Down--Add{
+    display: flex;
+   
+}*/
+.header .nav .un--list .Maa--Ul > li:hover .Drop--Down--Add{
+    display: flex;
+    
+    
+}
+/*.header .nav .un--list #Stf--Mem:hover .Drop--Down--Add{
+    display: flex;
+    background-color: #ddd;
+    opacity: .4;
+}
+.header .nav .un--list #Facs:hover .Drop--Down--Add{
+    display: flex;
+    background-color: #ddd;
+    opacity: .4;
+}
+.header .nav .un--list #Sci--Res:hover .Drop--Down--Add{
+    display: flex;
+    background-color: #ddd;
+    opacity: .4;
+}
+.header .nav .un--list #Stu:hover .Drop--Down--Add{
+    display: flex;
+    background-color: #ddd;
+    opacity: .4;
+}
+.header .nav .un--list #Egy--Uni:hover .Drop--Down--Add{
+    display: flex;
+    background-color: #ddd;
+    opacity: .4;
+}*/
+.header .nav .un--list #Media:hover .Drop--Down--Add{
+    display: flex;
+    background-color:rgba(221, 221, 221, .3);
+
+    width: 13vw;
+}
+.header .container .logo{
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+    
+}
+.header .container .logo img{
+    width: 8vw;
+}
+.header .container .logo p{
+  color:#147499;
+  font-size: 2.2vw;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+/*.header .container .logo p:hover{
+    color:#F6852B ;
+}*/
+.header .container .unorder{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+.header .container .unorder .Caption--Ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color:var(--blue);
+}
+.header .container .unorder .Caption--Ul p{
+    margin: 0;
+    font-size: 2vw;
+    margin: 0.3vw 0;
+    animation: Head-Ani;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+}
+.header .container .unorder .Caption--Ul .mainul{
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding:0;
+    margin: 0.3vw 0;
+    animation-name: Head--Animation;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+
+
+    
+}
+.header .container .unorder .bars{
+    width: 10%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 35px;
+    color: var(--blue);
+}
+.header .container .unorder .bars:hover{
+    color:#147499 ;
+}
+.header .container .unorder .mainul a{
+    text-decoration: none;
+    font-size: 1.8vw;
+    color: #147499;
+    font-weight: 700;
+}
+/*a:hover{
+    
+    border-bottom: 3px solid #F6852B;
+    border-radius: 2%;
+}*/
+.header .container .unorder .mainul #i{
+    display: none;
+}
+
+.header .container .unorder .Caption--Ul img{
+    width: 3vw;
+    padding-left:.5vw ;
+    padding-bottom: .5vw;
+}
+@media (max-width:1000px){
+    .header .container .unorder .mainul{
+        display: none;
+    }
+    .header .container .unorder .bars{
+        display:none;
+    }
+    
+    
+    
+}
+
+
+/*============Animations==============*/
+@keyframes Head--Animation{
+    0%{
+      transform: translateX(-13vw);
+       
+        opacity: .4;
+    }
+    80%{
+        /*justify-content: center ;
+        /*align-items: center;*/
+        transform: translateX(2vw);
+        
+    }
+    100%{
+        transform: translateX(0vw);
+        opacity: 1;
+    }
+}
+@keyframes Head-Ani{
+    0%{
+        transform: translateX(7vw);
+        opacity: .4;
+    }
+    80%{
+        transform: translateX(-3vw);
+        
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
