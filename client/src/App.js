@@ -1,22 +1,16 @@
-
-import Header from './components/Header';
-import Slider from './components/Slider';
-import Cover from './components/Cover';
-import Virtual from './components/Virtual';
-import Addminstration from './components/Addminstration';
-import Student from "./components/Students";
+import React from "react";
+import { Route, Router, Routes } from "react-router-dom";
+import HomePage from "./components/Pages/HomePage";
+import Tour from "./components/Pages/Tour";
 
 function App() {
   return (
-   <>
-   <Cover/>
-   <Virtual/>
-   <Student/>
-   <Addminstration/>
-
-    {/*<Header/>*/}
-   {/*<Slider/>*/}
-   </>
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/tour" element={<Tour />} />
+      </Routes>
+    </>
   );
 }
 
