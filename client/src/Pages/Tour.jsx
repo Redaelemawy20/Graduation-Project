@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Classes from "./Tour.module.css";
 import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri";
 import { Pannellum } from "pannellum-react";
-import map from "../../services/tour/map";
+import map from "../services/tour/map";
 
 const Tour = () => {
   const [currentLocation, setCurrentLocation] = useState(map.head);
