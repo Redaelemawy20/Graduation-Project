@@ -1,15 +1,33 @@
 const express = require("express");
 const NewsContrller = require("../controllers/NewsController");
+
 const router = express.Router();
-// Get: retrive all news
+
+const { newsStorage } = require("../util/multerStorage");
+
 router.get("/", NewsContrller.index);
-// GET: show the form of add a new new
-router.get("/create", () => {});
-// POST: store the new
-router.post("/create", () => {});
-// GET: show the form update new
-router.get("/update", () => {});
-router.put("/update", () => {});
-router.delete("/delete", () => {});
+
+router.get("/create", NewsContrller.create);
+
+router.post(
+  "/create",
+  newsStorage.fields([
+    {
+      name: "mainImage",
+      maxCount: 1,
+    },
+    {
+      name: "files",
+      maxCount: 4,
+    },
+  ]),
+  NewsContrller.store
+);
+
+router.get("/update", NewsContrller.edit);
+
+router.put("/update", NewsContrller.update);
+
+router.delete("/delete", NewsContrller.destroy);
 
 module.exports = router;

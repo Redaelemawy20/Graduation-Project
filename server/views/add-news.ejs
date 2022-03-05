@@ -1,0 +1,129 @@
+<% extend('layout') %> <% let fileList = 4; %>
+
+<div class="card-body border-bottom py-3">
+  <form action="" id="form">
+    <div class="nav-item">
+      <a
+        href="#new-main-img"
+        class="form-label nav-link"
+        data-bs-toggle="collapse"
+        aria-expanded="false"
+      >
+        Main Image
+        <span class="nav-link-toggle"></span>
+      </a>
+      <div class="nav nav-pills collapse" id="new-main-img" style="">
+        <img
+          class="card-cover text-center col-12"
+          style="object-fit: cover; object-position: center"
+          id="img-preview"
+          height="250"
+        />
+        <div class="card-body text-center">
+          <div class="card-title mb-1">Main Image</div>
+          <label for="img-input" class="text-muted" style="cursor: pointer"
+            >Upload</label
+          >
+          <input type="file" name="main-image" id="img-input" hidden />
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        placeholder="title"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">content</label>
+      <textarea
+        class="form-control"
+        name="content"
+        id="content"
+        rows="6"
+        placeholder="Content.."
+        spellcheck="false"
+        style="height: 107px"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="row">
+        <span class="col form-label">Show in Latest Feeds</span>
+        <span class="col-auto">
+          <label class="form-check form-check-single form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="show"
+              id="show"
+              checked=""
+            />
+          </label>
+        </span>
+      </label>
+    </div>
+    <div class="col-md-6 col-xl-12">
+      <div class="mb-3">
+        <div class="mb-3">
+          <div class="form-label">Attach Files</div>
+          <input
+            type="file"
+            id="files-uploader"
+            multiple="mutiple"
+            class="form-control"
+          />
+        </div>
+        <label class="text-muted mb-1">Attached Files</label>
+        <div class="form-selectgroup form-selectgroup-boxes d-flex flex-column">
+          <label class="form-selectgroup-item flex-fill" id="output"> </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-footer">
+      <button type="submit" class="btn btn-primary" onclick="submitForm(event)">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+<script src="/scripts/image-preview.js"></script>
+<script src="/scripts/multiple-files.js"></script>
+<script>
+  function submitForm(event) {
+    event.preventDefault();
+    let payload = {
+      title: document.getElementById("title").value,
+      content: document.getElementById("content").value,
+      show: document.getElementById("show").value,
+    };
+    const formData = new FormData();
+    formData.append("title", document.getElementById("title").value);
+    formData.append("content", document.getElementById("content").value);
+    formData.append(
+      "show",
+      document.getElementById("show").value === "on" ? true : false
+    );
+    console.log(fileInput.files[0]);
+    formData.append("mainImage", fileInput.files[0]);
+    for (let idx = 0; idx < fileList.length; idx++) {
+      formData.append("files", fileList[idx]);
+    }
+
+    console.log(fileList);
+    var url = "http://localhost:3000/news/create";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url);
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        console.log(xhr.responseText);
+      }
+    };
+    xhr.send(formData);
+  }
+</script>
