@@ -3,22 +3,22 @@ import Classes from "./Tour.module.css";
 import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri";
 import { Pannellum } from "pannellum-react";
 import map from "../services/tour/map";
-
+import AllMap from "./Map";
 const Tour = () => {
-  const [currentLocation, setCurrentLocation] = useState(map.head);
+  const [currentLocation, setCurrentLocation] = useState(map[0]);
   const [nextLocationInfo, setNextLocatonInfo] = useState("");
   let goRight = () => {
     setNextLocatonInfo("");
-    setCurrentLocation(currentLocation.next);
+    setCurrentLocation(map[currentLocation.right]);
   };
   let goLeft = () => {
     setNextLocatonInfo("");
-    setCurrentLocation(currentLocation.prev);
+    setCurrentLocation(map[currentLocation.left]);
   };
   let updateNextLocationInfo = (direction) => {
     if (direction === "right")
-      setNextLocatonInfo("on the right: " + currentLocation.next.data.title);
-    else setNextLocatonInfo("on the left: " + currentLocation.prev.data.title);
+      setNextLocatonInfo("on the right: " + map[currentLocation.right].title);
+    else setNextLocatonInfo("on the left: " + map[currentLocation.left].title);
   };
   const directionBtnClasses = `btn ${Classes["btn-direction"]} `;
   const leftBtnClasses = directionBtnClasses + Classes["btn-left"];
@@ -29,7 +29,7 @@ const Tour = () => {
         <Pannellum
           width="100%"
           height="100vh"
-          image={currentLocation.data.image}
+          image={currentLocation.image}
           pitch={10}
           yaw={180}
           hfov={110}
@@ -52,7 +52,7 @@ const Tour = () => {
             text="Info Hotspot Text 4"
           />
         </Pannellum>
-        {currentLocation.prev ? (
+        {currentLocation.left !== null ? (
           <button
             onClick={goLeft}
             className={leftBtnClasses}
@@ -70,7 +70,7 @@ const Tour = () => {
           ""
         )}
 
-        {currentLocation.next ? (
+        {currentLocation.right !== null ? (
           <button
             onClick={goRight}
             className={rightBtnClasses}
@@ -82,7 +82,12 @@ const Tour = () => {
         ) : (
           ""
         )}
+        <AllMap
+          currentLocation={currentLocation}
+          onNodeHover={setNextLocatonInfo}
+        />
       </div>
+
       {/******  for video 360 component *******/}
     </div>
   );

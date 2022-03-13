@@ -24,10 +24,10 @@ router.post(
   NewsContrller.store
 );
 
-router.get("/update", NewsContrller.edit);
+router.get("/:id/edit", NewsContrller.edit);
 
-router.put("/update", NewsContrller.update);
-
+router.put("/:id/update", NewsContrller.update);
+router.delete("/:id/deleteFile", NewsContrller.deleteFile);
 router.delete("/delete", NewsContrller.destroy);
 
 module.exports = router;

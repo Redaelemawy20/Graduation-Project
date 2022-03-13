@@ -1,4 +1,6 @@
 const path = require("path");
+const fs = require("fs");
+
 const File = require("../database/models/File");
 const Feed = require("../database/models/Feed");
 let options = require("../util/viewsOptions");
@@ -53,11 +55,61 @@ async function store(req, res) {
   }
 }
 
-function edit(req, res) {}
+async function edit(req, res) {
+  const { id } = req.params;
+  const feed = await Feed.findByPk(id);
+  const files = await File.findAll({
+    where: {
+      feed_id: feed.feed_id,
+    },
+  });
 
-function update(req, res) {}
+  res.render("edit-news", {
+    ...options,
+    title: "edit news",
+    url: "/edit",
+    feed,
+    files,
+  });
+}
+
+function update(req, res) {
+  res.send("updating store>>" + req.params.id);
+}
 
 function destroy(req, es) {}
+
+async function deleteFile(req, res) {
+  console.log(req.query.file);
+  console.log(__dirname);
+  const filePath = path.join(
+    __dirname,
+    "../",
+    "storage",
+    "news",
+    "Files",
+    "1646787473879-821543999-2.jpg"
+  );
+  fs.unlink(filePath, async (err) => {
+    if (err) {
+      console.log(err);
+      return res.send("Error while deleting file");
+    }
+    //file removed
+    await File.destroy({
+      where: {
+        filename: req.query.file,
+      },
+    });
+    return res.send("sucess");
+    // response.writeHead(200, {
+    //   Location: `/news/${req.params.id}/edit`,
+    // });
+    // return response.end();
+  });
+
+  // return res.send(req.query.file);
+}
 
 module.exports = {
   index,
@@ -66,4 +118,5 @@ module.exports = {
   edit,
   update,
   destroy,
+  deleteFile,
 };

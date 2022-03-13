@@ -1,0 +1,24 @@
+<% extend('layout') %> <% let fileList = 4; %>
+
+<div class="card-body border-bottom py-3">
+  <%- include('./edit-news-form.ejs'); -%>
+</div>
+<script src="/scripts/image-preview.js"></script>
+<script src="/scripts/multiple-files.js"></script>
+<script src="/scripts/submit-form.js"></script>
+<script>
+  function deleteAttatchedFile(feed, file) {
+    console.log(file);
+    event.preventDefault();
+    var url = `http://localhost:3000/news/${feed}/deleteFile?file=${file}`;
+    var xhr = new XMLHttpRequest();
+    xhr.open("DELETE", url);
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        console.log(xhr.responseText);
+      }
+    };
+    xhr.send();
+  }
+</script>
