@@ -1,0 +1,24 @@
+.Addmins{
+    width: 100%;
+    max-height: 100%;   
+    background-color: #DDD;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+.Addmins .container .cardss{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:20px;
+    padding: 7% 0;
+
+}
+@media(max-width: 600px) {
+    .Addmins .container .cardss{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap:20px;
+    
+    }  
+};
