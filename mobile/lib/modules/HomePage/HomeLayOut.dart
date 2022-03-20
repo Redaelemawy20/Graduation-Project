@@ -25,7 +25,9 @@ class HomePage extends StatelessWidget {
                   UserAccountsDrawerHeader(
                     decoration: BoxDecoration(
                       color: Colors.teal[600],
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadiusDirectional.only(
+                          bottomEnd: Radius.circular(20.0),
+                          bottomStart: Radius.circular(20.0)),
                     ),
                     accountName: Text(
                       'Menofia University',
