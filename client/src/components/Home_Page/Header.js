@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import "../Home_Page/Header.css";
 import logo from "../Images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -22,7 +22,7 @@ export default function Header() {
         </div>
         <div className="unorder">
           <div className="Caption--Ul">
-            <p>
+            <p id="Caption">
               The beacon of knowledge in the heart of the delta
               <img src={Lamp} alt="Lamp" />
             </p>

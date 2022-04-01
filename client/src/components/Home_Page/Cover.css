@@ -41,7 +41,7 @@ body {
   animation-name: ani--text;
   animation-duration: 3s;
   animation-timing-function: linear;
-  z-index: 8;
+  z-index: 2;
 }
 
 .organize {

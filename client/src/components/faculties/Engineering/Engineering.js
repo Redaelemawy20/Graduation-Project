@@ -4,6 +4,7 @@ import Slider from "../../Home_Page/Slider";
 import NavFaculity from "./NavFaculity";
 import cc from "../Images/2b305a0d-2116-4f8e-bd04-fb84321c235e (1).png";
 
+
 export default class Engineering extends Component {
   render() {
     let Engineering = {
@@ -13,8 +14,11 @@ export default class Engineering extends Component {
     return (
       <>
         {/*<Header/>*/}
-        <NavFaculity />
+        
+          <NavFaculity />
         <Slider img={Engineering.img} Description={Engineering.Description} />
+          
+        
       </>
     );
   }

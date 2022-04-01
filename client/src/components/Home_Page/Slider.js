@@ -16,7 +16,7 @@ export default function Slider({ img, Description }) {
                 width="100%"
                 height="600px"
                 alt="managers"
-                alt="First slide"
+                
               />
               <Carousel.Caption>
                 <h5>{Description}</h5>
