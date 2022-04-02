@@ -74,7 +74,7 @@ async function edit(req, res) {
 }
 
 function update(req, res) {
-  res.send("updating store>>" + req.params.id);
+  return res.send("updating store>>" + req.params.id);
 }
 
 function destroy(req, es) {}
@@ -111,7 +111,7 @@ async function deleteFile(req, res) {
   // return res.send(req.query.file);
 }
 
-module.exports = {
+export default {
   index,
   create,
   store,

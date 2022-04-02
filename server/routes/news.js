@@ -1,6 +1,5 @@
-const express = require("express");
-const NewsContrller = require("../controllers/NewsController");
-
+import express from "express";
+import NewsContrller from "../controllers/NewsController";
 const router = express.Router();
 
 const { newsStorage } = require("../util/multerStorage");
@@ -30,4 +29,4 @@ router.put("/:id/update", NewsContrller.update);
 router.delete("/:id/deleteFile", NewsContrller.deleteFile);
 router.delete("/delete", NewsContrller.destroy);
 
-module.exports = router;
+export default router;

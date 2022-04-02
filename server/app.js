@@ -1,22 +1,33 @@
-const path = require("path");
-const express = require("express");
-
-const NewsRoutes = require("./routes/news");
+import path from "path";
+import express from "express";
+import NewsRoutes from "./routes/news";
 const app = express();
-
+import reactRenderer from "./services/reactRenderer";
 require("./database/models/index");
 
 app.use(express.static("public"));
-app.engine("ejs", require("express-ejs-extend"));
 app.use("/news", NewsRoutes);
+
+app.engine("ejs", require("express-ejs-extend"));
+
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "../", "views"));
 app.get("/files", (req, res) => {
   console.log(req.query.file);
   const filePath = path.join(__dirname, "storage", req.query.file);
   res.sendFile(filePath);
 });
-app.get("/", (req, res) => {
-  res.render("news", { title: "Hello" });
+
+// anthor routes
+app.get("/admin/api", (req, res) => {
+  return res.send("api");
 });
-app.listen(3000);
+
+// admin dashboard
+app.get("/*", (req, res) => {
+  return res.send(reactRenderer(req));
+});
+
+app.listen(4000, () => {
+  console.log("Listening on port 3000");
+});
