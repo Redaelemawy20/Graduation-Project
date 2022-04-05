@@ -15,7 +15,7 @@ function getPayload() {
 }
 function submitForm(event) {
   event.preventDefault();
-  var url = "http://localhost:3000/news/create";
+  var url = "http://localhost:3000/admin/news/create";
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url);
 
@@ -28,7 +28,7 @@ function submitForm(event) {
 }
 function updateForm(event, id) {
   event.preventDefault();
-  var url = `http://localhost:3000/news/${id}/update`;
+  var url = `http://localhost:3000/admin/news/${id}/update`;
   var xhr = new XMLHttpRequest();
   xhr.open("PUT", url);
 

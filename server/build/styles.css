@@ -1,419 +1,518 @@
-/*!**********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/components/Home_Page/Header.css ***!
-  \**********************************************************************************************/
-:root{
-    --blue:#147499;
-    --white:#ffffff;
-    --orange:#F6852B;
-    --W-gray:#ddd;
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Header.css ***!
+  \******************************************************************************************/
+:root {
+  --blue: #147499;
+  --white: #ffffff;
+  --orange: #f6852b;
+  --W-gray: #ddd;
 }
 
-
-a{
-    cursor: pointer;
-    /*text-decoration: none !important;*/
-    z-index: 1;
+a {
+  cursor: pointer;
+  /*text-decoration: none !important;*/
+  z-index: 1;
 }
 
 /*==========Header===========*/
 
-.header{
-width: 100%;
+.header {
+  width: 100%;
 }
 
 /*============Un order list============*/
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.header .cont{
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    padding: 1vw;
-    align-items: center;
-    justify-content: space-between;
+.header .cont {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  padding: 1vw;
+  align-items: center;
+  justify-content: space-between;
 }
-.header .cont .logo{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: start;   
+.header .cont .logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: start;
 }
-.header .cont .logo img{
-    width: 8em;
+.header .cont .logo img {
+  width: 8em;
 }
-.header .cont .logo p{
-  color:#147499;
+.header .cont .logo p {
+  color: #147499;
   font-size: 2.4rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.header .cont .unorder{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-
+.header .cont .unorder {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 .header .cont .unorder .Caption--Ul {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.header .cont .unorder .Caption--Ul p{
-    margin: 0;
-    font-size: 2.1rem;
-    font-weight: 500;
-    animation: Head-Ani;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    color:var(--blue);
+.header .cont .unorder .Caption--Ul #Caption {
+  margin: 0;
+  font-size: 2.1rem;
+  font-weight: 500;
+  animation: Head-Ani;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  color: var(--blue);
+  font-style: italic;
 }
-.header .cont .unorder .Caption--Ul .mainul{
-    display: flex;
-    flex-direction: row;
-    gap: 2vw;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding:0;
-    margin: 0;
-    animation-name: Head--Animation;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-
-
-    
+.header .cont .unorder .Caption--Ul .mainul {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  animation-name: Head--Animation;
+  animation-duration: 3s;
+  animation-timing-function: linear;
 }
-.header .cont .unorder .Caption--Ul .mainul li{
-
-
+.header .cont .unorder .Caption--Ul .mainul li {
 }
 
-.header .cont .unorder .Caption--Ul .mainul .stl--search{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    background-color: var(--W-gray);
-    padding:0 .4em;
-    border-radius: 20px;
-    max-height:50px;
-    transition: all 1s;
-}
-.header .cont .unorder .Caption--Ul .mainul input{
-width: 0;
-height: 3%;
-border: none;
-outline: none;
-border-radius: 7px;
-padding: 0;
-font-size: 1.5rem;
-color: var(--orange);
-background-color: transparent;
-
-display: flex;
-align-items: center;
-transition: all .8s ease-out;
-}
-
-.header .cont .unorder .Caption--Ul .mainul .stl--search:hover input{
-    
-width: 15vw;
-padding: 0.1em  .4em;
-
-}
-.header .cont .unorder .Caption--Ul .mainul #btn--search{
-padding: .2em;
-transition: 1s;
-}
-
-.header .cont .unorder .bars{
-    width: 10%;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 35px;
-    color: var(--blue);
-}
-.header .cont .unorder .bars:hover{
-    color:#147499 ;
-}
-.header .cont .unorder .mainul a{
-    text-decoration: none;
-    font-size:2.1rem;
-    color: #147499;
-    font-weight: 500;
-}
-
-.header .cont .unorder .mainul #i{
-    display: none;
-}
-
-.header .cont .unorder .Caption--Ul img{
-    width: 3vw;
-    padding-left:.5vw ;
-    padding-bottom: .5vw;
-}
-
-
-/*============Animations==============*/
-@keyframes Head--Animation{
-    0%{
-      transform: translateX(-13vw);
-       
-        opacity: .4;
-    }
-    80%{
-        /*justify-content: center ;
-        /*align-items: center;*/
-        transform: translateX(2vw);
-        
-    }
-    100%{
-        transform: translateX(0vw);
-        opacity: 1;
-    }
-}
-@keyframes Head-Ani{
-    0%{
-        transform: translateX(7vw);
-        opacity: .4;
-    }
-    80%{
-        transform: translateX(-3vw);
-        
-    }
-    100%{
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-/*==============Media Quers===========*/
-@media(max-width:1360px) {
-    .header .cont .logo img{
-    width: 5em;
-}
-.header .cont .logo p{
-    font-size: 1.6rem;
-}
-.header .cont .unorder .Caption--Ul p {
-    font-size: 1.3rem;
-    padding: 0 0 0.2em 0;
-}
-.header .cont .unorder .mainul a{
-    font-size: 1.3rem;
-    
-}
-.header .cont .unorder .Caption--Ul .mainul input{
-    font-size: 1.15rem;
-}
-
-}
-@media(max-width:900px) {
-    .header .cont .logo img{
-    width: 3.7em;
-}
-.header .cont .logo p{
-    font-size: 1.2rem;
-}
-.header .cont .unorder .Caption--Ul p {
-    font-size: 1rem;
-    padding: 0 0 0.2em 0;
-}
-.header .cont .unorder .mainul a{
-    font-size: 1rem;
-    
-}
-.header .cont .unorder .Caption--Ul .mainul input{
-    font-size: 0.8rem;
-}
-
-}
-@media(max-width:680px) {
-    .header .cont .logo img{
-    width: 2.5em;
-}
-.header .cont .logo p{
-    font-size: 0.7rem;
-    margin: 0;
-}
-.header .cont .unorder .Caption--Ul p {
-    font-size: 0.58rem;
-   
-}
-.header .cont .unorder .mainul a{
-    font-size: 0.6rem;
-    align-items: baseline;
+.header .cont .unorder .Caption--Ul .mainul .stl--search {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color: var(--W-gray);
+  padding: 0 0.4em;
+  border-radius: 20px;
+  max-height: 50px;
+  transition: all 1s;
 }
 .header .cont .unorder .Caption--Ul .mainul input {
-   font-size: .5rem;
+  width: 0;
+  height: 3%;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  padding: 0;
+  font-size: 1.5rem;
+  color: var(--orange);
+  background-color: transparent;
+
+  display: flex;
+  align-items: center;
+  transition: all 0.8s ease-out;
 }
-/*.header .cont .unorder .Caption--Ul .mainul{
+
+.header .cont .unorder .Caption--Ul .mainul .stl--search:hover input {
+  width: 15vw;
+  padding: 0.1em 0.4em;
+}
+.header .cont .unorder .Caption--Ul .mainul #btn--search {
+  padding: 0.2em;
+  transition: 1s;
+}
+
+.header .cont .unorder .bars {
+  width: 10%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 35px;
+  color: var(--blue);
+}
+.header .cont .unorder .bars:hover {
+  color: #147499;
+}
+.header .cont .unorder .mainul a {
+  text-decoration: none;
+  font-size: 2.1rem;
+  color: #147499;
+  font-weight: 500;
+}
+
+.header .cont .unorder .mainul #i {
+  display: none;
+}
+
+.header .cont .unorder .Caption--Ul img {
+  width: 3vw;
+  padding-left: 0.5vw;
+  padding-bottom: 0.5vw;
+}
+
+/*============Animations==============*/
+@keyframes Head--Animation {
+  0% {
+    transform: translateX(-13vw);
+
+    opacity: 0.4;
+  }
+  80% {
+    /*justify-content: center ;
+        /*align-items: center;*/
+    transform: translateX(2vw);
+  }
+  100% {
+    transform: translateX(0vw);
+    opacity: 1;
+  }
+}
+@keyframes Head-Ani {
+  0% {
+    transform: translateX(7vw);
+    opacity: 0.4;
+  }
+  80% {
+    transform: translateX(-3vw);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/*==============Media Quers===========*/
+@media(max-width:1600px){
+  .header .cont .logo img {
+    width: 7em;
+  }
+  .header .cont .logo p {
+    font-size: 1.9rem;
+  }
+  .header .cont .unorder .Caption--Ul #Caption {
+    font-size: 1.5rem;
+    padding: 0 0 0.2em 0;
+  }
+}
+@media (max-width: 1360px) {
+  .header .cont .logo img {
+    width: 5em;
+  }
+  .header .cont .logo p {
+    font-size: 1.6rem;
+  }
+  .header .cont .unorder .Caption--Ul #Caption {
+    font-size: 1.3rem;
+    padding: 0 0 0.2em 0;
+  }
+  .header .cont .unorder .mainul a {
+    font-size: 1.3rem;
+  }
+  .header .cont .unorder .Caption--Ul .mainul input {
+    font-size: 1.15rem;
+  }
+}
+@media (max-width: 900px) {
+  .header .cont .logo img {
+    width: 3.7em;
+  }
+  .header .cont .logo p {
+    font-size: 1.2rem;
+  }
+  .header .cont .unorder .Caption--Ul #Caption {
+    font-size: 1rem;
+    padding: 0 0 0.2em 0;
+  }
+  .header .cont .unorder .mainul a {
+    font-size: 1rem;
+  }
+  .header .cont .unorder .Caption--Ul .mainul input {
+    font-size: 0.8rem;
+  }
+  
+}
+@media (max-width: 680px) {
+  .header .cont .logo img {
+    width: 2.5em;
+  }
+  .header .cont .logo p {
+    font-size: 0.7rem;
+    margin: 0;
+  }
+  .header .cont .unorder .Caption--Ul #Caption {
+    font-size: 0.58rem;
+  }
+  .header .cont .unorder .mainul a {
+    font-size: 0.6rem;
+    align-items: baseline;
+  }
+  .header .cont .unorder .Caption--Ul .mainul input {
+    font-size: 0.5rem;
+  }
+  /*.header .cont .unorder .Caption--Ul .mainul{
     flex-direction: column;
 }*/
 }
-@media(max-width:380px) {
-    .header .cont .unorder .Caption--Ul .mainul a{
-        height: 10px;
-        padding-bottom: 2px;
-        font-size: 0.5rem;
-    }
-    .header .cont{
-        min-width: 280px;
-    }
-    .header .cont .logo img{
+@media (max-width: 380px) {
+  .header .cont .unorder .Caption--Ul .mainul a {
+    height: 10px;
+    padding-bottom: 2px;
+    font-size: 0.5rem;
+  }
+  .header .cont {
+    min-width: 280px;
+  }
+  .header .cont .logo img {
     width: 2em;
-}
-.header .cont .logo p{
+  }
+  .header .cont .logo p {
     font-size: 0.6rem;
     margin: 0;
-}
-.header .cont .unorder .Caption--Ul p {
+  }
+  .header .cont .unorder .Caption--Ul #Caption {
     font-size: 0.5rem;
     padding: 0;
-   
+  }
 }
 
-/*.header .cont .unorder .Caption--Ul .mainul {
-    height: 10px;
-}*/
+/*!***************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Nav.css ***!
+  \***************************************************************************************/
+:root {
+  --blue: #147499;
+  --white: #ffffff;
+  --orange: #f6852b;
+  --backGround: rgba(20, 116, 153, 0.5);
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 1;
+}
+.lock--Icon:hover,
+#Show:hover {
+  color: var(--orange);
+  /*background-color: var(--orange);*/
+  cursor: pointer;
+}
+.nav {
+  width: 100%;
+  height: 3.3vw;
 
+  color: var(--white);
 }
-/*!*******************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/components/Home_Page/Nav.css ***!
-  \*******************************************************************************************/
-:root{
-    --blue:#147499;
-    --white:#ffffff;
-    --orange:#F6852B;
+/**bars icon in large screen **/
+#Show {
+  display: none;
 }
-a{
-    cursor: pointer;
-    text-decoration: none ;
-    z-index: 1;
+.nav .un--list {
+  width: 100%;
+  height: 102%;
+  background-color: var(--blue);
+  display: flex;
 }
-.nav{
-    width: 100%;
-    height: 3.3vw;
-    
-    color:var(--white);
-    
+.nav .un--list ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0 2.5%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
-.nav .un--list{
-    width: 100%;
-    height: 102%;
-    background-color: var(--blue);
-    
+.nav .un--list ul li {
+  width: 100%;
+  height: 100%;
+  font-size: 1.1vw;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
 }
-.nav .un--list ul{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    padding:0 2.5%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;   
-}
-.nav .un--list ul li{
-    width: 100%;
-    height: 100%;
-    font-size: 1.1vw;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+.nav .un--list .Bar--Icon {
+  display: none;
 }
 
-.nav .un--list .Maa--Ul > li:hover{
-    background-color:var(--orange);
-    transition: .5s;
+.nav .un--list .Maa--Ul > li:hover {
+  background-color: var(--orange);
+  transition: 0.5s;
 }
 
-.nav .un--list li .Drop--Down--Add{
-    position: absolute;
-    top:3.33vw;
-    left: .01vw;
-    z-index: 1;
-    color: black;
-    display: none;
-    width: 20vw;
+.nav .un--list li .Drop--Down--Add {
+  position: absolute;
+  top: 3.33vw;
+  left: 0.01vw;
+  z-index: 1;
+  color: black;
+  display: none;
+  width: 20vw;
 }
 
 .nav .un--list li .Drop--Down--Add .admins--form {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-    transition: .3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  transition: 0.3s;
 }
-.nav .un--list li .Drop--Down--Add .In--Unor{
-    flex-direction: column;
+.nav .un--list li .Drop--Down--Add .In--Unor {
+  flex-direction: column;
 }
-.nav .un--list li .Drop--Down--Add .In--Unor li{
-    justify-content: flex-start;
-    
+.nav .un--list li .Drop--Down--Add .In--Unor li {
+  justify-content: flex-start;
 }
-.nav .un--list li .Drop--Down--Add .In--Unor li:not(:last-child) a{
-    border-bottom: .2vw solid var(--orange);
+.nav .un--list li .Drop--Down--Add .In--Unor li:not(:last-child) a {
+  border-bottom: 0.2vw solid var(--orange);
 }
-.nav .un--list li .Drop--Down--Add .In--Unor li a{
-    width: 100%;
-    padding: 0.5vw 0;
+.nav .un--list li .Drop--Down--Add .In--Unor li a {
+  width: 100%;
+  padding: 0.5vw 0;
 }
 .nav .un--list li .Drop--Down--Add ul a:hover {
-    color: var(--orange);
-     padding-inline-start: 5px;
-     transition: .5s;
-    }
-  .nav .un--list .Drop--Down--Add{
-        background-color: rgba(221, 221, 221, 0.4);
-    }
-.nav .un--list .Maa--Ul > li:hover .Drop--Down--Add{
-        
-       
-        display: flex;
-        
-        
-    }
-.nav .un--list #Media:hover .Drop--Down--Add{
-        display: flex;
-        background-color:rgba(221, 221, 221, .3);
-        width: 13vw;
-    }
-/*!**********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/components/Home_Page/slider.css ***!
-  \**********************************************************************************************/
-.back{
-    background-color: #ddd;
-    
+  color: var(--orange);
+  padding-inline-start: 5px;
+  transition: 0.5s;
 }
-.back .container--Slide{
-    width: 100%;
-    
-    margin: 0;
+.nav .un--list .Drop--Down--Add {
+  background-color: rgba(221, 221, 221, 0.4);
 }
-.back .container .slider{
-    height: 600px;
-    width: 100%;
+.nav .un--list .Maa--Ul > li:hover .Drop--Down--Add {
+  display: flex;
+}
+.nav .un--list #Media:hover .Drop--Down--Add {
+  display: flex;
+  background-color: rgba(221, 221, 221, 0.3);
+  width: 13vw;
+}
+.nav #Caption{
+    display: none;
+
+}
+.nav .un--list .close--Icon{
+    display: none;
 }
 
-/*!*********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/components/Home_Page/Cover.css ***!
-  \*********************************************************************************************/
+@media (max-width: 1000px) {
+  .nav {
+    justify-content: flex-end;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 40px;
+    /*min-height: 20px;*/
+  }
+  /*Icon show*/
+  #Show {
+    display: flex;
+    padding-right: 1em;
+    margin: auto 0;
+    font-size: 1.5rem;
+    color: var(--blue);
+  }
+  .nav .un--list {
+    position: fixed;
+    width: 80%;
+    height: 70vh;
+    z-index: 3;
+    flex-direction: column;
+    padding: 1em;
+    background-color: var(--backGround);
+    margin-top: 40px;
+
+    /*display: none;*/
+  }
+  /*.nav .un--list[data-visiable="true"]{
+            
+        }*/
+  .nav .un--list .close--Icon {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    justify-content: flex-end;
+    padding-right: 2%;
+    order: 1;
+    padding-bottom: 1em;
+    position: relative;
+  }
+  
+  .nav #Caption {
+      display: flex;
+    color: var(--blue);
+    padding-right: 1em;
+    animation: daily--news;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    
+    margin: auto 0;
+  }
+  .nav .un--list .Maa--Ul {
+    /*display: none;*/
+    flex-direction: column;
+    order: 2;
+    overflow-y: auto;
+    justify-content: flex-start;
+  }
+  .nav .un--list ul li {
+    font-size: 1rem;
+    height: auto;
+  }
+  .nav .un--list ul li a {
+    width: 100%;
+    text-align: center;
+    padding: 0.8em 0;
+  }
+  .nav .un--list ul li a:hover {
+    color: var(--orange);
+  }
+  .nav .un--list .Maa--Ul > li:hover {
+    background-color: transparent;
+  }
+  .nav .un--list li .Drop--Down--Add {
+    position: initial;
+  }
+  .nav .un--list li .Drop--Down--Add,
+  .nav .un--list #Media:hover .Drop--Down--Add {
+    /*position: absolute;*/
+    /*display: flex;*/
+    width: 100%;
+  } 
+  .nav .un--list .Maa--Ul > li:hover .Drop--Down--Add {
+      /*display: none;*/
+      
+  }
+  /**Toogle of nav bar**/
+  #visable {
+    transform: translateX(0);
+    transition: 0.5s linear;
+  }
+  #unvisable {
+    transform: translateX(100%);
+    transition: 0.5s linear;
+  }
+}
+/**Animation of daily news**/
+@keyframes daily--news {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-80vw);
+  }
+}
+
+/*!*****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Cover.css ***!
+  \*****************************************************************************************/
 :root {
   --blue: #147499;
   --white: #ffffff;
@@ -456,7 +555,7 @@ body {
   animation-name: ani--text;
   animation-duration: 3s;
   animation-timing-function: linear;
-  z-index: 8;
+  z-index: 2;
 }
 
 .organize {
@@ -546,9 +645,9 @@ body {
   }
 }
 
-/*!********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/components/Home_Page/card.css ***!
-  \********************************************************************************************/
+/*!****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/card.css ***!
+  \****************************************************************************************/
 .cardss .card{
     display: flex;
     flex-direction: column;
@@ -580,9 +679,9 @@ border-bottom:2px solid #F6852B ;
         
     }
 
-/*!***********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/components/Home_Page/Statics.css ***!
-  \***********************************************************************************************/
+/*!*******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Statics.css ***!
+  \*******************************************************************************************/
 :root{
     --blue:#147499;
     --white:#ffffff;
@@ -639,9 +738,9 @@ h1{
     }
 }
 
-/*!******************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/components/Home_Page/VideosAboutUni.css ***!
-  \******************************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/VideosAboutUni.css ***!
+  \**************************************************************************************************/
 :root {
   --blue: #147499;
   --white: #ffffff;
@@ -771,9 +870,9 @@ h1{
 }
 
 
-/*!**********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/components/Home_Page/Figure.css ***!
-  \**********************************************************************************************/
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Figure.css ***!
+  \******************************************************************************************/
 .Statics .Figures{
     width: 90%;
     display: flex;
@@ -848,9 +947,9 @@ circle{
     }
 }
 
-/*!******************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/components/Home_Page/Addinstrations.css ***!
-  \******************************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Addinstrations.css ***!
+  \**************************************************************************************************/
 .Addmins{
     width: 100%;
     max-height: 100%;   
@@ -875,9 +974,9 @@ circle{
     
     }  
 };
-/*!*****************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/Pages/Tour.css ***!
-  \*****************************************************************************/
+/*!*************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/Pages/Tour.css ***!
+  \*************************************************************************/
 .wrapper {
   position: relative;
 }
@@ -915,9 +1014,9 @@ circle{
   z-index: 1;
 }
 
-/*!****************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/Pages/map.css ***!
-  \****************************************************************************/
+/*!************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/Pages/map.css ***!
+  \************************************************************************/
 .map {
   position: fixed;
   width: 30%;
@@ -964,3 +1063,127 @@ text {
   fill: #b523aad9;
 }
 
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/slider.css ***!
+  \******************************************************************************************/
+.back{
+    background-color: #ddd;
+}
+.back .container--Slide{
+    width: 100%;
+    
+    margin: 0;
+}
+.back .container .slider{
+    height: 600px;
+    width: 100%;
+}
+
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/faculties/engineering/Nav-faculity.css ***!
+  \************************************************************************************************************/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.Icon {
+  margin-left: 6px;
+}
+ul {
+  padding: 0;
+}
+
+.Nav--Faculity {
+  width: 100%;
+  padding: 10px;
+}
+
+.Nav--Faculity .Nav-Links {
+  margin: auto;
+  width: 90%;
+  
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  align-items: center;
+  text-align: center;
+}
+.Nav--Faculity .Nav-Links li img{
+  width: 15vw;
+}
+.Nav--Faculity .Nav-Links a {
+  font-size: 1.3vw;
+  padding: 0.5em;
+}
+
+.Nav--Faculity .Nav-Links .Down--Drob {
+  display: none;
+  position: relative;
+  z-index: 1;
+  /*padding-top: 2rem;*/
+}
+.Nav--Faculity .Nav-Links .Down--Drob .Faculities--form {
+  position: absolute;
+  width: 13vw;
+  padding: 0.5em;
+  background-color:rgba(221, 221, 221, .4);
+  top: 0.5rem;
+}
+.Nav--Faculity .Nav-Links .Down--Drob .Faculities--form .Un--OR {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.Nav--Faculity .Nav-Links .Down--Drob .Faculities--form .Un--OR li{
+  padding: 3px 0;
+}
+.Nav--Faculity .Nav-Links .Down--Drob .Faculities--form .Un--OR li a {
+  padding: 0.1em 0;
+  font-size: 1vw;
+  color:black;
+  /*border-bottom: 1px solid black;*/
+}
+.Nav--Faculity
+  .Nav-Links
+  .Down--Drob
+  .Faculities--form
+  .Un--OR
+  li:not(:last-child)
+  a {
+  border-bottom: 2px solid black;
+}
+.Nav--Faculity .Nav-Links .Down--Drob .Faculities--form .Un--OR li a:hover {
+  padding-left: 5px;
+}
+.Nav--Faculity .Nav-Links li:hover .Down--Drob {
+  display: flex;
+}
+/*Slider*/
+.carousel-control-next,
+.carousel-control-prev {
+  margin: 100px 0;
+  color: aqua;
+}
+.carousel-control-prev-icon ,
+.carousel-control-next-icon{
+  background-color: black;
+}
+.carousel-dark .carousel-control-prev-icon,
+.carousel-dark .carousel-control-next-icon {
+  
+  filter: invert(0) grayscale(500);
+}
+.carousel-caption h5,.carousel-caption p{
+  color: white;
+}
+.carousel-indicators button{
+  background-color: white;
+
+}
+
+
+.carousel-dark .carousel-indicators [data-bs-target] {
+     background-color: white; 
+}

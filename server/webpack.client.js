@@ -4,7 +4,7 @@ const { merge } = require("webpack-merge");
 
 const config = {
   target: "web",
-  entry: "./src/client/client.js",
+  entry: "./client/client.js",
   mode: "development",
 
   output: {
