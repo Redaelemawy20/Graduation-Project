@@ -3,11 +3,12 @@ import "../Home_Page/Header.css";
 import logo from "../Images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
-import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { Link, Route } from "react-router-dom";
+import { FiLogIn } from "react-icons/fi";
 import Lamp from "../Images/lamp.png";
+import EgyFlag from "../Images/EG-Flag.png";
+import EngFlag from "../Images/EN-Flag.png"
+
 export default function Header() {
   return (
     <div className="header">
@@ -29,30 +30,20 @@ export default function Header() {
             <div className="dis--row">
               <ul className="mainul">
                 <li>
-                  <a href="#">
-                    <FontAwesomeIcon icon={faFacebookF} />
-                  </a>
+                  <Link to="/Login" id="log">
+                    Login
+                    <FiLogIn className="Icon-log" />
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
-                    <FontAwesomeIcon icon={faInstagram} />
-                  </a>
+                <a>AR</a>
+                 <img src={EgyFlag} alt="" className="flag" />
                 </li>
                 <li>
-                  <a href="#">
-                    <FontAwesomeIcon icon={faLinkedinIn} />
-                  </a>
+                <a>EN</a>
+                <img src={EngFlag} alt="" className="flag" />
                 </li>
-                <li>
-                  <a href="#">
-                    <FontAwesomeIcon icon={faEnvelope} />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </a>
-                </li>
+                
                 <li id="search">
                   <div className="stl--search">
                     <a href="#" id="btn--search">
@@ -63,9 +54,6 @@ export default function Header() {
                 </li>
               </ul>
             </div>
-          </div>
-          <div className="bars">
-            <FontAwesomeIcon icon={faBars} />
           </div>
         </div>
       </div>

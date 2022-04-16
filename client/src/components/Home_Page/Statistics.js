@@ -26,7 +26,7 @@ export default function Statistics() {
 		Icon:<FontAwesomeIcon  icon={faIdCard}/>,
 		item:'Employees'
 	}
-return <section className='Statics'>
+return <section className='Statics' id='Stc--bottom'>
     <div className='Title'>
         <h1>Statistics</h1>
 	</div>

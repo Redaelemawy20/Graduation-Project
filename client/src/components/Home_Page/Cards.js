@@ -2,20 +2,22 @@ import React, { useEffect } from "react";
 
 import "./card.css";
 export default function Cards(props) {
-  //const{img,date,title}=props.item;
-
+  
+  // const{img,date,title}=props.item;
+  // console.log(img);
   useEffect(() => {
+    // console.log(props.item.img);
     // const item = props.item;
-    // const { img } = item;
-    // console.log(img);
+    //  const { img } = item;
+    //  console.log(img);
   }, []);
   return (
-    <div className="cardss">
-      {/*<div className="card">
-      <img src={img} alt=""></img>
-      <h2>{title}</h2>
-      <p>{date}</p>
-    </div>
+     <div className="cardss">
+    {/* //   <div className="card">
+    //   <img src={img} alt=""></img>
+    //   <h2>{title}</h2>
+    //   <p>{date}</p>
+    // </div> */}
     {/*<div className="card" id="mid">
       <img src={aa} alt=""></img>
       <h2>Alaa Ayaad</h2>

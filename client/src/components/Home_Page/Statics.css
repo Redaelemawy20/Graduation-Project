@@ -17,6 +17,9 @@ h1{
     min-width: 350px;
     
 }
+#Stc--bottom{
+    padding-bottom: 0;
+}
 .Statics .Title{
     width: 350px;
     margin: auto;

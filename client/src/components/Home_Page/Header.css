@@ -67,7 +67,7 @@ ul {
 .header .cont .unorder .Caption--Ul #Caption {
   margin: 0;
   font-size: 2.1rem;
-  font-weight: 500;
+  font-weight: 600;
   animation: Head-Ani;
   animation-duration: 3s;
   animation-timing-function: linear;
@@ -76,7 +76,7 @@ ul {
 }
 .header .cont .unorder .Caption--Ul .mainul {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   gap: 2vw;
   width: 100%;
   justify-content: center;
@@ -88,18 +88,36 @@ ul {
   animation-timing-function: linear;
 }
 .header .cont .unorder .Caption--Ul .mainul li {
+  display: flex;
+  align-items: center;
+  padding: .2em;
 }
 
 .header .cont .unorder .Caption--Ul .mainul .stl--search {
   display: flex;
   flex-direction: row-reverse;
-  align-items: center;
+  align-items: baseline;
   background-color: var(--W-gray);
   padding: 0 0.4em;
   border-radius: 20px;
   max-height: 50px;
   transition: all 1s;
 }
+
+.header .cont .unorder .Caption--Ul .mainul #log {
+  height: 100%;
+  border-radius: 4px;
+  padding: 0 0.8em;
+}
+.header .cont .unorder .Caption--Ul .mainul #log:hover {
+  background-color: var(--orange);
+  color: var(--white);
+}
+.header .cont .unorder .Caption--Ul .mainul #log .Icon-log {
+  padding-inline-start: 0.2em;
+  font-size: 1.6rem;
+}
+/*===============input (Search)==============*/
 .header .cont .unorder .Caption--Ul .mainul input {
   width: 0;
   height: 3%;
@@ -110,10 +128,10 @@ ul {
   font-size: 1.5rem;
   color: var(--orange);
   background-color: transparent;
-
   display: flex;
   align-items: center;
   transition: all 0.8s ease-out;
+  /*height: auto;*/
 }
 
 .header .cont .unorder .Caption--Ul .mainul .stl--search:hover input {
@@ -124,35 +142,27 @@ ul {
   padding: 0.2em;
   transition: 1s;
 }
-
-.header .cont .unorder .bars {
-  width: 10%;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 35px;
-  color: var(--blue);
-}
-.header .cont .unorder .bars:hover {
-  color: #147499;
-}
+/*===============<a>Tags=============*/
 .header .cont .unorder .mainul a {
   text-decoration: none;
-  font-size: 2.1rem;
+  font-size: 1.5rem;
   color: #147499;
   font-weight: 500;
 }
 
-.header .cont .unorder .mainul #i {
-  display: none;
-}
 
+/*============ Images in header ===========*/
 .header .cont .unorder .Caption--Ul img {
   width: 3vw;
   padding-left: 0.5vw;
   padding-bottom: 0.5vw;
+}
+.header .cont .unorder .Caption--Ul .dis--row .mainul li .flag {
+  padding: 0;
+  padding-left: 2px;
+  height: 1.5vw;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 /*============Animations==============*/
@@ -186,7 +196,7 @@ ul {
   }
 }
 /*==============Media Quers===========*/
-@media(max-width:1600px){
+@media (max-width: 1600px) {
   .header .cont .logo img {
     width: 7em;
   }
@@ -233,6 +243,9 @@ ul {
   .header .cont .unorder .Caption--Ul .mainul input {
     font-size: 0.8rem;
   }
+  .header .cont .unorder .Caption--Ul .mainul #log .Icon-log {
+    font-size: 1.3rem;
+  }
   
 }
 @media (max-width: 680px) {
@@ -253,13 +266,17 @@ ul {
   .header .cont .unorder .Caption--Ul .mainul input {
     font-size: 0.5rem;
   }
+  .header .cont .unorder .Caption--Ul .mainul #log .Icon-log {
+    font-size: 1rem;
+  }
+  
   /*.header .cont .unorder .Caption--Ul .mainul{
     flex-direction: column;
 }*/
 }
 @media (max-width: 380px) {
   .header .cont .unorder .Caption--Ul .mainul a {
-    height: 10px;
+    /*height: 10px;*/
     padding-bottom: 2px;
     font-size: 0.5rem;
   }
@@ -273,8 +290,18 @@ ul {
     font-size: 0.6rem;
     margin: 0;
   }
+  .header .cont .unorder .Caption--Ul .mainul {
+    align-items: center;
+  }
   .header .cont .unorder .Caption--Ul #Caption {
     font-size: 0.5rem;
     padding: 0;
+  }
+  .header .cont .unorder .Caption--Ul .mainul #log .Icon-log {
+    font-size: 0.7rem;
+  }
+  .header .cont .unorder .Caption--Ul .dis--row .mainul li .flag{
+    height: 2.5vw;
+    margin-bottom: 2px;
   }
 }
