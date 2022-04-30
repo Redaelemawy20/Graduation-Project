@@ -44,6 +44,9 @@ dependencies:
   carousel_slider: ^4.0.0
   js: ^0.6.2
   flutter_staggered_animations: "^1.0.0"
+  lottie: ^1.0.0
+  webview_flutter: ^2.0.0
+  youtube_player_iframe: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -109,4 +112,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-  #ddddddddddddddddddddddddd
