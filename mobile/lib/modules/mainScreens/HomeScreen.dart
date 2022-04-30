@@ -4,7 +4,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:graduation_project/cubit/cubit.dart';
+import 'package:graduation_project/modules/mainScreens/Web-View-Screen.dart';
+import 'package:graduation_project/shared/components/components/components.dart';
 import 'package:intl/locale.dart';
+import 'package:lottie/lottie.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -97,14 +101,14 @@ class HomeScreen extends StatelessWidget {
                   AnimationLimiter(
                     child: GridView.count(
                       shrinkWrap: true,
-                      crossAxisCount: 2,
+                      crossAxisCount: 1,
                       children: List.generate(
-                        10,
+                        2,
                         (int index) {
                           return AnimationConfiguration.staggeredGrid(
                             position: index,
                             duration: const Duration(milliseconds: 500),
-                            columnCount: 2,
+                            columnCount: 0,
                             child: ScaleAnimation(
                               child: FadeInAnimation(
                                 child: NewsCubit.get(context).yourListChild(),
@@ -115,12 +119,12 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  GridView.count(
+                  /*GridView.count(
                     shrinkWrap: true,
                     primary: false,
                     padding: const EdgeInsets.all(20),
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 1,
+                    mainAxisSpacing: 1,
                     crossAxisCount: 2,
                     children: [
                       Container(
@@ -131,7 +135,8 @@ class HomeScreen extends StatelessWidget {
                               child: Container(
                                 clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10)),
+                                    borderRadius: BorderRadius.circular(10)
+                                    ),
                                 child: Image(
                                   image: NetworkImage(
                                       'https://img.freepik.com/free-vector/social-media-logo-collection_69286-193.jpg?w=996'),
@@ -259,8 +264,8 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.teal[600],
                       ),
                     ],
-                  ),
-                  Row(
+                  ),*/
+                  /*Row(
                     children: [
                       Column(
                         // ignore: prefer_const_literals_to_create_immutables
@@ -302,9 +307,309 @@ class HomeScreen extends StatelessWidget {
                             'https://scontent.fcai20-3.fna.fbcdn.net/v/t1.6435-9/118274473_1145219095864543_5535227574974992008_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=174925&_nc_ohc=XLjGBuE-tOkAX_dezO_&_nc_oc=AQkRJSH1TJa-nToYyo0xOdcV1reugYi9g-DExcO_9aAPILYR7uUQbcukGYPuoOyY-Zw&_nc_ht=scontent.fcai20-3.fna&oh=00_AT-qRb9vzjtP9DQFrlznOZIqOaKTsa_anzFKN305P2qwww&oe=6221E4D5'),
                       ),
                     ],
+                  ),*/
+                  Container(
+                    alignment: AlignmentDirectional.bottomCenter,
+                    child: Text(
+                      'Videoes about University ',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'jannah',
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Container(
+                      height: 2,
+                      width: 200,
+                      color: Colors.deepOrange,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              'مدينة شبين الكوم ومميزات الاقام بها',
+                              maxLines: 2,
+                              style: TextStyle(
+                                height: 1,
+                                fontSize: 23,
+                                //fontFamily: 'jannah',
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: true,
+                                  leadingDistribution:
+                                      TextLeadingDistribution.even),
+                            ),
+                            InkWell(
+                              child: Lottie.network(
+                                'https://assets7.lottiefiles.com/private_files/lf30_cwyafad8.json',
+                                height: 180,
+                                width: 180,
+                              ),
+                              onTap: () {
+                                navigateTo(
+                                    context,
+                                    YoutubePlayer(
+                                        'https://www.youtube.com/watch?v=P2mTlz50FgM'));
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              'ريْيس الوزراء أثناء زيارته للجامعة',
+                              maxLines: 2,
+                              style: TextStyle(
+                                height: 1,
+                                fontSize: 23,
+                                fontFamily: 'jannah',
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: true,
+                                  leadingDistribution:
+                                      TextLeadingDistribution.even),
+                            ),
+                            InkWell(
+                              child: Lottie.network(
+                                'https://assets7.lottiefiles.com/private_files/lf30_cwyafad8.json',
+                                height: 180,
+                                width: 180,
+                              ),
+                              onTap: () {
+                                navigateTo(
+                                    context,
+                                    YoutubePlayer(
+                                        'https://www.youtube.com/watch?v=5qDbqRwliLI'));
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              'كلية الحاسبات والمعلومات ',
+                              maxLines: 2,
+                              style: TextStyle(
+                                height: 1,
+                                fontSize: 23,
+                                //fontFamily: 'jannah',
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: true,
+                                  leadingDistribution:
+                                      TextLeadingDistribution.even),
+                            ),
+                            InkWell(
+                              child: Lottie.network(
+                                'https://assets7.lottiefiles.com/private_files/lf30_cwyafad8.json',
+                                height: 180,
+                                width: 180,
+                              ),
+                              onTap: () {
+                                navigateTo(
+                                    context,
+                                    YoutubePlayer(
+                                        'https://www.youtube.com/watch?v=0TUpwZyVdnw'));
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              'كلية الهندسة جامعة المنوفية',
+                              maxLines: 2,
+                              style: TextStyle(
+                                height: 1,
+                                fontSize: 23,
+                                fontFamily: 'jannah',
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: true,
+                                  leadingDistribution:
+                                      TextLeadingDistribution.even),
+                            ),
+                            InkWell(
+                              child: Lottie.network(
+                                'https://assets7.lottiefiles.com/private_files/lf30_cwyafad8.json',
+                                height: 180,
+                                width: 180,
+                              ),
+                              onTap: () {
+                                navigateTo(
+                                    context,
+                                    YoutubePlayer(
+                                        'https://www.youtube.com/watch?v=0TUpwZyVdnw'));
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    alignment: AlignmentDirectional.bottomCenter,
+                    child: Text(
+                      'Statistics ',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'jannah',
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Container(
+                      height: 2,
+                      width: 200,
+                      color: Colors.deepOrange,
+                    ),
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Lottie.network(
+                              'https://assets7.lottiefiles.com/packages/lf20_lbby8lph.json',
+                              height: 190,
+                              width: 190,
+                            ),
+                            Text(
+                              'الموظفين',
+                              style: TextStyle(
+                                fontSize: 23,
+                                fontFamily: 'jannah',
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: true,
+                                  leadingDistribution:
+                                      TextLeadingDistribution.even),
+                            ),
+                            Text(
+                              'أكثر من 400 ',
+                              style: TextStyle(
+                                height: 1,
+                                fontSize: 18,
+                                fontFamily: 'jannah',
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Lottie.network(
+                              'https://assets7.lottiefiles.com/packages/lf20_lbby8lph.json',
+                              height: 190,
+                              width: 190,
+                            ),
+                            Text(
+                              'الطلاب',
+                              style: TextStyle(
+                                height: 1,
+                                fontSize: 23,
+                                fontFamily: 'jannah',
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: true,
+                                  leadingDistribution:
+                                      TextLeadingDistribution.even),
+                            ),
+                            Text(
+                              'أكثر من 1000 ',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontFamily: 'jannah',
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Lottie.network(
+                              'https://assets7.lottiefiles.com/packages/lf20_lbby8lph.json',
+                              height: 190,
+                              width: 190,
+                            ),
+                            Text(
+                              'العاملين ',
+                              style: TextStyle(
+                                  height: 1,
+                                  fontSize: 23,
+                                  fontFamily: 'jannah',
+                                  fontWeight: FontWeight.bold),
+                              overflow: TextOverflow.ellipsis,
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: true,
+                                  leadingDistribution:
+                                      TextLeadingDistribution.even),
+                            ),
+                            Text(
+                              'أكثر من 200',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontFamily: 'jannah',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
+            ),
+            Column(
+              children: [
+                Lottie.network(
+                  'https://assets5.lottiefiles.com/packages/lf20_uuzxy6ed.json',
+                  height: 190,
+                  width: 190,
+                ),
+                Text(
+                  'University Location',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 243, 14, 14),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      height: 1.5),
+                ),
+              ],
             ),
           ],
         ),
