@@ -5,6 +5,7 @@ import 'package:graduation_project/modules/HomePage/HomeLayOut.dart';
 import 'package:graduation_project/modules/mainScreens/FacultiesAndSpecificPrograms.dart';
 import 'package:graduation_project/shared/components/network/styles/ThemeData.dart';
 
+import 'modules/mainScreens/on-BourdingScreen.dart';
 import 'modules/تجربه/تجربه.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: lightMode,
-      home: HomePage(),
+      home: OnBoardingScreen(),
     );
   }
 }
