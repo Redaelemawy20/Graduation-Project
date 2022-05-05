@@ -7,9 +7,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/cubit/cubit.dart';
 import 'package:graduation_project/cubit/status.dart';
 import 'package:graduation_project/shared/components/network/styles/icon-broken.dart';
+import 'package:expandable/expandable.dart';
 
 class HomePage extends StatelessWidget {
   // var cubit = NewsCubit.get(context);
+  bool y = false;
+  var formKey = GlobalKey<AnimatedListState>();
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +51,133 @@ class HomePage extends StatelessWidget {
                             'https://1.bp.blogspot.com/-ScCYiDo55G4/XykN2RL8KZI/AAAAAAAARZU/cxxLp3OSiQc-EwtwKBzPuNP4WFaeKB1OwCLcBGAsYHQ/s1600/%25D8%25AC%25D8%25A7%25D9%2585%25D8%25B9%25D8%25A9%2B%25D8%25A7%25D9%2584%25D9%2585%25D9%2586%25D9%2588%25D9%2581%25D9%258A%25D8%25A9.png'),
                       ),
                     ),
+                  ),
+                  Container(
+                    child: ExpandableNotifier(
+                      initialExpanded: true,
+                      child: Expandable(
+                        collapsed: ExpandableButton(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                // ignore: prefer_const_literals_to_create_immutables
+                                children: [
+                                  Icon(Icons.access_alarm),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
+                                    'Client Info.',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                              Icon(
+                                Icons.arrow_right,
+                                color: Colors.black,
+                              ),
+                            ],
+                          ),
+                        ),
+                        expanded: ExpandableButton(
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      (Icon(
+                                        Icons.access_alarm,
+                                      )),
+                                      const SizedBox(
+                                        width: 8,
+                                      ),
+                                      Text(
+                                        'Client Info.',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox()
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 15.0,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Client Name',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "yahya",
+                                    textAlign: TextAlign.end,
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 15.0,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Phone',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "yahya",
+                                    textAlign: TextAlign.end,
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 15.0,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Address',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    width: 10.0,
+                                    child: Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Divider(
+                    color: Colors.black,
                   ),
                   ListTile(
                     title: Text(
