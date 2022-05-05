@@ -46,7 +46,9 @@ ul {
   color: #147499;
   font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  /*max-width: 50%;*/
+  
 }
 
 .header .cont .unorder {
@@ -73,6 +75,7 @@ ul {
   animation-timing-function: linear;
   color: var(--blue);
   font-style: italic;
+  padding-bottom: 0;
 }
 .header .cont .unorder .Caption--Ul .mainul {
   display: flex;
@@ -91,6 +94,7 @@ ul {
   display: flex;
   align-items: center;
   padding: .2em;
+  padding-top: 0;
 }
 
 .header .cont .unorder .Caption--Ul .mainul .stl--search {
@@ -286,12 +290,19 @@ ul {
   .header .cont .logo img {
     width: 2em;
   }
+  .header .cont .logo .dis--coll{
+    display: flex;
+    flex-direction: column;
+  }
   .header .cont .logo p {
     font-size: 0.6rem;
     margin: 0;
   }
   .header .cont .unorder .Caption--Ul .mainul {
     align-items: center;
+  }
+  .header .cont .unorder .Caption--Ul .mainul  li{
+    max-height: 15px;
   }
   .header .cont .unorder .Caption--Ul #Caption {
     font-size: 0.5rem;

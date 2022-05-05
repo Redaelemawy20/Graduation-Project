@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-/*import React from "react";*/
+
 import React, { useState, useEffect } from "react";
 
 import { MdLocationPin } from "react-icons/md";
@@ -9,7 +8,7 @@ export default function Location() {
     window.addEventListener("scroll", () => {
       let height = window.pageYOffset;
       const Loc = document.getElementById("Location");
-      if (height >= 1600) {
+      if (height >= 2200) {
         Loc.classList.add("animation");
       }
     });

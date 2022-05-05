@@ -18,7 +18,7 @@ a {
 .nav {
   width: 100%;
   height: 65px;
-
+  z-index: 2;
   color: var(--white);
   min-width: 280px;
 }
@@ -48,11 +48,11 @@ a {
   height: 100%;
   font-size: 1.07rem;
   font-weight: 500;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   position: relative;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 .nav .un--list ul .Main--list{
   font-weight: 600;
@@ -60,6 +60,10 @@ a {
 }
 .nav .un--list ul .Main--list a{
   padding: 0 .2em;
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /*******Down Arrow Animation*******/
 .nav .un--list ul .Main--list:hover a #down .downIcon{
@@ -79,12 +83,12 @@ a {
 
 .nav .un--list li .Drop--Down--Add {
   position: absolute;
-  top: 66.3px;
+  top: 65px;
   left: -2px;
   z-index: 1;
   width: 250px;
-  background-color: rgba(221, 221, 221, 0.7);
-  padding: .4em 0;
+  background-color: #cccbc6;
+  /* padding: .4em 0; */
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   font-size: 1rem;
@@ -113,6 +117,7 @@ a {
 .nav .un--list li .Drop--Down--Add .In--Unor li a {
   width: 100%;
   padding: 0.5vw 0;
+  line-height: 1;
 }
 .nav .un--list li .Drop--Down--Add ul a:hover {
   color: var(--orange);
@@ -127,7 +132,7 @@ a {
 }
 /******first Element****/
 .nav .un--list .Maa--Ul #Admins #example-collapse-Admin{
-  width: 40vw;
+  width:23vw;
   left: 0;
   
 }
@@ -137,12 +142,17 @@ a {
 }
 
 /*large Screens >1000px*/
-@media(min-width:1000px){
+@media(min-width:1001px){
   .nav .un--list li .Drop--Down--Add{
     display: none;
+    
   }
   .nav .un--list .Maa--Ul > li:hover .Drop--Down--Add {
     display: flex;
+  }
+  .nav .un--list ul .Main--list a{
+    height: 100%;
+    line-height: 1.2;
   }
   
   .nav .un--list #Media:hover .Drop--Down--Add {
@@ -174,6 +184,9 @@ a {
   .nav .un--list ul .Main--list{
     font-size: 1rem;
   }
+  .nav .un--list li .Drop--Down--Add .In--Unor li a{
+    font-size: .8rem;
+  }
 }
 @media (max-width: 1170px){
   .nav .un--list ul .Main--list{
@@ -202,7 +215,7 @@ a {
   .nav .un--list {
     position: fixed;
     width: 80%;
-    height: 70vh;
+    height: 57vh;
     z-index: 3;
     flex-direction: column;
     padding: 1em;

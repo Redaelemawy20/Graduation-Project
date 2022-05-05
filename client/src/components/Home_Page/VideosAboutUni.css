@@ -24,6 +24,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  
 }
 .Statics .Organize .Frames iframe {
   height: 300px;
@@ -31,7 +32,7 @@
   padding-bottom: 14px;
 }
 .Statics .Organize .Frames:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 .Statics .Organize .Frames a {
   padding: 0.5em 2em;

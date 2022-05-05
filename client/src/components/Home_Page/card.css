@@ -1,30 +1,105 @@
-.cardss .card{
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    border-radius: 10px;
-    color:#147499;
-    text-align: center;
+.root {
+  --white: #ffffff;
+  --blue: #147499;
+  --orange: #f6852b;
+  --W-gray: #ddd;
 }
-.cardss .card h2{
-    padding: 15px 0;
-border-bottom:2px solid #F6852B ;
+.arrange--news {
+  padding: 1rem;
+  width: 33.33%;
 }
-.cardss .card img{
-    border-radius: 10px;
-    height: 300px;
+
+.arrange--news .news--card {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
- .cardss  #mid{
-     top:-30px;
- }
- .cardss .card:hover{
-    
-    transform: scale(1.05);
-    box-shadow: rgba(0, 0, 0, 0.25) 2.4px 2.4px 3.2px;
- }
-    @media (max-width:600px) {
-        .cardss  #mid{
-            top:0px;
-        }
-        
-    }
+.news--card img {
+  width: 100%;
+  height: 250px;
+  object-fit: fill;
+  box-sizing: border-box;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.news--card .news--text {
+  padding: 0.6em 1em 1.5em;
+}
+.news--card .news--text #explore {
+  background-color: var(--orange);
+  display: inline-block;
+  width: 80%;
+  padding: 0.4em 0;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--white);
+}
+.news--card .news--text #explore .icon {
+  font-size: 1.4rem;
+  padding-left: 0.2em;
+}
+.news--card .news--text #explore:hover .icon {
+  animation-name: Arrow--Right;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 3;
+}
+.news--card .news--text h4 {
+  
+  
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 50px;
+  margin-bottom: .3em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 25px;
+  
+}
+.news--card .news--text h4 a {
+  color: #212529;
+}
+
+.news--card .news--text h4 a:hover {
+  color: var(--orange);
+}
+.news--card .news--text p {
+  height: 128px;
+  border-top: 1px solid var(--orange);
+  font-size: 1.2rem;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 24px;
+  padding-top: .1em;
+  margin-bottom: 0;
+}
+@media (max-width: 992px) {
+  .arrange--news {
+    width: 50%;
+  }
+}
+@media (max-width: 670px) {
+  .Addmins {
+    justify-content: center;
+  }
+  .arrange--news {
+    width: 75%;
+  }
+}
+@media (max-width: 450px) {
+  .arrange--news {
+    width: 98%;
+    padding: 1rem 0.2rem;
+  }
+}

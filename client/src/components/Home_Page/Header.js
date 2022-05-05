@@ -7,19 +7,23 @@ import { Link, Route } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
 import Lamp from "../Images/lamp.png";
 import EgyFlag from "../Images/EG-Flag.png";
-import EngFlag from "../Images/EN-Flag.png"
+import EngFlag from "../Images/EN-Flag.png";
+import '../Home_Page/Addinstrations.css';
 
-export default function Header() {
+export default function Header(props) {
   return (
     <div className="header">
       <div className="cont">
         <div className="logo">
           <img src={logo} alt="logo" />
-          <p>
-            Menoufia
-            <br />
-            University
+          <div className='dis-coll'>
+          <p className="fName">
+            {props.text.fName}
           </p>
+          <p>
+            {props.text.lName}
+          </p>
+          </div>
         </div>
         <div className="unorder">
           <div className="Caption--Ul">

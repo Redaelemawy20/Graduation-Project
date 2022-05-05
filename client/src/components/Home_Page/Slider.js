@@ -3,8 +3,8 @@ import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import cc from "../Images/cc.jpg";
 import "./slider.css";
-export default function Slider({ img, Description }) {
-  console.log(img);
+export default function Slider({ img1,img2, Description }) {
+  console.log(img1);
   return (
     <div className="back">
       <div className="container--Slide">
@@ -12,7 +12,7 @@ export default function Slider({ img, Description }) {
           <Carousel variant="dark" className="ww">
             <Carousel.Item>
               <img
-                src={img.cc}
+                src={img1.cc}
                 width="100%"
                 height="600px"
                 alt="managers"
@@ -26,14 +26,14 @@ export default function Slider({ img, Description }) {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img src={img.cc} width="100%" height="600px" alt="managers" />
+              <img src={img2.bb} width="100%" height="600px" alt="managers" />
               <Carousel.Caption>
                 <h5>Second slide label</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img src={img.cc} width="100%" height="600px" alt="managers" />
+              <img src={img1.cc} width="100%" height="600px" alt="managers" />
               <Carousel.Caption>
                 <h5>{Description}</h5>
                 <p>

@@ -1,28 +1,31 @@
-import React, { useEffect } from "react";
-
+//import React, { useEffect } from "react";
+import React from "react";
 import "./card.css";
+import './Cover.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {HiOutlineArrowNarrowRight} from 'react-icons/hi'
+import { Link } from "react-router-dom";
 export default function Cards(props) {
+  console.log(props.items)
+  const{id,title,date,img,content}=props.item
   
-  // const{img,date,title}=props.item;
-  // console.log(img);
-  useEffect(() => {
-    // console.log(props.item.img);
-    // const item = props.item;
-    //  const { img } = item;
-    //  console.log(img);
-  }, []);
   return (
-     <div className="cardss">
-    {/* //   <div className="card">
-    //   <img src={img} alt=""></img>
-    //   <h2>{title}</h2>
-    //   <p>{date}</p>
-    // </div> */}
-    {/*<div className="card" id="mid">
-      <img src={aa} alt=""></img>
-      <h2>Alaa Ayaad</h2>
-      <p>Manager of Menoufia University</p>
-    </div>*/}
+    <div className="arrange--news">
+    
+    <div className="news--card">
+    <Link to='/news'>
+    <img src={img} />
+    </Link>
+      
+      <div className="news--text">
+      <h4><Link to='/news'>{title}</Link></h4>
+      <p>
+       {content}
+      </p>
+      <h6>Publiched in: {date}</h6>
+      <Link to='/news' id="explore">Explor<HiOutlineArrowNarrowRight className="icon"/></Link>
+      </div>
+      </div>
     </div>
   );
 }
