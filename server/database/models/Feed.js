@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const database = require("../../services/db_connection");
-const Feed = database.define("Feed", {
+const Feed = database.define("feed", {
   id: {
     type: Sequelize.BIGINT,
     autoIncrement: true,
