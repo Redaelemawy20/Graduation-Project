@@ -62,7 +62,7 @@ const Map = ({ currentLocation, onNodeHover }) => {
               d={`M ${x} ${y} Q 97.75 159.14 ${rx} ${ry}`}
               stroke="black"
               fill="none"
-              class="link"
+              className="link"
               marker-end="url(#link-arrow)"
             ></path>
           );

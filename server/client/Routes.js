@@ -1,11 +1,12 @@
+import { useRoutes } from "react-router-dom";
 import Home from "./Pages/HomePage";
 import Tour from "./Pages/Tour";
 import Dashboard from "./Dashboard";
 import News from "./Pages/News";
 import AddNews from "./Pages/AddNews";
-import { useRoutes } from "react-router-dom";
+import EditNews from "./Pages/EditNews";
 import Engineering from "./components/faculties/engineering/Engineering";
-export const routeObj = [
+export let routeObj = [
   {
     path: "/",
     element: <Home />,
@@ -30,25 +31,15 @@ export const routeObj = [
         path: "/dashboard/news/create",
         element: <AddNews />,
       },
+      {
+        path: "/dashboard/news/:id/edit",
+        ...EditNews,
+      },
     ],
   },
 ];
-export default function Routes() {
+function Routes() {
   let element = useRoutes(routeObj);
   return element;
 }
-
-// return (
-//   <>
-//     <Routes>
-//       <Route path="/" element={<Home />} />
-//       <Route path="/tour" element={<Tour />} />
-//       <Route path="/engineering" element={<Engineering />} />
-//       <Route path="/admin" element={<Engineering />} />
-//       <Route path="dashboard" element={<Dashboard />}>
-//         <Route path="news" element={<News />} />
-//         <Route path="news/create" element={<AddNews />} />
-//       </Route>
-//     </Routes>
-//   </>
-// );
+export default Routes;

@@ -6,15 +6,15 @@ function Dashboard() {
   return (
     <>
       {" "}
-      <div class="page">
+      <div className="page">
         <Aside />
-        <div class="page-wrapper">
-          <div class="container-xl">
-            <div class="row row-cards">
-              <div class="col-12">
-                <div class="card card-lg">
-                  <div class="card-header">
-                    <h3 class="card-title">title</h3>
+        <div className="page-wrapper">
+          <div className="container-xl">
+            <div className="row row-cards">
+              <div className="col-12">
+                <div className="card card-lg">
+                  <div className="card-header">
+                    <h3 className="card-title">title</h3>
                   </div>
                   <div>
                     <Outlet />
