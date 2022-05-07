@@ -13,11 +13,13 @@ h1{
 }
 .Statics{
     width: 100%;
-    padding:6% 0 ;
+    padding:3% 0 6% 0 ;
     min-width: 350px;
-    
 }
-.Statics .Title{
+#Stc--bottom{
+    padding-bottom: 0;
+}
+ .Title{
     width: 350px;
     margin: auto;
     text-align: center;
@@ -49,7 +51,7 @@ h1{
         grid-template-columns: repeat(1,1fr);
         min-width: 280px;
     }
-    .Statics .Title{
+     .Title{
     width: 270px;
     }
 }
