@@ -2,7 +2,8 @@
 import React from "react";
 import { faAngleDown, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../Home_Page/Nav.css";
+// import "../Home_Page/Nav.css";
+import Navstyle from "../Home_Page/Navstyle";
 import "../Home_Page/Common.css";
 
 import { Link, Route } from "react-router-dom";

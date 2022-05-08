@@ -29,7 +29,7 @@ export default function Header(props) {
             <div className="dis--row">
               <ul className="mainul">
                 <li>
-                  <Link to="/Login" id="log">
+                  <Link to="/login" id="log">
                     Login
                     <FiLogIn className="Icon-log" />
                   </Link>

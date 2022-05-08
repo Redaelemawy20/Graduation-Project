@@ -12,16 +12,15 @@ export default function SocialBar() {
       <a className="facebook" src="#">
         <img src={FaceBook} />
       </a>
-     <a className="instagram">
+      <a className="instagram">
         <img src={Instagram} />
       </a>
       <a>
-      <img src={Twitter} />
+        <img src={Twitter} />
       </a>
       <a>
-      <img src={Mail} />
+        <img src={Mail} />
       </a>
-     
     </div>
   );
 }

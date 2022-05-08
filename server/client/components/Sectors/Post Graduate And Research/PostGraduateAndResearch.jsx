@@ -9,7 +9,8 @@ import { FaHome } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import "../../Home_Page/Nav.css";
+// import "../../Home_Page/Nav.css";
+import Navstyle from "../../Home_Page/Navstyle";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SocialBar from "../../Home_Page/SocialBar";
@@ -207,7 +208,7 @@ export default function PostGraduateAndResearch() {
   return (
     <>
       <Header text={headerHome} />
-      <section className="nav">
+      <Navstyle>
         <div className="un--list" id={isOpen ? "visable" : "unvisable"}>
           <ul className="Maa--Ul">
             {nav.map((item, index) => (
@@ -221,7 +222,7 @@ export default function PostGraduateAndResearch() {
         <div className="Bar--Icon" id="Show">
           <VscThreeBars onClick={() => showSideBar()} />
         </div>
-      </section>
+      </Navstyle>
       <div className="view">
         <div className="cover">
           <Slider

@@ -13,7 +13,7 @@ import { faAngleDown} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import "../../Home_Page/Nav.css";
+// import "../../Home_Page/Nav.css";
 import { VscThreeBars } from "react-icons/vsc";
 // import { IoIosArrowDown } from "react-icons/io";
 import '../../Home_Page/Cover.css'

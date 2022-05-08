@@ -7,6 +7,7 @@ import AddNews from "./Pages/AddNews";
 import EditNews from "./Pages/EditNews";
 import Engineering from "./components/faculties/engineering/Engineering";
 import RegisteryManagement from "./components/Sectors/Deputy education and student/RegisteryManagement.jsx";
+import Login from "./Login/Login.jsx";
 export let routeObj = [
   {
     path: "/",
@@ -41,6 +42,10 @@ export let routeObj = [
   {
     path: "/RegisteryManagement",
     element: <RegisteryManagement />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ];
 function Routes() {

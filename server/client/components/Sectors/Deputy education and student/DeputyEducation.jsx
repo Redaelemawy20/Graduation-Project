@@ -9,14 +9,14 @@ import { FaHome } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import "../../Home_Page/Nav.css";
+// import "../../Home_Page/Nav.css";
 import { VscThreeBars } from "react-icons/vsc";
 import { IoIosArrowDown } from "react-icons/io";
 import Footer from "../../Home_Page/Footer";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SocialBar from "../../Home_Page/SocialBar.jsx";
-
+import Navstyle from "../../Home_Page/Navstyle.js";
 export default function DeputyEducation() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -173,7 +173,7 @@ export default function DeputyEducation() {
   return (
     <>
       <Header text={headerHome} />
-      <section className="nav">
+      <Navstyle>
         <div className="un--list" id={isOpen ? "visable" : "unvisable"}>
           <ul className="Maa--Ul">
             {nav.map((item, index) => (
@@ -187,7 +187,7 @@ export default function DeputyEducation() {
         <div className="Bar--Icon" id="Show">
           <VscThreeBars onClick={() => showSideBar()} />
         </div>
-      </section>
+      </Navstyle>
       <div className="view">
         <div className="cover">
           <Slider
