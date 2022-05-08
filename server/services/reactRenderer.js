@@ -15,6 +15,7 @@ export default (req, store, results) => {
       <head>
         <meta charset="UTF-8">
         <title>Menofia University</title>
+        
         <link rel="stylesheet" type="text/css" href="http://localhost:3000/dist/css/bootstrap.min.css" /> 
       </head>
       <body>

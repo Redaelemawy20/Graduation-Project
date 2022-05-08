@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 
 const EditNews = (props) => {
   console.log("props", props);
-  // let intial_data = null;
-  // if (props.data) intial_data = props.data.feed;
+  let intial_data = null;
+  if (props.data) intial_data = props.data.feed;
   const { id } = useParams();
   const [data, setData] = useState(props.data.feed);
   useEffect(async () => {

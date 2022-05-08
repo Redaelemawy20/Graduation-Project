@@ -8,21 +8,16 @@ import { FiLogIn } from "react-icons/fi";
 import Lamp from "../Images/lamp.png";
 import EgyFlag from "../Images/EG-Flag.png";
 import EngFlag from "../Images/EN-Flag.png";
-import '../Home_Page/Addinstrations.css';
-
+import "../Home_Page/Addinstrations.css";
 export default function Header(props) {
   return (
     <div className="header">
       <div className="cont">
         <div className="logo">
           <img src={logo} alt="logo" />
-          <div className='dis-coll'>
-          <p className="fName">
-            {props.text.fName}
-          </p>
-          <p>
-            {props.text.lName}
-          </p>
+          <div className="dis-coll">
+            <p className="fName">lanem</p>
+            <p>lname</p>
           </div>
         </div>
         <div className="unorder">
@@ -40,14 +35,14 @@ export default function Header(props) {
                   </Link>
                 </li>
                 <li>
-                <a>AR</a>
-                 <img src={EgyFlag} alt="" className="flag" />
+                  <a>AR</a>
+                  <img src={EgyFlag} alt="" className="flag" />
                 </li>
                 <li>
-                <a>EN</a>
-                <img src={EngFlag} alt="" className="flag" />
+                  <a>EN</a>
+                  <img src={EngFlag} alt="" className="flag" />
                 </li>
-                
+
                 <li id="search">
                   <div className="stl--search">
                     <a href="#" id="btn--search">
@@ -63,5 +58,4 @@ export default function Header(props) {
       </div>
     </div>
   );
-};
-export default Header;
+}

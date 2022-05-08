@@ -1,3 +1,344 @@
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Header.css ***!
+  \******************************************************************************************/
+:root {
+  --blue: #147499;
+  --white: #ffffff;
+  --orange: #f6852b;
+  --W-gray: #ddd;
+}
+
+a {
+  cursor: pointer;
+  /*text-decoration: none !important;*/
+  z-index: 1;
+}
+
+/*==========Header===========*/
+
+.header {
+  width: 100%;
+}
+
+/*============Un order list============*/
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header .cont {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  padding: 1vw;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .cont .logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: start;
+}
+.header .cont .logo img {
+  width: 8em;
+}
+.header .cont .logo p {
+  color: #147499;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  /*max-width: 50%;*/
+  
+}
+
+.header .cont .unorder {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.header .cont .unorder .Caption--Ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .cont .unorder .Caption--Ul #Caption {
+  margin: 0;
+  font-size: 2.1rem;
+  font-weight: 600;
+  animation: Head-Ani;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  color: var(--blue);
+  font-style: italic;
+  padding-bottom: 0;
+}
+.header .cont .unorder .Caption--Ul .mainul {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2vw;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  animation-name: Head--Animation;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+}
+.header .cont .unorder .Caption--Ul .mainul li {
+  display: flex;
+  align-items: center;
+  padding: .2em;
+  padding-top: 0;
+}
+
+.header .cont .unorder .Caption--Ul .mainul .stl--search {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  background-color: var(--W-gray);
+  padding: 0 0.4em;
+  border-radius: 20px;
+  max-height: 50px;
+  transition: all 1s;
+}
+
+.header .cont .unorder .Caption--Ul .mainul #log {
+  height: 100%;
+  border-radius: 4px;
+  padding: 0 0.8em;
+}
+.header .cont .unorder .Caption--Ul .mainul #log:hover {
+  background-color: var(--orange);
+  color: var(--white);
+}
+.header .cont .unorder .Caption--Ul .mainul #log .Icon-log {
+  padding-inline-start: 0.2em;
+  font-size: 1.6rem;
+}
+/*===============input (Search)==============*/
+.header .cont .unorder .Caption--Ul .mainul input {
+  width: 0;
+  height: 3%;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  padding: 0;
+  font-size: 1.5rem;
+  color: var(--orange);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  transition: all 0.8s ease-out;
+  /*height: auto;*/
+}
+
+.header .cont .unorder .Caption--Ul .mainul .stl--search:hover input {
+  width: 15vw;
+  padding: 0.1em 0.4em;
+}
+.header .cont .unorder .Caption--Ul .mainul #btn--search {
+  padding: 0.2em;
+  transition: 1s;
+}
+/*===============<a>Tags=============*/
+.header .cont .unorder .mainul a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #147499;
+  font-weight: 500;
+}
+
+
+/*============ Images in header ===========*/
+.header .cont .unorder .Caption--Ul img {
+  width: 3vw;
+  padding-left: 0.5vw;
+  padding-bottom: 0.5vw;
+}
+.header .cont .unorder .Caption--Ul .dis--row .mainul li .flag {
+  padding: 0;
+  padding-left: 2px;
+  height: 1.5vw;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/*============Animations==============*/
+@keyframes Head--Animation {
+  0% {
+    transform: translateX(-13vw);
+
+    opacity: 0.4;
+  }
+  80% {
+    /*justify-content: center ;
+        /*align-items: center;*/
+    transform: translateX(2vw);
+  }
+  100% {
+    transform: translateX(0vw);
+    opacity: 1;
+  }
+}
+@keyframes Head-Ani {
+  0% {
+    transform: translateX(7vw);
+    opacity: 0.4;
+  }
+  80% {
+    transform: translateX(-3vw);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/*==============Media Quers===========*/
+@media (max-width: 1600px) {
+  .header .cont .logo img {
+    width: 7em;
+  }
+  .header .cont .logo p {
+    font-size: 1.9rem;
+  }
+  .header .cont .unorder .Caption--Ul #Caption {
+    font-size: 1.5rem;
+    padding: 0 0 0.2em 0;
+  }
+}
+@media (max-width: 1360px) {
+  .header .cont .logo img {
+    width: 5em;
+  }
+  .header .cont .logo p {
+    font-size: 1.6rem;
+  }
+  .header .cont .unorder .Caption--Ul #Caption {
+    font-size: 1.3rem;
+    padding: 0 0 0.2em 0;
+  }
+  .header .cont .unorder .mainul a {
+    font-size: 1.3rem;
+  }
+  .header .cont .unorder .Caption--Ul .mainul input {
+    font-size: 1.15rem;
+  }
+}
+@media (max-width: 900px) {
+  .header .cont .logo img {
+    width: 3.7em;
+  }
+  .header .cont .logo p {
+    font-size: 1.2rem;
+  }
+  .header .cont .unorder .Caption--Ul #Caption {
+    font-size: 1rem;
+    padding: 0 0 0.2em 0;
+  }
+  .header .cont .unorder .mainul a {
+    font-size: 1rem;
+  }
+  .header .cont .unorder .Caption--Ul .mainul input {
+    font-size: 0.8rem;
+  }
+  .header .cont .unorder .Caption--Ul .mainul #log .Icon-log {
+    font-size: 1.3rem;
+  }
+  
+}
+@media (max-width: 680px) {
+  .header .cont .logo img {
+    width: 2.5em;
+  }
+  .header .cont .logo p {
+    font-size: 0.7rem;
+    margin: 0;
+  }
+  .header .cont .unorder .Caption--Ul #Caption {
+    font-size: 0.58rem;
+  }
+  .header .cont .unorder .mainul a {
+    font-size: 0.6rem;
+    align-items: baseline;
+  }
+  .header .cont .unorder .Caption--Ul .mainul input {
+    font-size: 0.5rem;
+  }
+  .header .cont .unorder .Caption--Ul .mainul #log .Icon-log {
+    font-size: 1rem;
+  }
+  
+  /*.header .cont .unorder .Caption--Ul .mainul{
+    flex-direction: column;
+}*/
+}
+@media (max-width: 380px) {
+  .header .cont .unorder .Caption--Ul .mainul a {
+    /*height: 10px;*/
+    padding-bottom: 2px;
+    font-size: 0.5rem;
+  }
+  .header .cont {
+    min-width: 280px;
+  }
+  .header .cont .logo img {
+    width: 2em;
+  }
+  .header .cont .logo .dis--coll{
+    display: flex;
+    flex-direction: column;
+  }
+  .header .cont .logo p {
+    font-size: 0.6rem;
+    margin: 0;
+  }
+  .header .cont .unorder .Caption--Ul .mainul {
+    align-items: center;
+  }
+  .header .cont .unorder .Caption--Ul .mainul  li{
+    max-height: 15px;
+  }
+  .header .cont .unorder .Caption--Ul #Caption {
+    font-size: 0.5rem;
+    padding: 0;
+  }
+  .header .cont .unorder .Caption--Ul .mainul #log .Icon-log {
+    font-size: 0.7rem;
+  }
+  .header .cont .unorder .Caption--Ul .dis--row .mainul li .flag{
+    height: 2.5vw;
+    margin-bottom: 2px;
+  }
+}
+
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Addinstrations.css ***!
+  \**************************************************************************************************/
+.news{
+    width: 100%;
+    padding-top: 4%;
+    /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
+
+}
+.Addmins {
+  max-width: 1200px;
+  margin: 0 auto;
+  
+   padding:3% 0 5% 0; 
+  min-width: 270px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /*!***************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Nav.css ***!
   \***************************************************************************************/
@@ -489,6 +830,79 @@ body {
   }
 }
 
+/*!*********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/SocialBar.css ***!
+  \*********************************************************************************************/
+:root{
+    --backGround: rgba(20, 116, 153, 0.5);
+}
+
+.Social--bar{
+    width: 100%;
+    padding: .4em;
+    background-color: var(--backGround);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+    animation-name: Social--Animation;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    
+    
+}
+.Social--bar a{
+    width: 100%;
+    height: 30px;
+    
+}
+.Social--bar a:hover img{
+    transform: scale(1.1);
+}
+.Social--bar a img{
+    object-fit: cover;
+    width: 100%;
+    padding: .2em 0;
+}
+@keyframes Social--Animation{
+    0%{
+        transform: translateX(-50px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/slider.css ***!
+  \******************************************************************************************/
+.back{
+    background-color: #ddd;
+    height: 100%;
+}
+.back .container--Slide{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.back .container--Slide .slider{
+    height: 100%;
+}
+.back .container .slider{
+    height: 600px;
+    width: 100%;
+}
+.carousel{
+    height: 100%;
+}
+.carousel-inner{
+    height: 100%;
+}
+.carousel-item{
+    height: 100%;
+}
+.carousel-item img{
+    height: 100%;
+}
 /*!****************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/card.css ***!
   \****************************************************************************************/
@@ -867,25 +1281,6 @@ circle{
     .circle{
         min-width:280px;
     }
-}
-
-/*!**************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Addinstrations.css ***!
-  \**************************************************************************************************/
-.news{
-    width: 100%;
-    padding-top: 4%;
-    /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
-
-}
-.Addmins {
-  max-width: 1200px;
-  margin: 0 auto;
-  
-   padding:3% 0 5% 0; 
-  min-width: 270px;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 /*!*************************************************************************!*\
