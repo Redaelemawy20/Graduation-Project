@@ -8,6 +8,8 @@ import EditNews from "./Pages/EditNews";
 import Engineering from "./components/faculties/engineering/Engineering";
 import RegisteryManagement from "./components/Sectors/Deputy education and student/RegisteryManagement.jsx";
 import Login from "./Login/Login.jsx";
+import UniversityPresident from "./components/Sectors/PresidentSector/UniversityPresident.jsx";
+import OrganizationalStructure from "./components/Sectors/PresidentSector/OrganizationalStructure.jsx";
 export let routeObj = [
   {
     path: "/",
@@ -46,6 +48,14 @@ export let routeObj = [
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/UniversityPresident",
+    element: <UniversityPresident />,
+  },
+  {
+    path: "/OrganizationalStructure",
+    element: <OrganizationalStructure />,
   },
 ];
 function Routes() {

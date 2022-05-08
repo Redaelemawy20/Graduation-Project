@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import "../Home_Page/Nav.css";
 import Navstyle from "../Home_Page/Navstyle";
 import "../Home_Page/Common.css";
-
 import { Link, Route } from "react-router-dom";
 import { Collapse } from "react-bootstrap";
 import { useState } from "react";
@@ -32,7 +31,7 @@ export default function NavSectors(props) {
       });
     
   return (
-    
+         
           <li id="Admins" className="Main--list">
             <a
               onClick={() =>setDrop({ ...Drop, admin: !Drop.admin })}
@@ -87,7 +86,7 @@ export default function NavSectors(props) {
               </div>
             </Collapse>
             </li>
-            
+          
 
   )
 }

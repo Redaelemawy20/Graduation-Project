@@ -3,7 +3,7 @@ import "./Cover.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { ImArrowRight } from "react-icons/im";
 import { Link } from "react-router-dom";
-import M2 from "../Videos/M2.mp4";
+// import M2 from "../Videos/M2.mp4";
 import SocialBar from "./SocialBar.jsx";
 import Slider from "./Slider";
 import cc from "../Images/front.jpg";

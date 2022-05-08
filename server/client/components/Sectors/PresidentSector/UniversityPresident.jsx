@@ -2,10 +2,11 @@ import React from "react";
 import Header from "../../Home_Page/Header";
 import Slider from "../../Home_Page/Slider";
 import "./UniversityPresident.css";
+import Navstyle from "../../Home_Page/Navstyle";
 import cc from "../../Images/cover.jfif";
 import bb from "../../Images/front.jpg";
 import Cards from "../../Home_Page/Cards";
-import NavSectors from "../NavSectors";
+import NavSectors from "../NavSectors.jsx";
 import { FaHome } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 // import { getOverlayDirection } from "react-bootstrap/esm/helpers";
@@ -17,8 +18,8 @@ import { useState } from "react";
 import { VscThreeBars } from "react-icons/vsc";
 // import { IoIosArrowDown } from "react-icons/io";
 import '../../Home_Page/Cover.css'
-import SocialBar from "../../Home_Page/SocialBar";
-import Footer from "../../Home_Page/Footer";
+import SocialBar from "../../Home_Page/SocialBar.jsx";
+import Footer from "../../Home_Page/Footer.jsx";
 export default function UniversityPresident() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -121,7 +122,7 @@ export default function UniversityPresident() {
   return (
     <>
       <Header text={headerHome} />
-      <section className="nav">
+      <Navstyle>
         <div className="un--list" id={isOpen ? "visable" : "unvisable"}>
           <ul className="Maa--Ul">
             {nav.map((item, index) => (
@@ -135,7 +136,7 @@ export default function UniversityPresident() {
         <div className="Bar--Icon" id="Show">
           <VscThreeBars onClick={() => showSideBar()} />
         </div>
-      </section>
+      </Navstyle>
       <div className="view">
       <div className="cover">
       <Slider
