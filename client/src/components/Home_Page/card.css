@@ -65,6 +65,9 @@
 }
 .news--card .news--text h4 a {
   color: #212529;
+  /* height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis; */
 }
 
 .news--card .news--text h4 a:hover {
