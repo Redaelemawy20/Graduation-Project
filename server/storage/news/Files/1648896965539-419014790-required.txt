@@ -1,3 +1,0 @@
-extend VIP to M-N-O from 1-40
-
-shift below categories with the needed distance.
