@@ -8,8 +8,22 @@ import EditNews from "./Pages/EditNews";
 import Engineering from "./components/faculties/engineering/Engineering";
 import RegisteryManagement from "./components/Sectors/Deputy education and student/RegisteryManagement.jsx";
 import Login from "./Login/Login.jsx";
+/************imports of university president sector************/
 import UniversityPresident from "./components/Sectors/PresidentSector/UniversityPresident.jsx";
 import OrganizationalStructure from "./components/Sectors/PresidentSector/OrganizationalStructure.jsx";
+import SubDepartments from "./components/Sectors/PresidentSector/SubDepartments.jsx";
+import VisionandMessage from "./components/Sectors/PresidentSector/VisionandMessage.jsx";
+import DataCenter from "./components/Sectors/PresidentSector/DataCenter.jsx";
+import LegalAffairs from "./components/Sectors/PresidentSector/LegalAffairs.jsx";
+import OrganizationandManagement from "./components/Sectors/PresidentSector/OrganizationandManagement.jsx";
+import PublicRelationsandmedia from "./components/Sectors/PresidentSector/PublicRelationsandmedia.jsx";
+import TechnicalInspection from "./components/Sectors/PresidentSector/TechnicalInspection.jsx";
+import Planning from "./components/Sectors/PresidentSector/Planning.jsx";
+import Security from "./components/Sectors/PresidentSector/Security.jsx";
+import ProjectsManagement from "./components/Sectors/PresidentSector/ProjectsManagement.jsx";
+import QulityAssurance from "./components/Sectors/PresidentSector/QulityAssurance.jsx";
+
+
 export let routeObj = [
   {
     path: "/",
@@ -57,6 +71,51 @@ export let routeObj = [
     path: "/OrganizationalStructure",
     element: <OrganizationalStructure />,
   },
+  {
+    path: "/SubDepartments",
+    element: <SubDepartments />,
+  },
+  {
+    path: "/VisionandMessage",
+    element: <VisionandMessage />,
+  },
+  {
+    path: "/Datacenter",
+    element: <DataCenter />,
+  },
+  {
+    path: "/Legalaffairs",
+    element: <LegalAffairs />,
+  },
+  {
+    path: "/Organizationandmanagement",
+    element: <OrganizationandManagement />,
+  },
+  {
+    path: "/PublicRelationandMedia",
+    element: <PublicRelationsandmedia />,
+  },
+  {
+    path: "/TechnicalInspection",
+    element: <TechnicalInspection />,
+  },
+  {
+    path: "/Planning",
+    element: <Planning />,
+  },
+  {
+    path:"/Security",
+     element:<Security />
+  },
+  {
+    path:"/ProjectsManagement",
+     element:<ProjectsManagement />
+  },
+  {
+    path:"/QulityAssurance",
+     element:<QulityAssurance />
+  }
+  
 ];
 function Routes() {
   let element = useRoutes(routeObj);

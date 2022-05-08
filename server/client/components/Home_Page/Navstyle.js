@@ -205,7 +205,7 @@ export default styled.section`
   /**mimi Screens < 1000px**/
   @media (max-width: 1000px) {
   
-   
+      display:flex;
       justify-content: flex-end;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       height: 40px;
@@ -223,7 +223,7 @@ export default styled.section`
    .un--list {
       position: fixed;
       width: 80%;
-      height: 57vh;
+      height: auto;
       z-index: 3;
       flex-direction: column;
       padding: 1em;
@@ -262,12 +262,14 @@ export default styled.section`
       flex-direction: column;
       order: 2;
       overflow-y: auto;
-      justify-content: flex-start;
+      justify-content: space-between;
+
     }
   
    .un--list ul li {
       font-size: 1rem;
       height: auto;
+      padding: 0.6em 0;
     }
   
    .un--list ul li a {
@@ -294,9 +296,10 @@ export default styled.section`
    .un--list #Media:hover .Drop--Down--Add {
       width: 100%;
     }
-    /* .nav .un--list ul .Main--list{
-    border-left: none;
-  } */
+     .un--list ul .Main--list{
+      padding: 1em 0;
+    /* border-left: none; */
+  }
     /**Toogle of nav bar**/
     #visable {
       transform: translateX(0);
