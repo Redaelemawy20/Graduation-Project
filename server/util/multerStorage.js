@@ -4,7 +4,9 @@ const fs = require("fs");
 
 const fileFilters = (req, file, callback) => {
   const { fieldname, mimetype } = file;
+  console.log("OOOPAA");
   if (fieldname === "files") {
+    console.log("hey");
   }
   if (fieldname === "mainImage") {
   }
