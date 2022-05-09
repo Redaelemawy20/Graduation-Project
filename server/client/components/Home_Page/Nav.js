@@ -341,12 +341,12 @@ function Nav() {
                 </div>
               </Collapse>
             </li> */}
-            <li id="Arriv--Manage" className="Main--list">
+            {/* <li id="Arriv--Manage" className="Main--list">
               <a>Arrivals Management</a>
-            </li>
-            <li id="Digital-Trans" className="Main--list">
+            </li> */}
+            {/* <li id="Digital-Trans" className="Main--list">
               <a>Digital Transformation</a>
-            </li>
+            </li>*/}
           </ul>
 
           <div className="close--Icon">
