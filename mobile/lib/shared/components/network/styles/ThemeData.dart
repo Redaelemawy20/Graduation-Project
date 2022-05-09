@@ -25,6 +25,7 @@ ThemeData lightMode = ThemeData(
     actionsIconTheme: IconThemeData(
       color: Colors.black,
     ),
+    //iconTheme: IconThemeData(color: Colors.white),
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(
     backgroundColor: Colors.deepOrange,

@@ -8,6 +8,12 @@ import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/bacalory
 import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/elzhara.dart';
 import 'package:graduation_project/cubit/cubit.dart';
 import 'package:graduation_project/cubit/status.dart';
+<<<<<<< HEAD
+=======
+import 'package:graduation_project/modules/%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D8%B9%D8%A7%D8%AA/%D9%82%D8%B7%D8%A7%D8%B9%20%D8%B1%D8%A6%D9%8A%D8%B3%20%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9.dart';
+import 'package:graduation_project/modules/mainScreens/%D9%81%D9%8A%D8%B1%D8%B3%20%D9%83%D9%88%D8%B1%D9%88%D9%86%D8%A7.dart';
+import 'package:graduation_project/modules/mainScreens/on-BourdingScreen.dart';
+>>>>>>> a3abaa1100609869cedf46d7b8a291ba5172e7b3
 import 'package:graduation_project/shared/components/components/components.dart';
 import 'package:graduation_project/shared/components/network/styles/icon-broken.dart';
 import 'package:expandable/expandable.dart';
@@ -26,40 +32,48 @@ class HomePage extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             endDrawer: Drawer(
-              child: Column(
-                children: [
-                  UserAccountsDrawerHeader(
-                    decoration: BoxDecoration(
-                      color: Colors.teal[600],
-                      borderRadius: BorderRadiusDirectional.only(
-                          bottomEnd: Radius.circular(20.0),
-                          bottomStart: Radius.circular(20.0)),
-                    ),
-                    accountName: Text(
-                      'Menofia University',
-                      style: TextStyle(
-                        fontFamily: 'jannah',
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    UserAccountsDrawerHeader(
+                      decoration: BoxDecoration(
+                        color: Colors.teal[600],
+                        borderRadius: BorderRadiusDirectional.only(
+                            bottomEnd: Radius.circular(20.0),
+                            bottomStart: Radius.circular(20.0)),
+                      ),
+                      accountName: Text(
+                        'Menofia University',
+                        style: TextStyle(
+                          fontFamily: 'jannah',
+                        ),
+                      ),
+                      accountEmail: Text(
+                        'Teachers open the door, but you must enter by yourself',
+                        style: TextStyle(
+                          fontFamily: 'jannah',
+                        ),
+                      ),
+                      currentAccountPicture: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Image(
+                          image: NetworkImage(
+                              'https://1.bp.blogspot.com/-ScCYiDo55G4/XykN2RL8KZI/AAAAAAAARZU/cxxLp3OSiQc-EwtwKBzPuNP4WFaeKB1OwCLcBGAsYHQ/s1600/%25D8%25AC%25D8%25A7%25D9%2585%25D8%25B9%25D8%25A9%2B%25D8%25A7%25D9%2584%25D9%2585%25D9%2586%25D9%2588%25D9%2581%25D9%258A%25D8%25A9.png'),
+                        ),
                       ),
                     ),
-                    accountEmail: Text(
-                      'Teachers open the door, but you must enter by yourself',
-                      style: TextStyle(
-                        fontFamily: 'jannah',
-                      ),
-                    ),
-                    currentAccountPicture: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: Image(
-                        image: NetworkImage(
-                            'https://1.bp.blogspot.com/-ScCYiDo55G4/XykN2RL8KZI/AAAAAAAARZU/cxxLp3OSiQc-EwtwKBzPuNP4WFaeKB1OwCLcBGAsYHQ/s1600/%25D8%25AC%25D8%25A7%25D9%2585%25D8%25B9%25D8%25A9%2B%25D8%25A7%25D9%2584%25D9%2585%25D9%2586%25D9%2588%25D9%2581%25D9%258A%25D8%25A9.png'),
-                      ),
-                    ),
+<<<<<<< HEAD
                   ),
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Container(
                       child: ExpandableNotifier(
                         initialExpanded: true,
+=======
+                    Container(
+                      child: ExpandableNotifier(
+                        initialExpanded: false,
+>>>>>>> a3abaa1100609869cedf46d7b8a291ba5172e7b3
                         child: Expandable(
                           collapsed: ExpandableButton(
                             child: Row(
@@ -68,11 +82,22 @@ class HomePage extends StatelessWidget {
                                 Row(
                                   // ignore: prefer_const_literals_to_create_immutables
                                   children: [
+<<<<<<< HEAD
                                     Icon(Icons.people),
+=======
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Icon(
+                                        IconBroken.Profile,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+>>>>>>> a3abaa1100609869cedf46d7b8a291ba5172e7b3
                                     SizedBox(
                                       width: 8,
                                     ),
                                     Text(
+<<<<<<< HEAD
                                       'الطلاب',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
@@ -82,6 +107,21 @@ class HomePage extends StatelessWidget {
                                 Icon(
                                   Icons.arrow_right,
                                   color: Colors.blue,
+=======
+                                      'ادارة الجامعة',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'jannah'),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Icon(
+                                    IconBroken.Arrow___Down_2,
+                                    color: Colors.black,
+                                  ),
+>>>>>>> a3abaa1100609869cedf46d7b8a291ba5172e7b3
                                 ),
                               ],
                             ),
@@ -95,27 +135,50 @@ class HomePage extends StatelessWidget {
                                   children: [
                                     Row(
                                       children: [
+<<<<<<< HEAD
                                         (Icon(Icons.people)),
+=======
+                                        (Icon(
+                                          IconBroken.Profile,
+                                          color: Colors.blue,
+                                        )),
+>>>>>>> a3abaa1100609869cedf46d7b8a291ba5172e7b3
                                         const SizedBox(
                                           width: 8,
                                         ),
                                         Text(
+<<<<<<< HEAD
                                           "الطلاب",
+=======
+                                          'ادارة الجامعة',
+>>>>>>> a3abaa1100609869cedf46d7b8a291ba5172e7b3
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ],
                                     ),
+<<<<<<< HEAD
                                     SizedBox()
                                   ],
                                 ),
                                 const SizedBox(
                                   height: 10.0,
+=======
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Icon(IconBroken.Arrow___Up_2),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+>>>>>>> a3abaa1100609869cedf46d7b8a291ba5172e7b3
                                 ),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
+<<<<<<< HEAD
                                     TextButton(
                                       onPressed: () {
                                         navigateTo(context, elzahraa());
@@ -129,11 +192,37 @@ class HomePage extends StatelessWidget {
                                 ),
                                 const SizedBox(
                                   height: 5.0,
+=======
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, Ra2eesElGam3a());
+                                        },
+                                        child: Text(
+                                          'قطاع رئيس الجامعة',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                    /*Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    )*/
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+>>>>>>> a3abaa1100609869cedf46d7b8a291ba5172e7b3
                                 ),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
+<<<<<<< HEAD
                                     TextButton(
                                       onPressed: () {
                                         navigateTo(context, bacalorya());
@@ -173,6 +262,89 @@ class HomePage extends StatelessWidget {
                                             fontWeight: FontWeight.bold),
                                       ),
                                     )
+=======
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        'قطاع نائب شؤون التعليم  والطلاب',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    /*Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    )*/
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        'قطاع نائب الدراسات العليا والبحوث',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    /*SizedBox(
+                                      width: 10.0,
+                                      child: Text(
+                                        "yahya",
+                                        textAlign: TextAlign.end,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )*/
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        'قطاع نائب شؤون خدمة المجتمع والبيئة',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    /*Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    )*/
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        'قطاع أمين عام الجامعة',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    /*Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    )*/
+>>>>>>> a3abaa1100609869cedf46d7b8a291ba5172e7b3
                                   ],
                                 ),
                               ],
@@ -181,75 +353,397 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
-                  Divider(
-                    color: Colors.black,
-                  ),
-                  ListTile(
-                    title: Text(
-                      'الكليات',
-                      style: TextStyle(
-                        fontFamily: 'jannah',
+                    Divider(
+                      color: Colors.black,
+                    ),
+                    Container(
+                      child: ExpandableNotifier(
+                        initialExpanded: false,
+                        child: Expandable(
+                          collapsed: ExpandableButton(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Icon(
+                                        IconBroken.Filter,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text(
+                                      ' الكليات',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'jannah'),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Icon(
+                                    IconBroken.Arrow___Down_2,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          expanded: ExpandableButton(
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        (Icon(
+                                          IconBroken.Profile,
+                                          color: Colors.blue,
+                                        )),
+                                        const SizedBox(
+                                          width: 8,
+                                        ),
+                                        Text(
+                                          'الكليات',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Icon(IconBroken.Arrow___Up_2),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(
+                                              context, OnBoardingScreen());
+                                        },
+                                        child: Text(
+                                          'كلية الحاسبات والمعلومات',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                    /*Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    )*/
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        'كلية التجارة',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    /*Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    )*/
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        ' كلية الطب',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    /*SizedBox(
+                                      width: 10.0,
+                                      child: Text(
+                                        "yahya",
+                                        textAlign: TextAlign.end,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )*/
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        'كلية الهندسة',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    /*Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    )*/
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    trailing: Icon(IconBroken.Home, color: Colors.blue),
-                    onTap: () {
-                      print('tabed');
-                    },
-                  ),
-                  Divider(
-                    color: Colors.black,
-                  ),
-                  ListTile(
-                    title: Text(
-                      'خدمات الكترونيه',
-                      style: TextStyle(
-                        fontFamily: 'jannah',
+                    Divider(
+                      color: Colors.black,
+                    ),
+                    Container(
+                      child: ExpandableNotifier(
+                        initialExpanded: false,
+                        child: Expandable(
+                          collapsed: ExpandableButton(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Icon(
+                                        Icons.web_asset_outlined,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text(
+                                      'خدمات الكترونية',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'jannah'),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Icon(
+                                    IconBroken.Arrow___Down_2,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          expanded: ExpandableButton(
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        (Icon(
+                                          Icons.web_asset_outlined,
+                                          color: Colors.blue,
+                                        )),
+                                        const SizedBox(
+                                          width: 8,
+                                        ),
+                                        Text(
+                                          'خدمات الكترونيه',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Icon(IconBroken.Arrow___Up_2),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(
+                                              context, OnBoardingScreen());
+                                        },
+                                        child: Text(
+                                          'كلية الحاسبات والمعلومات',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                    /*Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    )*/
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        'كلية التجارة',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    /*Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    )*/
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        ' كلية الطب',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    /*SizedBox(
+                                      width: 10.0,
+                                      child: Text(
+                                        "yahya",
+                                        textAlign: TextAlign.end,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )*/
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Text(
+                                        'كلية الهندسة',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    /*Text(
+                                      "yahya",
+                                      textAlign: TextAlign.end,
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    )*/
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    trailing: Icon(IconBroken.Profile, color: Colors.blue),
-                    onTap: () {
-                      print('tabed');
-                    },
-                  ),
-                  Divider(
-                    color: Colors.black,
-                  ),
-                  ListTile(
-                    title: Text(
-                      'اتصل بنا ',
-                      style: TextStyle(
-                        fontFamily: 'jannah',
+                    Divider(
+                      color: Colors.black,
+                    ),
+                    ListTile(
+                      title: Text(
+                        'اتصل بنا ',
+                        style: TextStyle(
+                          fontFamily: 'jannah',
+                        ),
                       ),
+                      trailing: Icon(IconBroken.Call, color: Colors.blue),
+                      onTap: () {
+                        print('tabed');
+                      },
                     ),
-                    trailing: Icon(IconBroken.Call, color: Colors.blue),
-                    onTap: () {
-                      print('tabed');
-                    },
-                  ),
-                  Divider(
-                    color: Colors.black,
-                  ),
-                  ListTile(
-                    title: Text(
-                      ' الجامعه فى مواجهة فيروس كورونا',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontFamily: 'jannah',
+                    Divider(
+                      color: Colors.black,
+                    ),
+                    ListTile(
+                      title: Text(
+                        ' الجامعه فى مواجهة فيروس كورونا',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontFamily: 'jannah',
+                        ),
                       ),
+                      trailing: Icon(
+                        Icons.coronavirus_outlined,
+                        color: Colors.green,
+                      ),
+                      onTap: () {
+                        navigateTo(context, CoronaVirus());
+                      },
                     ),
-                    trailing: Icon(
-                      Icons.coronavirus_outlined,
-                      color: Colors.green,
+                    Divider(
+                      color: Colors.black,
                     ),
-                    onTap: () {
-                      print('tabed');
-                    },
-                  ),
-                  Divider(
-                    color: Colors.black,
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             appBar: AppBar(

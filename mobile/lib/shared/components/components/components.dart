@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_const_literals_to_create_immutables, avoid_print
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_const_literals_to_create_immutables, avoid_print, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:graduation_project/modules/mainScreens/on-BourdingScreen.dart';
 
 Widget AppBarCustom() {
   return Container(
@@ -103,3 +104,88 @@ void navigateAndFinish(context, Widget) => Navigator.pushAndRemoveUntil(
       builder: (context) => Widget,
     ),
     (Route<dynamic> route) => false);
+
+Widget yourListChildforRaeesElgam3a() => Column(
+      children: [
+        Expanded(
+          flex: 3,
+          child: Container(
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+            child: Image(
+              image: NetworkImage(
+                  'https://img.freepik.com/free-photo/sky-full-stars-silhouettes-trees_181624-12446.jpg?t=st=1651581737~exp=1651582337~hmac=ae2b2349d6f46dd09f944192f5f93c32c6945328d65d9ee657397f244b2512d4&w=740'),
+            ),
+          ),
+        ),
+        Container(
+          alignment: AlignmentDirectional.topEnd,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Text(
+              'الاحد 22 يناير 2022',
+              style: TextStyle(color: Colors.grey),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Text(
+            "مكنك الحصول على جميع الخدمات الالكترونية من خلال موقع جامعة المنوفيه حيث يمكنك اختيار البوابة المراد الدخول اليها",
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            textHeightBehavior: TextHeightBehavior(
+                applyHeightToFirstAscent: true,
+                leadingDistribution: TextLeadingDistribution.even),
+          ),
+        ),
+      ],
+    );
+Widget divider(context) {
+  return Container(
+    height: 5,
+    width: MediaQuery.of(context).size.width,
+  );
+}
+
+Widget yourListChildForRa2eesElgam3a(context) => Column(
+      children: [
+        Expanded(
+          flex: 3,
+          child: InkWell(
+            onTap: () {
+              navigateTo(context, OnBoardingScreen());
+            },
+            child: Container(
+              clipBehavior: Clip.antiAlias,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
+              child: Image(
+                image: NetworkImage(
+                    'https://img.freepik.com/free-photo/open-flying-old-books_1232-2096.jpg?size=626&ext=jpg&uid=R64649530&ga=GA1.2.47020922.1628699756'),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          alignment: AlignmentDirectional.topEnd,
+          child: Text(
+            'الاحد 22 يناير 2022',
+            style: TextStyle(color: Colors.grey),
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              'رضا البحراوى قال ايه "بداااااارى الأااااه وفضحانى ومهما بخبى وجعانى ممن اصحابى وخلانى ودنيتى اللى معندانى"',
+              textDirection: TextDirection.rtl,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textHeightBehavior: TextHeightBehavior(
+                  applyHeightToFirstAscent: true,
+                  leadingDistribution: TextLeadingDistribution.even),
+            ),
+          ),
+        ),
+      ],
+    );

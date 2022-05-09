@@ -98,25 +98,15 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  AnimationLimiter(
-                    child: GridView.count(
-                      shrinkWrap: true,
-                      crossAxisCount: 1,
-                      children: List.generate(
-                        2,
-                        (int index) {
-                          return AnimationConfiguration.staggeredGrid(
-                            position: index,
-                            duration: const Duration(milliseconds: 500),
-                            columnCount: 0,
-                            child: ScaleAnimation(
-                              child: FadeInAnimation(
-                                child: NewsCubit.get(context).yourListChild(),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                  GridView.count(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    crossAxisCount: 1,
+                    children: List.generate(
+                      3,
+                      (int index) {
+                        return yourListChildForRa2eesElgam3a(context);
+                      },
                     ),
                   ),
                   /*GridView.count(

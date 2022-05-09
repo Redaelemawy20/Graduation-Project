@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/modules/%D8%AA%D8%AC%D8%B1%D8%A8%D9%87/%D8%AA%D8%AC%D8%B1%D8%A8%D9%872.dart';
 
@@ -152,6 +153,120 @@ class Tagroba extends StatelessWidget {
                 width: 100,
                 height: 300,
                 color: Colors.blue,
+              ),
+              Container(
+                child: ExpandableNotifier(
+                  initialExpanded: true,
+                  child: Expandable(
+                    collapsed: ExpandableButton(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(Icons.access_alarm),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text(
+                                'Client Info.',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          Icon(
+                            Icons.arrow_right,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                    ),
+                    expanded: ExpandableButton(
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  (Icon(
+                                    Icons.access_alarm,
+                                  )),
+                                  const SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
+                                    'Client Info.',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                              SizedBox()
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Client Name',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "yahya",
+                                textAlign: TextAlign.end,
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Phone',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "yahya",
+                                textAlign: TextAlign.end,
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Text(
+                                'Address',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                width: 10.0,
+                                child: Text(
+                                  "yahya",
+                                  textAlign: TextAlign.end,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
