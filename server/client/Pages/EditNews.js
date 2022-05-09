@@ -4,11 +4,11 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const EditNews = (props) => {
-  console.log("props", props);
+  console.log("props", props.data);
   let intial_data = null;
   if (props.data) intial_data = props.data.feed;
   const { id } = useParams();
-  const [data, setData] = useState(props.data.feed);
+  const [data, setData] = useState(intial_data);
   useEffect(async () => {
     let result = [];
     console.log("excuting", id);
