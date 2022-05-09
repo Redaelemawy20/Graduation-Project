@@ -298,7 +298,7 @@ export default styled.section`
     }
      .un--list ul .Main--list{
       padding: 1em 0;
-    /* border-left: none; */
+    
   }
     /**Toogle of nav bar**/
     #visable {

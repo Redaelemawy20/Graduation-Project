@@ -1,13 +1,12 @@
 import React from "react";
-import "./Cover.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
-import { ImArrowRight } from "react-icons/im";
+// import { ImArrowRight } from "react-icons/im";
 import { Link } from "react-router-dom";
-// import M2 from "../Videos/M2.mp4";
 import SocialBar from "./SocialBar.jsx";
 import Slider from "./Slider";
 import cc from "../Images/front.jpg";
 import bb from "../Images/cover.jfif";
+import Coverstyle from "./Coverstyle";
 export default function cover() {
   let homeSlide = {
     img1: { cc },
@@ -15,12 +14,8 @@ export default function cover() {
     Description: "Slide of Home Page",
   };
   return (
-    <div className="view">
-      {/*<header class="header block--skewed-right hero">*/}
+    <Coverstyle>
       <div className="cover">
-        {/* <video autoPlay loop muted id="vid">
-          <source src={M2} type="video/mp4" />
-        </video> */}
         <Slider
           img1={homeSlide.img1}
           img2={homeSlide.img2}
@@ -40,6 +35,6 @@ export default function cover() {
           </div>
         </div>
       </div>
-    </div>
+    </Coverstyle>
   );
 }

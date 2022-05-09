@@ -4,7 +4,7 @@ import Slider from "../../Home_Page/Slider";
 import cc from "../../Images/cover.jfif";
 import bb from "../../Images/front.jpg";
 import Cards from "../../Home_Page/Cards";
-import NavSectors from "../NavSectors";
+import NavSectors from "../NavSectors.jsx";
 import { FaHome } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -13,11 +13,10 @@ import { useState } from "react";
 import Navstyle from "../../Home_Page/Navstyle";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SocialBar from "../../Home_Page/SocialBar";
-
+import SocialBar from "../../Home_Page/SocialBar.jsx";
 import { VscThreeBars } from "react-icons/vsc";
-
-import Footer from "../../Home_Page/Footer";
+import Footer from "../../Home_Page/Footer.jsx";
+import Coverstyle from "../../Home_Page/Coverstyle.js";
 export default function PostGraduateAndResearch() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -223,7 +222,7 @@ export default function PostGraduateAndResearch() {
           <VscThreeBars onClick={() => showSideBar()} />
         </div>
       </Navstyle>
-      <div className="view">
+      <Coverstyle>
         <div className="cover">
           <Slider
             img1={president_Slide.img1}
@@ -234,7 +233,7 @@ export default function PostGraduateAndResearch() {
             <SocialBar />
           </div>
         </div>
-      </div>
+      </Coverstyle>
       <div className="news">
         <div className="Title">
           <h1>Latest News</h1>
