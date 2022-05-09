@@ -17,9 +17,10 @@ import { useState } from "react";
 // import "../../Home_Page/Nav.css";
 import { VscThreeBars } from "react-icons/vsc";
 // import { IoIosArrowDown } from "react-icons/io";
-import '../../Home_Page/Cover.css'
+// import '../../Home_Page/Cover.css'
 import SocialBar from "../../Home_Page/SocialBar.jsx";
 import Footer from "../../Home_Page/Footer.jsx";
+import Coverstyle from "../../Home_Page/Coverstyle";
 export default function UniversityPresident() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -137,7 +138,7 @@ export default function UniversityPresident() {
           <VscThreeBars onClick={() => showSideBar()} />
         </div>
       </Navstyle>
-      <div className="view">
+      <Coverstyle>
       <div className="cover">
       <Slider
         img1={president_Slide.img1}
@@ -148,7 +149,7 @@ export default function UniversityPresident() {
           <SocialBar />
         </div>
         </div>
-        </div>
+        </Coverstyle>
        <div>
        <section className="news">
        <div className='Title'>

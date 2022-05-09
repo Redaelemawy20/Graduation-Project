@@ -4,7 +4,7 @@ import Slider from "../../Home_Page/Slider";
 import cc from "../../Images/cover.jfif";
 import bb from "../../Images/front.jpg";
 import Cards from "../../Home_Page/Cards";
-import NavSectors from "../NavSectors";
+import NavSectors from "../NavSectors.jsx";
 import { FaHome } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -12,11 +12,12 @@ import { useState } from "react";
 // import "../../Home_Page/Nav.css";
 import { VscThreeBars } from "react-icons/vsc";
 import { IoIosArrowDown } from "react-icons/io";
-import Footer from "../../Home_Page/Footer";
+import Footer from "../../Home_Page/Footer.jsx";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SocialBar from "../../Home_Page/SocialBar.jsx";
-import Navstyle from "../../Home_Page/Navstyle.js";
+import Navstyle from "../../Home_Page/Navstyle";
+import Coverstyle from "../../Home_Page/Coverstyle.js";
 export default function DeputyEducation() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -188,7 +189,7 @@ export default function DeputyEducation() {
           <VscThreeBars onClick={() => showSideBar()} />
         </div>
       </Navstyle>
-      <div className="view">
+      <Coverstyle>
         <div className="cover">
           <Slider
             img1={president_Slide.img1}
@@ -199,7 +200,7 @@ export default function DeputyEducation() {
           <SocialBar />
         </div>
         </div>
-      </div>
+        </Coverstyle>
       <div className="news">
         <div className="Title">
           <h1>Latest News</h1>

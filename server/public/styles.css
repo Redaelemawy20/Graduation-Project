@@ -323,235 +323,8 @@ ul {
 /*!**************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Addinstrations.css ***!
   \**************************************************************************************************/
-.news{
-    width: 100%;
-    padding-top: 4%;
-    /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
 
-}
-.Addmins {
-  max-width: 1200px;
-  margin: 0 auto;
-  
-   padding:3% 0 5% 0; 
-  min-width: 270px;
-  display: flex;
-  flex-wrap: wrap;
-}
 
-/*!*****************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Cover.css ***!
-  \*****************************************************************************************/
-:root {
-  --blue: #147499;
-  --white: #ffffff;
-  --orange: #f6852b;
-  --dr-Orange: #ff8c00;
-}
-body {
-  margin: 0;
-  padding: 0;
-}
-* {
-  box-sizing: border-box;
-}
-.view {
-  height: 85vh;
-  min-width: 280px;
-}
-.view .cover {
-  width: 100%;
-  height: 85vh;
-}
-.cover #vid {
-  position: relative;
-  width: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-.view .cover .trans--text {
-  position: absolute;
-  top: 85%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  padding-right: 2em;
-  animation-name: ani--text;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  z-index: 2;
-  min-width: 280px;
-}
-.view .cover .Social {
-  position: fixed;
-  top: 45%;
-  width: 40px;
-  z-index: 2;
-}
-.view .cover .trans--text .organize {
-  padding: 0.3em 0.6em;
-  font-size: 2rem;
-  font-weight: 600;
-  width: 300px;
-  font-style: italic;
-}
-.view .cover .trans--text .organize a {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-}
-.view .cover .trans--text .organize .right--Move {
-  padding-left: 0.2em;
-
-  font-size: 2rem;
-  font-weight: 600;
-}
-#text {
-  width: 100%;
-  border-radius: 6px;
-  color: var(--orange);
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 0.2em 0;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-.view .cover .trans--text #text:hover .right--Move .iicon {
-  animation-name: Arrow--Right;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: 3;
-}
-<<<<<<< HEAD:server/client/components/Home_Page/Cover.css
-/*.block--skewed-right {
-
-    padding-bottom: calc(var(--padding-vertical) + 5rem);
-
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
-  }*/
-
-/*.block--skewed-left {
-    padding-bottom: calc(var(--padding-vertical) + 4rem);
-
-    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
-  }*/
-
-=======
->>>>>>> 8ffb1810893f4898c5e9395dcf697bbf867f1639:client/src/components/Home_Page/Cover.css
-@media (max-width: 1024px) {
-  .view .cover .trans--text .organize {
-    font-size: 1.3rem;
-
-    width: 205px;
-  }
-  .view .cover .trans--text .organize .right--Move {
-    font-size: 1.5rem;
-  }
-}
-@media (max-width: 600px) {
-  .cover #vid {
-    width: 100%;
-    height: 100%;
-  }
-  .cover {
-    width: 100%;
-    height: 60vh;
-  }
-  .view .cover .trans--text {
-    padding-right: 0;
-  }
-  .view .cover .trans--text .organize {
-    font-size: 1rem;
-
-    max-width: 165px;
-    padding-right: 0;
-    text-align: center;
-    margin-right: 15px;
-  }
-  .view .cover .trans--text {
-    top: 82%;
-  }
-  #text {
-    padding: 0.4em 0;
-  }
-  .view .cover .trans--text .organize .right--Move {
-    font-size: 1.2rem;
-  }
-}
-@keyframes ani--text {
-  0% {
-    transform: translateY(-8em);
-    opacity: 0.4;
-  }
-  30% {
-    opacity: 0.6;
-  }
-  80% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(0em);
-    opacity: 1;
-  }
-}
-@keyframes Arrow--Right {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(20px);
-  }
-}
-
-/*!*********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/SocialBar.css ***!
-  \*********************************************************************************************/
-:root{
-    --backGround: rgba(20, 116, 153, 0.5);
-}
-
-.Social--bar{
-    width: 100%;
-    padding: .4em;
-    background-color: var(--backGround);
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    
-    animation-name: Social--Animation;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    
-    
-}
-.Social--bar a{
-    width: 100%;
-    height: 30px;
-    
-}
-.Social--bar a:hover img{
-    transform: scale(1.1);
-}
-.Social--bar a img{
-    object-fit: cover;
-    width: 100%;
-    padding: .2em 0;
-}
-@keyframes Social--Animation{
-    0%{
-        transform: translateX(-50px);
-    }
-    100%{
-        transform: translateX(0px);
-    }
-}
 /*!******************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/slider.css ***!
   \******************************************************************************************/
@@ -636,62 +409,61 @@ body {
 /*!*******************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Statics.css ***!
   \*******************************************************************************************/
-:root{
-    --blue:#147499;
-    --white:#ffffff;
-    --orange:#F6852B;
+:root {
+  --blue: #147499;
+  --white: #ffffff;
+  --orange: #f6852b;
 }
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-h1{
-    font-size: 3rem;
+h1 {
+  font-size: 3rem;
 }
-.Statics{
-    width: 100%;
-    padding:3% 0 6% 0 ;
-    min-width: 350px;
+.Statics {
+  width: 100%;
+  padding: 3% 0 6% 0;
+  min-width: 350px;
 }
-#Stc--bottom{
-    padding-bottom: 0;
+#Stc--bottom {
+  padding-bottom: 0;
 }
- .Title{
-    width: 350px;
-    margin: auto;
-    text-align: center;
-    border-bottom: 2px solid var(--orange);
+.Title {
+  width: 350px;
+  margin: auto;
+  text-align: center;
+  border-bottom: 2px solid var(--orange);
 }
-.Statics .Organize{
-    width: 90%;
-    /*display: flex;
+.Statics .Organize {
+  width: 90%;
+  /*display: flex;
     justify-content: space-evenly;
     align-items: center;
     text-align: center;*/
-    padding: 7% 0;
-    margin: auto;
-    display: grid;
-        grid-template-columns: repeat(4,1fr);
-        min-width: 350px;
-        
+  padding: 7% 0;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  min-width: 350px;
 }
-@media(max-width:1100px){
-    .Statics .Organize{
-        grid-template-columns: repeat(2,1fr);
-    }
+@media (max-width: 1100px) {
+  .Statics .Organize {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-@media(max-width:450px){
-    .Statics{
-        min-width: 280px;
-    }
-    .Statics .Organize{
-        grid-template-columns: repeat(1,1fr);
-        min-width: 280px;
-    }
-     .Title{
+@media (max-width: 450px) {
+  .Statics {
+    min-width: 280px;
+  }
+  .Statics .Organize {
+    grid-template-columns: repeat(1, 1fr);
+    min-width: 280px;
+  }
+  .Title {
     width: 270px;
-    }
+  }
 }
 
 /*!**************************************************************************************************!*\
@@ -735,13 +507,13 @@ h1{
 }
 .Statics .Organize .Frames a {
   padding: 0.5em 2em;
-  /*background-color: ;*/
   font-size: 1.5rem;
   width: 95%;
   position: relative;
   color: #000;
   border: 1px solid black;
   border-radius: 4px;
+  text-decoration: none;
 }
 .Statics .Organize .Frames a .Icon {
   padding-left: 3px;
@@ -902,118 +674,6 @@ circle{
     .circle{
         min-width:280px;
     }
-}
-
-/*!****************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/card.css ***!
-  \****************************************************************************************/
-.root {
-  --white: #ffffff;
-  --blue: #147499;
-  --orange: #f6852b;
-  --W-gray: #ddd;
-}
-.arrange--news {
-  padding: 1rem;
-  width: 33.33%;
-}
-
-.arrange--news .news--card {
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-.news--card img {
-  width: 100%;
-  height: 250px;
-  object-fit: fill;
-  box-sizing: border-box;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-.news--card .news--text {
-  padding: 0.6em 1em 1.5em;
-}
-.news--card .news--text #explore {
-  background-color: var(--orange);
-  display: inline-block;
-  width: 80%;
-  padding: 0.4em 0;
-  border-radius: 4px;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--white);
-}
-.news--card .news--text #explore .icon {
-  font-size: 1.4rem;
-  padding-left: 0.2em;
-}
-.news--card .news--text #explore:hover .icon {
-  animation-name: Arrow--Right;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: 3;
-}
-.news--card .news--text h4 {
-  
-  
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  height: 50px;
-  margin-bottom: .3em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 25px;
-  
-}
-.news--card .news--text h4 a {
-  color: #212529;
-  /* height: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis; */
-}
-
-.news--card .news--text h4 a:hover {
-  color: var(--orange);
-}
-.news--card .news--text p {
-  height: 128px;
-  border-top: 1px solid var(--orange);
-  font-size: 1.2rem;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 24px;
-  padding-top: .1em;
-  margin-bottom: 0;
-}
-@media (max-width: 992px) {
-  .arrange--news {
-    width: 50%;
-  }
-}
-@media (max-width: 670px) {
-  .Addmins {
-    justify-content: center;
-  }
-  .arrange--news {
-    width: 75%;
-  }
-}
-@media (max-width: 450px) {
-  .arrange--news {
-    width: 98%;
-    padding: 1rem 0.2rem;
-  }
 }
 
 /*!******************************************************************************************!*\

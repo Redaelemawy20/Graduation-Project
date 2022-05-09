@@ -306,7 +306,7 @@ function Nav() {
                 </div>
               </Collapse>
             </li>
-            <li id="Media" className="Main--list">
+            {/* <li id="Media" className="Main--list">
               <a
                 onClick={() => setDrop({ ...Drop, media: !Drop.media })}
                 aria-controls="example-collapse-Media"
@@ -340,7 +340,7 @@ function Nav() {
                   </div>
                 </div>
               </Collapse>
-            </li>
+            </li> */}
             <li id="Arriv--Manage" className="Main--list">
               <a>Arrivals Management</a>
             </li>
