@@ -45,7 +45,7 @@ dependencies:
   js: ^0.6.2
   flutter_staggered_animations: "^1.0.0"
   lottie: ^1.0.0
-  webview_flutter: ^2.0.0
+  webview_flutter: ^3.0.2
   youtube_player_iframe: ^2.0.0
   expandable: ^5.0.1
 

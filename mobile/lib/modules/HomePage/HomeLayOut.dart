@@ -4,8 +4,11 @@ import 'package:bloc/bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/bacaloryous.dart';
+import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/elzhara.dart';
 import 'package:graduation_project/cubit/cubit.dart';
 import 'package:graduation_project/cubit/status.dart';
+import 'package:graduation_project/shared/components/components/components.dart';
 import 'package:graduation_project/shared/components/network/styles/icon-broken.dart';
 import 'package:expandable/expandable.dart';
 
@@ -52,125 +55,128 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    child: ExpandableNotifier(
-                      initialExpanded: true,
-                      child: Expandable(
-                        collapsed: ExpandableButton(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                // ignore: prefer_const_literals_to_create_immutables
-                                children: [
-                                  Icon(Icons.access_alarm),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Text(
-                                    'Client Info.',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                              Icon(
-                                Icons.arrow_right,
-                                color: Colors.black,
-                              ),
-                            ],
-                          ),
-                        ),
-                        expanded: ExpandableButton(
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      (Icon(
-                                        Icons.access_alarm,
-                                      )),
-                                      const SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        'Client Info.',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox()
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 15.0,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Client Name',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "yahya",
-                                    textAlign: TextAlign.end,
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 15.0,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Phone',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "yahya",
-                                    textAlign: TextAlign.end,
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 15.0,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Address',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    width: 10.0,
-                                    child: Text(
-                                      "yahya",
-                                      textAlign: TextAlign.end,
-                                      overflow: TextOverflow.ellipsis,
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      child: ExpandableNotifier(
+                        initialExpanded: true,
+                        child: Expandable(
+                          collapsed: ExpandableButton(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    Icon(Icons.people),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text(
+                                      'الطلاب',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
-                                  )
-                                ],
-                              ),
-                            ],
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.arrow_right,
+                                  color: Colors.blue,
+                                ),
+                              ],
+                            ),
+                          ),
+                          expanded: ExpandableButton(
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        (Icon(Icons.people)),
+                                        const SizedBox(
+                                          width: 8,
+                                        ),
+                                        Text(
+                                          "الطلاب",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox()
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {
+                                        navigateTo(context, elzahraa());
+                                      },
+                                      child: Text(
+                                        'التقدبم للمدن الجامعية ',
+                                        style: TextStyle(fontFamily: 'jannah'),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 5.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {
+                                        navigateTo(context, bacalorya());
+                                      },
+                                      child: Text(
+                                        'مرحله البكالوريوس والليسانس',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 5.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {
+                                        navigateTo(context, bacalorya());
+                                      },
+                                      child: Text(
+                                        'مرحله الدراسات العليا',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 5.0,
+                                      child: Text(
+                                        "yahya",
+                                        textAlign: TextAlign.end,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
