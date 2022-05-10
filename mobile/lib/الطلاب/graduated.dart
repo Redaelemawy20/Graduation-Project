@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 
 class graguate extends StatelessWidget {
   const graguate({Key? key}) : super(key: key);
@@ -31,14 +32,20 @@ class graguate extends StatelessWidget {
                           color: Color.fromARGB(255, 4, 1, 74)),
                       height: 45,
                       width: 200.0,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'جمعية رعابة الخرجيين',
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                      child: Link(
+                          uri: Uri.parse(
+                              'http://mu.menofia.edu.eg/caamu/CaamuHome/ar'),
+                          builder: (context, FollowLink) {
+                            return TextButton(
+                              onPressed: FollowLink,
+                              child: Text(
+                                'جمعية رعاية الخريجين',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            );
+                          }),
                     ),
                     SizedBox(
                       height: 15.0,
@@ -66,17 +73,21 @@ class graguate extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                           color: Color.fromARGB(255, 4, 1, 74)),
                       height: 45,
-                      width: 220.0,
-                      child: TextButton(
-                        onPressed: () {},
-                        // ignore: prefer_const_constructors
-                        child: Text(
-                          'بحث عن خريج',
-                          // ignore: prefer_const_constructors
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                      width: 200.0,
+                      child: Link(
+                          uri: Uri.parse(
+                              'http://mu.menofia.edu.eg/caamu/SearchGrade/ar'),
+                          builder: (context, FollowLink) {
+                            return TextButton(
+                              onPressed: FollowLink,
+                              child: Text(
+                                'بحث عن خريج',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            );
+                          }),
                     ),
                   ],
                 ),

@@ -48,10 +48,15 @@ class _nategaState extends State<natega> {
                   child: Link(
                       uri: Uri.parse("http://193.227.24.15/Epg/natigapg/"),
                       builder: (context, FollowLink) {
-                        return ElevatedButton(
-                            style: ButtonStyle(),
-                            onPressed: FollowLink,
-                            child: Text("نتائج الدراسات العليا"));
+                        return TextButton(
+                          onPressed: FollowLink,
+                          child: Text(
+                            'نتائج الدراسات العليا',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        );
                       }),
                 ),
               ],
