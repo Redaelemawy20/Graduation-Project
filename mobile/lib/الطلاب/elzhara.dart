@@ -39,12 +39,17 @@ class elzhraa extends StatelessWidget {
                   width: 200.0,
                   child: Link(
                       uri: Uri.parse(
-                          'https://alzahraa.mans.edu.eg/studentApplications'),
+                          "https://alzahraa.mans.edu.eg/studentApplications"),
                       builder: (context, FollowLink) {
-                        return ElevatedButton(
-                            style: ButtonStyle(),
-                            onPressed: FollowLink,
-                            child: Text("الزهراء للمدن الجامعية"));
+                        return TextButton(
+                          onPressed: FollowLink,
+                          child: Text(
+                            'الزهراء للمدن الجامعية',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        );
                       }),
                 ),
               ],
