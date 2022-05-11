@@ -155,6 +155,53 @@ Widget yourListChildForRa2eesElgam3a(context) => Column(
             onTap: () {
               navigateTo(context, OnBoardingScreen());
             },
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                clipBehavior: Clip.antiAlias,
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                child: Image(
+                  image: NetworkImage(
+                    'https://img.freepik.com/free-photo/book-library-with-open-textbook_1150-5919.jpg?t=st=1652185866~exp=1652186466~hmac=a1ffc401b62625ceb23b8c4fd56a211b712b1e82c7a2f8a8240bbc95085ee39c&w=740',
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          alignment: AlignmentDirectional.topEnd,
+          child: Text(
+            'الاحد 22 يناير 2022',
+            style: TextStyle(color: Colors.grey),
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              'رضا البحراوى قال ايه "بداااااارى الأااااه وفضحانى ومهما بخبى وجعانى ممن اصحابى وخلانى ودنيتى اللى معندانى"',
+              textDirection: TextDirection.rtl,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textHeightBehavior: TextHeightBehavior(
+                  applyHeightToFirstAscent: true,
+                  leadingDistribution: TextLeadingDistribution.even),
+            ),
+          ),
+        ),
+      ],
+    );
+
+Widget yourListChildForRa2eesElTolaab(context) => Column(
+      children: [
+        Expanded(
+          flex: 3,
+          child: InkWell(
+            onTap: () {
+              navigateTo(context, OnBoardingScreen());
+            },
             child: Container(
               clipBehavior: Clip.antiAlias,
               decoration:
