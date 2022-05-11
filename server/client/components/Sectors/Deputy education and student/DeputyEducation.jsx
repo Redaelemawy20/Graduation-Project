@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SocialBar from "../../Home_Page/SocialBar.jsx";
 import Navstyle from "../../Home_Page/Navstyle";
 import Coverstyle from "../../Home_Page/Coverstyle.js";
+import Newsstyle from "../../Home_Page/Newsstyle.jsx";
 export default function DeputyEducation() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -201,7 +202,7 @@ export default function DeputyEducation() {
         </div>
         </div>
         </Coverstyle>
-      <div className="news">
+      <Newsstyle>
         <div className="Title">
           <h1>Latest News</h1>
         </div>
@@ -210,7 +211,7 @@ export default function DeputyEducation() {
             <Cards key={index} item={item} />
           ))}
         </div>
-      </div>
+      </Newsstyle>
       <Footer />
     </>
   );

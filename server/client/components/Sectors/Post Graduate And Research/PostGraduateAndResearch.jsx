@@ -17,6 +17,7 @@ import SocialBar from "../../Home_Page/SocialBar.jsx";
 import { VscThreeBars } from "react-icons/vsc";
 import Footer from "../../Home_Page/Footer.jsx";
 import Coverstyle from "../../Home_Page/Coverstyle.js";
+import Newsstyle from "../../Home_Page/Newsstyle.jsx";
 export default function PostGraduateAndResearch() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -234,7 +235,7 @@ export default function PostGraduateAndResearch() {
           </div>
         </div>
       </Coverstyle>
-      <div className="news">
+      <Newsstyle>
         <div className="Title">
           <h1>Latest News</h1>
         </div>
@@ -243,7 +244,7 @@ export default function PostGraduateAndResearch() {
             <Cards key={index} item={item} />
           ))}
         </div>
-      </div>
+      </Newsstyle>
       <Footer />
     </>
   );

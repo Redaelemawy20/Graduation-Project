@@ -4,7 +4,7 @@ export default styled.section`
     --blue: #147499;
     --white: #ffffff;
     --orange: #f6852b;
-    --backGround: rgba(20, 116, 153, 0.5);
+    --background: rgba(20, 116, 153, 0.5);
   }
   width: 100%;
     height: 65px;
@@ -214,7 +214,7 @@ export default styled.section`
     /*Icon show*/
     #Show {
       display: flex;
-      padding-right: 1em;
+      padding-inline-end: 1em;
       margin: auto 0;
       font-size: 1.5rem;
       color: var(--blue);
@@ -227,9 +227,10 @@ export default styled.section`
       z-index: 3;
       flex-direction: column;
       padding: 1em;
-      background-color: var(--backGround);
+      background-color: rgba(20, 116, 153, 0.5);
       margin-top: 40px;
       min-width: 235px;
+      max-height: 550px;
     }
   
    .un--list .Maa--Ul #Admins #example-collapse-Admin {
@@ -250,7 +251,7 @@ export default styled.section`
    #News {
       display: flex;
       color: var(--blue);
-      padding-right: 1em;
+      padding-inline-end: 1em;
       animation: daily--news;
       animation-duration: 7s;
       animation-timing-function: linear;
