@@ -458,6 +458,7 @@ class HomeScreen extends StatelessWidget {
                               onTap: () {
                                 navigateTo(
                                     context,
+                                    // ignore: prefer_const_constructors
                                     YoutubePlayer(
                                         'https://www.youtube.com/watch?v=0TUpwZyVdnw'));
                               },

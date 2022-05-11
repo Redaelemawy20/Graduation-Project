@@ -4,6 +4,14 @@ import 'package:bloc/bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8_%D8%A7%D9%84%D9%88%D8%A7%D9%81%D8%AF%D9%8A%D9%86.dart';
+import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/%D8%AF%D8%B1%D8%A7%D8%B3%D8%A7%D8%AA_%D8%B9%D9%84%D9%8A%D8%A7.dart';
+import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/%D9%84%D9%85_%D9%8A%D8%AA%D9%88%D9%81%D8%B1.dart';
+import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/%D9%86%D8%AA%D8%A7%D8%A6%D8%AC_%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A7%D8%AA.dart';
+import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/bacaloryous.dart';
+import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/elzhara.dart';
+import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/graduated.dart';
+import 'package:graduation_project/%D8%A7%D9%84%D8%B7%D9%84%D8%A7%D8%A8/services.dart';
 import 'package:graduation_project/cubit/cubit.dart';
 import 'package:graduation_project/cubit/status.dart';
 import 'package:graduation_project/modules/%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D8%B9%D8%A7%D8%AA/%D9%82%D8%B7%D8%A7%D8%B9%20%D8%B1%D8%A6%D9%8A%D8%B3%20%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9/%D9%82%D8%B7%D8%A7%D8%B9%20%D8%B1%D8%A6%D9%8A%D8%B3%20%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9.dart';
@@ -57,6 +65,320 @@ class HomePage extends StatelessWidget {
                               'https://1.bp.blogspot.com/-ScCYiDo55G4/XykN2RL8KZI/AAAAAAAARZU/cxxLp3OSiQc-EwtwKBzPuNP4WFaeKB1OwCLcBGAsYHQ/s1600/%25D8%25AC%25D8%25A7%25D9%2585%25D8%25B9%25D8%25A9%2B%25D8%25A7%25D9%2584%25D9%2585%25D9%2586%25D9%2588%25D9%2581%25D9%258A%25D8%25A9.png'),
                         ),
                       ),
+                    ),
+                    Container(
+                      child: ExpandableNotifier(
+                        initialExpanded: false,
+                        child: Expandable(
+                          collapsed: ExpandableButton(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Icon(
+                                        Icons.people,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text(
+                                      'الطلاب',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'jannah'),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Icon(
+                                    IconBroken.Arrow___Down_2,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          expanded: ExpandableButton(
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        (Icon(
+                                          Icons.people,
+                                          color: Colors.blue,
+                                        )),
+                                        const SizedBox(
+                                          width: 8,
+                                        ),
+                                        Text(
+                                          'الطلاب',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Icon(IconBroken.Arrow___Up_2),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, elzhraa());
+                                        },
+                                        child: Text(
+                                          'التقديم للمدن الجامعية ',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, bacalorya());
+                                        },
+                                        child: Text(
+                                          'مرحله البكالوريوس والليسانس',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, drasat());
+                                        },
+                                        child: Text(
+                                          'مرحلة الدراسات العليا',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, graguate());
+                                        },
+                                        child: Text(
+                                          'الخريجين',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, wafden());
+                                        },
+                                        child: Text(
+                                          'الطلاب الوافدين',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, service());
+                                        },
+                                        child: Text(
+                                          'الخدمات الطلابية',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, service());
+                                        },
+                                        child: Text(
+                                          'انشطة طلابية',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, natega());
+                                        },
+                                        child: Text(
+                                          'نتائج الدراسات العليا',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, service());
+                                        },
+                                        child: Text(
+                                          'رعاية الشباب',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, not_found());
+                                        },
+                                        child: Text(
+                                          'نتائج الأمتحانات',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, not_found());
+                                        },
+                                        child: Text(
+                                          'الحصول علي البريد الألكترني',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          navigateTo(context, not_found());
+                                        },
+                                        child: Text(
+                                          'تسجيل الطلاب الأجانب',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      color: Colors.black,
                     ),
                     Container(
                       child: ExpandableNotifier(
