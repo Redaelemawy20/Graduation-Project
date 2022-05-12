@@ -87,9 +87,62 @@ function Aside() {
                 <li className="nav-item">
                   <Link
                     to="/dashboard/news/create"
-                    className="nav-link <%= url === '/admin/news/create' ? 'active': '' %>"
+                    className={`nav-link  url === '/admin/news/create' ? 'active': '' `}
                   >
                     Create
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <a
+                href="#menu-forms"
+                className="nav-link collapsed"
+                data-bs-toggle="collapse"
+                aria-expanded="false"
+              >
+                <span className="nav-link-icon d-md-none d-lg-inline-block">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon icon-tabler icon-tabler-world"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stokewidth="2"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                    <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                    <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                    <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                  </svg>
+                </span>
+                Users Management
+                <span className="nav-link-toggle"></span>
+              </a>
+              <ul
+                className="nav nav-pills collapse <%= activeMenu === 'news' ? 'show': '' %>"
+                id="menu-forms"
+              >
+                <li className="nav-item">
+                  <Link
+                    to="/dashboard/news"
+                    className="nav-link <%= url === '/admin/news' ? 'active': '' %>"
+                  >
+                    Users
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/dashboard/users/create"
+                    className={`nav-link  url === '/admin/news/create' ? 'active': '' `}
+                  >
+                    Add User
                   </Link>
                 </li>
               </ul>

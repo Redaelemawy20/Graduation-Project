@@ -9,8 +9,37 @@ import Lamp from "../Images/lamp.png";
 import EgyFlag from "../Images/EG-Flag.png";
 import EngFlag from "../Images/EN-Flag.png";
 import "../Home_Page/Addinstrations.css";
-export default function Header(props) {
-  // console.log({props.text.fName})
+import { connect } from "react-redux";
+
+import axios from "axios";
+import { fetchCurrentUser } from "../../actions";
+function Header({ auth, fetchCurrentUser }) {
+  async function logout() {
+    try {
+      await axios.post("/auth/logout");
+      fetchCurrentUser();
+    } catch (error) {}
+  }
+  function authStatus() {
+    switch (auth) {
+      case null:
+        return <div>Loading...</div>;
+      case false:
+        return (
+          <Link to="/login" id="log">
+            Login
+            <FiLogIn className="Icon-log" />
+          </Link>
+        );
+      default:
+        return (
+          <button to="/login" id="log" onClick={logout}>
+            Logout
+            <FiLogIn className="Icon-log" />
+          </button>
+        );
+    }
+  }
   return (
     <div className="header">
       <div className="cont">
@@ -30,12 +59,7 @@ export default function Header(props) {
             </p>
             <div className="dis--row">
               <ul className="mainul">
-                <li>
-                  <Link to="/login" id="log">
-                    Login
-                    <FiLogIn className="Icon-log" />
-                  </Link>
-                </li>
+                <li>{authStatus()}</li>
                 <li>
                   <a>AR</a>
                   <img src={EgyFlag} alt="" className="flag" />
@@ -61,3 +85,8 @@ export default function Header(props) {
     </div>
   );
 }
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+let Element = connect(mapStateToProps, { fetchCurrentUser })(Header);
+export default Element;

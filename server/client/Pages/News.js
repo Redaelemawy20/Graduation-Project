@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getData } from "../actions.js";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -8,9 +8,7 @@ import TableSearch from "../components/dashboard/TableSearch";
 import TableEntries from "../components/dashboard/TableEntries";
 
 const News = (props) => {
-  console.log("bb" + props);
   useEffect(() => {
-    console.log("hi");
     props.getData();
     console.log(props);
   }, []);
@@ -95,8 +93,8 @@ const News = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return { news: state };
+function mapStateToProps({ news }) {
+  return { news };
 }
 function loadData(store) {
   return store.dispatch(getData());

@@ -1,14 +1,17 @@
 const path = require("path");
 const fs = require("fs");
 
-const File = require("../database/models/File");
-const Feed = require("../database/models/Feed");
+const File = require("../models").File;
+const Feed = require("../models").Feed;
+
 let options = require("../util/viewsOptions");
 
 options.activeMenu = "news";
 async function index(req, res) {
-  const allNews = await Feed.findAll();
+  // const user = req.session.user;
 
+  // return res.send(req.user);
+  const allNews = await Feed.findAll();
   return res.send({
     ...options,
     title: "all news",

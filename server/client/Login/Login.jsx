@@ -1,27 +1,95 @@
-import React from "react";
-// import "./Login.css"
+import React, { useEffect, useState } from "react";
+
 import styled from "styled-components";
-export default function Login() {
-  return (
-    <Loginstyle>
-      <h1>LOGIN</h1>
-      <form>
-        <label for="email">Email</label>
-        <input id="email" placeholder="Enter e-mail" type="email" />
-        <div class="icon">
-          <i className="fas fa-user"></i>
-        </div>
-        <label for="pass">Password</label>
-        <input id="pass" type="password" placeholder="Password" />
-        <div class="icon">
-          <i class="fas fa-lock" id="sec"></i>
-        </div>
-        <input class="btn" type="submit" value="Submit"></input>
-        <input id="res" class="btn" type="reset" value="reset"></input>
-        <span>Forget password</span>
-      </form>
-    </Loginstyle>
-  );
+import Input from "../components/common/Input";
+import { Navigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchCurrentUser } from "../actions";
+import axios from "axios";
+function Login({ auth, fetchCurrentUser }) {
+  const [state, setState] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({});
+  const [user, setUser] = useState(auth);
+  useEffect(() => {
+    setUser(auth);
+  }, [auth]);
+  const validateAll = () => {
+    const errors = {};
+    let foundErrors;
+    Object.keys(state).map((key) => {
+      if (!state[key]) {
+        errors[key] = key + " not allowed to be empty";
+        foundErrors = true;
+      }
+    });
+    return foundErrors && errors;
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const errors = validateAll();
+    if (errors) {
+      setErrors(errors);
+      return;
+    }
+    axios
+      .post("/auth/login", { ...state })
+      .then((res) => {
+        console.log("fetching....");
+        fetchCurrentUser();
+      })
+      .catch((err) => {
+        const errors = {};
+        if (err.response.data) {
+          errors.email = err.response.data.message;
+          setErrors(errors);
+        }
+      });
+  };
+
+  const handleChange = ({ target: input }) => {
+    const { name, value } = input;
+    const errors = {};
+    if (!value) errors[name] = name + " not allowed to empty";
+    setErrors(errors);
+    setState({ ...state, [name]: value });
+  };
+  function status() {
+    switch (user) {
+      case null:
+        return <div>Loading...</div>;
+      case false:
+        return (
+          <Loginstyle>
+            <h1>LOGIN</h1>
+            <form onSubmit={handleSubmit}>
+              <Input
+                error={errors.email}
+                label="email"
+                value={state.email}
+                name="email"
+                onChange={handleChange}
+                rest={{ type: "email" }}
+              />
+
+              <Input
+                error={errors.password}
+                label="password"
+                value={state.password}
+                name="password"
+                onChange={handleChange}
+                rest={{ type: "password" }}
+              />
+              <input class="btn" type="submit" value="Submit"></input>
+              <input id="res" class="btn" type="reset" value="reset"></input>
+              <span>Forget password</span>
+            </form>
+          </Loginstyle>
+        );
+      default:
+        return <Navigate to="/" replace />;
+    }
+  }
+  return status();
 }
 const Loginstyle = styled.div`
   h1 {
@@ -89,3 +157,8 @@ const Loginstyle = styled.div`
     color: tomato;
   }
 `;
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+const Element = connect(mapStateToProps, { fetchCurrentUser })(Login);
+export default Element;
