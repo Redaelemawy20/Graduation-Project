@@ -21,8 +21,6 @@ export const fetchCurrentUser =
       method: "get",
       withCredentials: true,
     });
-
-    console.log("*****************************************", res.data);
     dispatch({
       type: FETCH_CURRENT_USER,
       payload: res,

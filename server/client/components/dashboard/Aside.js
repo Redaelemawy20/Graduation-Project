@@ -131,7 +131,7 @@ function Aside() {
               >
                 <li className="nav-item">
                   <Link
-                    to="/dashboard/news"
+                    to="/dashboard/users"
                     className="nav-link <%= url === '/admin/news' ? 'active': '' %>"
                   >
                     Users

@@ -24,6 +24,8 @@ import ProjectsManagement from "./components/Sectors/PresidentSector/ProjectsMan
 import QulityAssurance from "./components/Sectors/PresidentSector/QulityAssurance.jsx";
 import App from "./App";
 import AddUser from "./Pages/AddUser";
+import Users from "./Pages/Users";
+import EditUser from "./Pages/EditUser";
 
 export let routeObj = [
   {
@@ -59,8 +61,16 @@ export let routeObj = [
             ...EditNews,
           },
           {
+            path: "/dashboard/users",
+            ...Users,
+          },
+          {
             path: "/dashboard/users/create",
-            element: <AddUser />,
+            ...AddUser,
+          },
+          {
+            path: "/dashboard/users/:id/edit",
+            ...EditUser,
           },
         ],
       },

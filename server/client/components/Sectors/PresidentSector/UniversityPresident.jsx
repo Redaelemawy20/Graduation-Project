@@ -10,7 +10,7 @@ import NavSectors from "../NavSectors.jsx";
 import { FaHome } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 // import { getOverlayDirection } from "react-bootstrap/esm/helpers";
-import { faAngleDown} from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -21,6 +21,7 @@ import { VscThreeBars } from "react-icons/vsc";
 import SocialBar from "../../Home_Page/SocialBar.jsx";
 import Footer from "../../Home_Page/Footer.jsx";
 import Coverstyle from "../../Home_Page/Coverstyle";
+import Newsstyle from "../../Home_Page/Newsstyle.jsx";
 export default function UniversityPresident() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -72,11 +73,14 @@ export default function UniversityPresident() {
     },
     {
       listName: "Higher Management",
-      licon: <span id="down">
-      <FontAwesomeIcon
-        icon={faAngleDown}
-        className="downIcon"
-      ></FontAwesomeIcon></span>,
+      licon: (
+        <span id="down">
+          <FontAwesomeIcon
+            icon={faAngleDown}
+            className="downIcon"
+          ></FontAwesomeIcon>
+        </span>
+      ),
       style: "icon",
       cliick: function () {
         console.log("i'm clicked from Management");
@@ -89,11 +93,14 @@ export default function UniversityPresident() {
     },
     {
       listName: "Affiliate Departments",
-      licon: <span id="down">
-      <FontAwesomeIcon
-        icon={faAngleDown}
-        className="downIcon"
-      ></FontAwesomeIcon></span>,
+      licon: (
+        <span id="down">
+          <FontAwesomeIcon
+            icon={faAngleDown}
+            className="downIcon"
+          ></FontAwesomeIcon>
+        </span>
+      ),
       style: "icon",
       cliick: function () {
         console.log("i'm clicked from Management");
@@ -139,31 +146,30 @@ export default function UniversityPresident() {
         </div>
       </Navstyle>
       <Coverstyle>
-      <div className="cover">
-      <Slider
-        img1={president_Slide.img1}
-        img2={president_Slide.img2}
-        Description={president_Slide.Description}
-      />
-      <div className="Social">
-          <SocialBar />
+        <div className="cover">
+          <Slider
+            img1={president_Slide.img1}
+            img2={president_Slide.img2}
+            Description={president_Slide.Description}
+          />
+          <div className="Social">
+            <SocialBar />
+          </div>
         </div>
-        </div>
-        </Coverstyle>
-       <div>
-       <section className="news">
-       <div className='Title'>
-        <h1>Latest News</h1>
-	</div>
-      <div className="Addmins">
-      
-        {news_Sectors.map((item, index) => (
-          <Cards key={index} item={item} />
-        ))}
+      </Coverstyle>
+      <div>
+        <Newsstyle>
+          <div className="Title">
+            <h1>Latest News</h1>
+          </div>
+          <div className="Addmins">
+            {news_Sectors.map((item, index) => (
+              <Cards key={index} item={item} />
+            ))}
+          </div>
+        </Newsstyle>
       </div>
-      </section>
-      </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

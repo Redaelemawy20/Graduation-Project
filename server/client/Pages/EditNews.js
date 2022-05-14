@@ -49,7 +49,6 @@ const EditNews = (props) => {
   );
 };
 async function loadData(store, params = null) {
-  console.log("RRinvoked**");
   let result = [];
   try {
     result = await axios.get(

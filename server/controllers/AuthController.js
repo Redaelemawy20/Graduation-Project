@@ -27,19 +27,7 @@ async function logout(req, res) {
 
 async function currentUser(req, res) {
   // return res.send(req.headers);
-  const { user } = req;
-  console.log("user assss", user);
-  if (!user) return res.send(user);
-  const currentUser = {
-    password: user.password,
-    email: user.email,
-    name: user.name,
-  };
-  const userRole = await user.getRole();
-  const userPermissions = await userRole.getPermissions();
-  currentUser.role = userRole;
-  currentUser.permissions = userPermissions;
-  return res.send(currentUser);
+  return res.send(req.user);
 }
 
 export default {
