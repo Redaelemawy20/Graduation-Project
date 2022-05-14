@@ -1,14 +1,21 @@
-import React, { useRef, useState } from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import Input from "../common/Input";
-const UserForm = () => {
-  const [state, setState] = useState({ name: "", email: "", role: 3 });
+const UserForm = ({ data, onSave }) => {
+  const [state, setState] = useState({
+    user: {
+      name: data.user ? data.user.name : "",
+      email: data.user ? data.user.email : "",
+      role: data.user ? data.user.RoleId : 3,
+    },
+    roles: data.roles,
+  });
   const [errors, setErrors] = useState({});
-  const ref = useRef(null);
   const validateAll = () => {
     const errors = {};
     let foundErrors;
-    Object.keys(state).map((key) => {
-      if (!state[key]) {
+    Object.keys(state.user).map((key) => {
+      if (!state.user[key]) {
         errors[key] = key + " not allowed to be empty";
         foundErrors = true;
       }
@@ -20,15 +27,18 @@ const UserForm = () => {
     const { name, value } = input;
     if (!value) errors[name] = name + " can not be empty";
     setErrors(errors);
-    setState({ ...state, [name]: value });
+    setState({ ...state, user: { ...state.user, [name]: value } });
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const errors = validateAll();
     if (errors) {
       setErrors(errors);
       return;
     }
+    console.log(state.user);
+    console.log("aaa ya captin");
+    onSave({ ...state.user });
   };
   return (
     <form id="form" onSubmit={handleSubmit}>
@@ -37,7 +47,7 @@ const UserForm = () => {
         name="name"
         error={errors.name}
         onChange={handleChange}
-        value={state.name}
+        value={state.user.name}
       />
       <Input
         label="User Email"
@@ -47,19 +57,21 @@ const UserForm = () => {
           type: "email",
         }}
         onChange={handleChange}
-        value={state.email}
+        value={state.user.email}
       />
       <div className="m-3">
         <label className="form-label">Select</label>
         <select
           className="form-select form-control"
-          value={state.role}
+          value={state.user.role}
           name="role"
           onChange={handleChange}
         >
-          <option value="1">Super Admin</option>
-          <option value="2">Admin</option>
-          <option value="3">User</option>
+          {state.roles.map((role) => (
+            <option key={role.id} value={role.id}>
+              {role.name}
+            </option>
+          ))}
         </select>
       </div>
 

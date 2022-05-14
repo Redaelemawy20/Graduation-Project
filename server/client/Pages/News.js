@@ -16,14 +16,16 @@ const News = (props) => {
 
   return listOfNews ? (
     <div className="card-body border-bottom py-3">
-      <div className="d-flex">
+      <div className="d-flex mb-3">
         <TableEntries />
         <TableSearch />
       </div>
 
       <div className="table-responsive">
         <table className="table card-table table-vcenter text-nowrap datatable">
-          <TableHeader />
+          <TableHeader
+            columns={["Title", "Auther", "Content", "CreatedAt", "Status"]}
+          />
           <tbody>
             {listOfNews.map((item) => {
               return (
