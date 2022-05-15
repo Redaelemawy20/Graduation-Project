@@ -13,6 +13,19 @@ import 'package:graduation_project/shared/components/network/styles/icon-broken.
 import 'package:hexcolor/hexcolor.dart';
 import 'package:marquee/marquee.dart';
 
+import 'ملحقاته/الادارات التابعة/ادارة المشروعات.dart';
+import 'ملحقاته/الادارات التابعة/الامن.dart';
+import 'ملحقاته/الادارات التابعة/التخطيط.dart';
+import 'ملحقاته/الادارات التابعة/التفتيش الفنى.dart';
+import 'ملحقاته/الادارات التابعة/التنظيم والادارة.dart';
+import 'ملحقاته/الادارات التابعة/الشئون القانونيه.dart';
+import 'ملحقاته/الادارات التابعة/العلاقات العامه والعلام.dart';
+import 'ملحقاته/الادارات التابعة/توكيد الجودة.dart';
+import 'ملحقاته/الادارات التابعة/مركز المعلومات.dart';
+import 'ملحقاته/الاداره العليا/ادرات فرعيه.dart';
+import 'ملحقاته/الاداره العليا/الرؤيه والرسالة.dart';
+import 'ملحقاته/الاداره العليا/الهيكل التنظيمى.dart';
+
 class Ra2eesElGam3a extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -148,30 +161,30 @@ class Ra2eesElGam3a extends StatelessWidget {
                           const SizedBox(
                             height: 8.0,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    navigateTo(context, OnBoardingScreen());
-                                  },
+                          InkWell(
+                            onTap: () {
+                              navigateTo(context, ELhaykalEltanzemy());
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Text(
                                     'الهيكل التنظيمى',
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                           const SizedBox(
                             height: 8.0,
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, Ra2eesElTa3leem());
+                              navigateTo(context, EleDaraatFar3eya());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -190,17 +203,23 @@ class Ra2eesElGam3a extends StatelessWidget {
                           const SizedBox(
                             height: 8.0,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Text(
-                                  'الرؤية والرسالة',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                          InkWell(
+                            onTap: () {
+                              navigateTo(context, Elro2yaWaElResala());
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Text(
+                                    'الرؤية والرسالة',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -279,30 +298,30 @@ class Ra2eesElGam3a extends StatelessWidget {
                           const SizedBox(
                             height: 8.0,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    navigateTo(context, OnBoardingScreen());
-                                  },
+                          InkWell(
+                            onTap: () {
+                              navigateTo(context, MarKazElma3lomat());
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Text(
                                     'مركز المعلومات',
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                           const SizedBox(
                             height: 8.0,
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, El42oonElkanonya());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -323,7 +342,7 @@ class Ra2eesElGam3a extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, EltanzeemWaEl2Daara());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -344,7 +363,7 @@ class Ra2eesElGam3a extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, El3lakatWaEle3lam());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -365,7 +384,7 @@ class Ra2eesElGam3a extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, ElTaftee4Elfany());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -386,7 +405,7 @@ class Ra2eesElGam3a extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, ElTakhTet());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -407,7 +426,7 @@ class Ra2eesElGam3a extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, ElAmnn());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -428,7 +447,7 @@ class Ra2eesElGam3a extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, EDartElMa4ro3at());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -449,7 +468,7 @@ class Ra2eesElGam3a extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, TawKeeDElGawdaa());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

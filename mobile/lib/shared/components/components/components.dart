@@ -202,13 +202,16 @@ Widget yourListChildForRa2eesElTolaab(context) => Column(
             onTap: () {
               navigateTo(context, OnBoardingScreen());
             },
-            child: Container(
-              clipBehavior: Clip.antiAlias,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
-              child: Image(
-                image: NetworkImage(
-                    'https://img.freepik.com/free-photo/open-flying-old-books_1232-2096.jpg?size=626&ext=jpg&uid=R64649530&ga=GA1.2.47020922.1628699756'),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Container(
+                clipBehavior: Clip.antiAlias,
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                child: Image(
+                  image: NetworkImage(
+                      'https://img.freepik.com/free-photo/open-flying-old-books_1232-2096.jpg?size=626&ext=jpg&uid=R64649530&ga=GA1.2.47020922.1628699756'),
+                ),
               ),
             ),
           ),
@@ -235,4 +238,133 @@ Widget yourListChildForRa2eesElTolaab(context) => Column(
           ),
         ),
       ],
+    );
+
+Widget yourListChildForNa2BSh2oonElMogtama3WaElBe2a(context) => Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Expanded(
+            flex: 3,
+            child: InkWell(
+              onTap: () {
+                navigateTo(context, OnBoardingScreen());
+              },
+              child: Container(
+                clipBehavior: Clip.antiAlias,
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                child: Image(
+                  image: NetworkImage(
+                      'https://img.freepik.com/free-photo/hand-watering-young-plant-garden_34152-3123.jpg?w=740'),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            alignment: AlignmentDirectional.topEnd,
+            child: Text(
+              'الاحد 22 يناير 2022',
+              style: TextStyle(color: Colors.grey),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              'رضا البحراوى قال ايه "بداااااارى الأااااه وفضحانى ومهما بخبى وجعانى ممن اصحابى وخلانى ودنيتى اللى معندانى"',
+              textDirection: TextDirection.rtl,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textHeightBehavior: TextHeightBehavior(
+                  applyHeightToFirstAscent: true,
+                  leadingDistribution: TextLeadingDistribution.even),
+            ),
+          ),
+        ],
+      ),
+    );
+
+Widget yourListChildForNa2BSh2oonElDraSatEl3olYa(context) => Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Expanded(
+            flex: 3,
+            child: InkWell(
+              onTap: () {
+                navigateTo(context, OnBoardingScreen());
+              },
+              child: Container(
+                clipBehavior: Clip.antiAlias,
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                child: Image(
+                  image: NetworkImage(
+                      'https://img.freepik.com/free-photo/graduation-cap-books-step-library-room-campus-university-concept-abroad-international-educational-back-school_4236-41.jpg?w=740'),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            alignment: AlignmentDirectional.topEnd,
+            child: Text(
+              'الاحد 22 يناير 2022',
+              style: TextStyle(color: Colors.grey),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              'ي جدعااااااااااااااااااااااان انا تعبتتتتتتتتتتت',
+              textDirection: TextDirection.rtl,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textHeightBehavior: TextHeightBehavior(
+                  applyHeightToFirstAscent: true,
+                  leadingDistribution: TextLeadingDistribution.even),
+            ),
+          ),
+        ],
+      ),
+    );
+
+Widget yourListChildForKeTa3Ameen3amElGam3a(context) => Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Expanded(
+            flex: 3,
+            child: InkWell(
+              onTap: () {
+                navigateTo(context, OnBoardingScreen());
+              },
+              child: Container(
+                clipBehavior: Clip.antiAlias,
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                child: Image(
+                  image: NetworkImage(
+                      'https://img.freepik.com/free-photo/graduation-cap-books-step-library-room-campus-university-concept-abroad-international-educational-back-school_4236-41.jpg?w=740'),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            alignment: AlignmentDirectional.topEnd,
+            child: Text(
+              'الاحد 22 يناير 2022',
+              style: TextStyle(color: Colors.grey),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              'قطااااع أمين عاام الجامعة',
+              textDirection: TextDirection.rtl,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textHeightBehavior: TextHeightBehavior(
+                  applyHeightToFirstAscent: true,
+                  leadingDistribution: TextLeadingDistribution.even),
+            ),
+          ),
+        ],
+      ),
     );

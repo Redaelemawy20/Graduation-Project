@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
+import 'dart:ui';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,27 @@ import 'package:graduation_project/shared/components/components/components.dart'
 import 'package:graduation_project/shared/components/network/styles/icon-broken.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:marquee/marquee.dart';
+
+import 'الشئون الطبية/اتصل بنا.dart';
+import 'الشئون الطبية/الادارات الفرعية.dart';
+import 'الشئون الطبية/الهيكل التنظيمى.dart';
+import 'الشئون الطبية/عن الادارة.dart';
+import 'المدن الجامعية/ادارات فرعية.dart';
+import 'المدن الجامعية/الخدمات والانشطه.dart';
+import 'المدن الجامعية/الهيكل التنظيمى.dart';
+import 'المدن الجامعية/دليل المدن.dart';
+import 'المدن الجامعية/وحدات ذات طابع خاص.dart';
+import 'رعاية الشباب/اتصل بنا.dart';
+import 'رعاية الشباب/اقسام رعاية الشباب.dart';
+import 'رعاية الشباب/اللوائح المنظمة.dart';
+import 'رعاية الشباب/الهيكل التنظيمى.dart';
+import 'شئون التعليم/اتصل بنا.dart';
+import 'شئون التعليم/ادارة التسجيل.dart';
+import 'شئون التعليم/ادارة الخريجين.dart';
+import 'شئون التعليم/ادارة شئون الدراسة.dart';
+import 'شئون التعليم/ادراة الامتحانات.dart';
+import 'شئون التعليم/التعليم المفتوح.dart';
+import 'شئون التعليم/اللوائح المنظمه.dart';
 
 class Ra2eesElTa3leem extends StatelessWidget {
   @override
@@ -147,30 +170,30 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           const SizedBox(
                             height: 8.0,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    navigateTo(context, OnBoardingScreen());
-                                  },
+                          InkWell(
+                            onTap: () {
+                              navigateTo(context, EdartElTasGel());
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Text(
                                     'ادارة التسجيل',
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                           const SizedBox(
                             height: 8.0,
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, EdarTShe2oonElDrasa());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -191,7 +214,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, EdartElemt7anat());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -209,7 +232,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, EdartElkhreGen());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -227,7 +250,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, ElTa3leemElMafTooh());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -245,7 +268,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, Elwa27eLmONAZAMA());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -263,7 +286,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, CallUs2());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -358,22 +381,17 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, ElhaycalElTanzemyLLMoDon());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.all(10.0),
-                                  child: InkWell(
-                                    onTap: () {
-                                      navigateTo(context, OnBoardingScreen());
-                                    },
-                                    child: Text(
-                                      'الهيكل التنظيمى',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                  child: Text(
+                                    'الهيكل التنظيمى',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ],
@@ -384,7 +402,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, EdaratFar3yallModon());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -405,7 +423,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, SpicialUnits());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -423,7 +441,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, ElkhDmatWaElAnshta());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -441,7 +459,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, DaleElModon());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -536,22 +554,17 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, ElHayKalElTanzeMyLLshaBab());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.all(10.0),
-                                  child: InkWell(
-                                    onTap: () {
-                                      navigateTo(context, OnBoardingScreen());
-                                    },
-                                    child: Text(
-                                      'الهيكل التنظيمى',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                  child: Text(
+                                    'الهيكل التنظيمى',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ],
@@ -562,7 +575,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, AkSaamRe3ayetElShaBab());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -583,7 +596,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, EllWa27ElmonaZamaLLRe3aya());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -601,7 +614,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, CallUs3());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -696,22 +709,18 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(
+                                  context, ElHaykalElTanZemyll42oonElTebya());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.all(10.0),
-                                  child: InkWell(
-                                    onTap: () {
-                                      navigateTo(context, OnBoardingScreen());
-                                    },
-                                    child: Text(
-                                      'الهيكل التنظيمى',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                  child: Text(
+                                    'الهيكل التنظيمى',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ],
@@ -722,7 +731,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, AboutElEDara());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -743,7 +752,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, EleDaraTeLfar3ya());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -761,7 +770,7 @@ class Ra2eesElTa3leem extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              navigateTo(context, HomePage());
+                              navigateTo(context, CallUs4());
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -788,7 +797,10 @@ class Ra2eesElTa3leem extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        title: Text('قطاع نائب رئيس الجامعة لشئون التعليم والطلاب'),
+        title: Text(
+          'قطاع نائب رئيس الجامعة لشئون التعليم والطلاب',
+          style: TextStyle(fontSize: 13),
+        ),
         leading: IconButton(
           icon: Icon(
             IconBroken.Arrow___Left_2,
