@@ -73,9 +73,24 @@ import Accountmanagement from "./components/Sectors/Post Graduate And Research/S
 import Purchasingandwarehouse from "./components/Sectors/Post Graduate And Research/Scientific research/Purchasingandwarehouse.jsx";
 import Addminstrativeaffairsdepartment from "./components/Sectors/Post Graduate And Research/Scientific research/Addminstrativeaffairsdepartment.jsx";
 /***********imports of communityAndEnvironment sector********/
-import CommunityAndEnvironment from "./components/Sectors/CommunityAndEnvironment.jsx";
+import CommunityAndEnvironment from "./components/Sectors/community and environment/CommunityAndEnvironment.jsx";
 /***************imports of SecretaryGeneral sector***************/
 import SecretaryGeneral from "./components/Sectors/SecretaryGeneral.jsx";
+/**********imports of News********/
+import Allnews from "./components/News/Allnews.jsx";
+import Newsdynamic from "./components/Home_Page/Newsdynamic.jsx";
+/********imports of About University*******/
+import CodeofConductandEthicsforthePublicWork from './components/Home_Page/About/CodeofConductandEthicsforthePublicWork'
+import Formationoftheuniversitycouncil from './components/Home_Page/About/Formationoftheuniversitycouncil'
+import Formeruniversitypresidents from './components/Home_Page/About/Formeruniversitypresidents'
+import ThesearefromMenoufiaUniversity from './components/Home_Page/About/ThesearefromMenoufiaUniversity'
+import UndergraduateStudentCharter from './components/Home_Page/About/UndergraduateStudentCharter'
+import Universitygoals from './components/Home_Page/About/Universitygoals'
+import Universityinception from './components/Home_Page/About/Universityinception'
+import Universitymessage from './components/Home_Page/About/Universitymessage'
+import Universitystrategy from './components/Home_Page/About/Universitystrategy'
+import Universityvision from './components/Home_Page/About/Universityvision'
+
 export let routeObj = [
   {
     path: "/",
@@ -339,50 +354,96 @@ export let routeObj = [
     element: <ManagingCultureAgreements />,
   },
   {
-    path:"/managingofimmigrants",
-    element:<ManagingofImmigrants/>
+    path: "/managingofimmigrants",
+    element: <ManagingofImmigrants />,
   },
   {
-    path:"/rulesregulationculturalrelations",
-    element:<Rulesregulationculturalrelations />
+    path: "/rulesregulationculturalrelations",
+    element: <Rulesregulationculturalrelations />,
   },
   {
-    path:"/abouttheunit",
-     element:<Abouttheunit />
+    path: "/abouttheunit",
+    element: <Abouttheunit />,
   },
   {
-    path:"/formationoftheunits",
-     element:<Formationoftheunits />
+    path: "/formationoftheunits",
+    element: <Formationoftheunits />,
   },
   {
-    path:"boardofdirectorsdecisions",
-    element:<Boardofdirectorsdecisions />
+    path: "boardofdirectorsdecisions",
+    element: <Boardofdirectorsdecisions />,
   },
   {
-    path:"/parchasingandwarehouseaddminstration",
-    element:<Purchasingandwarehouse />
+    path: "/parchasingandwarehouseaddminstration",
+    element: <Purchasingandwarehouse />,
   },
   {
-    path:"addminstrativeaffairsdepartment",
-    element:<Addminstrativeaffairsdepartment />
+    path: "addminstrativeaffairsdepartment",
+    element: <Addminstrativeaffairsdepartment />,
   },
   /*******Community&Environment Routes*****/
- {
-          path:"/CommunityAndEnvironment",
-          element:<CommunityAndEnvironment />
- },
- /*******SecretaryGeneral Routes******/
-{
-  path:"/SecretaryGeneral",
-   element:<SecretaryGeneral />
-},
-/********News********/
-{
-  path:"/news",
-   element:<News />
-}
-  
-  
+  {
+    path: "/CommunityAndEnvironment",
+    element: <CommunityAndEnvironment />,
+  },
+  /*******SecretaryGeneral Routes******/
+  {
+    path: "/SecretaryGeneral",
+    element: <SecretaryGeneral />,
+  },
+  /********News********/
+  {
+  path:"/allnews",
+  element:<Allnews/>},
+  // {
+  //   path: "/news",
+  //   element: <News />,
+  // },
+  {
+     path:'/news/:id',
+     element:<Newsdynamic/>
+  },
+  /*********About University Routes**********/
+  {
+    path:'/CodeofConductandEthicsforthePublicWork',
+    element:<CodeofConductandEthicsforthePublicWork/>
+  },
+  {
+    path:'/Formationoftheuniversitycouncil',
+    element:<Formationoftheuniversitycouncil/>
+  },
+   {
+    path:'/Formeruniversitypresidents',
+    element:<Formeruniversitypresidents/>
+  }, 
+  {
+    path:'/ThesearefromMenoufiaUniversity',
+    element:<ThesearefromMenoufiaUniversity/>
+  },
+  {
+    path:'/UndergraduateStudentCharter',
+    element:<UndergraduateStudentCharter/>
+  },
+  {
+    path:'/Universitygoals',
+    element:<Universitygoals/>
+  },
+  {
+    path:'/Universityinception',
+    element:<Universityinception/>
+  },
+  {
+    path:'/Universitymessage',
+    element:<Universitymessage/>
+  },
+  {
+    path:'/Universitystrategy',
+    element:<Universitystrategy/>
+  },
+  {
+   path:'/Universityvision',
+   element:<Universityvision/>
+  }
 ];
 function Routes() {
   let element = useRoutes(routeObj);

@@ -9,10 +9,15 @@ import Footer from "../components/Home_Page/Footer.jsx";
 import Digitaltransformation from "../components/Home_Page/Digitaltransformation.jsx";
 import Links from "../components/Home_Page/Links.jsx";
 import Faculties from "../components/faculties/Faculties.jsx";
+
 function HomePage() {
+  let headerHome = {
+    fName: "Menofia",
+    lName: "University",
+  };
   return (
     <>
-      <Header />
+      <Header text={headerHome} />
       <Nav />
       <Cover />
       <Addminstration />

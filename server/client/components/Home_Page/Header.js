@@ -10,16 +10,17 @@ import EgyFlag from "../Images/EG-Flag.png";
 import EngFlag from "../Images/EN-Flag.png";
 import "../Home_Page/Addinstrations.css";
 export default function Header(props) {
-  // console.log({props.text.fName})
+  const{fName,lName}=props.text;
+   console.log(props)
   return (
     <div className="header">
       <div className="cont">
         <div className="logo">
           <img src={logo} alt="logo" />
           <div className="dis-coll">
-            <p className="fName">lanem</p>
-            {/* {console.log({props})} */}
-            <p>lname</p>
+            <p className="fName">{fName}</p>
+            
+            <p>{lName}</p>
           </div>
         </div>
         <div className="unorder">

@@ -40,7 +40,6 @@ export default function NavSectors(props) {
               data-toggle="collapse"
               aria-expanded={Drop.admin}
             >
-            <span className={style}>{ficon}</span>
               {listName}
               
               <span id="down">

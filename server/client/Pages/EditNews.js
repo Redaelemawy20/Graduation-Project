@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const EditNews = (props) => {
+  
   console.log("props", props);
   let intial_data = null;
   if (props.data) intial_data = props.data.feed;
