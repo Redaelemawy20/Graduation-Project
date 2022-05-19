@@ -55,7 +55,7 @@ async function edit(req, res) {
   const feed = await Feed.findByPk(id);
   const files = await File.findAll({
     where: {
-      feedId: id,
+      FeedId: id,
     },
   });
 
@@ -158,7 +158,7 @@ async function saveFiles(req, feedId) {
       let new_file = File.build({
         originalname,
         name,
-        feedId,
+        FeedId: feedId,
       });
       try {
         await new_file.save();

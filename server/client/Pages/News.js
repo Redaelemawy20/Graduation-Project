@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getData } from "../actions.js";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -6,13 +6,13 @@ import TableHeader from "../components/dashboard/TableHeader";
 import TableFooter from "../components/dashboard/TableFooter";
 import TableSearch from "../components/dashboard/TableSearch";
 import TableEntries from "../components/dashboard/TableEntries";
+import DataLoad from "../components/common/DataLoad.js";
 
-const News = (props) => {
+const News = ({ data, getData }) => {
   useEffect(() => {
-    props.getData();
-    console.log(props);
+    getData();
   }, []);
-  const listOfNews = props.news ? props.news.news : false;
+  const listOfNews = data ? data.news : false;
 
   return listOfNews ? (
     <div className="card-body border-bottom py-3">
@@ -91,12 +91,12 @@ const News = (props) => {
       </div>
     </div>
   ) : (
-    "still"
+    <DataLoad />
   );
 };
 
-function mapStateToProps({ news }) {
-  return { news };
+function mapStateToProps({ news, app }) {
+  return { data: news, app };
 }
 function loadData(store) {
   return store.dispatch(getData());

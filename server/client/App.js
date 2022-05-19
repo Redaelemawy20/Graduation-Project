@@ -3,19 +3,25 @@ import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchCurrentUser } from "./actions";
-const App = (props) => {
+
+import { ToastContainer } from "react-toastify";
+import "./App.css";
+const App = ({ fetchCurrentUser, app }) => {
   useEffect(() => {
-    console.log("app props", props);
+    fetchCurrentUser();
   }, []);
+
   return (
     <>
+      <ToastContainer></ToastContainer>
       <Outlet />
     </>
   );
 };
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, app }) {
+  return { auth, app };
 }
+
 function loadData(store) {
   return store.dispatch(fetchCurrentUser());
 }

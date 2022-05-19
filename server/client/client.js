@@ -1,14 +1,11 @@
 import React from "react";
 import ReacDOM from "react-dom";
 import Routes, { routeObj } from "./Routes";
-// import { routeObj } from "./Routes";
 import { BrowserRouter, matchRoutes } from "react-router-dom";
 import { Provider } from "react-redux";
 import createStore from "../createStore";
-import axios from "axios";
-const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
-});
+import httpService from "../services/httpService";
+const axiosInstance = httpService;
 const store = createStore(window.INTIALSTATE, axiosInstance);
 const server_data = window.SERVER_DATA;
 let matchedRoutes = matchRoutes(routeObj, window.location.pathname);

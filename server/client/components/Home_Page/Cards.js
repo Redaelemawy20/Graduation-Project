@@ -1,23 +1,23 @@
 //import React, { useEffect } from "react";
 import React from "react";
 import styled from "styled-components";
-// import "./card.css";
-
-
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 export default function Cards(props) {
   console.log(props.items);
-  const { id, title, date, img, content } = props.item;
+  const { id, title, createdAt, mainImage, content } = props.item;
 
   return (
     // <div className="arrange--news">
     <Cardstyle>
       <div className="news--card">
         <Link to="/news">
-          <img src={img} />
+          <img
+            src={`/files?file=${mainImage}`}
+            style={{
+              objectFit: "cover",
+            }}
+          />
         </Link>
 
         <div className="news--text">
@@ -25,7 +25,7 @@ export default function Cards(props) {
             <Link to="/news">{title}</Link>
           </h4>
           <p>{content}</p>
-          <h6>Publiched in: {date}</h6>
+          <h6>Publiched in: {createdAt}</h6>
           <Link to="/news" id="explore">
             Explor
             <HiOutlineArrowNarrowRight className="icon" />

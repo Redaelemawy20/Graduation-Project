@@ -1,6 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import httpService from "../../services/httpService";
+import DataLoad from "../components/common/DataLoad";
 import UserForm from "../components/dashboard/UserForm";
 const EditUser = ({ data }) => {
   const [state, setState] = useState(data);
@@ -11,24 +12,17 @@ const EditUser = ({ data }) => {
     setState(data);
   }, []);
   const handleSubmit = async (payload) => {
-    const { data } = await axios.post(`/user/${id}/edit`, payload, {
-      withCredentials: true,
-    });
+    const { data } = await httpService.post(`/user/${id}/edit`, payload);
     console.log(data);
   };
-  return state ? (
-    <UserForm data={state} onSave={handleSubmit} />
-  ) : (
-    <div>Loading...</div>
-  );
+  return state ? <UserForm data={state} onSave={handleSubmit} /> : <DataLoad />;
 };
 async function getUserData(id) {
-  const { data } = await axios.get(`http://localhost:3000/user/${id}/edit`);
+  const { data } = await httpService.get(`/user/${id}/edit`);
   console.log(data);
   return { data };
 }
 function loadData(store, params) {
-  console.log(params);
   getUserData(params.id);
 }
 export default {

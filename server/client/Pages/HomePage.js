@@ -1,3 +1,5 @@
+import React, { useEffect } from "react";
+
 import Header from "../components/Home_Page/Header";
 import Nav from "../components/Home_Page/Nav";
 import Cover from "../components/Home_Page/Cover";
@@ -9,8 +11,15 @@ import Footer from "../components/Home_Page/Footer.jsx";
 import Digitaltransformation from "../components/Home_Page/Digitaltransformation.jsx";
 import Links from "../components/Home_Page/Links.jsx";
 import Faculties from "../components/faculties/Faculties.jsx";
-function HomePage() {
-  return (
+import { connect } from "react-redux";
+import { getData } from "../actions";
+import DataLoad from "../components/common/DataLoad";
+function HomePage({ data, getData }) {
+  useEffect(() => {
+    getData();
+  }, []);
+  const listOfNews = data ? data.news : false;
+  return listOfNews ? (
     <>
       <Header />
       <Nav />
@@ -18,13 +27,24 @@ function HomePage() {
       <Addminstration />
       <VideosAboutUni />
       <Statistics />
-      <Faculties/>
+      <Faculties />
       <Location />
       <Digitaltransformation />
       <Links />
       <Footer />
     </>
+  ) : (
+    <DataLoad />
   );
 }
-
-export default HomePage;
+function mapStateToProps({ news }) {
+  return { data: news };
+}
+function loadData(store) {
+  return store.dispatch(getData());
+}
+const Element = connect(mapStateToProps, { getData })(HomePage);
+export default {
+  element: <Element />,
+  loadData,
+};

@@ -721,11 +721,12 @@ footer .Social--foot>a{
   \*************************************************************************/
 .wrapper {
   position: relative;
+  height: 100%;
 }
 .btn-direction {
   position: absolute;
   bottom: 20px;
-  z-index: 1;
+  z-index: 1 !important;
   background-color: transparent;
   outline: 0;
   border: 1px solid orange;
@@ -926,3 +927,34 @@ body{
     padding-inline-start:.2em;
     padding-inline-end:.2em ;
 }
+/*!******************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/App.css ***!
+  \******************************************************************/
+.spinner {
+  animation: spin infinite 1.5s ease-in-out;
+
+  /*You can increase or decrease the timer (5s) to 
+     increase or decrease the speed of the spinner*/
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading-wrapper {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f9fc;
+}
+

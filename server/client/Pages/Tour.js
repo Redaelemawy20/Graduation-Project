@@ -10,6 +10,7 @@ const Tour = () => {
   const [currentLocation, setCurrentLocation] = useState(map[0]);
   const [nextLocationInfo, setNextLocatonInfo] = useState("");
   const [viewer, setViewer] = useState("");
+  console.log(currentLocation);
   useEffect(() => {
     const image = document.createElement("img");
     image.src = currentLocation.image;

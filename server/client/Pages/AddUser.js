@@ -1,5 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import httpService from "../../services/httpService";
+import DataLoad from "../components/common/DataLoad";
 import UserForm from "../components/dashboard/UserForm";
 const AddUser = ({ data }) => {
   const [state, setState] = useState(data);
@@ -8,20 +11,19 @@ const AddUser = ({ data }) => {
     setState(data);
   }, []);
   const handleSubmit = async (payload) => {
-    const { data } = await axios.post("/user/create", payload, {
-      withCredentials: true,
-    });
-    console.log(data);
+    try {
+      const { data: message } = await httpService.post("/user/create", payload);
+      toast.success(message);
+      setState(data);
+    } catch (error) {
+      toast.error(error.response.data);
+    }
   };
-  return state ? (
-    <UserForm data={state} onSave={handleSubmit} />
-  ) : (
-    <div>Loading...</div>
-  );
+  return state ? <UserForm data={state} onSave={handleSubmit} /> : <DataLoad />;
 };
 async function getAddUserData() {
   try {
-    const { data } = await axios.get("http://localhost:3000/user/create");
+    const { data } = await httpService.get("/user/create");
     return { data };
   } catch (error) {
     console.log(error);

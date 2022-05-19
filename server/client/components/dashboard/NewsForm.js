@@ -29,7 +29,6 @@ const NewsForm = ({ data, onSave }) => {
   }, [data]);
   function getPayload() {
     let formData = new FormData();
-    console.log("get payload");
     const { mainImage, content, title, show, Files, feed_id } = state;
     formData.append("feed_id", feed_id);
     formData.append("title", title);

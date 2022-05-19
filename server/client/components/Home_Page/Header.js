@@ -10,13 +10,12 @@ import EgyFlag from "../Images/EG-Flag.png";
 import EngFlag from "../Images/EN-Flag.png";
 import "../Home_Page/Addinstrations.css";
 import { connect } from "react-redux";
-
-import axios from "axios";
 import { fetchCurrentUser } from "../../actions";
+import httpService from "../../../services/httpService";
 function Header({ auth, fetchCurrentUser }) {
   async function logout() {
     try {
-      await axios.post("/auth/logout");
+      await httpService.post("/auth/logout");
       fetchCurrentUser();
     } catch (error) {}
   }

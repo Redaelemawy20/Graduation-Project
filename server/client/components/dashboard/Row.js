@@ -4,11 +4,7 @@ const Row = ({ cells, id, actions = [] }) => {
     <tr>
       <th>No.</th>
       {cells.map((cell, index) => {
-        return (
-          <>
-            <td key={index}>{cell}</td>
-          </>
-        );
+        return <td key={index}>{cell}</td>;
       })}
       {(actions.length || "") && (
         <td className="text-end">
@@ -22,11 +18,7 @@ const Row = ({ cells, id, actions = [] }) => {
             </button>
             {actions.map((action, index) => (
               <div key={index} className="dropdown-menu dropdown-menu-end">
-                <a
-                  className="dropdown-item"
-                  href="#"
-                  onClick={() => action.handler(id)}
-                >
+                <a className="dropdown-item" onClick={() => action.handler(id)}>
                   {action.name}
                 </a>
               </div>

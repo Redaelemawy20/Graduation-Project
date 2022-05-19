@@ -25,6 +25,21 @@ async function logout(req, res) {
   });
 }
 
+async function reset(req, res) {
+  const user = await User.findByPk(req.user.id);
+  const old = user.password;
+  const claimedPassword = req.body.old;
+  if (old !== claimedPassword) {
+    return res.status(401).send("your current password is not correct");
+  }
+
+  await user.update({ password: req.body.new });
+  req.session.destroy((err) => {
+    if (err) res.status(404).send("no user to log out");
+    return res.send("what do you see");
+  });
+}
+
 async function currentUser(req, res) {
   // return res.send(req.headers);
   return res.send(req.user);
@@ -34,4 +49,5 @@ export default {
   login,
   currentUser,
   logout,
+  reset,
 };

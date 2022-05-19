@@ -4,6 +4,7 @@ import { matchRoutes } from "react-router-dom";
 import NewsRoutes from "./routes/news";
 import AuthRoutes from "./routes/auth";
 import UsersRoutes from "./routes/users";
+import RolesRoutes from "./routes/roles";
 import reactRenderer from "./services/reactRenderer";
 import createStore from "./createStore";
 import { routeObj } from "./client/Routes";
@@ -14,6 +15,7 @@ import session from "express-session";
 import sequelizestore from "connect-session-sequelize";
 import user from "./middlewares/user";
 import axios from "axios";
+import { setLoading } from "./client/actions";
 const db = require("./models");
 const SequelizeStore = sequelizestore(session.Store);
 const app = express();
@@ -60,10 +62,11 @@ app.use(
 app.use(user);
 
 // api routess
-app.use("/admin/news", NewsRoutes);
+app.use("/api/news", NewsRoutes);
 
-app.use("/auth/", AuthRoutes);
-app.use("/user/", UsersRoutes);
+app.use("/api/auth/", AuthRoutes);
+app.use("/api/user/", UsersRoutes);
+app.use("/api/role/", RolesRoutes);
 app.engine("ejs", require("express-ejs-extend"));
 
 app.set("view engine", "ejs");
@@ -79,7 +82,7 @@ app.get("/favicon.ico", (req, res) => {
 // website & dashboard => react router
 app.get("/*", (req, res) => {
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "http://localhost:3000/api",
     headers: {
       cookie: req.get("cookie") || "",
     },
@@ -87,11 +90,16 @@ app.get("/*", (req, res) => {
   const store = createStore({}, axiosInstance);
   let matchedRoutes = matchRoutes(routeObj, req.path);
   if (!matchedRoutes) matchedRoutes = [];
-  console.log(matchedRoutes);
   let promises = [];
+  if (matchedRoutes.length === 0)
+    return res.status(404).send("page not found not found");
   if (matchRoutes.length) {
     promises = matchedRoutes.map(({ route, params }) => {
-      return route.loadData && route.loadData(store, params);
+      return (
+        route.loadData &&
+        // store.dispatch(setLoading(true)) &&
+        route.loadData(store, params)
+      );
     });
     Promise.all(promises).then((results) => {
       results.map((data, index) => {
@@ -103,11 +111,17 @@ app.get("/*", (req, res) => {
         }
       });
       const context = {};
-      return res.send(reactRenderer(req, store, results, context));
+
+      const content = reactRenderer(req, store, results, context);
+      console.log(context);
+      if (context.notFound) {
+        res.status(404);
+      }
+      return res.send(content);
     });
   }
 });
 app.listen(3000, () => {
-  console.log("Listening on por t 3000");
+  console.log("Listening on port 3000");
   db.sequelize.sync();
 });
