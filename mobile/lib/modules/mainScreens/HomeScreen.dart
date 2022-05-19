@@ -1,4 +1,8 @@
 // ignore: file_names
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, sized_box_for_whitespace
+
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:animator/animator.dart';
 import 'package:bloc/bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +10,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:graduation_project/cubit/cubit.dart';
 import 'package:graduation_project/modules/mainScreens/Web-View-Screen.dart';
 import 'package:graduation_project/shared/components/components/components.dart';
+import 'package:graduation_project/shared/components/network/styles/icon-broken.dart';
 import 'package:intl/locale.dart';
 import 'package:lottie/lottie.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -14,14 +19,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
-      'http://mu.menofia.edu.eg/PrtlFiles/Faculties/fci/Portal/Images/140035365_1143245102776219_4624928904450132600_o(1).jpg',
-      'https://smtcenter.net/wp-content/uploads/2019/09/systemic-evaluation.jpg ',
-      'https://media.istockphoto.com/vectors/never-stop-learning-neon-sign-on-a-dark-background-vector-id1192842098?k=20&m=1192842098&s=612x612&w=0&h=JoELF6wU4STG-mgXFyIfHMbUhkboF5Zh_NyBdUB5QgA=',
-      'https://elearningindustry.com/wp-content/uploads/2020/04/Kaila-Dwinell-Never-stop-learning.jpg',
-      'https://www.soholearninghub.com/globalupdates/wp-content/uploads/2021/03/advantages-and-disadvantages-of-online-learning.jpg',
+      'https://img.freepik.com/free-photo/close-up-hand-writing-notebook-top-view_23-2148888824.jpg?t=st=1652089627~exp=1652090227~hmac=fb5719f4fa2be751ccde6035244a0996b955dc5019e716978df6d1383dbb50d3&w=740',
+      'https://img.freepik.com/free-photo/young-student-learning-library_23-2149215425.jpg?w=740',
+      'https://img.freepik.com/free-photo/person-holding-light-bulb-with-graduation-cap_23-2148721299.jpg?t=st=1652090055~exp=1652090655~hmac=dd9dd39a6011d985f25f005476836351b6539d29c3a07dc82cbfbb2019fc677a&w=740',
+      'https://img.freepik.com/free-photo/hand-selects-icons-virtual-screen-concept-distance-learning-methods-searching-systematization-information-retrieval_116441-22173.jpg?w=826'
     ];
+    double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             Padding(
@@ -30,48 +36,115 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        autoPlay: true,
-                        initialPage: 0,
-                        viewportFraction: 1,
-                        height: 250,
-                        enableInfiniteScroll: true,
-                        reverse: false,
-                        autoPlayInterval: Duration(seconds: 3),
-                        autoPlayAnimationDuration: Duration(seconds: 1),
-                        autoPlayCurve: Curves.fastOutSlowIn,
-                        scrollDirection: Axis.horizontal,
+                  Stack(
+                    alignment: AlignmentDirectional.bottomEnd,
+                    children: [
+                      Container(
+                        child: CarouselSlider(
+                          options: CarouselOptions(
+                            autoPlay: true,
+                            initialPage: 0,
+                            viewportFraction: 1,
+                            height: 250,
+                            enableInfiniteScroll: true,
+                            reverse: false,
+                            autoPlayInterval: Duration(seconds: 3),
+                            autoPlayAnimationDuration: Duration(seconds: 1),
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                            scrollDirection: Axis.horizontal,
+                          ),
+                          items: imgList
+                              .map((item) => Container(
+                                    child: Center(
+                                      child: Image.network(
+                                        item,
+                                        width: double.infinity,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ))
+                              .toList(),
+                        ),
                       ),
-                      items: imgList
-                          .map((item) => Container(
-                                child: Center(
-                                  child: Image.network(
-                                    item,
-                                    width: double.infinity,
-                                    fit: BoxFit.cover,
-                                  ),
+                      Row(
+                        //crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            child: Text(
+                              'Take virtuaL Tour',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            child: Container(
+                              alignment: AlignmentDirectional.bottomEnd,
+                              // height: _width / 2.7,
+                              // width: _width / 2.7,
+                              child: Animator<double>(
+                                duration: Duration(milliseconds: 1000),
+                                cycles: 0,
+                                curve: Curves.easeInOut,
+                                tween: Tween<double>(begin: 15.0, end: 25.0),
+                                builder: (context, animatorState, child) =>
+                                    Icon(
+                                  Icons.tour,
+                                  size: animatorState.value * 2,
+                                  color: Colors.deepOrange,
                                 ),
-                              ))
-                          .toList(),
-                    ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.deepOrange),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     height: 40,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'TAKE VIRTUAL TOUR',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
+                    child: Row(
+                      children: [
+                        DefaultTextStyle(
+                          style: const TextStyle(
+                            color: Colors.deepOrange,
+                            fontSize: 20.0,
+                          ),
+                          child: AnimatedTextKit(
+                            animatedTexts: [
+                              WavyAnimatedText('Take VirTual Tour'),
+                              WavyAnimatedText('Take VirTual Tour'),
+                            ],
+                            isRepeatingAnimation: true,
+                            onTap: () {
+                              // print("Tap Event");
+                            },
+                          ),
+                        ),
+                        Container(
+                          // height: _width / 2.7,
+                          // width: _width / 2.7,
+                          child: Animator<double>(
+                            duration: Duration(milliseconds: 1000),
+                            cycles: 0,
+                            curve: Curves.easeInOut,
+                            tween: Tween<double>(begin: 15.0, end: 25.0),
+                            builder: (context, animatorState, child) => Icon(
+                              Icons.tour,
+                              size: animatorState.value * 2,
+                              color: Colors.deepOrange,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -298,6 +371,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),*/
+                  // الفيديوهات
                   Container(
                     alignment: AlignmentDirectional.bottomCenter,
                     child: Text(
@@ -340,8 +414,8 @@ class HomeScreen extends StatelessWidget {
                             InkWell(
                               child: Lottie.network(
                                 'https://assets7.lottiefiles.com/private_files/lf30_cwyafad8.json',
-                                height: 180,
-                                width: 180,
+                                height: 150,
+                                width: 150,
                               ),
                               onTap: () {
                                 navigateTo(
@@ -376,8 +450,8 @@ class HomeScreen extends StatelessWidget {
                             InkWell(
                               child: Lottie.network(
                                 'https://assets7.lottiefiles.com/private_files/lf30_cwyafad8.json',
-                                height: 180,
-                                width: 180,
+                                height: 150,
+                                width: 150,
                               ),
                               onTap: () {
                                 navigateTo(
@@ -416,8 +490,8 @@ class HomeScreen extends StatelessWidget {
                             InkWell(
                               child: Lottie.network(
                                 'https://assets7.lottiefiles.com/private_files/lf30_cwyafad8.json',
-                                height: 180,
-                                width: 180,
+                                height: 150,
+                                width: 150,
                               ),
                               onTap: () {
                                 navigateTo(
@@ -452,8 +526,8 @@ class HomeScreen extends StatelessWidget {
                             InkWell(
                               child: Lottie.network(
                                 'https://assets7.lottiefiles.com/private_files/lf30_cwyafad8.json',
-                                height: 180,
-                                width: 180,
+                                height: 150,
+                                width: 150,
                               ),
                               onTap: () {
                                 navigateTo(
@@ -471,6 +545,8 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
+
+                  // statistics
                   Container(
                     alignment: AlignmentDirectional.bottomCenter,
                     child: Text(
@@ -496,8 +572,8 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Lottie.network(
                               'https://assets7.lottiefiles.com/packages/lf20_lbby8lph.json',
-                              height: 190,
-                              width: 190,
+                              height: 150,
+                              width: 150,
                             ),
                             Text(
                               'الموظفين',
@@ -525,8 +601,8 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Lottie.network(
                               'https://assets7.lottiefiles.com/packages/lf20_lbby8lph.json',
-                              height: 190,
-                              width: 190,
+                              height: 150,
+                              width: 150,
                             ),
                             Text(
                               'الطلاب',
@@ -554,8 +630,8 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Lottie.network(
                               'https://assets7.lottiefiles.com/packages/lf20_lbby8lph.json',
-                              height: 190,
-                              width: 190,
+                              height: 150,
+                              width: 150,
                             ),
                             Text(
                               'العاملين ',
@@ -585,12 +661,13 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            //Location
             Column(
               children: [
                 Lottie.network(
                   'https://assets5.lottiefiles.com/packages/lf20_uuzxy6ed.json',
-                  height: 190,
-                  width: 190,
+                  height: 150,
+                  width: 150,
                 ),
                 Text(
                   'University Location',
@@ -601,6 +678,615 @@ class HomeScreen extends StatelessWidget {
                       height: 1.5),
                 ),
               ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            //digital transformation
+            Stack(
+              alignment: AlignmentDirectional.topCenter,
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                Card(
+                  elevation: 10,
+                  child: Image.network(
+                      'https://img.freepik.com/free-vector/combination-circuit-head-shape-artificial-intelligence-moral-electronic-world-illustration_456031-123.jpg?t=st=1652738112~exp=1652738712~hmac=541a4bfeac3dfba5501acba18edc9eeb759053f3d0d41c5abc2a43a2eac128c6&w=826'),
+                ),
+                //Text
+                Column(
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        'Digital Transformation',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              width: 60,
+                              child: InkWell(
+                                onTap: () {
+                                  print('BnZoo Hwa ElBaBa');
+                                },
+                                child: Column(
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional.topStart,
+                                      child: Icon(
+                                        Icons.supervised_user_circle,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Text(
+                                      'course and services',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              width: 60,
+                              child: InkWell(
+                                onTap: () {
+                                  print('BnZoo Hwa ElBaBa');
+                                },
+                                child: Column(
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional.topStart,
+                                      child: Icon(
+                                        Icons.music_note_outlined,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Text(
+                                      'program guide',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              width: 60,
+                              child: InkWell(
+                                onTap: () {
+                                  print('BnZoo Hwa ElBaBa');
+                                },
+                                child: Column(
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional.topStart,
+                                      child: Icon(
+                                        Icons.local_activity_rounded,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Activities                   .',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              width: 60,
+                              child: InkWell(
+                                onTap: () {
+                                  print('BnZoo Hwa ElBaBa');
+                                },
+                                child: Column(
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional.topStart,
+                                      child: Icon(
+                                        Icons.app_registration_outlined,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Text(
+                                      'How To Register',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            //جامعات مصرية
+            Container(
+              alignment: AlignmentDirectional.bottomCenter,
+              child: Text(
+                'جامعات مصرية ',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontFamily: 'jannah',
+                ),
+              ),
+            ),
+            Center(
+              child: Container(
+                height: 2,
+                width: 200,
+                color: Colors.deepOrange,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 5),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Row(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            Icon(IconBroken.Home),
+                            SizedBox(
+                              width: 2,
+                            ),
+                            Expanded(
+                              child: Text(
+                                'جامعة المنصورة',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        Row(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            Icon(IconBroken.Home),
+                            SizedBox(
+                              width: 2,
+                            ),
+                            Expanded(
+                              child: Text(
+                                'جامعة طنطا',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        Row(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            Icon(IconBroken.Home),
+                            SizedBox(
+                              width: 2,
+                            ),
+                            Expanded(
+                              child: Text(
+                                'جامعة الزقازيق',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        Row(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            Icon(IconBroken.Home),
+                            SizedBox(
+                              width: 2,
+                            ),
+                            Expanded(
+                              child: Text(
+                                'جامعة بور سعيد',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        Row(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            Icon(IconBroken.Home),
+                            SizedBox(
+                              width: 2,
+                            ),
+                            Expanded(
+                              child: Text(
+                                'جامعة كفرالشيخ',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        Row(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            Icon(IconBroken.Home),
+                            SizedBox(
+                              width: 2,
+                            ),
+                            Expanded(
+                              child: Text(
+                                'جامعة بنها',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة الاسكندرية',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة أسيوط',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة قناة السويس',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة سوهاج',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة دمياط',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة حلوان',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة القاهرة',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة عين شمس',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة الفيوم',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة المنيا',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة بنى سويف',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Icon(IconBroken.Home),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'جامعة دمنهور',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
             ),
           ],
         ),
