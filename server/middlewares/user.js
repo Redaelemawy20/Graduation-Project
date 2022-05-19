@@ -6,7 +6,13 @@ export default async (req, res, next) => {
         exclude: ["password"],
       },
     });
-    const currentUser = { id: user.id, name: user.name, email: user.email };
+    const currentUser = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      avatar: user.avatar,
+      bio: user.bio,
+    };
     const userRole = await user.getRole();
     const userPermissions = await userRole.getPermissions();
     currentUser.role = userRole;

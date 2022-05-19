@@ -1,5 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import httpService from "../../services/httpService";
+import DataLoad from "../components/common/DataLoad";
 import UsersTable from "../components/dashboard/UsersTable";
 
 const Users = ({ data }) => {
@@ -8,12 +9,10 @@ const Users = ({ data }) => {
     const { data } = await getUsers();
     setState(data);
   }, [data]);
-  return state ? <UsersTable users={state.users} /> : <div>Loading...</div>;
+  return state ? <UsersTable users={state.users} /> : <DataLoad />;
 };
 async function getUsers() {
-  const { data } = await axios.get("http://localhost:3000/user/", {
-    withCredentials: true,
-  });
+  const { data } = await httpService.get("/user/");
   console.log(data);
   return { data };
 }

@@ -19,9 +19,12 @@ async function store(req, res) {
   if (!name || !email || !role) {
     return res.status(400).send("name, email and role are required");
   }
+  let avatar = null;
+  if (req.file) avatar = req.file.filename;
   const userInserted = await User.create({
     name,
     email,
+    avatar,
     password: "password",
   });
   await userInserted.setRole(role);
@@ -48,9 +51,12 @@ async function update(req, res) {
   }
   let updatedUser = await User.findByPk(id);
   if (!updatedUser) return res.status(404).send("user deleted");
+  let avatar = updatedUser.avatar;
+  if (req.file) avatar = "users/" + req.file.filename;
   await updatedUser.update({
     name,
     email,
+    avatar,
     RoleId: role,
   });
   return res.send("user updated successfully");

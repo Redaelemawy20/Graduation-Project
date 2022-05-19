@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import NewsForm from "../components/dashboard/NewsForm";
-import axios from "axios";
 import { useParams } from "react-router-dom";
-
+import httpService from "../../services/httpService";
+import DataLoad from "../components/common/DataLoad";
 const EditNews = (props) => {
   console.log("props", props.data);
   let intial_data = null;
@@ -13,7 +13,7 @@ const EditNews = (props) => {
     let result = [];
     console.log("excuting", id);
     try {
-      result = await axios.get(`http://localhost:3000/admin/news/${id}/edit`);
+      result = await httpService.get(`/news/${id}/edit`);
       setData(result.data.feed);
     } catch (error) {
       console.log(error);
@@ -28,32 +28,22 @@ const EditNews = (props) => {
   const handleSubmit = async (payload) => {
     payload.append("id", id);
     try {
-      const response = await axios({
-        method: "put",
-        url: `http://localhost:3000/admin/news/${id}/update`,
-        data: payload,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then((result) => {
-        console.log(result.data);
-      });
+      const response = await httpService
+        .put(`/news/${id}/update`, payload)
+        .then((result) => {
+          console.log(result.data);
+        });
     } catch (error) {
       console.log(error);
     }
   };
-  return data ? (
-    <NewsForm data={data} onSave={handleSubmit} />
-  ) : (
-    <div>Loading</div>
-  );
+
+  return data ? <NewsForm data={data} onSave={handleSubmit} /> : <DataLoad />;
 };
 async function loadData(store, params = null) {
   let result = [];
   try {
-    result = await axios.get(
-      `http://localhost:3000/admin/news/${params.id}/edit`
-    );
+    result = await httpService.get(`/news/${params.id}/edit`);
   } catch (error) {
     console.log("an error has occured");
   }

@@ -5,7 +5,7 @@ import Input from "../components/common/Input";
 import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchCurrentUser } from "../actions";
-import axios from "axios";
+import httpService from "../../services/httpService";
 function Login({ auth, fetchCurrentUser }) {
   const [state, setState] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
@@ -31,10 +31,9 @@ function Login({ auth, fetchCurrentUser }) {
       setErrors(errors);
       return;
     }
-    axios
+    httpService
       .post("/auth/login", { ...state })
       .then((res) => {
-        console.log("fetching....");
         fetchCurrentUser();
       })
       .catch((err) => {

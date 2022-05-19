@@ -73,6 +73,7 @@ export default function Faculties() {
     reSize();
 
     window.addEventListener("resize", () => {
+      console.log("resize called");
       width = window.innerWidth;
 
       console.log(width);
@@ -82,41 +83,47 @@ export default function Faculties() {
 
     console.log("width is :", { width });
     let wid;
-
+    let currentStep = 0;
     function reSize() {
       if (width >= 1245) {
         wid = (facultiesArr.length - 4) * 290;
+        currentStep = 0;
       } else if (width >= 973) {
         wid = (facultiesArr.length - 3) * 290;
+        currentStep += 1;
       } else if (width >= 673) {
         wid = (facultiesArr.length - 2) * 290;
+        currentStep += 2;
       } else {
         wid = (facultiesArr.length - 1) * 290;
+        currentStep += 3;
       }
     }
 
     window.addEventListener("scroll", () => {
+      console.log("scroll called");
       let height = window.pageYOffset;
       if (height >= 2680) {
         for (let i = 0; i < facultiesArr.length; i++) {
-          facultiesArr[i].classList.add("move");
-          facultiesArr[i].style.transform = `translate(${-wid}px)`;
+          // facultiesArr[i].classList.add("move");
+          // facultiesArr[i].style.transform = `translate(${-wid}px)`;
         }
       }
     });
 
     /**********left Arrow for slide************/
     const lftArow = document.getElementById("left");
+    const rgtArrow = document.getElementById("right");
     let move = wid + 290;
     lftArow.addEventListener("click", () => {
       for (let i = 0; i < facultiesArr.length; i++) {
         facultiesArr[i].style.transform = `translate(${-move}px)`;
 
-        facultiesArr[i].classList.add("left");
+        // facultiesArr[i].classList.add("left");
       }
       move += 290;
       let currentStep = step.current;
-      currentStep--;
+      currentStep++;
       step.current = currentStep;
       disableClick();
       console.log(move);
@@ -124,13 +131,18 @@ export default function Faculties() {
     //console.log(elements.style.transform)
     disableClick();
     function disableClick() {
-      if (step.current === 0) {
-        if (lftArow) lftArow.style.display = "none";
+      console.log(step.current, facultiesArr.length - 1);
+      if (step.current + currentStep === facultiesArr.length - 1) {
+        lftArow.style.display = "none";
         // rgtArrow.style.display = "none";
+      } else {
+        lftArow.style.display = "block";
       }
-      console.log(facultiesArr.length, step.current);
-      if (step.current === facultiesArr.length) {
-        if (rgtArrow) rgtArrow.style.display = "none";
+
+      if (step.current === 3) {
+        rgtArrow.style.display = "none";
+      } else {
+        rgtArrow.style.display = "block";
       }
       // console.log(move)
       // for(let i=0;i<facultiesArr.length;i++){
@@ -168,17 +180,20 @@ export default function Faculties() {
       //}
     }
     /***********right Arrow for slide***********/
-    const rgtArrow = document.getElementById("right");
+    for (let i = 0; i < facultiesArr.length; i++) {
+      // facultiesArr[i].style.transform = `translate(${-move}px)`;
+      facultiesArr[i].classList.add("left");
+    }
     //disableClick();
     rgtArrow.addEventListener("click", () => {
       move -= 580;
       for (let i = 0; i < facultiesArr.length; i++) {
         facultiesArr[i].style.transform = `translate(${-move}px)`;
-        facultiesArr[i].classList.add("left");
+        // facultiesArr[i].classList.add("left");
       }
       let currentStep = step.current;
-      currentStep++;
-      console.log(step);
+      currentStep--;
+
       step.current = currentStep;
       move += 290;
       disableClick();
@@ -204,7 +219,7 @@ export default function Faculties() {
             let name = item.name;
             let date = item.since;
             return (
-              <div className="faculty">
+              <div className="faculty" key={index}>
                 <div>
                   <img src={img} alt="faculity image" />
                   <h5>{name}</h5>
@@ -288,7 +303,7 @@ const FaculitiesStyle = styled.section`
     transition: 5s;
   }
   .left {
-    transform: translateX(-1050px);
-    transition: 1s;
+    /* transform: translateX(-1050px);
+    transition: 1s; */
   }
 `;

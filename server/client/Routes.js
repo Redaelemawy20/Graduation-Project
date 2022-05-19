@@ -26,6 +26,11 @@ import App from "./App";
 import AddUser from "./Pages/AddUser";
 import Users from "./Pages/Users";
 import EditUser from "./Pages/EditUser";
+import AddRole from "./Pages/AddRole";
+import EditRole from "./Pages/EditRole";
+import Roles from "./Pages/Roles";
+import Profile from "./Pages/Profile";
+import ResetPassword from "./Pages/ResetPassword";
 
 export let routeObj = [
   {
@@ -34,7 +39,7 @@ export let routeObj = [
     children: [
       {
         path: "/",
-        element: <Home />,
+        ...Home,
       },
       {
         path: "/tour",
@@ -48,6 +53,14 @@ export let routeObj = [
         path: "/dashboard",
         element: <Dashboard />,
         children: [
+          {
+            path: "/dashboard/profile",
+            element: <Profile />,
+          },
+          {
+            path: "/dashboard/profile/reset-password",
+            element: <ResetPassword />,
+          },
           {
             path: "/dashboard/news",
             ...News,
@@ -69,8 +82,20 @@ export let routeObj = [
             ...AddUser,
           },
           {
+            path: "/dashboard/roles",
+            ...Roles,
+          },
+          {
             path: "/dashboard/users/:id/edit",
             ...EditUser,
+          },
+          {
+            path: "/dashboard/roles/create",
+            ...AddRole,
+          },
+          {
+            path: "/dashboard/roles/:id/edit",
+            ...EditRole,
           },
         ],
       },

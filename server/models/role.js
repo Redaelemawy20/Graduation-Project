@@ -12,6 +12,9 @@ export default (sequelize, DataTypes) => {
       this.belongsToMany(models.Permission, {
         through: models.RolePermission,
       });
+      this.hasMany(models.User, {
+        onDelete: "SET NULL",
+      });
     }
   }
   Role.init(

@@ -4,7 +4,9 @@
     "password": "",
     "database": "mu",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false,
+    "apiEndPoint": "http://localhost:3000/api"
   },
   "test": {
     "username": "root",
