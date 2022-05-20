@@ -12,6 +12,7 @@ const TableBody = ({ rows, columns, actions }) => {
             cells={getCells(row)}
             key={index}
             id={row.id}
+            index={index}
             actions={actions}
           />
         );

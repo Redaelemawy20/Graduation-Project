@@ -13,7 +13,6 @@ const Users = ({ data }) => {
 };
 async function getUsers() {
   const { data } = await httpService.get("/user/");
-  console.log(data);
   return { data };
 }
 function loadData() {

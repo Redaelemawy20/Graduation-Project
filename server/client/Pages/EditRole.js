@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import httpService from "../../services/httpService";
 import DataLoad from "../components/common/DataLoad";
 import RoleForm from "../components/dashboard/RoleForm";
@@ -10,11 +11,16 @@ const EditRole = ({ data }) => {
   useEffect(async () => {
     const { data } = await getRoleData(id);
     setState(data);
-  }, []);
+  }, [data]);
   const handleSubmit = async (payload) => {
-    console.log(payload);
-    const { data } = await httpService.post(`/role/${id}/edit`, payload);
-    console.log(data);
+    try {
+      const { data } = await httpService.post(`/role/${id}/edit`, payload);
+      toast.success("role updated sucessfully");
+    } catch (error) {
+      if (error.response.data.message) toast.error(error.response.data.message);
+      else toast.error("falid to updated try agian !!");
+      throw error;
+    }
   };
   return state ? <RoleForm data={state} onSave={handleSubmit} /> : <DataLoad />;
 };

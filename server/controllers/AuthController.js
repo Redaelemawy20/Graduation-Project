@@ -20,7 +20,7 @@ async function login(req, res) {
 
 async function logout(req, res) {
   req.session.destroy((err) => {
-    if (err) res.status(404).send("no user to log out");
+    if (err) return res.status(404).send({ message: "no user to log out" });
     return res.send("user logged out");
   });
 }
@@ -30,12 +30,14 @@ async function reset(req, res) {
   const old = user.password;
   const claimedPassword = req.body.old;
   if (old !== claimedPassword) {
-    return res.status(401).send("your current password is not correct");
+    return res
+      .status(401)
+      .send({ message: "your current password is not correct" });
   }
 
   await user.update({ password: req.body.new });
   req.session.destroy((err) => {
-    if (err) res.status(404).send("no user to log out");
+    if (err) res.status(404).send({ message: "no user to log out" });
     return res.send("what do you see");
   });
 }

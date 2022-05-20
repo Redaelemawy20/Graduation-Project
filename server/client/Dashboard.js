@@ -24,22 +24,19 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <script src="https://unpkg.com/@tabler/core@1.0.0-beta8/dist/js/tabler.min.js"></script>
+      <script src="http://localhost:3000/tabler.min.js"></script>
+      <link rel="stylesheet" href="http://localhost:3000/tabler.min.css" />
       <link
         rel="stylesheet"
-        href="https://unpkg.com/@tabler/core@1.0.0-beta8/dist/css/tabler.min.css"
+        href="http://localhost:3000/tabler-flags.min.css"
       />
       <link
         rel="stylesheet"
-        href="https://unpkg.com/@tabler/core@1.0.0-beta8/dist/css/tabler-flags.min.css"
+        href="http://localhost:3000/tabler-payments.min.css"
       />
       <link
         rel="stylesheet"
-        href="https://unpkg.com/@tabler/core@1.0.0-beta8/dist/css/tabler-payments.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/@tabler/core@1.0.0-beta8/dist/css/tabler-vendors.min.css"
+        href="http://localhost:3000/tabler-vendors.min.css"
       />
     </>
   );

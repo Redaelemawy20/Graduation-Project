@@ -1,6 +1,5 @@
 import React from "react";
-import { FiEdit } from "react-icons/fi";
-const UserCard = ({ user, footer }) => {
+const UserCard = ({ user, footer, active = false }) => {
   const getNameIntials = () => {
     let name = user.name;
     let rgx = new RegExp(/(\p{L}{1})\p{L}+/, "gu");
@@ -15,7 +14,11 @@ const UserCard = ({ user, footer }) => {
   };
   console.log(user);
   return (
-    <div className="card col-md-6 col-lg-4 m-2 ">
+    <div
+      className={`card col-md-6 col-lg-4 m-2 border ${
+        active ? "border-info" : ""
+      }`}
+    >
       <div className="card-body p-4 text-center">
         {user.avatar ? (
           <span
@@ -35,9 +38,9 @@ const UserCard = ({ user, footer }) => {
         </h3>
         <div className="text-muted">{user.bio ? user.bio : "..."}</div>
         <div className="mt-3">
-          {user.role ? (
+          {user.Role ? (
             <span className="badge bg-green-lt text-capitalize">
-              {user.role.name}
+              {user.Role.name}
             </span>
           ) : (
             ""
@@ -47,10 +50,11 @@ const UserCard = ({ user, footer }) => {
       <div className="d-flex">
         {footer.map((link, index) => (
           <a
-            className="card-btn"
             href={link.href}
+            className="card-btn"
             key={index}
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               link.onclick && link.onclick();
             }}
           >

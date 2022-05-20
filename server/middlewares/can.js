@@ -9,11 +9,15 @@ function can(claimedPermission) {
       if (!can) {
         return res
           .status(401)
-          .send(`your don't have the permission to ${claimedPermission}`);
+          .send({
+            message: `your don't have the permission to ${claimedPermission}`,
+          });
       }
       return next();
     }
-    return res.status(401).send("we don't know you please login first");
+    return res
+      .status(401)
+      .send({ message: "we don't know you please login first" });
   };
 }
 export default can;
