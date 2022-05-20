@@ -17,6 +17,7 @@ export default (sequelize, DataTypes) => {
   Permission.init(
     {
       name: DataTypes.STRING,
+      description: DataTypes.STRING,
     },
     {
       sequelize,

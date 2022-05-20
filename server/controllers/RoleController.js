@@ -50,7 +50,7 @@ async function edit(req, res) {
     let x = {
       id: permission.id,
       name: permission.name,
-      description: "until we put description",
+      description: permission.description,
     };
     if (found) x.checked = true;
     permissions.push(x);

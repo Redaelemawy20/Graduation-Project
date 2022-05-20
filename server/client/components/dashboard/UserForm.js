@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import ImageUploadPerview from "../common/ImageUploadPerview";
 import Input from "../common/Input";
-const UserForm = ({ data, onSave }) => {
-  const [state, setState] = useState({
+const UserForm = ({ data, onSave, auth }) => {
+  const temp = {
     user: {
+      id: data.user ? data.user.id : 0,
       name: data.user ? data.user.name : "",
       email: data.user ? data.user.email : "",
+      bio: data.user ? data.user.bio : "",
       role: data.user ? data.user.RoleId : 3,
       image: {
         perview:
@@ -15,13 +19,15 @@ const UserForm = ({ data, onSave }) => {
       },
     },
     roles: data.roles,
-  });
+  };
+  const [state, setState] = useState(temp);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
   const validateAll = () => {
     const errors = {};
     let foundErrors;
     Object.keys(state.user).map((key) => {
-      if (!state.user[key]) {
+      if (!state.user[key] && key !== "bio") {
         errors[key] = key + " not allowed to be empty";
         foundErrors = true;
       }
@@ -31,7 +37,7 @@ const UserForm = ({ data, onSave }) => {
   const handleChange = ({ target: input }) => {
     const errors = {};
     const { name, value } = input;
-    if (!value) errors[name] = name + " can not be empty";
+    if (!value && name !== "bio") errors[name] = name + " can not be empty";
     setErrors(errors);
     setState({ ...state, user: { ...state.user, [name]: value } });
   };
@@ -49,10 +55,11 @@ const UserForm = ({ data, onSave }) => {
   };
   function getPayload() {
     let formData = new FormData();
-    const { name, email, role, image } = state.user;
+    const { name, email, role, image, bio } = state.user;
     formData.append("name", name);
     formData.append("email", email);
     formData.append("role", role);
+    formData.append("bio", bio);
     formData.append("avatar", image.data);
     return formData;
   }
@@ -63,8 +70,13 @@ const UserForm = ({ data, onSave }) => {
       setErrors(errors);
       return;
     }
-    console.log(state.user);
-    onSave(getPayload());
+    console.log("saving");
+    try {
+      await onSave(getPayload());
+      navigate("/dashboard/users/");
+    } catch (error) {
+      setState(temp);
+    }
   };
 
   return (
@@ -83,6 +95,16 @@ const UserForm = ({ data, onSave }) => {
         value={state.user.name}
       />
       <Input
+        label="Bio"
+        name="bio"
+        error={errors.bio}
+        rest={{
+          type: "bio",
+        }}
+        onChange={handleChange}
+        value={state.user.bio}
+      />
+      <Input
         label="User Email"
         name="email"
         error={errors.email}
@@ -92,21 +114,25 @@ const UserForm = ({ data, onSave }) => {
         onChange={handleChange}
         value={state.user.email}
       />
-      <div className="m-3">
-        <label className="form-label">Select</label>
-        <select
-          className="form-select form-control"
-          value={state.user.role}
-          name="role"
-          onChange={handleChange}
-        >
-          {state.roles.map((role) => (
-            <option key={role.id} value={role.id}>
-              {role.name}
-            </option>
-          ))}
-        </select>
-      </div>
+      {state.user.role !== 1 && auth.id !== state.user.id ? (
+        <div className="m-3">
+          <label className="form-label">Select</label>
+          <select
+            className="form-select form-control"
+            value={state.user.role}
+            name="role"
+            onChange={handleChange}
+          >
+            {state.roles.map((role) => (
+              <option key={role.id} value={role.id}>
+                {role.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      ) : (
+        ""
+      )}
 
       <div className="form-footer m-3">
         <button type="submit" className="btn btn-primary">
@@ -116,5 +142,8 @@ const UserForm = ({ data, onSave }) => {
     </form>
   );
 };
-
-export default UserForm;
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+const Element = connect(mapStateToProps, null)(UserForm);
+export default Element;

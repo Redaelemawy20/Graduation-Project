@@ -29,7 +29,7 @@ function create(req, res) {
 async function store(req, res) {
   const { mainImage } = req.files;
 
-  const imageFileName = mainImage[0].filename;
+  const imageFileName = mainImage ? mainImage[0].filename : "";
 
   const imagePath = path.join("news", "mainImage", imageFileName);
   const { title, content, show } = req.body;

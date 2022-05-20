@@ -3,38 +3,32 @@ import NewsForm from "../components/dashboard/NewsForm";
 import { useParams } from "react-router-dom";
 import httpService from "../../services/httpService";
 import DataLoad from "../components/common/DataLoad";
+import { toast } from "react-toastify";
 const EditNews = (props) => {
-  console.log("props", props.data);
   let intial_data = null;
   if (props.data) intial_data = props.data.feed;
   const { id } = useParams();
+
   const [data, setData] = useState(intial_data);
+
   useEffect(async () => {
     let result = [];
-    console.log("excuting", id);
     try {
       result = await httpService.get(`/news/${id}/edit`);
-      setData(result.data.feed);
     } catch (error) {
       console.log(error);
     }
-    return () => {
-      console.log("deleted");
-    };
   }, []);
-  useEffect(() => {
-    console.log("state updated");
-  }, [data]);
   const handleSubmit = async (payload) => {
     payload.append("id", id);
     try {
-      const response = await httpService
-        .put(`/news/${id}/update`, payload)
-        .then((result) => {
-          console.log(result.data);
-        });
+      const response = await httpService.put(`/news/${id}/update`, payload);
+      toast.success("updated sucessfully");
     } catch (error) {
-      console.log(error);
+      if (error.response.data.message) toast.error(error.response.data.message);
+      else toast.error("falid to update try agian !!");
+
+      throw error;
     }
   };
 
