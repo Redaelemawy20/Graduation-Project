@@ -97,7 +97,7 @@ app.get("/*", (req, res) => {
     promises = matchedRoutes.map(({ route, params }) => {
       return (
         route.loadData &&
-        // store.dispatch(setLoading(true)) &&
+        store.dispatch(setLoading(true)) &&
         route.loadData(store, params)
       );
     });

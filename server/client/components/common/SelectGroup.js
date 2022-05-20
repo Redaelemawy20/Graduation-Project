@@ -19,7 +19,7 @@ const SelectGroup = ({ label, items = [], onToggle }) => {
               <div className="form-selectgroup-label-content d-flex align-items-center">
                 <div>
                   <div className="font-weight-medium">{item.name}</div>
-                  <div className="text-muted">{item.createdAt}</div>
+                  <div className="text-muted">{item.description ?? "..."}</div>
                 </div>
               </div>
             </div>

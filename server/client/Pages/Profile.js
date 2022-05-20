@@ -11,14 +11,6 @@ const Profile = ({ auth }) => {
   let navigate = useNavigate();
 
   const footerLinks = [
-    // {
-    //   href: "mailto:reda@sample.com?",
-    //   text: "Call",
-    //   icon: <FiEdit className="m-2" />,
-    //   rest: {
-    //     subject: "welcome",
-    //   },
-    // },
     {
       href: "",
       onclick: () => {

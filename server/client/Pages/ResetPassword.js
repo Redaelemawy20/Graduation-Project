@@ -1,17 +1,20 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import httpService from "../../services/httpService";
+import { fetchCurrentUser } from "../actions";
 import Input from "../components/common/Input";
-const ResetPassword = () => {
+const ResetPassword = ({ fetchCurrentUser }) => {
   const [state, setState] = useState({
     old: "",
     new: "",
   });
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
   const handleChange = ({ target: input }) => {
     const errors = {};
     const { name, value } = input;
-    console.log(value.length + "d");
-
     if (value.length < 5) errors.old = " Password must be more than 5 chars";
     setErrors(errors);
     setState({ ...state, [name]: value });
@@ -27,8 +30,17 @@ const ResetPassword = () => {
       errors.old = "old and new passowrd are the same";
       return setErrors(errors);
     }
-    const { data } = await httpService("/auth/reset-password", { ...state });
-    console.log(data);
+    try {
+      const { data } = await httpService.post("/auth/reset-password", {
+        ...state,
+      });
+      toast.success("password changed successfully");
+      fetchCurrentUser();
+      navigate("/login");
+    } catch (error) {
+      if (error.response.data.message) toast.error(error.response.data.message);
+      else toast.error("failed to change password");
+    }
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -55,4 +67,5 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+const Element = connect(null, { fetchCurrentUser })(ResetPassword);
+export default Element;

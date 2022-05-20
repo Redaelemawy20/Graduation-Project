@@ -31,6 +31,7 @@ import EditRole from "./Pages/EditRole";
 import Roles from "./Pages/Roles";
 import Profile from "./Pages/Profile";
 import ResetPassword from "./Pages/ResetPassword";
+import Friends from "./Pages/Friends";
 
 export let routeObj = [
   {
@@ -56,6 +57,10 @@ export let routeObj = [
           {
             path: "/dashboard/profile",
             element: <Profile />,
+          },
+          {
+            path: "/dashboard/friends",
+            ...Friends,
           },
           {
             path: "/dashboard/profile/reset-password",

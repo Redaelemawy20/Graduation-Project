@@ -1,5 +1,6 @@
 import express from "express";
 import NewsContrller from "../controllers/NewsController";
+import can from "../middlewares/can";
 const router = express.Router();
 
 const { newsStorage } = require("../util/multerStorage");
@@ -10,6 +11,7 @@ router.get("/create", NewsContrller.create);
 
 router.post(
   "/create",
+  can("manage news"),
   newsStorage.fields([
     {
       name: "mainImage",
@@ -27,6 +29,7 @@ router.get("/:id/edit", NewsContrller.edit);
 
 router.put(
   "/:id/update",
+  can("manage new"),
   newsStorage.fields([
     {
       name: "mainImage",

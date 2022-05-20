@@ -1,22 +1,28 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import httpService from "../../services/httpService";
 import DataLoad from "../components/common/DataLoad";
 import UserForm from "../components/dashboard/UserForm";
-const AddUser = ({ data }) => {
+import { can } from "../reducers/authReducer";
+
+const AddUser = ({ data, auth }) => {
   const [state, setState] = useState(data);
+  const navigate = useNavigate();
   useEffect(async () => {
+    if (!can(auth, "manage users")) navigate("/dashboard/profile");
     const { data } = await getAddUserData();
     setState(data);
   }, []);
   const handleSubmit = async (payload) => {
     try {
       const { data: message } = await httpService.post("/user/create", payload);
-      toast.success(message);
-      setState(data);
+      toast.success("user add sucessfully");
     } catch (error) {
-      toast.error(error.response.data);
+      if (error.response.data.message) toast.error(error.response.data.message);
+      else toast.error("falid to add try agian !!");
+      throw error;
     }
   };
   return state ? <UserForm data={state} onSave={handleSubmit} /> : <DataLoad />;
@@ -32,5 +38,8 @@ async function getAddUserData() {
 async function loadData() {
   return getAddUserData();
 }
-
-export default { element: <AddUser />, loadData };
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+const Element = connect(mapStateToProps, null)(AddUser);
+export default { element: <Element />, loadData };
