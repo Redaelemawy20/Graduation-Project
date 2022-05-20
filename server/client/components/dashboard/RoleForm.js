@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Input from "../common/Input";
 import SelectGroup from "../common/SelectGroup";
 const RoleForm = ({ onSave, data = {} }) => {
-  const [state, setState] = useState({
+  const temp = {
     name: data.role ? data.role.name : "",
     permissions: data.permissions,
-  });
+  };
+  const [state, setState] = useState(temp);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
   const toggleCheck = (id) => {
     const permissions = [...state.permissions];
     permissions[id].checked = !permissions[id].checked;
@@ -37,7 +40,12 @@ const RoleForm = ({ onSave, data = {} }) => {
       setErrors(errors);
       return;
     }
-    onSave({ ...state });
+    try {
+      await onSave({ ...state });
+      navigate("/dashboard/roles");
+    } catch (error) {
+      setState(temp);
+    }
   };
   return (
     <form onSubmit={handleSubmit}>

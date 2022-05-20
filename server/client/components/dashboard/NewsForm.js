@@ -5,9 +5,10 @@ import ImageUploadPerview from "../common/ImageUploadPerview";
 import Input from "../common/Input";
 import TextArea from "../common/TextArea";
 import File from "../common/File";
+import { useNavigate } from "react-router-dom";
 
 const NewsForm = ({ data, onSave }) => {
-  const news = data || {
+  const temp = {
     id: "",
     feed_id: "",
     title: "",
@@ -20,10 +21,11 @@ const NewsForm = ({ data, onSave }) => {
     updatedAt: "",
     Files: [],
   };
-  console.log("news", news);
+  const news = data || temp;
   const [state, setState] = useState(news);
   const [errors, setErrors] = useState({});
   const [deletedFiles, setDeletedFiles] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     setState(news);
   }, [data]);
@@ -56,7 +58,7 @@ const NewsForm = ({ data, onSave }) => {
     }
     return errors;
   };
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
     // validation
     const errors = validateAll();
@@ -69,7 +71,10 @@ const NewsForm = ({ data, onSave }) => {
     // get request payload
     const payload = getPayload();
     // save form
-    onSave(payload, deletedFiles);
+    try {
+      await onSave(payload, deletedFiles);
+      navigate("/dashboard/news/");
+    } catch (error) {}
   };
   const validateField = ({ name, value }) => {
     const subSchema = Joi.object().keys({ [name]: newsSchema[name] });

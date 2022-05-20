@@ -15,7 +15,7 @@ export default async (req, res, next) => {
     };
     const userRole = await user.getRole();
     const userPermissions = await userRole.getPermissions();
-    currentUser.role = userRole;
+    currentUser.Role = userRole;
     currentUser.permissions = userPermissions;
     req.user = currentUser;
   }
