@@ -11,9 +11,9 @@ export default function Digitaltransformation() {
       const caption = document.getElementById("caption");
       const section = document.getElementById("display");
       let height = window.pageYOffset;
-      // console.log(height);
-      if (height >= 3100) caption.classList.add("cap-ani");
-      if (height >= 3200) section.classList.add("sec-ani");
+       console.log(height);
+      if (height >= 3300) caption.classList.add("cap-ani");
+      if (height >= 3400) section.classList.add("sec-ani");
     });
   }, []);
   return (
