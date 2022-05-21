@@ -120,6 +120,7 @@ export default function Faculties() {
     }
 
     window.addEventListener("scroll", () => {
+      console.log("scroll called");
       let height = window.pageYOffset;
       if (height >= 2680) {
         for (let i = 0; i < facultiesArr.length; i++) {
@@ -131,6 +132,7 @@ export default function Faculties() {
 
     /**********left Arrow for slide************/
     const lftArow = document.getElementById("left");
+    const rgtArrow = document.getElementById("right");
     let move = wid + 290;
     lftArow.addEventListener("click", () => {
       for (let i = 0; i < facultiesArr.length; i++) {
@@ -177,13 +179,13 @@ export default function Faculties() {
       //}
     }
     /***********right Arrow for slide***********/
-    const rgtArrow = document.getElementById("right");
+
     disableClick();
     rgtArrow.addEventListener("click", () => {
       move -= 580;
       for (let i = 0; i < facultiesArr.length; i++) {
         facultiesArr[i].style.transform = `translate(${-move}px)`;
-        facultiesArr[i].classList.add("left");
+        // facultiesArr[i].classList.add("left");
       }
       move += 290;
       disableClick();

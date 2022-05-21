@@ -2,11 +2,11 @@ import { useRoutes } from "react-router-dom";
 import Home from "./Pages/HomePage";
 import Tour from "./Pages/Tour";
 import Dashboard from "./Dashboard";
-// import News from "./Pages/News";
-import News from "./components/Home_Page/News.jsx";
+import News from "./Pages/News";
 import AddNews from "./Pages/AddNews";
 import EditNews from "./Pages/EditNews";
 import Engineering from "./components/faculties/engineering/Engineering";
+
 import Login from "./Login/Login.jsx";
 /************imports of university president sector************/
 import UniversityPresident from "./components/Sectors/PresidentSector/UniversityPresident.jsx";
@@ -22,6 +22,16 @@ import Planning from "./components/Sectors/PresidentSector/Planning.jsx";
 import Security from "./components/Sectors/PresidentSector/Security.jsx";
 import ProjectsManagement from "./components/Sectors/PresidentSector/ProjectsManagement.jsx";
 import QulityAssurance from "./components/Sectors/PresidentSector/QulityAssurance.jsx";
+import App from "./App";
+import AddUser from "./Pages/AddUser";
+import Users from "./Pages/Users";
+import EditUser from "./Pages/EditUser";
+import AddRole from "./Pages/AddRole";
+import EditRole from "./Pages/EditRole";
+import Roles from "./Pages/Roles";
+import Profile from "./Pages/Profile";
+import ResetPassword from "./Pages/ResetPassword";
+import Friends from "./Pages/Friends";
 /**************imports of deputy education sector *************/
 import DeputyEducation from "./components/Sectors/Deputy education and student/DeputyEducation.jsx";
 import RegisteryManagement from "./components/Sectors/Deputy education and student/RegisteryManagement.jsx";
@@ -80,370 +90,477 @@ import SecretaryGeneral from "./components/Sectors/SecretaryGeneral.jsx";
 import Allnews from "./components/News/Allnews.jsx";
 import Newsdynamic from "./components/Home_Page/Newsdynamic.jsx";
 /********imports of About University*******/
-import CodeofConductandEthicsforthePublicWork from './components/Home_Page/About/CodeofConductandEthicsforthePublicWork'
-import Formationoftheuniversitycouncil from './components/Home_Page/About/Formationoftheuniversitycouncil'
-import Formeruniversitypresidents from './components/Home_Page/About/Formeruniversitypresidents'
-import ThesearefromMenoufiaUniversity from './components/Home_Page/About/ThesearefromMenoufiaUniversity'
-import UndergraduateStudentCharter from './components/Home_Page/About/UndergraduateStudentCharter'
-import Universitygoals from './components/Home_Page/About/Universitygoals'
-import Universityinception from './components/Home_Page/About/Universityinception'
-import Universitymessage from './components/Home_Page/About/Universitymessage'
-import Universitystrategy from './components/Home_Page/About/Universitystrategy'
-import Universityvision from './components/Home_Page/About/Universityvision'
+import CodeofConductandEthicsforthePublicWork from "./components/Home_Page/About/CodeofConductandEthicsforthePublicWork";
+import Formationoftheuniversitycouncil from "./components/Home_Page/About/Formationoftheuniversitycouncil";
+import Formeruniversitypresidents from "./components/Home_Page/About/Formeruniversitypresidents";
+import ThesearefromMenoufiaUniversity from "./components/Home_Page/About/ThesearefromMenoufiaUniversity";
+import UndergraduateStudentCharter from "./components/Home_Page/About/UndergraduateStudentCharter";
+import Universitygoals from "./components/Home_Page/About/Universitygoals";
+import Universityinception from "./components/Home_Page/About/Universityinception";
+import Universitymessage from "./components/Home_Page/About/Universitymessage";
+import Universitystrategy from "./components/Home_Page/About/Universitystrategy";
+import Universityvision from "./components/Home_Page/About/Universityvision";
+import ViewUser from "./Pages/ViewUser";
 
 export let routeObj = [
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/tour",
-    element: <Tour />,
-  },
-  {
-    path: "/engineering",
-    element: <Engineering />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
+    ...App,
     children: [
       {
-        path: "/dashboard/news",
-        ...News,
+        path: "/",
+        ...Home,
       },
       {
-        path: "/dashboard/news/create",
-        element: <AddNews />,
+        path: "/tour",
+        element: <Tour />,
       },
       {
-        path: "/dashboard/news/:id/edit",
-        ...EditNews,
+        path: "/engineering",
+        element: <Engineering />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+        children: [
+          {
+            path: "/dashboard/profile",
+            element: <Profile />,
+          },
+          {
+            path: "/dashboard/friends",
+            ...Friends,
+          },
+          {
+            path: "/dashboard/profile/reset-password",
+            element: <ResetPassword />,
+          },
+          {
+            path: "/dashboard/news",
+            ...News,
+          },
+          {
+            path: "/dashboard/news/create",
+            element: <AddNews />,
+          },
+          {
+            path: "/dashboard/news/:id/edit",
+            ...EditNews,
+          },
+          {
+            path: "/dashboard/users",
+            ...Users,
+          },
+          {
+            path: "/dashboard/users/create",
+            ...AddUser,
+          },
+          {
+            path: "/dashboard/roles",
+            ...Roles,
+          },
+          {
+            path: "/dashboard/users/:id/edit",
+            ...EditUser,
+          },
+          {
+            path: "/dashboard/users/:id/view",
+            ...ViewUser,
+          },
+          {
+            path: "/dashboard/roles/create",
+            ...AddRole,
+          },
+          {
+            path: "/dashboard/roles/:id/edit",
+            ...EditRole,
+          },
+        ],
+      },
+      {
+        path: "/RegisteryManagement",
+        element: <RegisteryManagement />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/UniversityPresident",
+        element: <UniversityPresident />,
+      },
+      {
+        path: "/OrganizationalStructure",
+        element: <OrganizationalStructure />,
+      },
+      {
+        path: "/SubDepartments",
+        element: <SubDepartments />,
+      },
+      {
+        path: "/VisionandMessage",
+        element: <VisionandMessage />,
+      },
+      {
+        path: "/Datacenter",
+        element: <DataCenter />,
+      },
+      {
+        path: "/Legalaffairs",
+        element: <LegalAffairs />,
+      },
+      {
+        path: "/Organizationandmanagement",
+        element: <OrganizationandManagement />,
+      },
+      {
+        path: "/PublicRelationandMedia",
+        element: <PublicRelationsandmedia />,
+      },
+      {
+        path: "/TechnicalInspection",
+        element: <TechnicalInspection />,
+      },
+      {
+        path: "/Planning",
+        element: <Planning />,
+      },
+      {
+        path: "/Security",
+        element: <Security />,
+      },
+      {
+        path: "/ProjectsManagement",
+        element: <ProjectsManagement />,
+      },
+      {
+        path: "/QulityAssurance",
+        element: <QulityAssurance />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/UniversityPresident",
+        element: <UniversityPresident />,
+      },
+      {
+        path: "/OrganizationalStructure",
+        element: <OrganizationalStructure />,
+      },
+      {
+        path: "/SubDepartments",
+        element: <SubDepartments />,
+      },
+      {
+        path: "/VisionandMessage",
+        element: <VisionandMessage />,
+      },
+      {
+        path: "/Datacenter",
+        element: <DataCenter />,
+      },
+      {
+        path: "/Legalaffairs",
+        element: <LegalAffairs />,
+      },
+      {
+        path: "/Organizationandmanagement",
+        element: <OrganizationandManagement />,
+      },
+      {
+        path: "/PublicRelationandMedia",
+        element: <PublicRelationsandmedia />,
+      },
+      {
+        path: "/TechnicalInspection",
+        element: <TechnicalInspection />,
+      },
+      {
+        path: "/Planning",
+        element: <Planning />,
+      },
+      {
+        path: "/Security",
+        element: <Security />,
+      },
+      {
+        path: "/ProjectsManagement",
+        element: <ProjectsManagement />,
+      },
+      {
+        path: "/QulityAssurance",
+        element: <QulityAssurance />,
+      },
+      /***********Deputy education sector**********/
+      {
+        path: "/DeputyEducation",
+        element: <DeputyEducation />,
+      },
+      {
+        path: "/RegisteryManagement",
+        element: <RegisteryManagement />,
+      },
+      {
+        path: "/StudyAffairsAddminstration",
+        element: <StudyAffairsAdmins />,
+      },
+      {
+        path: "/ExamAddminstration",
+        element: <ExamAddminstration />,
+      },
+      {
+        path: "/Aluminimanagement",
+        element: <Aluminimanagement />,
+      },
+      {
+        path: "/OpenEducation",
+        element: <OpenEducation />,
+      },
+      {
+        path: "/OrganizingRegulation",
+        element: <OrganizingRegulation />,
+      },
+      {
+        path: "/CallUs",
+        element: <CallUs />,
+      },
+      {
+        path: "/OrganizationalStructureDeputy",
+        element: <OrganizationalStructureDeputy />,
+      },
+      {
+        path: "/SubCitiesAddminstration",
+        element: <SubCitiesAdminstration />,
+      },
+      {
+        path: "/SpecialUnits",
+        element: <SpecialUnits />,
+      },
+      {
+        path: "/ServiceandActivities",
+        element: <ServiceandActivites />,
+      },
+      {
+        path: "/CitiesGuide",
+        element: <CitiesGuide />,
+      },
+      {
+        path: "/OrganizationalStructureYouth",
+        element: <OraganizationalStructureYouth />,
+      },
+      {
+        path: "/YouthWelfareDep",
+        element: <YouthWelfareDep />,
+      },
+      {
+        path: "/OrganizingRegulationYouth",
+        element: <OrganizingRegulationYouth />,
+      },
+      {
+        path: "/CallUsYouth",
+        element: <CallUsYouth />,
+      },
+      {
+        path: "/organizationalstrucure",
+        element: <OrganizationalStructureMedical />,
+      },
+      {
+        path: "/aboutaddminstration",
+        element: <AboutAddminstration />,
+      },
+      {
+        path: "/subdepartments",
+        element: <SubDepartmentsMedical />,
+      },
+      {
+        path: "callusmedical",
+        element: <CallUsMedical />,
+      },
+      /***********postgraduate research sector************/
+      {
+        path: "/PostgraduateAndResearch",
+        element: <PostGraduateAndResearch />,
+      },
+      {
+        path: "/organizationalstructurepost",
+        element: <OrganizationalStructurePost />,
+      },
+      {
+        path: "organizationalstructurepost",
+        element: <OrganizationalStructurePost />,
+      },
+      {
+        path: "/organizationalstructurepost",
+        element: <OrganizationalStructurePost />,
+      },
+      {
+        path: "/organizationalstructurepost",
+        element: <OrganizationalStructurePost />,
+      },
+      {
+        path: "/visionandmessage",
+        element: <VisionAndMessagepost />,
+      },
+      {
+        path: "/sectorspecializations",
+        element: <SectorSpecializations />,
+      },
+      {
+        path: "/sectorachivements",
+        element: <SectorAchievements />,
+      },
+      {
+        path: "/sectordeputies",
+        element: <SectorDeputies />,
+      },
+      {
+        path: "/studycouncil",
+        element: <StudyCouncil />,
+      },
+      {
+        path: "/committeesoffice",
+        element: <Committeesandoffice />,
+      },
+      {
+        path: "/organizationalstructureaddmins",
+        element: <OrganizationalStructureAddmin />,
+      },
+      {
+        path: "vissionmissiongoal",
+        element: <VissionMissionGoal />,
+      },
+      {
+        path: "/generaladdminstrationscompetences",
+        element: <GeneralAddminCompetence />,
+      },
+      {
+        path: "/postgraduatestudiesmanagement",
+        element: <PostgraduateStudiesManagement />,
+      },
+      {
+        path: "/scientificresearch",
+        element: <Scientificresearch />,
+      },
+      {
+        path: "/rulesregulation",
+        element: <Rulesregulation />,
+      },
+      {
+        path: "/organizationalstructculture",
+        element: <Organizationalstructmanage />,
+      },
+      {
+        path: "/vissionmissiongoalofcultural",
+        element: <VissionMissionGoalofCulture />,
+      },
+      {
+        path: "/generaladdmincompetencies",
+        element: <GeneralAdminstrationCompetencies />,
+      },
+      {
+        path: "/scholarshipsoffecialholidays",
+        element: <Scholarshipsmissionsholidays />,
+      },
+      {
+        path: "/managingcultureagreements",
+        element: <ManagingCultureAgreements />,
+      },
+      {
+        path: "/managingofimmigrants",
+        element: <ManagingofImmigrants />,
+      },
+      {
+        path: "/rulesregulationculturalrelations",
+        element: <Rulesregulationculturalrelations />,
+      },
+      {
+        path: "/abouttheunit",
+        element: <Abouttheunit />,
+      },
+      {
+        path: "/formationoftheunits",
+        element: <Formationoftheunits />,
+      },
+      {
+        path: "boardofdirectorsdecisions",
+        element: <Boardofdirectorsdecisions />,
+      },
+      {
+        path: "/parchasingandwarehouseaddminstration",
+        element: <Purchasingandwarehouse />,
+      },
+      {
+        path: "addminstrativeaffairsdepartment",
+        element: <Addminstrativeaffairsdepartment />,
+      },
+      /*******Community&Environment Routes*****/
+      {
+        path: "/CommunityAndEnvironment",
+        element: <CommunityAndEnvironment />,
+      },
+      /*******SecretaryGeneral Routes******/
+      {
+        path: "/SecretaryGeneral",
+        element: <SecretaryGeneral />,
+      },
+      /********News********/
+      {
+        path: "/allnews",
+        element: <Allnews />,
+      },
+      {
+        path: "/news",
+        element: <News />,
+      },
+      {
+        path: "/news/:id",
+        ...Newsdynamic,
+      },
+      /*********About University Routes**********/
+      {
+        path: "/CodeofConductandEthicsforthePublicWork",
+        element: <CodeofConductandEthicsforthePublicWork />,
+      },
+      {
+        path: "/Formationoftheuniversitycouncil",
+        element: <Formationoftheuniversitycouncil />,
+      },
+      {
+        path: "/Formeruniversitypresidents",
+        element: <Formeruniversitypresidents />,
+      },
+      {
+        path: "/ThesearefromMenoufiaUniversity",
+        element: <ThesearefromMenoufiaUniversity />,
+      },
+      {
+        path: "/UndergraduateStudentCharter",
+        element: <UndergraduateStudentCharter />,
+      },
+      {
+        path: "/Universitygoals",
+        element: <Universitygoals />,
+      },
+      {
+        path: "/Universityinception",
+        element: <Universityinception />,
+      },
+      {
+        path: "/Universitymessage",
+        element: <Universitymessage />,
+      },
+      {
+        path: "/Universitystrategy",
+        element: <Universitystrategy />,
+      },
+      {
+        path: "/Universityvision",
+        element: <Universityvision />,
       },
     ],
   },
-
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/UniversityPresident",
-    element: <UniversityPresident />,
-  },
-  {
-    path: "/OrganizationalStructure",
-    element: <OrganizationalStructure />,
-  },
-  {
-    path: "/SubDepartments",
-    element: <SubDepartments />,
-  },
-  {
-    path: "/VisionandMessage",
-    element: <VisionandMessage />,
-  },
-  {
-    path: "/Datacenter",
-    element: <DataCenter />,
-  },
-  {
-    path: "/Legalaffairs",
-    element: <LegalAffairs />,
-  },
-  {
-    path: "/Organizationandmanagement",
-    element: <OrganizationandManagement />,
-  },
-  {
-    path: "/PublicRelationandMedia",
-    element: <PublicRelationsandmedia />,
-  },
-  {
-    path: "/TechnicalInspection",
-    element: <TechnicalInspection />,
-  },
-  {
-    path: "/Planning",
-    element: <Planning />,
-  },
-  {
-    path: "/Security",
-    element: <Security />,
-  },
-  {
-    path: "/ProjectsManagement",
-    element: <ProjectsManagement />,
-  },
-  {
-    path: "/QulityAssurance",
-    element: <QulityAssurance />,
-  },
-  /***********Deputy education sector**********/
-  {
-    path: "/DeputyEducation",
-    element: <DeputyEducation />,
-  },
-  {
-    path: "/RegisteryManagement",
-    element: <RegisteryManagement />,
-  },
-  {
-    path: "/StudyAffairsAddminstration",
-    element: <StudyAffairsAdmins />,
-  },
-  {
-    path: "/ExamAddminstration",
-    element: <ExamAddminstration />,
-  },
-  {
-    path: "/Aluminimanagement",
-    element: <Aluminimanagement />,
-  },
-  {
-    path: "/OpenEducation",
-    element: <OpenEducation />,
-  },
-  {
-    path: "/OrganizingRegulation",
-    element: <OrganizingRegulation />,
-  },
-  {
-    path: "/CallUs",
-    element: <CallUs />,
-  },
-  {
-    path: "/OrganizationalStructureDeputy",
-    element: <OrganizationalStructureDeputy />,
-  },
-  {
-    path: "/SubCitiesAddminstration",
-    element: <SubCitiesAdminstration />,
-  },
-  {
-    path: "/SpecialUnits",
-    element: <SpecialUnits />,
-  },
-  {
-    path: "/ServiceandActivities",
-    element: <ServiceandActivites />,
-  },
-  {
-    path: "/CitiesGuide",
-    element: <CitiesGuide />,
-  },
-  {
-    path: "/OrganizationalStructureYouth",
-    element: <OraganizationalStructureYouth />,
-  },
-  {
-    path: "/YouthWelfareDep",
-    element: <YouthWelfareDep />,
-  },
-  {
-    path: "/OrganizingRegulationYouth",
-    element: <OrganizingRegulationYouth />,
-  },
-  {
-    path: "/CallUsYouth",
-    element: <CallUsYouth />,
-  },
-  {
-    path: "/organizationalstrucure",
-    element: <OrganizationalStructureMedical />,
-  },
-  {
-    path: "/aboutaddminstration",
-    element: <AboutAddminstration />,
-  },
-  {
-    path: "/subdepartments",
-    element: <SubDepartmentsMedical />,
-  },
-  {
-    path: "callusmedical",
-    element: <CallUsMedical />,
-  },
-  /***********postgraduate research sector************/
-  {
-    path: "/PostgraduateAndResearch",
-    element: <PostGraduateAndResearch />,
-  },
-  {
-    path: "/organizationalstructurepost",
-    element: <OrganizationalStructurePost />,
-  },
-  {
-    path: "organizationalstructurepost",
-    element: <OrganizationalStructurePost />,
-  },
-  {
-    path: "/organizationalstructurepost",
-    element: <OrganizationalStructurePost />,
-  },
-  {
-    path: "/organizationalstructurepost",
-    element: <OrganizationalStructurePost />,
-  },
-  {
-    path: "/visionandmessage",
-    element: <VisionAndMessagepost />,
-  },
-  {
-    path: "/sectorspecializations",
-    element: <SectorSpecializations />,
-  },
-  {
-    path: "/sectorachivements",
-    element: <SectorAchievements />,
-  },
-  {
-    path: "/sectordeputies",
-    element: <SectorDeputies />,
-  },
-  {
-    path: "/studycouncil",
-    element: <StudyCouncil />,
-  },
-  {
-    path: "/committeesoffice",
-    element: <Committeesandoffice />,
-  },
-  {
-    path: "/organizationalstructureaddmins",
-    element: <OrganizationalStructureAddmin />,
-  },
-  {
-    path: "vissionmissiongoal",
-    element: <VissionMissionGoal />,
-  },
-  {
-    path: "/generaladdminstrationscompetences",
-    element: <GeneralAddminCompetence />,
-  },
-  {
-    path: "/postgraduatestudiesmanagement",
-    element: <PostgraduateStudiesManagement />,
-  },
-  {
-    path: "/scientificresearch",
-    element: <Scientificresearch />,
-  },
-  {
-    path: "/rulesregulation",
-    element: <Rulesregulation />,
-  },
-  {
-    path: "/organizationalstructculture",
-    element: <Organizationalstructmanage />,
-  },
-  {
-    path: "/vissionmissiongoalofcultural",
-    element: <VissionMissionGoalofCulture />,
-  },
-  {
-    path: "/generaladdmincompetencies",
-    element: <GeneralAdminstrationCompetencies />,
-  },
-  {
-    path: "/scholarshipsoffecialholidays",
-    element: <Scholarshipsmissionsholidays />,
-  },
-  {
-    path: "/managingcultureagreements",
-    element: <ManagingCultureAgreements />,
-  },
-  {
-    path: "/managingofimmigrants",
-    element: <ManagingofImmigrants />,
-  },
-  {
-    path: "/rulesregulationculturalrelations",
-    element: <Rulesregulationculturalrelations />,
-  },
-  {
-    path: "/abouttheunit",
-    element: <Abouttheunit />,
-  },
-  {
-    path: "/formationoftheunits",
-    element: <Formationoftheunits />,
-  },
-  {
-    path: "boardofdirectorsdecisions",
-    element: <Boardofdirectorsdecisions />,
-  },
-  {
-    path: "/parchasingandwarehouseaddminstration",
-    element: <Purchasingandwarehouse />,
-  },
-  {
-    path: "addminstrativeaffairsdepartment",
-    element: <Addminstrativeaffairsdepartment />,
-  },
-  /*******Community&Environment Routes*****/
-  {
-    path: "/CommunityAndEnvironment",
-    element: <CommunityAndEnvironment />,
-  },
-  /*******SecretaryGeneral Routes******/
-  {
-    path: "/SecretaryGeneral",
-    element: <SecretaryGeneral />,
-  },
-  /********News********/
-  {
-  path:"/allnews",
-  element:<Allnews/>},
-  // {
-  //   path: "/news",
-  //   element: <News />,
-  // },
-  {
-     path:'/news/:id',
-     element:<Newsdynamic/>
-  },
-  /*********About University Routes**********/
-  {
-    path:'/CodeofConductandEthicsforthePublicWork',
-    element:<CodeofConductandEthicsforthePublicWork/>
-  },
-  {
-    path:'/Formationoftheuniversitycouncil',
-    element:<Formationoftheuniversitycouncil/>
-  },
-   {
-    path:'/Formeruniversitypresidents',
-    element:<Formeruniversitypresidents/>
-  }, 
-  {
-    path:'/ThesearefromMenoufiaUniversity',
-    element:<ThesearefromMenoufiaUniversity/>
-  },
-  {
-    path:'/UndergraduateStudentCharter',
-    element:<UndergraduateStudentCharter/>
-  },
-  {
-    path:'/Universitygoals',
-    element:<Universitygoals/>
-  },
-  {
-    path:'/Universityinception',
-    element:<Universityinception/>
-  },
-  {
-    path:'/Universitymessage',
-    element:<Universitymessage/>
-  },
-  {
-    path:'/Universitystrategy',
-    element:<Universitystrategy/>
-  },
-  {
-   path:'/Universityvision',
-   element:<Universityvision/>
-  }
 ];
 function Routes() {
   let element = useRoutes(routeObj);

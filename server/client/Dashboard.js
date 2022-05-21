@@ -1,7 +1,6 @@
 import React from "react";
 import Aside from "./components/dashboard/Aside";
 import { Outlet } from "react-router-dom";
-
 function Dashboard() {
   return (
     <>
@@ -14,7 +13,7 @@ function Dashboard() {
               <div className="col-12">
                 <div className="card card-lg">
                   <div className="card-header">
-                    <h3 className="card-title">title</h3>
+                    <h3 className="card-title">Dashboard</h3>
                   </div>
                   <div>
                     <Outlet />
@@ -25,22 +24,19 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <script src="https://unpkg.com/@tabler/core@1.0.0-beta8/dist/js/tabler.min.js"></script>
+      <script src="http://localhost:3000/tabler.min.js"></script>
+      <link rel="stylesheet" href="http://localhost:3000/tabler.min.css" />
       <link
         rel="stylesheet"
-        href="https://unpkg.com/@tabler/core@1.0.0-beta8/dist/css/tabler.min.css"
+        href="http://localhost:3000/tabler-flags.min.css"
       />
       <link
         rel="stylesheet"
-        href="https://unpkg.com/@tabler/core@1.0.0-beta8/dist/css/tabler-flags.min.css"
+        href="http://localhost:3000/tabler-payments.min.css"
       />
       <link
         rel="stylesheet"
-        href="https://unpkg.com/@tabler/core@1.0.0-beta8/dist/css/tabler-payments.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/@tabler/core@1.0.0-beta8/dist/css/tabler-vendors.min.css"
+        href="http://localhost:3000/tabler-vendors.min.css"
       />
     </>
   );

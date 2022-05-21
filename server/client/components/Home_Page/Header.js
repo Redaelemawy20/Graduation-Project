@@ -9,9 +9,37 @@ import Lamp from "../Images/lamp.png";
 import EgyFlag from "../Images/EG-Flag.png";
 import EngFlag from "../Images/EN-Flag.png";
 import "../Home_Page/Addinstrations.css";
-export default function Header(props) {
-  const{fName,lName}=props.text;
-   console.log(props)
+import { connect } from "react-redux";
+import { fetchCurrentUser } from "../../actions";
+import httpService from "../../../services/httpService";
+function Header({ auth, fetchCurrentUser, text }) {
+  const { fName, lName } = text;
+  async function logout() {
+    try {
+      await httpService.post("/auth/logout");
+      fetchCurrentUser();
+    } catch (error) {}
+  }
+  function authStatus() {
+    switch (auth) {
+      case null:
+        return <div>Loading...</div>;
+      case false:
+        return (
+          <Link to="/login" id="log">
+            Login
+            <FiLogIn className="Icon-log" />
+          </Link>
+        );
+      default:
+        return (
+          <button to="/login" id="log" onClick={logout}>
+            Logout
+            <FiLogIn className="Icon-log" />
+          </button>
+        );
+    }
+  }
   return (
     <div className="header">
       <div className="cont">
@@ -19,7 +47,7 @@ export default function Header(props) {
           <img src={logo} alt="logo" />
           <div className="dis-coll">
             <p className="fName">{fName}</p>
-            
+
             <p>{lName}</p>
           </div>
         </div>
@@ -31,12 +59,7 @@ export default function Header(props) {
             </p>
             <div className="dis--row">
               <ul className="mainul">
-                <li>
-                  <Link to="/login" id="log">
-                    Login
-                    <FiLogIn className="Icon-log" />
-                  </Link>
-                </li>
+                <li>{authStatus()}</li>
                 <li>
                   <a>AR</a>
                   <img src={EgyFlag} alt="" className="flag" />
@@ -62,3 +85,8 @@ export default function Header(props) {
     </div>
   );
 }
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+let Element = connect(mapStateToProps, { fetchCurrentUser })(Header);
+export default Element;
