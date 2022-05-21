@@ -1,14 +1,14 @@
 const path = require("path");
 const fs = require("fs");
 
-const File = require("../database/models/File");
-const Feed = require("../database/models/Feed");
+const File = require("../models").File;
+const Feed = require("../models").Feed;
+const User = require("../models").User;
 let options = require("../util/viewsOptions");
 
 options.activeMenu = "news";
 async function index(req, res) {
-  const allNews = await Feed.findAll();
-
+  const allNews = await Feed.findAll({ include: User });
   return res.send({
     ...options,
     title: "all news",
@@ -26,7 +26,7 @@ function create(req, res) {
 async function store(req, res) {
   const { mainImage } = req.files;
 
-  const imageFileName = mainImage[0].filename;
+  const imageFileName = mainImage ? mainImage[0].filename : "";
 
   const imagePath = path.join("news", "mainImage", imageFileName);
   const { title, content, show } = req.body;
@@ -36,6 +36,7 @@ async function store(req, res) {
     title,
     content,
     show,
+    UserId: req.user.id,
     mainImage: imagePath,
   });
   try {
@@ -52,7 +53,7 @@ async function edit(req, res) {
   const feed = await Feed.findByPk(id);
   const files = await File.findAll({
     where: {
-      feedId: id,
+      FeedId: id,
     },
   });
 
@@ -155,7 +156,7 @@ async function saveFiles(req, feedId) {
       let new_file = File.build({
         originalname,
         name,
-        feedId,
+        FeedId: feedId,
       });
       try {
         await new_file.save();

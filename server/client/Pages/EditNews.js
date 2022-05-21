@@ -1,61 +1,44 @@
 import React, { useEffect, useState } from "react";
 import NewsForm from "../components/dashboard/NewsForm";
-import axios from "axios";
 import { useParams } from "react-router-dom";
-
+import httpService from "../../services/httpService";
+import DataLoad from "../components/common/DataLoad";
+import { toast } from "react-toastify";
 const EditNews = (props) => {
-  
-  console.log("props", props);
   let intial_data = null;
   if (props.data) intial_data = props.data.feed;
   const { id } = useParams();
-  const [data, setData] = useState(props.data.feed);
+
+  const [data, setData] = useState(intial_data);
+
   useEffect(async () => {
     let result = [];
-    console.log("excuting", id);
     try {
-      result = await axios.get(`http://localhost:3000/admin/news/${id}/edit`);
-      setData(result.data.feed);
+      const { data } = await httpService.get(`/news/${id}/edit`);
+      setData(data.feed);
     } catch (error) {
       console.log(error);
     }
-    return () => {
-      console.log("deleted");
-    };
   }, []);
-  useEffect(() => {
-    console.log("state updated");
-  }, [data]);
   const handleSubmit = async (payload) => {
     payload.append("id", id);
     try {
-      const response = await axios({
-        method: "put",
-        url: `http://localhost:3000/admin/news/${id}/update`,
-        data: payload,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then((result) => {
-        console.log(result.data);
-      });
+      const response = await httpService.put(`/news/${id}/update`, payload);
+      toast.success("updated sucessfully");
     } catch (error) {
-      console.log(error);
+      if (error.response.data.message) toast.error(error.response.data.message);
+      else toast.error("falid to update try agian !!");
+
+      throw error;
     }
   };
-  return data ? (
-    <NewsForm data={data} onSave={handleSubmit} />
-  ) : (
-    <div>Loading</div>
-  );
+
+  return data ? <NewsForm data={data} onSave={handleSubmit} /> : <DataLoad />;
 };
 async function loadData(store, params = null) {
-  console.log("RRinvoked**");
   let result = [];
   try {
-    result = await axios.get(
-      `http://localhost:3000/admin/news/${params.id}/edit`
-    );
+    result = await httpService.get(`/news/${params.id}/edit`);
   } catch (error) {
     console.log("an error has occured");
   }

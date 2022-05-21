@@ -1,21 +1,17 @@
 import React from "react";
-import axios from "axios";
 import NewsForm from "../components/dashboard/NewsForm";
+import httpService from "../../services/httpService";
+import { toast } from "react-toastify";
+
 function AddNews() {
   const handleSubmit = async (payload, deletedFiles) => {
     try {
-      const response = await axios({
-        method: "post",
-        url: "http://localhost:3000/admin/news/create",
-        data: payload,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then((data) => {
-        console.log(data);
-      });
+      const response = await httpService.post("/news/create", payload);
+      toast.success("added successfully!!");
     } catch (error) {
-      console.log(error);
+      if (error.response.data.message) toast.error(error.response.data.message);
+      else toast.error("falid to add try agian !!");
+      throw error;
     }
   };
   return <NewsForm onSave={handleSubmit} />;

@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Cards from "./Cards";
 import "./Statics.css";
 import "./Addinstrations.css";
-import bb from "../Images/cover.jfif";
-import styled from "styled-components";
 import Newsstyle from "./Newsstyle.jsx";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
- import items from "../Home_Page/Test.jsx"
 
-export default function Addminstration() {
+function Addminstration({ data }) {
+  // console.log(data);
+  // useEffect(() => {
+
+  // }, [])
+  console.log(data);
+  const items = data.news.slice(0, 3);
   return (
     // <section className="news">
     <Newsstyle>
@@ -27,4 +31,8 @@ export default function Addminstration() {
     </Newsstyle>
   );
 }
- //export default ;
+function mapStateToProps({ news }) {
+  return { data: news };
+}
+const Element = connect(mapStateToProps, null)(Addminstration);
+export default Element;

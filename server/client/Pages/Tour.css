@@ -1,10 +1,11 @@
 .wrapper {
   position: relative;
+  height: 100%;
 }
 .btn-direction {
   position: absolute;
   bottom: 20px;
-  z-index: 1;
+  z-index: 1 !important;
   background-color: transparent;
   outline: 0;
   border: 1px solid orange;

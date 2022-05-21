@@ -1,96 +1,176 @@
-import React from 'react'
-// import "./Login.css"
+import React, { useEffect, useState } from "react";
+
 import styled from "styled-components";
-export default function Login() {
-  return (
-      <Loginstyle>
-        <h1>LOGIN</h1>
-        <form>
-            <label for="email">Email</label>
-            <input id="email" placeholder="Enter e-mail" type="email"/>
-            <div class="icon">
-            <i className="fas fa-user"></i></div>
-            <label for="pass">Password</label>
-            <input id="pass" type="password" placeholder="Password"/>
-            <div  class="icon"><i class="fas fa-lock" id="sec"></i></div>
-            <input class="btn" type="submit" value="Submit"></input>
-            <input id="res" class="btn" type="reset" value="reset"></input>
-            <span>Forget password</span>
+import Input from "../components/common/Input";
+import { Navigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchCurrentUser } from "../actions";
+import httpService from "../../services/httpService";
+function Login({ auth, fetchCurrentUser }) {
+  const [state, setState] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({});
+  const [user, setUser] = useState(auth);
+  useEffect(() => {
+    setUser(auth);
+  }, [auth]);
+  const validateAll = () => {
+    const errors = {};
+    let foundErrors;
+    Object.keys(state).map((key) => {
+      if (!state[key]) {
+        errors[key] = key + " not allowed to be empty";
+        foundErrors = true;
+      }
+    });
+    return foundErrors && errors;
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const errors = validateAll();
+    if (errors) {
+      setErrors(errors);
+      return;
+    }
+    httpService
+      .post("/auth/login", { ...state })
+      .then((res) => {
+        fetchCurrentUser();
+      })
+      .catch((err) => {
+        const errors = {};
+        if (err.response.data) {
+          errors.email = err.response.data.message;
+          setErrors(errors);
+        }
+      });
+  };
+
+  const handleChange = ({ target: input }) => {
+    const { name, value } = input;
+    const errors = {};
+    if (!value) errors[name] = name + " not allowed to empty";
+    setErrors(errors);
+    setState({ ...state, [name]: value });
+  };
+  function status() {
+    switch (user) {
+      case null:
+        return <div>Loading...</div>;
+      case false:
+        return (
+          <Loginstyle>
+          <div className="m-2 d-flex flex-column justify-content-center log-style">
+            <h1>LOGIN</h1>
+            <form onSubmit={handleSubmit} className="form d-inline">
+              <Input
+                error={errors.email}
+                label="email"
+                value={state.email}
+                name="email"
+                onChange={handleChange}
+                rest={{ type: "email" }}
+              />
+
+              <Input
+                error={errors.password}
+                label="password"
+                value={state.password}
+                name="password"
+                onChange={handleChange}
+                rest={{ type: "password" }}
+              />
+              <input className="btn" type="submit" value="Submit"></input>
+              <input
+                id="res"
+                className="btn"
+                type="reset"
+                value="reset"
+              ></input>
+              {/* <span>Forget password</span> */}
             </form>
-            </Loginstyle>
-  )
+          </div>
+          </Loginstyle>
+        );
+      default:
+        return <Navigate to="/" replace />;
+    }
+  }
+  return status();
 }
-const Loginstyle=styled.div`
-h1{
+const Loginstyle = styled.div`
+  h1 {
     text-align: center;
     font-size: 35px;
-}
-
-    background-color:#ddd;
-    position:absolute;
+  }
+  .log-style{
+    position: absolute;
+    top:50%;
     left: 50%;
-    top: 50%;
     transform: translate(-50%,-50%);
-    
-    /*text-align: center;*/
-    width: fit-content;
-    font-family: 'Asap', sans-serif;
-    
+    width: 380px;
+  }
 
- input{
-    display:block;
-    width: 245px;
-    
+  background-color: #ddd;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  /*text-align: center;*/
+  width: fit-content;
+  font-family: "Asap", sans-serif;
+
+  input {
+    display: block;
+    width: 100%;
     margin: 10px;
     margin-top: 0px;
     height: 30px;
     background: none;
     outline: none;
     border-radius: 30px;
-    font-family: 'Asap', sans-serif;
+    font-family: "Asap", sans-serif;
     font-size: 18px;
     padding-left: 26px;
-
-}
-label{
+  }
+  label {
     position: relative;
     left: 10px;
     font-size: 20px;
-}
-input.btn{
+  }
+  input.btn {
     position: relative;
     left: 16px;
-    
+
     border-radius: 20px;
     /*font-family: 'Asap', sans-serif;
     font-size: 20px;*/
-    
-}
+  }
 
-.icon i{
-    
+  .icon i {
     color: grey;
     position: absolute;
-    top:119px;
+    top: 119px;
     left: 20px;
-    
-}
- .icon #sec{
+  }
+  .icon #sec {
     color: grey;
     position: absolute;
-    top:187px;
+    top: 187px;
     left: 20px;
-    
- }
-span{
+  }
+  span {
     font-size: 15px;
     position: relative;
     left: 10px;
-    margin-top:20px ;
-
-}
-span:hover{
+    margin-top: 20px;
+  }
+  span:hover {
     color: tomato;
-}
-
+  }
 `;
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+const Element = connect(mapStateToProps, { fetchCurrentUser })(Login);
+export default Element;

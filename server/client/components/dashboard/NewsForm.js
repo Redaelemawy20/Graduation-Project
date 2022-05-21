@@ -5,9 +5,10 @@ import ImageUploadPerview from "../common/ImageUploadPerview";
 import Input from "../common/Input";
 import TextArea from "../common/TextArea";
 import File from "../common/File";
+import { useNavigate } from "react-router-dom";
 
 const NewsForm = ({ data, onSave }) => {
-  const news = data || {
+  const temp = {
     id: "",
     feed_id: "",
     title: "",
@@ -20,16 +21,17 @@ const NewsForm = ({ data, onSave }) => {
     updatedAt: "",
     Files: [],
   };
-  console.log("news", news);
+  const news = data || temp;
   const [state, setState] = useState(news);
   const [errors, setErrors] = useState({});
   const [deletedFiles, setDeletedFiles] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     setState(news);
   }, [data]);
   function getPayload() {
     let formData = new FormData();
-    console.log("get payload");
     const { mainImage, content, title, show, Files, feed_id } = state;
     formData.append("feed_id", feed_id);
     formData.append("title", title);
@@ -57,7 +59,7 @@ const NewsForm = ({ data, onSave }) => {
     }
     return errors;
   };
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
     // validation
     const errors = validateAll();
@@ -70,7 +72,10 @@ const NewsForm = ({ data, onSave }) => {
     // get request payload
     const payload = getPayload();
     // save form
-    onSave(payload, deletedFiles);
+    try {
+      await onSave(payload, deletedFiles);
+      navigate("/dashboard/news/");
+    } catch (error) {}
   };
   const validateField = ({ name, value }) => {
     const subSchema = Joi.object().keys({ [name]: newsSchema[name] });
@@ -103,6 +108,7 @@ const NewsForm = ({ data, onSave }) => {
       console.log(uploadedFiles[i]);
     }
     setState({ ...state, Files: files });
+    console.log(state.Files);
   };
   const deleteFile = (id) => {
     let files = [...state.Files];
@@ -147,6 +153,9 @@ const NewsForm = ({ data, onSave }) => {
               <input
                 className="form-check-input"
                 type="checkbox"
+                onChange={() => {
+                  setState({ ...state, show: !state.show });
+                }}
                 checked={state.show}
               />
             </label>
@@ -177,6 +186,7 @@ const NewsForm = ({ data, onSave }) => {
                 <File
                   key={index}
                   fileName={file.name}
+                  originalName={file.originalname}
                   id={index}
                   onDelete={deleteFile}
                 />

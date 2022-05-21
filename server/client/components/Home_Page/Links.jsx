@@ -90,7 +90,7 @@ export default function Links() {
             /* console.log(uniName);//Mansora  */
           }
           return (
-            <li>
+            <li key={index}>
               <a href={uniLink} target="_blank">
                 <FaUniversity /> {uniName} University
               </a>
@@ -148,11 +148,11 @@ const Linksstyle = styled.div`
       grid-template-columns: repeat(2, 1fr);
       width: 80%;
     }
-    
   }
-  @media (max-width: 590px){
+  @media (max-width: 590px) {
     ul {
       grid-template-columns: repeat(1, 1fr);
       text-align: center;
-  }}
+    }
+  }
 `;
