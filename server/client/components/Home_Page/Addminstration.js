@@ -4,6 +4,7 @@ import "./Statics.css";
 import "./Addinstrations.css";
 import Newsstyle from "./Newsstyle.jsx";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Addminstration({ data }) {
   // console.log(data);
@@ -23,6 +24,9 @@ function Addminstration({ data }) {
         {items.map((item, index) => (
           <Cards key={index} item={item} />
         ))}
+      </div>
+      <div className="all--news">
+        <Link to="/allnews">All News</Link>
       </div>
     </Newsstyle>
   );

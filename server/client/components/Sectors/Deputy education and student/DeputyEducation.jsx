@@ -58,12 +58,7 @@ export default function DeputyEducation() {
   ];
   let nav = [
     {
-      listName: "Home",
-      ficon: <FaHome />,
-      style: "icon",
-      cliick: function () {
-        <Link to="/"></Link>;
-      },
+      listName: <Link to="/"><FaHome id="icon--home"/>Home</Link>,
     },
     {
       listName: "Education Affairs",

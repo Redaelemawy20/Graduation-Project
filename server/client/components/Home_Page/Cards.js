@@ -2,7 +2,8 @@
 import React from "react";
 import styled from "styled-components";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, Route, Router, Routes } from "react-router-dom";
+import Newsdynamic from "./Newsdynamic.jsx";
 export default function Cards(props) {
   console.log(props.items);
   const { id, title, createdAt, mainImage, content } = props.item;
@@ -26,7 +27,7 @@ export default function Cards(props) {
           </h4>
           <p>{content}</p>
           <h6>Publiched in: {createdAt}</h6>
-          <Link to="/news" id="explore">
+          <Link to={`/news/${id}`} id="explore">
             Explor
             <HiOutlineArrowNarrowRight className="icon" />
           </Link>
@@ -35,6 +36,7 @@ export default function Cards(props) {
     </Cardstyle>
   );
 }
+
 const Cardstyle = styled.div`
   :root {
     --white: #ffffff;

@@ -9,6 +9,7 @@ import { FiX } from "react-icons/fi";
 import { Link, Route } from "react-router-dom";
 import { Collapse } from "react-bootstrap";
 import { useState } from "react";
+import styled from "styled-components";
 function Nav() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -105,16 +106,48 @@ function Nav() {
                 <div className="admins--form">
                   <ul className="In--Unor">
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to="/CodeofConductandEthicsforthePublicWork">
+                        Code of Conductand Ethics for the Public Work
+                      </Link>
                     </li>
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to="/Formationoftheuniversitycouncil">
+                        Formation of the university council
+                      </Link>
                     </li>
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to="/Formeruniversitypresidents">
+                        Former university presidents
+                      </Link>
                     </li>
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to="/ThesearefromMenoufiaUniversity">
+                        These are from Menoufia University
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/UndergraduateStudentCharter">
+                        Undergraduate Student Charter
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/Universitygoals">University goals</Link>
+                    </li>
+                    <li>
+                      <Link to="/Universityinception">
+                        University inception
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/Universitymessage">University message</Link>
+                    </li>
+                    <li>
+                      <Link to="./Universitystrategy">University strategy</Link>
+                    </li>
+                    <li>
+                      <Link to="./Universityvision">
+                      University vision
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -156,7 +189,7 @@ function Nav() {
               </div>
             </Collapse>
           </li>
-          <li id="Facs" className="Main--list">
+          {/* <li id="Facs" className="Main--list">
             <a
               onClick={() => setDrop({ ...Drop, faculities: !Drop.faculities })}
               aria-controls="example-collapse-Facs"
@@ -190,7 +223,7 @@ function Nav() {
                 </div>
               </div>
             </Collapse>
-          </li>
+          </li> */}
           <li id="Sci--Res" className="Main--list">
             <a
               onClick={() =>
@@ -363,8 +396,46 @@ function Nav() {
           //console.log("I'm Show");
         }
       />
+      {/* <Ulhugestyle>
+        <ul>
+          <li>
+            <Link to="/UniversityPresident">University President Sector</Link>
+          </li>
+          <li>
+            <Link to="/UniversityPresident">University President Sector</Link>
+          </li>
+          <li>
+            <Link to="/UniversityPresident">University President Sector</Link>
+          </li>
+        </ul>
+      </Ulhugestyle> */}
     </Navstyle>
   );
 }
 
 export default Nav;
+// const Ulhugestyle=styled.div`
+// width: 100%;
+// z-index: 1;
+// position: relative;
+// display:none;
+// ul{
+//   width: 90%;
+//   margin:-1px auto 0;
+//   display: grid;
+//   grid-template-columns: repeat(3,1fr);
+//   padding: 0;
+//   background-color: #cccbc6;
+//   padding:0.5rem 1rem ;
+// }
+// li{
+//   text-align: center;
+
+// }
+// /* @media(max-width:1000px){
+
+//   .un--list .Maa--Ul > li:hover  {
+//       display: flex;
+//     }
+// } */
+// `

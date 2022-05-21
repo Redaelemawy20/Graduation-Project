@@ -3,15 +3,12 @@ const fs = require("fs");
 
 const File = require("../models").File;
 const Feed = require("../models").Feed;
-
+const User = require("../models").User;
 let options = require("../util/viewsOptions");
 
 options.activeMenu = "news";
 async function index(req, res) {
-  // const user = req.session.user;
-
-  // return res.send(req.user);
-  const allNews = await Feed.findAll();
+  const allNews = await Feed.findAll({ include: User });
   return res.send({
     ...options,
     title: "all news",
@@ -39,6 +36,7 @@ async function store(req, res) {
     title,
     content,
     show,
+    UserId: req.user.id,
     mainImage: imagePath,
   });
   try {

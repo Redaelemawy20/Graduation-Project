@@ -14,7 +14,8 @@ const EditNews = (props) => {
   useEffect(async () => {
     let result = [];
     try {
-      result = await httpService.get(`/news/${id}/edit`);
+      const { data } = await httpService.get(`/news/${id}/edit`);
+      setData(data.feed);
     } catch (error) {
       console.log(error);
     }

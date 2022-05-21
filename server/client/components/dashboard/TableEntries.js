@@ -1,5 +1,5 @@
 import React from "react";
-export default function TableEntries() {
+export default function TableEntries({ onChange, value, label }) {
   return (
     <div className="text-muted">
       Show
@@ -8,10 +8,13 @@ export default function TableEntries() {
           type="text"
           className="form-control form-control-sm"
           size="3"
-          aria-label="Invoices count"
+          value={value}
+          onChange={() => {
+            onChange(event.target.value);
+          }}
         />
       </div>
-      entries
+      {label ?? "entries"}
     </div>
   );
 }

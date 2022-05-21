@@ -34,6 +34,7 @@ router.post(
   UserController.store
 );
 router.get("/:id/edit", UserController.edit);
+router.get("/:id/view", UserController.view);
 router.post(
   "/:id/edit",
   can("manage users"),

@@ -2,7 +2,7 @@ import React from "react";
 const Row = ({ cells, id, actions = {}, index }) => {
   const { value: actionsArray, onlyIf } = actions;
   const haveActions = () => {
-    return !onlyIf || (onlyIf && onlyIf(index));
+    return !onlyIf || (onlyIf && onlyIf(id));
   };
   return (
     <tr>

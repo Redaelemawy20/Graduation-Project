@@ -13,7 +13,7 @@ function Dashboard() {
               <div className="col-12">
                 <div className="card card-lg">
                   <div className="card-header">
-                    <h3 className="card-title">title</h3>
+                    <h3 className="card-title">Dashboard</h3>
                   </div>
                   <div>
                     <Outlet />

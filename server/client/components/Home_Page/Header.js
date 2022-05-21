@@ -12,7 +12,8 @@ import "../Home_Page/Addinstrations.css";
 import { connect } from "react-redux";
 import { fetchCurrentUser } from "../../actions";
 import httpService from "../../../services/httpService";
-function Header({ auth, fetchCurrentUser }) {
+function Header({ auth, fetchCurrentUser, text }) {
+  const { fName, lName } = text;
   async function logout() {
     try {
       await httpService.post("/auth/logout");
@@ -45,9 +46,9 @@ function Header({ auth, fetchCurrentUser }) {
         <div className="logo">
           <img src={logo} alt="logo" />
           <div className="dis-coll">
-            <p className="fName">lanem</p>
-            {/* {console.log({props})} */}
-            <p>lname</p>
+            <p className="fName">{fName}</p>
+
+            <p>{lName}</p>
           </div>
         </div>
         <div className="unorder">
