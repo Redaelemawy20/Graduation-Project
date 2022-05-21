@@ -14,4 +14,20 @@ export default styled.section`
     flex-wrap: wrap;
     justify-content: center;
   }
+  .all--news {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 4%;
+    min-width: 280px;
+  }
+  .all--news a {
+    padding: 0.4rem 2.4rem;
+    background-color: #f6852b;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
 `;

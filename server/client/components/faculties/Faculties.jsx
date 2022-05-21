@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import logoEng from "../faculties/Images/eng_en (2).png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
 export default function Faculties() {
   const faculties = [
@@ -56,9 +56,7 @@ export default function Faculties() {
       logo: logoEng,
     },
   ];
-  // const [width, setWidth] = useState(0);
-  // const [step, setStep] = useState(0);
-  const step = useRef(faculties.length - 1);
+
   useEffect(() => {
     const elements = document.getElementsByClassName("faculty");
     let facultiesArr = Array.from(elements);
@@ -69,34 +67,25 @@ export default function Faculties() {
       "repeat(" + numofcollegs + ", 1fr)"
     );
     let width = window.innerWidth;
-
     reSize();
-
     window.addEventListener("resize", () => {
-      console.log("resize called");
       width = window.innerWidth;
-
       console.log(width);
-
       reSize();
     });
 
     console.log("width is :", { width });
     let wid;
-    let currentStep = 0;
+
     function reSize() {
       if (width >= 1245) {
         wid = (facultiesArr.length - 4) * 290;
-        currentStep = 0;
       } else if (width >= 973) {
         wid = (facultiesArr.length - 3) * 290;
-        currentStep += 1;
       } else if (width >= 673) {
         wid = (facultiesArr.length - 2) * 290;
-        currentStep += 2;
       } else {
         wid = (facultiesArr.length - 1) * 290;
-        currentStep += 3;
       }
     }
 
@@ -105,8 +94,8 @@ export default function Faculties() {
       let height = window.pageYOffset;
       if (height >= 2680) {
         for (let i = 0; i < facultiesArr.length; i++) {
-          // facultiesArr[i].classList.add("move");
-          // facultiesArr[i].style.transform = `translate(${-wid}px)`;
+          facultiesArr[i].classList.add("move");
+          facultiesArr[i].style.transform = `translate(${-wid}px)`;
         }
       }
     });
@@ -119,54 +108,33 @@ export default function Faculties() {
       for (let i = 0; i < facultiesArr.length; i++) {
         facultiesArr[i].style.transform = `translate(${-move}px)`;
 
-        // facultiesArr[i].classList.add("left");
+        facultiesArr[i].classList.add("left");
       }
       move += 290;
-      let currentStep = step.current;
-      currentStep++;
-      step.current = currentStep;
       disableClick();
-      console.log(move);
+      //console.log(move);
     });
     //console.log(elements.style.transform)
     disableClick();
     function disableClick() {
-      console.log(step.current, facultiesArr.length - 1);
-      if (step.current + currentStep === facultiesArr.length - 1) {
-        lftArow.style.display = "none";
-        // rgtArrow.style.display = "none";
-      } else {
-        lftArow.style.display = "block";
-      }
-
-      if (step.current === 3) {
-        rgtArrow.style.display = "none";
-      } else {
-        rgtArrow.style.display = "block";
-      }
-      // console.log(move)
+      //console.log(move)
       // for(let i=0;i<facultiesArr.length;i++){
       //   const trans= facultiesArr[i].style.transform;
       //   facultiesArr[i].id=i;
+
       // }
       //console.log(facultiesArr[0]);
       // for(let i=0;i<facultiesArr.length;i++){
       //   console.log(facultiesArr[i].style.transform);
       // }
-      // switch (width) {
-      //   case width >= 1000:
-      //     if (move >= (facultiesArr.length - 3) * 290) {
-      //       lftArow.style.display = "none";
-      //     } else if (move <= 290) {
-      //       rgtArrow.style.display = "none";
-      //     } else {
-      //       rgtArrow.style.display = "flex";
-      //       lftArow.style.display = "flex";
-      //     }
-      //     break;
-      //   default:
-      //     break;
-      // }
+      if (move >= (facultiesArr.length - 3) * 290) {
+        lftArow.style.display = "none";
+      } else if (move <= 290) {
+        rgtArrow.style.display = "none";
+      } else {
+        rgtArrow.style.display = "flex";
+        lftArow.style.display = "flex";
+      }
       // if(width>=973){
       //   if(move>(facultiesArr.length)*290){
       // lftArow.style.display='none';
@@ -177,32 +145,23 @@ export default function Faculties() {
       //   rgtArrow.style.display='flex';
       //   lftArow.style.display='flex'
       // }
+
       //}
     }
     /***********right Arrow for slide***********/
-    for (let i = 0; i < facultiesArr.length; i++) {
-      // facultiesArr[i].style.transform = `translate(${-move}px)`;
-      facultiesArr[i].classList.add("left");
-    }
-    //disableClick();
+
+    disableClick();
     rgtArrow.addEventListener("click", () => {
       move -= 580;
       for (let i = 0; i < facultiesArr.length; i++) {
         facultiesArr[i].style.transform = `translate(${-move}px)`;
         // facultiesArr[i].classList.add("left");
       }
-      let currentStep = step.current;
-      currentStep--;
-
-      step.current = currentStep;
       move += 290;
       disableClick();
-      //console.log(move)
+      console.log(move);
     });
   }, []);
-  useEffect(() => {
-    console.log("step", step);
-  }, [step]);
 
   return (
     <FaculitiesStyle>
@@ -261,7 +220,7 @@ const FaculitiesStyle = styled.section`
   .faculties--cont {
     width: 1150px;
     overflow: hidden;
-    margin: 2rem auto;
+    margin: 5rem auto;
     display: grid;
 
     height: 200px;

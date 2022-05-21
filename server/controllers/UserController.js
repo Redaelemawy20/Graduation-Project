@@ -68,6 +68,16 @@ async function update(req, res) {
   });
   return res.send("user updated successfully");
 }
+async function view(req, res) {
+  const { id } = req.params;
+  const user = await User.findByPk(id, {
+    include: Role,
+    attributes: {
+      exclude: ["password"],
+    },
+  });
+  return res.send(user);
+}
 async function getAllRoles() {
   const roles = await Role.findAll({
     include: Permission,
@@ -81,4 +91,5 @@ export default {
   store,
   edit,
   update,
+  view,
 };

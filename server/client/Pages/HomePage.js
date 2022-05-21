@@ -15,13 +15,17 @@ import { connect } from "react-redux";
 import { getData } from "../actions";
 import DataLoad from "../components/common/DataLoad";
 function HomePage({ data, getData }) {
+  let headerHome = {
+    fName: "Menofia",
+    lName: "University",
+  };
   useEffect(() => {
     getData();
   }, []);
   const listOfNews = data ? data.news : false;
   return listOfNews ? (
     <>
-      <Header />
+      <Header text={headerHome} />
       <Nav />
       <Cover />
       <Addminstration />

@@ -64,12 +64,12 @@ export default function UniversityPresident() {
   let nav = [
     {
       //listName: <Link to="/">Home</Link>,
-      listName: "Home",
-      ficon: <FaHome />,
-      style: "icon",
-      cliick: function () {
-        <Link to="/"></Link>;
-      },
+      listName: <Link to="/"><FaHome id="icon--home"/>Home</Link>,
+      // ficon: ,
+      // style: "icon",
+      // cliick: function () {
+       
+      // },
     },
     {
       listName: "Higher Management",

@@ -58,9 +58,9 @@ function Login({ auth, fetchCurrentUser }) {
         return <div>Loading...</div>;
       case false:
         return (
-          <Loginstyle>
+          <div className="m-2 d-flex flex-column justify-content-center">
             <h1>LOGIN</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="form d-inline">
               <Input
                 error={errors.email}
                 label="email"
@@ -78,11 +78,16 @@ function Login({ auth, fetchCurrentUser }) {
                 onChange={handleChange}
                 rest={{ type: "password" }}
               />
-              <input class="btn" type="submit" value="Submit"></input>
-              <input id="res" class="btn" type="reset" value="reset"></input>
+              <input className="btn" type="submit" value="Submit"></input>
+              <input
+                id="res"
+                className="btn"
+                type="reset"
+                value="reset"
+              ></input>
               <span>Forget password</span>
             </form>
-          </Loginstyle>
+          </div>
         );
       default:
         return <Navigate to="/" replace />;

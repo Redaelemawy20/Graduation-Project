@@ -26,6 +26,7 @@ const NewsForm = ({ data, onSave }) => {
   const [errors, setErrors] = useState({});
   const [deletedFiles, setDeletedFiles] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     setState(news);
   }, [data]);
@@ -107,6 +108,7 @@ const NewsForm = ({ data, onSave }) => {
       console.log(uploadedFiles[i]);
     }
     setState({ ...state, Files: files });
+    console.log(state.Files);
   };
   const deleteFile = (id) => {
     let files = [...state.Files];
@@ -151,6 +153,9 @@ const NewsForm = ({ data, onSave }) => {
               <input
                 className="form-check-input"
                 type="checkbox"
+                onChange={() => {
+                  setState({ ...state, show: !state.show });
+                }}
                 checked={state.show}
               />
             </label>
@@ -181,6 +186,7 @@ const NewsForm = ({ data, onSave }) => {
                 <File
                   key={index}
                   fileName={file.name}
+                  originalName={file.originalname}
                   id={index}
                   onDelete={deleteFile}
                 />

@@ -29,7 +29,7 @@ router.get("/:id/edit", NewsContrller.edit);
 
 router.put(
   "/:id/update",
-  can("manage new"),
+  can("manage news"),
   newsStorage.fields([
     {
       name: "mainImage",
