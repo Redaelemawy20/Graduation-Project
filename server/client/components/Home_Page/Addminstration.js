@@ -7,11 +7,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Addminstration({ data }) {
-  // console.log(data);
-  // useEffect(() => {
-
-  // }, [])
-  console.log(data);
   const items = data.news.slice(0, 3);
   return (
     // <section className="news">

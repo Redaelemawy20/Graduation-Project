@@ -54,7 +54,7 @@ const UserCard = ({ user, footer, active = false }) => {
             className="card-btn"
             key={index}
             onClick={(e) => {
-              e.preventDefault();
+              // e.preventDefault();
               link.onclick && link.onclick();
             }}
           >

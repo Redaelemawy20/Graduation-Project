@@ -1,7 +1,7 @@
 import React from "react";
 import "./Nav-faculity.css";
 // import "../../Home_Page/Nav.css"
-import logo from "../Images/eng_en (2).png";
+import logo from "../Images/الهندسه.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 export default function NavFaculity() {
