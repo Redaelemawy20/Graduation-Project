@@ -1,140 +1,65 @@
 import React from "react";
-import styled from "styled-components";
-import dig from "../Images/dig.jpg";
-import { MdAppRegistration, MdDesignServices } from "react-icons/md";
-import { SiSmartthings } from "react-icons/si";
-import { FiActivity } from "react-icons/fi";
 import { useEffect } from "react";
-export default function Digitaltransformation() {
+import DigitalTransStyle from "./DigitalTransStyle.jsx";
+import { Link } from "react-router-dom";
+export default function Digitaltransformation(props) {
+  const{ backgroundImage,
+    firstIcon,
+    secondIcon,
+    thirdIcon,
+    fourthIcon,
+    title,
+    firstLink,
+    secondLink,
+    thirdLink,
+    fourthLink,
+    firstHight,
+    secondHight}=props.text;
   useEffect(() => {
     window.addEventListener("scroll", () => {
       const caption = document.getElementById("caption");
       const section = document.getElementById("display");
       let height = window.pageYOffset;
        console.log(height);
-      if (height >= 3300) caption.classList.add("cap-ani");
-      if (height >= 3400) section.classList.add("sec-ani");
+       console.log( 'static',{firstHight})
+      if (height >= `${firstHight}`) caption.classList.add("cap-ani");
+      if (height >= `${secondHight}`) section.classList.add("sec-ani");
     });
   }, []);
   return (
-    <DigitalTrans>
-      <div className="resize" style={{ backgroundImage: `url(${dig})` }}>
+    <DigitalTransStyle >
+      <div className="resize" style={{ backgroundImage: `url(${backgroundImage})`  }}>
         <div className="digital-transformation">
-          <h1 id="caption">Digital Transformation</h1>
+          <h1 id="caption">{title}</h1>
           <div id="display">
             <div className="services">
               <div>
-                <MdDesignServices className="digital-icon" />
-                <a href="#">Course and services</a>
+              <p className="digital-icon">{firstIcon}</p>
+              <p className="links">{firstLink}</p>
+                {/* <MdDesignServices className="digital-icon" /> */}
+                {/* <a href="#">Course and services</a> */}
               </div>
               <div>
-                <SiSmartthings className="digital-icon" />
-                <a href="#">Program Guide</a>
+                <p className="digital-icon">{secondIcon}</p>
+                <p className="links">{secondLink}</p>
               </div>
               <div>
-                <FiActivity className="digital-icon" />
-                <a href="#">Activities</a>
+                  <p className="digital-icon">{thirdIcon}</p>
+                  <p className="links">{thirdLink}</p>
+                {/* <FiActivity className="digital-icon" />
+                <a href="#">Activities</a> */}
               </div>
               <div>
-                <MdAppRegistration className="digital-icon" />
-                <a href="#">How to register</a>
+              <p className="digital-icon">{fourthIcon}</p>
+              <p className="links">{fourthLink}</p>
+                {/* <MdAppRegistration className="digital-icon" />
+                <a href="#">How to register</a> */}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </DigitalTrans>
+    </DigitalTransStyle>
   );
 }
- const DigitalTrans = styled.section`
-  width: 100%;
-  margin-top: 30px;
-
-  .resize {
-    width: 100%;
-    height: 450px;
-    //background-image: url(../Images/dig.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .resize .digital-transformation {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(19, 19, 19, 0.3);
-  }
-  h1 {
-    padding: 45px 0;
-    text-align: center;
-    color: #ddd;
-    min-width: 280px;
-    margin: 0;
-    display: none;
-  }
-  h1 + div {
-    display: none;
-  }
-  a {
-    text-decoration: none;
-    color: #ddd;
-    margin-top: 2em;
-    font-size: 1.2rem;
-  }
-  a:hover {
-    transform: scale(1.1);
-  }
-  .resize .digital-transformation .services {
-    padding: 45px 0;
-    display: grid;
-    width: 90%;
-    grid-template-columns: repeat(4, 1fr);
-    text-align: center;
-    margin: auto;
-  }
-
-  .resize .digital-transformation .services > div {
-    padding: 0.5em 1em;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #ddd;
-  }
-  .resize .digital-transformation .services > div .digital-icon {
-    font-size: 7rem;
-  }
-  .cap-ani {
-    animation-name: move--up;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-    display: block;
-  }
-  .sec-ani {
-    animation-name: move--up;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-    /* animation-delay: 1s; */
-    display: block;
-  }
-  @keyframes move--up {
-    0% {
-      opacity: 0;
-      transform: translateY(80px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-  }
-  @media (max-width:630px){
-    .resize .digital-transformation .services{
-      grid-template-columns: repeat(2, 1fr);
-      padding: 15px;
-    }
-    .resize{
-      height: 580px;
-    }
-  }
-`;
+ 

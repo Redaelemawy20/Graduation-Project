@@ -161,10 +161,10 @@ export default styled.section`
       grid-template-columns: repeat(3, 1fr);
     }
     /***border none to last 3 child***/
-    /* .un--list li .Drop--Down--Add .In--Unor:nth-last-child(-n+3)
+    .un--list li .Drop--Down--Add .In--Unor li:nth-last-child(-n+3) a
      {
       border:red;
-    } */
+    }
      .un--list .Maa--Ul > li:hover  {
       display: flex;
     }  

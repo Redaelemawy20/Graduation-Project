@@ -3,7 +3,7 @@ import Header from "../../Home_Page/Header";
 import Slider from "../../Home_Page/Slider";
 import NavFaculity from "./NavFaculity";
 import cc from "../Images/2b305a0d-2116-4f8e-bd04-fb84321c235e (1).png";
-import bb from "../Images/WhatsApp Image 2022-02-27 at 9.06.42 AM.jpeg";
+//import bb from "../Images/WhatsApp Image 2022-02-27 at 9.06.42 AM.jpeg";
 
 class Engineering extends React.Component {
   render() {

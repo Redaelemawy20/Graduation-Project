@@ -101,6 +101,27 @@ import Universitymessage from "./components/Home_Page/About/Universitymessage";
 import Universitystrategy from "./components/Home_Page/About/Universitystrategy";
 import Universityvision from "./components/Home_Page/About/Universityvision";
 import ViewUser from "./Pages/ViewUser";
+/********imports of staff members*******/
+import Biography from './components/Home_Page/Staff Members/Biography.jsx';
+import Datarecording from './components/Home_Page/Staff Members/Datarecording.jsx';
+import Electronicservices from "./components/Home_Page/Staff Members/Electronicservices.jsx";
+import Email from './components/Home_Page/Staff Members/Email.jsx';
+import Personalwebsitedata from './components/Home_Page/Staff Members/Personalwebsitedata.jsx';
+import Searchforfaculitymember from './components/Home_Page/Staff Members/Searchforfaculitymember.jsx'
+/*******import of Students*******/
+import Applyingtouniversitycities from './components/Home_Page/Students/Applyingtouniversitycities.jsx'
+import BachelorsandBachelorsdegree from './components/Home_Page/Students/Bachelorsandbachelordegree.jsx'
+import Postgraduatestage from './components/Home_Page/Students/Postgraduatestage.jsx'
+import Graduates from './components/Home_Page/Students/Graduates.jsx'
+import Arrivalstudents from './components/Home_Page/Students/Arrivalstudents.jsx'
+import Studentservices from './components/Home_Page/Students/Studentservices.jsx'
+import Studentactivities from './components/Home_Page/Students/Studentactivities.jsx'
+import Postgraduateresults from './components/Home_Page/Students/Postgraduateresults.jsx'
+import YouthCare from './components/Home_Page/Students/Youthcare.jsx'
+import Examsresults from './components/Home_Page/Students/Examsresults.jsx'
+import GetEmail   from './components/Home_Page/Students/Getemail.jsx'
+import Registrationofforeignstudents from './components/Home_Page/Students/Registrationofforeignstudents.jsx'
+
 
 export let routeObj = [
   {
@@ -375,7 +396,7 @@ export let routeObj = [
         element: <SubDepartmentsMedical />,
       },
       {
-        path: "callusmedical",
+        path: "/callusmedical",
         element: <CallUsMedical />,
       },
       /***********postgraduate research sector************/
@@ -559,6 +580,80 @@ export let routeObj = [
         path: "/Universityvision",
         element: <Universityvision />,
       },
+      /*********staff members route*******/
+      {
+        path:"/Biography",
+        element:<Biography/>
+      },
+      {
+          path:"/Datarecording",
+          element:<Datarecording/>
+      },
+      {
+        path:"/Electronicservices",
+        element:<Electronicservices/>
+      },
+      {
+        path:"/Email",
+        element:<Email/>
+      },
+      {
+        path:'/Personalwebsitedata',
+        element:<Personalwebsitedata/>
+      },
+      {
+        path:"/Searchforfaculitymember",
+        element:<Searchforfaculitymember/>
+      },
+      /******Routes of Students*****/
+      {
+        path:"/Applyingtouniversitycities",
+        element:<Applyingtouniversitycities/>
+      },
+      {
+        path:"/BachelorandBachelordegree",
+        element:<BachelorsandBachelorsdegree/>
+      },
+      {
+        path:"/Postgraduatestage",
+        element:<Postgraduatestage/>
+      },
+      {
+        path:"/Graduates",
+        element:<Graduates/>
+      },
+      {
+        path:"/Arrivalstudents",
+        element:<Arrivalstudents/>
+      },
+      {
+        path:"/Studentservices",
+        element:<Studentservices/>
+      },
+      {
+        path:"/Studentactivities",
+        element:<Studentactivities/>
+      },
+      {
+        path:"/Postgraduateresults",
+        element:<Postgraduateresults/>
+      },
+      {
+        path:"/YouthCare",
+        element:<YouthCare/>
+      },
+      {
+        path:"/Examsresults",
+        element:<Examsresults/>
+      },
+      {
+        path:"/GetEmail",
+        element:<GetEmail/>
+      },
+      {
+        path:"/Registrationofforeignstudents",
+        element:<Registrationofforeignstudents/>
+      }
     ],
   },
 ];

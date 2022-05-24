@@ -18,6 +18,7 @@ import { VscThreeBars } from "react-icons/vsc";
 import Footer from "../../Home_Page/Footer.jsx";
 import Coverstyle from "../../Home_Page/Coverstyle.js";
 import Newsstyle from "../../Home_Page/Newsstyle.jsx";
+import SectionElectronicLibrary from "./SectionElectronicLibrary.jsx";
 export default function PostGraduateAndResearch() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -57,13 +58,9 @@ export default function PostGraduateAndResearch() {
   ];
   let nav = [
     {
-      listName: "Home",
-      ficon: <FaHome />,
-      style: "icon",
-      cliick: function () {
-        <Link to="/"></Link>;
-      },
+      listName: <Link to="/"><FaHome id="icon--home"/>Home</Link>,
     },
+  
     {
       listName: "About Sector",
       licon: (
@@ -74,10 +71,7 @@ export default function PostGraduateAndResearch() {
           ></FontAwesomeIcon>
         </span>
       ),
-      style: "icon",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
+      
       dropdown: [
         <Link to="/organizationalstructurepost">
           The Organizational Structure of the Studies Sector
@@ -100,10 +94,7 @@ export default function PostGraduateAndResearch() {
           ></FontAwesomeIcon>
         </span>
       ),
-      style: "icon",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
+     
       dropdown: [
         <Link to="/organizationalstructureaddmins">
           The organizational structure of the Management
@@ -133,10 +124,7 @@ export default function PostGraduateAndResearch() {
           ></FontAwesomeIcon>
         </span>
       ),
-      style: "icon",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
+      
       dropdown: [
         <Link to="/organizationalstructculture">
           Organizational Structure of Management
@@ -171,10 +159,7 @@ export default function PostGraduateAndResearch() {
           ></FontAwesomeIcon>
         </span>
       ),
-      style: "icon",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
+     
       dropdown: [
         <Link to="/abouttheunit">ِAbout the Unit</Link>,
         <Link to="/formationoftheunits">
@@ -194,15 +179,10 @@ export default function PostGraduateAndResearch() {
     },
     {
       listName: "General Administration of Libraries",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
     },
     {
       listName: "Electronic services",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
+      
     },
   ];
   return (
@@ -245,6 +225,7 @@ export default function PostGraduateAndResearch() {
           ))}
         </div>
       </Newsstyle>
+      <SectionElectronicLibrary/>
       <Footer />
     </>
   );

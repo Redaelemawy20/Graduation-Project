@@ -6,6 +6,7 @@ import Header from "./Header.js";
 import { MdOutlineDateRange } from "react-icons/md";
 import httpService from "../../../services/httpService.js";
 import DataLoad from "../common/DataLoad.js";
+import Nav from "./Nav.js";
 function Newsdynamic(props) {
   const headText = {
     fName: "Menofia",
@@ -30,7 +31,7 @@ function Newsdynamic(props) {
   return data ? (
     <>
       <Header text={headText} />
-
+      <Nav/>
       <Singlenews>
         <div className="slide--news">
           <img

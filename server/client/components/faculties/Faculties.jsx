@@ -122,7 +122,7 @@ export default function Faculties() {
     window.addEventListener("scroll", () => {
       console.log("scroll called");
       let height = window.pageYOffset;
-      if (height >= 2680) {
+      if (height >= 2400) {
         for (let i = 0; i < facultiesArr.length; i++) {
           facultiesArr[i].classList.add("move");
           facultiesArr[i].style.transform = `translate(${-wid}px)`;
@@ -137,7 +137,7 @@ export default function Faculties() {
     lftArow.addEventListener("click", () => {
       for (let i = 0; i < facultiesArr.length; i++) {
         facultiesArr[i].style.transform = `translate(${-move}px)`;
-
+        
         facultiesArr[i].classList.add("left");
       }
       move += 290;
@@ -185,7 +185,7 @@ export default function Faculties() {
       move -= 580;
       for (let i = 0; i < facultiesArr.length; i++) {
         facultiesArr[i].style.transform = `translate(${-move}px)`;
-        // facultiesArr[i].classList.add("left");
+        facultiesArr[i].classList.add("right");
       }
       move += 290;
       disableClick();
@@ -271,6 +271,7 @@ const FaculitiesStyle = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
   }
   .faculties--cont .faculty .view {
     width: 100%;
@@ -321,6 +322,10 @@ const FaculitiesStyle = styled.section`
   }
   .left {
    transform: translateX(-1050px);
+    transition: 1s;
+  }
+  //probably
+  .right{
     transition: 1s;
   }
 `;
