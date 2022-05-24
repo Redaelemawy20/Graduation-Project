@@ -1,6 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import logoEng from "../faculties/Images/eng_en (2).png";
+import logoEngineering from "../faculties/Images/الهندسه.png";
+import logoMedia from "../faculties/Images/كليه الاعلام.png";
+import logoMedicine from "../faculties/Images/الطب.png";
+import logoPharmacy from "../faculties/Images/الصيدله.png";
+import logoComputersInformation from "../faculties/Images/الحاسبات والمعلومات.png";
+import logoEducation from "../faculties/Images/التربيه.png";
+import logoElectronicEngineering from "../faculties/Images/الهندسه الالكترونيه.png";
+import logoPhysicalEducation from "../faculties/Images/التربيه الياضيه.png";
+import logoSpecificEducation from "../faculties/Images/التربيه النوعيه.png";
+import logoEarlychildhoodeducation from "../faculties/Images/التربيه للطفوله المبكره.png";
+import EngineeringView from "../faculties/Images/Eng-View.jpg";
+import MediaView from "../faculties/Images/Media-view.jpg";
+import MedicineView from "../faculties/Images/Medicine-View.jpg";
+import PharmacyView from "../faculties/Images/Pharmacy-View.jpg";
+import ComputersInformationView from "../faculties/Images/ComputersandInformation-View.jpg";
+import EarlychildhoodeducationView from "../faculties/Images/Early childhood education-View.jpg";
+import EducationView from "../faculties/Images/Education-View.jpg";
+import ElectronicEngineeringView from "../faculties/Images/ElectronicEngineering-View.jpg";
+import PhysicalEducationView from "../faculties/Images/PhysicalEducation-view.jpg";
+import SpacificEducationView from "../faculties/Images/SpacificEducation-View.jpg";
+
 import { useEffect } from "react";
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
 export default function Faculties() {
@@ -8,52 +28,62 @@ export default function Faculties() {
     {
       name: "Engineering",
       since: "first college",
-      logo: logoEng,
+      logo: logoEngineering,
+      view: EngineeringView,
     },
     {
-      name: "Engineering",
+      name: "Media",
+      since: 2020,
+      logo: logoMedia,
+      view: MediaView,
+    },
+    {
+      name: "Medicine",
       since: 1980,
-      logo: logoEng,
+      logo: logoMedicine,
+      view: MedicineView,
     },
     {
-      name: "Engineering",
-      since: 1980,
-      logo: logoEng,
+      name: "Pharmacy",
+      since: 2016,
+      logo: logoPharmacy,
+      view: PharmacyView,
     },
     {
-      name: "Engineering",
-      since: 1980,
-      logo: logoEng,
+      name: "Computers&Information",
+      since: 2006,
+      logo: logoComputersInformation,
+      view: ComputersInformationView,
     },
     {
-      name: "Engineering",
-      since: 1980,
-      logo: logoEng,
-    },
-    {
-      name: "Engineering",
+      name: "Education",
       since: 1990,
-      logo: logoEng,
+      logo: logoEducation,
+      view: EducationView,
     },
     {
-      name: "Engineering",
+      name: "Electronic Engineering",
+      since: 2000,
+      logo: logoElectronicEngineering,
+      view: ElectronicEngineeringView,
+    },
+    {
+      name: "Physical Education",
       since: 1980,
-      logo: logoEng,
+      logo: logoPhysicalEducation,
+      view: PhysicalEducationView,
     },
     {
-      name: "Engineering",
-      since: 1980,
-      logo: logoEng,
-    },
-    {
-      name: "Engineering",
+      name: "Specific Education",
       since: 1970,
-      logo: logoEng,
+      logo: logoSpecificEducation,
+      view: SpacificEducationView,
     },
     {
-      name: "Engineering",
+      name: "Early childhood education",
       since: "last college",
-      logo: logoEng,
+      logo: logoEarlychildhoodeducation,
+      view: EarlychildhoodeducationView,
     },
   ];
 
@@ -177,10 +207,14 @@ export default function Faculties() {
             let img = item.logo;
             let name = item.name;
             let date = item.since;
+            let view = item.view;
             return (
-              <div className="faculty" key={index}>
-                <div>
+              <div className="faculty">
+                <div className="logo">
                   <img src={img} alt="faculity image" />
+                </div>
+                <div className="view">
+                  <img src={view} alt="faculity image" />
                   <h5>{name}</h5>
                   <h6>Since {date}</h6>
                 </div>
@@ -223,7 +257,7 @@ const FaculitiesStyle = styled.section`
     margin: 5rem auto;
     display: grid;
 
-    height: 200px;
+    height: 210px;
 
     /* grid-template-columns: repeat(9, 1fr); */
   }
@@ -233,11 +267,33 @@ const FaculitiesStyle = styled.section`
     margin: 0 10px;
     background-color: #ddd;
     border-radius: 5px;
-    height: 200px;
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .faculties--cont .faculty .view {
+    width: 100%;
+  }
+  .faculties--cont .faculty .logo {
+    position: absolute;
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+  }
+  .faculties--cont .faculty .logo img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 50%;
   }
   .faculties--cont .faculty img {
-    width: 90%;
-    height: 140px;
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
   @media (max-width: 1245px) {
     .faculties--cont {
@@ -259,10 +315,10 @@ const FaculitiesStyle = styled.section`
   }
   .move {
     /* transform: translateX(-1100px); */
-    transition: 5s;
+    transition: 15s;
   }
   .left {
-    /* transform: translateX(-1050px);
-    transition: 1s; */
+    transform: translateX(-1050px);
+    transition: 1s;
   }
 `;

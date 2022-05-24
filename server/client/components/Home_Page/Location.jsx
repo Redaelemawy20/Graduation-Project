@@ -9,7 +9,7 @@ export default function Location() {
       let height = window.pageYOffset;
       
       const Loc = document.getElementById("Location");
-      if (height >= 2700) {
+      if (height >= 2800) {
         Loc.classList.add("animation");
       }
       

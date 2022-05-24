@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../Home_Page/Header.css";
 import logo from "../Images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,8 +12,10 @@ import "../Home_Page/Addinstrations.css";
 import { connect } from "react-redux";
 import { fetchCurrentUser } from "../../actions";
 import httpService from "../../../services/httpService";
+import translate from "../../../translate";
 function Header({ auth, fetchCurrentUser, text }) {
   const { fName, lName } = text;
+
   async function logout() {
     try {
       await httpService.post("/auth/logout");
@@ -46,7 +48,7 @@ function Header({ auth, fetchCurrentUser, text }) {
         <div className="logo">
           <img src={logo} alt="logo" />
           <div className="dis-coll">
-            <p className="fName">{fName}</p>
+            <p className="fName">{translate("header.welcome")}</p>
 
             <p>{lName}</p>
           </div>
@@ -61,12 +63,14 @@ function Header({ auth, fetchCurrentUser, text }) {
               <ul className="mainul">
                 <li>{authStatus()}</li>
                 <li>
-                  <a>AR</a>
-                  <img src={EgyFlag} alt="" className="flag" />
+                  <a href="/api/locale?lang=ar">
+                    AR <img src={EgyFlag} alt="" className="flag" />
+                  </a>
                 </li>
                 <li>
-                  <a>EN</a>
-                  <img src={EngFlag} alt="" className="flag" />
+                  <a href="/api/locale?lang=en">
+                    EN <img src={EngFlag} alt="" className="flag" />
+                  </a>
                 </li>
 
                 <li id="search">

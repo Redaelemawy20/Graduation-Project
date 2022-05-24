@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import news from "../Home_Page/Test.jsx";
 import Header from "./Header.js";
 import { MdOutlineDateRange } from "react-icons/md";
 import httpService from "../../../services/httpService.js";

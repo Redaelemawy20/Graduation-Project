@@ -14,7 +14,7 @@ function Nav() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
   /******collapse*******/
-  const [Drop, setDrop] = useState({
+  const intial = {
     about: false,
     admin: false,
     staff: false,
@@ -23,7 +23,8 @@ function Nav() {
     student: false,
     egyuniversities: false,
     media: false,
-  });
+  };
+  const [Drop, setDrop] = useState(intial);
 
   /*const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);*/
@@ -36,7 +37,7 @@ function Nav() {
         <ul className="Maa--Ul">
           <li id="Admins" className="Main--list">
             <a
-              onClick={() => setDrop({ ...Drop, admin: !Drop.admin })}
+              onClick={() => setDrop({ ...intial, admin: !Drop.admin })}
               aria-controls="example-collapse-Admin"
               data-target="#example-collapse-Admin"
               data-toggle="collapse"
@@ -88,7 +89,7 @@ function Nav() {
 
           <li id="About" className="Main--list">
             <a
-              onClick={() => setDrop({ ...Drop, about: !Drop.about })}
+              onClick={() => setDrop({ ...intial, about: !Drop.about })}
               aria-controls="example-collapse-About"
               data-target="#example-collapse-About"
               aria-expanded={Drop}
@@ -145,9 +146,7 @@ function Nav() {
                       <Link to="./Universitystrategy">University strategy</Link>
                     </li>
                     <li>
-                      <Link to="./Universityvision">
-                      University vision
-                      </Link>
+                      <Link to="./Universityvision">University vision</Link>
                     </li>
                   </ul>
                 </div>
@@ -156,7 +155,7 @@ function Nav() {
           </li>
           <li id="Stf--Mem" className="Main--list">
             <a
-              onClick={() => setDrop({ ...Drop, staff: !Drop.staff })}
+              onClick={() => setDrop({ ...intial, staff: !Drop.staff })}
               aria-controls="example-collapse-Staff"
               data-target="#example-collapse-Staff"
             >
@@ -227,7 +226,7 @@ function Nav() {
           <li id="Sci--Res" className="Main--list">
             <a
               onClick={() =>
-                setDrop({ ...Drop, sciresearch: !Drop.sciresearch })
+                setDrop({ ...intial, sciresearch: !Drop.sciresearch })
               }
               aria-controls="example-collapse-Sci"
               data-target="#example-collapse-Sci"
@@ -263,7 +262,7 @@ function Nav() {
           </li>
           <li id="Stu" className="Main--list">
             <a
-              onClick={() => setDrop({ ...Drop, student: !Drop.student })}
+              onClick={() => setDrop({ ...intial, student: !Drop.student })}
               aria-controls="example-collapse-Student"
               data-target="#example-collapse-Student"
             >
