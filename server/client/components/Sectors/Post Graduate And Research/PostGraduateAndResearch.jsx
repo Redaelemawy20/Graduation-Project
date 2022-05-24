@@ -177,13 +177,13 @@ export default function PostGraduateAndResearch() {
         </Link>,
       ],
     },
-    {
-      listName: "General Administration of Libraries",
-    },
-    {
-      listName: "Electronic services",
+    // {
+    //   listName: "General Administration of Libraries",
+    // },
+    // {
+    //   listName: "Electronic services",
       
-    },
+    // },
   ];
   return (
     <>

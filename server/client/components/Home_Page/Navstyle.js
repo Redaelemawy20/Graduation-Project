@@ -66,6 +66,7 @@ export default styled.section`
     align-items: center;
     justify-content: center;
     width: 100%;
+    color:white ;
   }
   /*******Down Arrow Animation*******/
   .un--list ul .Main--list:hover a #down .downIcon {
