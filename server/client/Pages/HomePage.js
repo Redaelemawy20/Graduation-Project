@@ -14,11 +14,32 @@ import Faculties from "../components/faculties/Faculties.jsx";
 import { connect } from "react-redux";
 import { getData } from "../actions";
 import DataLoad from "../components/common/DataLoad";
+import ImmigrantsDepartment from "../components/Home_Page/ImmigrantsDepartment.jsx";
+import bb from "../components/Images/dig.jpg";
+import { MdAppRegistration, MdDesignServices } from "react-icons/md";
+import { SiSmartthings } from "react-icons/si";
+import { FiActivity } from "react-icons/fi";
+import { Link } from "react-router-dom";
+
 function HomePage({ data, getData }) {
   let headerHome = {
     fName: "Menofia",
     lName: "University",
   };
+  let Digitaltransformations={
+    backgroundImage:bb,
+    firstIcon:<Link to='/'><MdDesignServices/></Link>,
+    secondIcon:<Link to='/'><MdAppRegistration/></Link>,
+    thirdIcon:<Link to='/'><SiSmartthings/></Link>,
+    fourthIcon:<Link to='/'><FiActivity/></Link>,
+    title:'Digital Transformation',
+    firstLink:<Link to='/'>Organizational Structure</Link>,
+    secondLink:<Link to='/'>Program Guide</Link>,
+    thirdLink:<Link to='/'>Activities</Link>,
+    fourthLink:<Link to='/'>How to register</Link>,
+    firstHight:3000,
+        secondHight:3100,
+  }
   useEffect(() => {
     getData();
   }, []);
@@ -32,8 +53,9 @@ function HomePage({ data, getData }) {
       <VideosAboutUni />
       <Statistics />
       <Faculties />
+      {/* <ImmigrantsDepartment/> */}
       <Location />
-      <Digitaltransformation />
+      <Digitaltransformation text={Digitaltransformations} />
       <Links />
       <Footer />
     </>

@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchCurrentUser } from "../actions";
 import httpService from "../../services/httpService";
+import {GoPerson} from 'react-icons/go'
 function Login({ auth, fetchCurrentUser }) {
   const [state, setState] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
@@ -59,36 +60,37 @@ function Login({ auth, fetchCurrentUser }) {
       case false:
         return (
           <Loginstyle>
-          <div className="m-2 d-flex flex-column justify-content-center log-style">
+            {/* <div className="log-style"> */}
             <h1>LOGIN</h1>
-            <form onSubmit={handleSubmit} className="form d-inline">
+            <form onSubmit={handleSubmit} className="form">
               <Input
                 error={errors.email}
-                label="email"
+                label="Email"
                 value={state.email}
                 name="email"
                 onChange={handleChange}
                 rest={{ type: "email" }}
+                
               />
-
               <Input
                 error={errors.password}
-                label="password"
+                label="Password"
                 value={state.password}
                 name="password"
                 onChange={handleChange}
                 rest={{ type: "password" }}
               />
-              <input className="btn" type="submit" value="Submit"></input>
+              
+                <input className="btn" type="submit" value="Submit"></input>
+              
               <input
                 id="res"
                 className="btn"
                 type="reset"
                 value="reset"
               ></input>
-              {/* <span>Forget password</span> */}
             </form>
-          </div>
+            {/* </div> */}
           </Loginstyle>
         );
       default:
@@ -98,53 +100,40 @@ function Login({ auth, fetchCurrentUser }) {
   return status();
 }
 const Loginstyle = styled.div`
-  h1 {
-    text-align: center;
-    font-size: 35px;
-  }
-  .log-style{
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 380px;
-  }
-
-  background-color: #ddd;
+  background-color: #ccc;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
-  /*text-align: center;*/
-  width: fit-content;
-  font-family: "Asap", sans-serif;
+  width: 360px;
+  padding: 20px 0;
+  border-radius: 5px;
+  h1 {
+    text-align: center;
+    font-size: 35px;
+  }
 
   input {
     display: block;
     width: 100%;
-    margin: 10px;
     margin-top: 0px;
-    height: 30px;
-    background: none;
+    height: 40px;
+    background: white;
     outline: none;
-    border-radius: 30px;
-    font-family: "Asap", sans-serif;
+    border-radius: 5px;
     font-size: 18px;
-    padding-left: 26px;
   }
   label {
     position: relative;
-    left: 10px;
-    font-size: 20px;
+    font-size: 1.2rem;
   }
   input.btn {
-    position: relative;
-    left: 16px;
+    /* position: relative; */
+    margin: 20px auto;
+    border-radius: 5px;
+    width: 90%;
 
-    border-radius: 20px;
-    /*font-family: 'Asap', sans-serif;
-    font-size: 20px;*/
+    border-radius: 5px;
   }
 
   .icon i {
@@ -158,15 +147,6 @@ const Loginstyle = styled.div`
     position: absolute;
     top: 187px;
     left: 20px;
-  }
-  span {
-    font-size: 15px;
-    position: relative;
-    left: 10px;
-    margin-top: 20px;
-  }
-  span:hover {
-    color: tomato;
   }
 `;
 function mapStateToProps({ auth }) {

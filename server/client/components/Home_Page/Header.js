@@ -8,7 +8,7 @@ import { FiLogIn } from "react-icons/fi";
 import Lamp from "../Images/lamp.png";
 import EgyFlag from "../Images/EG-Flag.png";
 import EngFlag from "../Images/EN-Flag.png";
-import "../Home_Page/Addinstrations.css";
+//import "../Home_Page/Addinstrations.css";
 import { connect } from "react-redux";
 import { fetchCurrentUser } from "../../actions";
 import httpService from "../../../services/httpService";

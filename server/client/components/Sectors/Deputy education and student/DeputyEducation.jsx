@@ -19,6 +19,7 @@ import SocialBar from "../../Home_Page/SocialBar.jsx";
 import Navstyle from "../../Home_Page/Navstyle";
 import Coverstyle from "../../Home_Page/Coverstyle.js";
 import Newsstyle from "../../Home_Page/Newsstyle.jsx";
+import MedicalAffairs from "./MedicalAffairs/MedicalAffairs.jsx";
 export default function DeputyEducation() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
@@ -120,10 +121,7 @@ export default function DeputyEducation() {
           ></FontAwesomeIcon>
         </span>
       ),
-      style: "icon",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
+      
       dropdown: [
         <Link to="/OrganizationalStructureYouth">
           Organizational Structure
@@ -133,7 +131,7 @@ export default function DeputyEducation() {
         <Link to="/CallUsYouth">Call Us</Link>,
       ],
     },
-    {
+    /*{
       listName: "Medical Affairs",
       licon: (
         <span id="down">
@@ -153,7 +151,7 @@ export default function DeputyEducation() {
         <Link to="/subdepartments">Sub-departments</Link>,
         <Link to="/callusmedical">Call Us</Link>,
       ],
-    },
+    },*/
     {
       listName: "Alumni Care Association",
       cliick: function () {
@@ -207,6 +205,7 @@ export default function DeputyEducation() {
           ))}
         </div>
       </Newsstyle>
+      <MedicalAffairs/>
       <Footer />
     </>
   );
