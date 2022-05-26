@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../Home_Page/Header.css";
 import logo from "../Images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,8 +12,10 @@ import EngFlag from "../Images/EN-Flag.png";
 import { connect } from "react-redux";
 import { fetchCurrentUser } from "../../actions";
 import httpService from "../../../services/httpService";
+import translate from "../../../translate";
 function Header({ auth, fetchCurrentUser, text }) {
   const { fName, lName } = text;
+
   async function logout() {
     try {
       await httpService.post("/auth/logout");
@@ -27,14 +29,14 @@ function Header({ auth, fetchCurrentUser, text }) {
       case false:
         return (
           <Link to="/login" id="log">
-            Login
+            {translate("header.login")}
             <FiLogIn className="Icon-log" />
           </Link>
         );
       default:
         return (
           <button to="/login" id="log" onClick={logout}>
-            Logout
+            {translate("header.logout")}
             <FiLogIn className="Icon-log" />
           </button>
         );
@@ -46,27 +48,32 @@ function Header({ auth, fetchCurrentUser, text }) {
         <div className="logo">
           <img src={logo} alt="logo" />
           <div className="dis-coll">
-            <p className="fName">{fName}</p>
+            <p className="fName">{translate("header.fName")}</p>
 
-            <p>{lName}</p>
+            <p>{translate("header.lName")}</p>
           </div>
         </div>
         <div className="unorder">
           <div className="Caption--Ul">
             <p id="Caption">
-              The beacon of knowledge in the heart of the delta
+              {translate("header.caption")}
+              {/* The beacon of knowledge in the heart of the delta */}
               <img src={Lamp} alt="Lamp" />
             </p>
             <div className="dis--row">
               <ul className="mainul">
                 <li>{authStatus()}</li>
                 <li>
-                  <a>AR</a>
-                  <img src={EgyFlag} alt="" className="flag" />
+                  <a href="/api/locale?lang=ar">
+                    {translate("header.lang1")}
+                    <img src={EgyFlag} alt="" className="flag" />
+                  </a>
                 </li>
                 <li>
-                  <a>EN</a>
-                  <img src={EngFlag} alt="" className="flag" />
+                  <a href="/api/locale?lang=en">
+                    {translate("header.lang2")}{" "}
+                    <img src={EngFlag} alt="" className="flag" />
+                  </a>
                 </li>
 
                 <li id="search">

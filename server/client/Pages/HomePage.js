@@ -29,16 +29,17 @@ function HomePage({ data, getData }) {
   let Digitaltransformations={
     backgroundImage:bb,
     firstIcon:<Link to='/'><MdDesignServices/></Link>,
-    secondIcon:<Link to='/'><MdAppRegistration/></Link>,
-    thirdIcon:<Link to='/'><SiSmartthings/></Link>,
-    fourthIcon:<Link to='/'><FiActivity/></Link>,
+    secondIcon:<Link to='/'><SiSmartthings/></Link>,
+    thirdIcon:<Link to='/'><FiActivity/></Link>,
+    
+    fourthIcon:<Link to='/'><MdAppRegistration/></Link>,
     title:'Digital Transformation',
     firstLink:<Link to='/'>Organizational Structure</Link>,
     secondLink:<Link to='/'>Program Guide</Link>,
     thirdLink:<Link to='/'>Activities</Link>,
     fourthLink:<Link to='/'>How to register</Link>,
-    firstHight:3000,
-        secondHight:3100,
+    firstHight:3300,
+        secondHight:3400,
   }
   useEffect(() => {
     getData();

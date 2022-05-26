@@ -74,14 +74,11 @@ export default function () {
 }
 const FooterStyle=styled.div`
 :root{
-    --background: #263238;
-    --textColor:#cccbc6;
-    --Titles:#ffffff;
-    --border:#2c393f;
+    
     --orange: #f6852b;
 }
-background-color:var(--background);
-    color: var(--textColor); 
+background-color:#263238;
+    color:#cccbc6; 
     width: 100%;
     padding:  50px 0 10px 0;
 body{
@@ -89,7 +86,7 @@ body{
     /* color: var(--mainColor); */
 }
 h4{
-    color: var(--Titles);
+    color:#ffffff;
 }
 span{
     padding-inline-end: 3px;
@@ -107,7 +104,7 @@ span{
     gap: 30px;
    
     text-align: start;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid #2c393f;
 }
  .arrange--foot>div{
     width: 100%;
@@ -127,7 +124,7 @@ span{
 }
  .arrange--foot>div .Quick--links a:hover{
     padding-inline-start: 5px;
-    color:var(--orange) ;
+    color:#f6852b ;
 }
  .Social--foot{
     width:350px;
@@ -140,11 +137,11 @@ span{
  .Social--foot>a{
     margin: 0;
     padding:10px;
-    border: 2px solid var(--textColor);
+    border: 2px solid #cccbc6;
     font-size: 1.3rem;
     border-radius:50%;
     display: flex;
-    color: var(--textColor);
+    color: #cccbc6;
 }
 @media(max-width:1000px){
      .arrange--foot{

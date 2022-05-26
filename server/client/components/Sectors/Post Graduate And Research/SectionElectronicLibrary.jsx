@@ -33,7 +33,7 @@ export default function SectionElectronicLibrary() {
 }
 const SectionElectronicLibraryStyle = styled.div`
   width: 100%;
-  margin-bottom: 50px;
+ 
   background-color: #eee;
   padding-top:30px ;
   .main {
