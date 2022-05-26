@@ -10,16 +10,16 @@ import logoElectronicEngineering from "../faculties/Images/الهندسه الا
 import logoPhysicalEducation from "../faculties/Images/التربيه الياضيه.png";
 import logoSpecificEducation from "../faculties/Images/التربيه النوعيه.png";
 import logoEarlychildhoodeducation from "../faculties/Images/التربيه للطفوله المبكره.png";
-import EngineeringView from '../faculties/Images/Eng-View.jpg'
-import MediaView from '../faculties/Images/Media-view.jpg'
-import MedicineView from '../faculties/Images/Medicine-View.jpg'
-import PharmacyView from '../faculties/Images/Pharmacy-View.jpg'
-import ComputersInformationView from '../faculties/Images/ComputersandInformation-View.jpg'
-import EarlychildhoodeducationView from '../faculties/Images/Early childhood education-View.jpg'
-import EducationView from '../faculties/Images/Education-View.jpg'
-import ElectronicEngineeringView from '../faculties/Images/ElectronicEngineering-View.jpg'
-import PhysicalEducationView from '../faculties/Images/PhysicalEducation-view.jpg'
-import SpacificEducationView from '../faculties/Images/SpacificEducation-View.jpg'
+import EngineeringView from "../faculties/Images/Eng-View.jpg";
+import MediaView from "../faculties/Images/Media-view.jpg";
+import MedicineView from "../faculties/Images/Medicine-View.jpg";
+import PharmacyView from "../faculties/Images/Pharmacy-View.jpg";
+import ComputersInformationView from "../faculties/Images/ComputersandInformation-View.jpg";
+import EarlychildhoodeducationView from "../faculties/Images/Early childhood education-View.jpg";
+import EducationView from "../faculties/Images/Education-View.jpg";
+import ElectronicEngineeringView from "../faculties/Images/ElectronicEngineering-View.jpg";
+import PhysicalEducationView from "../faculties/Images/PhysicalEducation-view.jpg";
+import SpacificEducationView from "../faculties/Images/SpacificEducation-View.jpg";
 
 import { useEffect } from "react";
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
@@ -35,49 +35,49 @@ export default function Faculties() {
       name: "Media",
       since: 2020,
       logo: logoMedia,
-      view:MediaView,
+      view: MediaView,
     },
     {
       name: "Medicine",
       since: 1980,
       logo: logoMedicine,
-      view:MedicineView,
+      view: MedicineView,
     },
     {
       name: "Pharmacy",
       since: 2016,
       logo: logoPharmacy,
-      view:PharmacyView,
+      view: PharmacyView,
     },
     {
       name: "Computers&Information",
       since: 2006,
       logo: logoComputersInformation,
-      view:ComputersInformationView,
+      view: ComputersInformationView,
     },
     {
       name: "Education",
       since: 1990,
       logo: logoEducation,
-      view:EducationView,
+      view: EducationView,
     },
     {
       name: "Electronic Engineering",
       since: 2000,
       logo: logoElectronicEngineering,
-      view:ElectronicEngineeringView,
+      view: ElectronicEngineeringView,
     },
     {
       name: "Physical Education",
       since: 1980,
       logo: logoPhysicalEducation,
-      view:PhysicalEducationView,
+      view: PhysicalEducationView,
     },
     {
       name: "Specific Education",
       since: 1970,
       logo: logoSpecificEducation,
-      view:SpacificEducationView,
+      view: SpacificEducationView,
     },
     {
       name: "Early childhood education",
@@ -207,11 +207,11 @@ export default function Faculties() {
             let img = item.logo;
             let name = item.name;
             let date = item.since;
-            let view =item.view
+            let view = item.view;
             return (
               <div className="faculty">
                 <div className="logo">
-                <img src={img} alt="faculity image" />
+                  <img src={img} alt="faculity image" />
                 </div>
                 <div className="view">
                   <img src={view} alt="faculity image" />
@@ -283,9 +283,8 @@ const FaculitiesStyle = styled.section`
     height: 50px;
     border-radius: 50%;
     background-color: white;
-    
   }
-  .faculties--cont .faculty .logo img{
+  .faculties--cont .faculty .logo img {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -295,8 +294,7 @@ const FaculitiesStyle = styled.section`
     width: 100%;
     height: 150px;
     border-top-left-radius: 5px;
-    border-top-right-radius:5px;
-   
+    border-top-right-radius: 5px;
   }
   @media (max-width: 1245px) {
     .faculties--cont {
@@ -321,7 +319,7 @@ const FaculitiesStyle = styled.section`
     transition: 15s;
   }
   .left {
-   transform: translateX(-1050px);
+   /* transform: translateX(-1050px); */
     transition: 1s;
   }
   //probably

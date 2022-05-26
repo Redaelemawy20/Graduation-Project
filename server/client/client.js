@@ -5,6 +5,8 @@ import { BrowserRouter, matchRoutes } from "react-router-dom";
 import { Provider } from "react-redux";
 import createStore from "../createStore";
 import httpService from "../services/httpService";
+import TranslationContext from "../TranslationContext";
+
 const axiosInstance = httpService;
 const store = createStore(window.INTIALSTATE, axiosInstance);
 const server_data = window.SERVER_DATA;
@@ -25,9 +27,11 @@ if (matchRoutes.length) {
 }
 ReacDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+    <TranslationContext.Provider value={window.TRANSLATION}>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </TranslationContext.Provider>
   </Provider>,
   document.getElementById("root")
 );

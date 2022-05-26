@@ -16,10 +16,16 @@ import sequelizestore from "connect-session-sequelize";
 import user from "./middlewares/user";
 import axios from "axios";
 import { setLoading } from "./client/actions";
+import cookieParser from "cookie-parser";
 const db = require("./models");
 const SequelizeStore = sequelizestore(session.Store);
+import configureTranslation, {
+  translationServiece,
+} from "./services/configureTranslation";
+import translation from "./middlewares/translation";
 const app = express();
 app.use(cors());
+
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -58,9 +64,10 @@ app.use(
     proxy: true, // if you do SSL outside of node.
   })
 );
+app.use(cookieParser());
 
 app.use(user);
-
+app.use(translation);
 // api routess
 app.use("/api/news", NewsRoutes);
 
@@ -76,8 +83,20 @@ app.get("/files", (req, res) => {
   const filePath = path.join(__dirname, "../", "storage", req.query.file);
   return res.sendFile(filePath);
 });
+
+app.get("/api/locale", (req, res) => {
+  const { lang } = req.query;
+  res.cookie("lang", lang ?? "en");
+  return res.redirect("/");
+});
 app.get("/favicon.ico", (req, res) => {
   return res.send("no");
+});
+configureTranslation({
+  loadpath: "locales",
+  langs: ["ar", "en"],
+  ns: ["translations", "header", "news"],
+  defaultLang: "ar",
 });
 // website & dashboard => react router
 app.get("/*", (req, res) => {
@@ -91,6 +110,7 @@ app.get("/*", (req, res) => {
   let matchedRoutes = matchRoutes(routeObj, req.path);
   if (!matchedRoutes) matchedRoutes = [];
   let promises = [];
+
   if (matchedRoutes.length === 0)
     return res.status(404).send("page not found not found");
   if (matchRoutes.length) {
@@ -110,13 +130,8 @@ app.get("/*", (req, res) => {
           );
         }
       });
-      const context = {};
 
-      const content = reactRenderer(req, store, results, context);
-      console.log(context);
-      if (context.notFound) {
-        res.status(404);
-      }
+      const content = reactRenderer(req, store, results);
       return res.send(content);
     });
   }

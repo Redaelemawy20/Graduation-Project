@@ -34,8 +34,8 @@ const SocialbarStyle = styled.div`
   width: 100%;
   padding: 0.4em;
   background-color: rgba(20, 116, 153, 0.5);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-end-end-radius: 5px;
+    border-start-end-radius: 5px;
   animation-name: Social--Animation;
   animation-duration: 1s;
   animation-timing-function: linear;

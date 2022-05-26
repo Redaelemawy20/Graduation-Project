@@ -11,7 +11,6 @@ const EditUser = ({ data, auth }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const canEdit = (data) => {
-    console.log(isSuperAdmin(data.user));
     if (data.user.id === auth.id) return;
     if (!can(auth, "manage users")) navigate("/dashboard/profile/");
     if (isSuperAdmin(data.user)) navigate("/dashboard/users/");
@@ -19,7 +18,6 @@ const EditUser = ({ data, auth }) => {
   useEffect(async () => {
     const { data } = await getUserData(id);
     setState(data);
-
     canEdit(data);
   }, []);
   const handleSubmit = async (payload) => {
