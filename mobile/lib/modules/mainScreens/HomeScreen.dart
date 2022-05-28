@@ -39,8 +39,8 @@ class HomeScreen extends StatelessWidget {
                         height: 250,
                         enableInfiniteScroll: true,
                         reverse: false,
-                        autoPlayInterval: Duration(seconds: 3),
-                        autoPlayAnimationDuration: Duration(seconds: 1),
+                        autoPlayInterval: const Duration(seconds: 3),
+                        autoPlayAnimationDuration: const Duration(seconds: 1),
                         autoPlayCurve: Curves.fastOutSlowIn,
                         scrollDirection: Axis.horizontal,
                       ),
@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                           .toList(),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
@@ -67,14 +67,14 @@ class HomeScreen extends StatelessWidget {
                     height: 40,
                     child: TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'TAKE VIRTUAL TOUR',
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
@@ -82,12 +82,12 @@ class HomeScreen extends StatelessWidget {
                     width: double.infinity,
                     color: Colors.grey,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Container(
                     alignment: AlignmentDirectional.bottomCenter,
-                    child: Text(
+                    child:const Text(
                       'أحدث الأخبار',
                       style: TextStyle(
                         fontSize: 20,
@@ -95,11 +95,11 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   GridView.count(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics:const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     crossAxisCount: 1,
                     children: List.generate(
@@ -359,7 +359,7 @@ class HomeScreen extends StatelessWidget {
                       Expanded(
                         child: Column(
                           children: [
-                            Text(
+                            const Text(
                               'ريْيس الوزراء أثناء زيارته للجامعة',
                               maxLines: 2,
                               style: TextStyle(
@@ -471,6 +471,7 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
+                  ////////////////////////////////////////
                   Container(
                     alignment: AlignmentDirectional.bottomCenter,
                     child: Text(
