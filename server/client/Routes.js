@@ -101,7 +101,7 @@ import Universitymessage from "./components/Home_Page/About/Universitymessage";
 import Universitystrategy from "./components/Home_Page/About/Universitystrategy";
 import Universityvision from "./components/Home_Page/About/Universityvision";
 import ViewUser from "./Pages/ViewUser";
-
+import Translations from "./Pages/Translations";
 export let routeObj = [
   {
     path: "/",
@@ -174,6 +174,10 @@ export let routeObj = [
           {
             path: "/dashboard/roles/:id/edit",
             ...EditRole,
+          },
+          {
+            path: "/dashboard/translations",
+            ...Translations,
           },
         ],
       },
