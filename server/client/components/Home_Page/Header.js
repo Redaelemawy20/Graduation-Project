@@ -49,7 +49,6 @@ function Header({ auth, fetchCurrentUser, text }) {
           <img src={logo} alt="logo" />
           <div className="dis-coll">
             <p className="fName">{translate("header.welcome")}</p>
-
             <p>{lName}</p>
           </div>
         </div>

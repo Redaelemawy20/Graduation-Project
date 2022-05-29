@@ -5,6 +5,7 @@ import NewsRoutes from "./routes/news";
 import AuthRoutes from "./routes/auth";
 import UsersRoutes from "./routes/users";
 import RolesRoutes from "./routes/roles";
+import TranslationRoutes from "./routes/translations";
 import reactRenderer from "./services/reactRenderer";
 import createStore from "./createStore";
 import { routeObj } from "./client/Routes";
@@ -19,9 +20,7 @@ import { setLoading } from "./client/actions";
 import cookieParser from "cookie-parser";
 const db = require("./models");
 const SequelizeStore = sequelizestore(session.Store);
-import configureTranslation, {
-  translationServiece,
-} from "./services/configureTranslation";
+import configureTranslation from "./services/configureTranslation";
 import translation from "./middlewares/translation";
 const app = express();
 app.use(cors());
@@ -74,6 +73,7 @@ app.use("/api/news", NewsRoutes);
 app.use("/api/auth/", AuthRoutes);
 app.use("/api/user/", UsersRoutes);
 app.use("/api/role/", RolesRoutes);
+app.use("/api/translations/", TranslationRoutes);
 app.engine("ejs", require("express-ejs-extend"));
 
 app.set("view engine", "ejs");
@@ -94,7 +94,7 @@ app.get("/favicon.ico", (req, res) => {
 });
 configureTranslation({
   loadpath: "locales",
-  langs: ["ar", "en"],
+  langs: ["ar", "en", "fr"],
   ns: ["translations", "header"],
   defaultLang: "ar",
 });

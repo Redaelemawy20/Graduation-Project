@@ -14,6 +14,7 @@ import Faculties from "../components/faculties/Faculties.jsx";
 import { connect } from "react-redux";
 import { getData } from "../actions";
 import DataLoad from "../components/common/DataLoad";
+import Header2 from "../components/Home_Page/Header2";
 function HomePage({ data, getData }) {
   let headerHome = {
     fName: "Menofia",
@@ -26,6 +27,7 @@ function HomePage({ data, getData }) {
   return listOfNews ? (
     <>
       <Header text={headerHome} />
+      {/* <Header2 /> */}
       <Nav />
       <Cover />
       <Addminstration />
