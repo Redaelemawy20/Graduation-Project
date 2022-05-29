@@ -1,6 +1,11 @@
 import React from "react";
 //import "./.css";
-import { BsTelephoneFill,BsTwitter,BsInstagram,BsLinkedin} from "react-icons/bs";
+import {
+  BsTelephoneFill,
+  BsTwitter,
+  BsInstagram,
+  BsLinkedin,
+} from "react-icons/bs";
 import { FaEnvelope, FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -31,8 +36,8 @@ export default function () {
           <div>
             <h4>Quick links</h4>
             <p className="Quick--links">
-              <Link to='/'>Arrivals Management</Link>
-              <a href="#">Link2</a>
+              <Link to="/">Arrivals Management</Link>
+              <Link to="/">Link2</Link>
               <a href="#">Link3</a>
               <a href="#">Link4</a>
               <a href="#">Link5</a>
@@ -50,8 +55,11 @@ export default function () {
           </div>
           <div>
             <h4>Follow us</h4>
-            <p>Aute ea consectetur esse ex in laborum ipsum veniam do in dolore sunt.
-               Irure do aliqua esse laboris.Proident veniam sint enim ea amet fugiat fugiat.</p>
+            <p>
+              Aute ea consectetur esse ex in laborum ipsum veniam do in dolore
+              sunt. Irure do aliqua esse laboris.Proident veniam sint enim ea
+              amet fugiat fugiat.
+            </p>
           </div>
         </div>
         <div className="Social--foot">
@@ -59,105 +67,99 @@ export default function () {
             <FaFacebookF />
           </a>
           <a href="#">
-              <BsTwitter/>
+            <BsTwitter />
           </a>
           <a href="#">
-              <BsInstagram/>
+            <BsInstagram />
           </a>
           <a href="#">
-              <BsLinkedin/>
+            <BsLinkedin />
           </a>
         </div>
       </FooterStyle>
     </>
   );
 }
-const FooterStyle=styled.div`
-:root{
-    
+const FooterStyle = styled.div`
+  :root {
     --orange: #f6852b;
-}
-background-color:#263238;
-    color:#cccbc6; 
-    width: 100%;
-    padding:  50px 0 10px 0;
-body{
+  }
+  background-color: #263238;
+  color: #cccbc6;
+  width: 100%;
+  padding: 50px 0 10px 0;
+  body {
     font-size: 1rem;
     /* color: var(--mainColor); */
-}
-h4{
-    color:#ffffff;
-}
-span{
+  }
+  h4 {
+    color: #ffffff;
+  }
+  span {
     padding-inline-end: 3px;
-}
+  }
 
-
-   
-    
-
- .arrange--foot{
+  .arrange--foot {
     margin: auto;
     display: grid;
     width: 90%;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-   
+
     text-align: start;
     border-bottom: 1px solid #2c393f;
-}
- .arrange--foot>div{
+  }
+  .arrange--foot > div {
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 0 5%;
     overflow: hidden;
-}
+  }
 
- .arrange--foot>div .Quick--links{
+  .arrange--foot > div .Quick--links {
     display: flex;
     flex-direction: column;
-}
- .arrange--foot>div .Quick--links a{
+  }
+  .arrange--foot > div .Quick--links a {
     color: #cccbc6;
     text-decoration: none;
-}
- .arrange--foot>div .Quick--links a:hover{
+  }
+  .arrange--foot > div .Quick--links a:hover {
     padding-inline-start: 5px;
-    color:#f6852b ;
-}
- .Social--foot{
-    width:350px;
+    color: #f6852b;
+  }
+  .Social--foot {
+    width: 350px;
     margin: auto;
-    
+
     display: flex;
     justify-content: space-around;
     padding: 15px 0;
-}
- .Social--foot>a{
+  }
+  .Social--foot > a {
     margin: 0;
-    padding:10px;
+    padding: 10px;
     border: 2px solid #cccbc6;
     font-size: 1.3rem;
-    border-radius:50%;
+    border-radius: 50%;
     display: flex;
     color: #cccbc6;
-}
-@media(max-width:1000px){
-     .arrange--foot{
-        grid-template-columns: repeat(2,1fr);
+  }
+  @media (max-width: 1000px) {
+    .arrange--foot {
+      grid-template-columns: repeat(2, 1fr);
     }
-}
-@media(max-width:500px){
-     .arrange--foot{
-        grid-template-columns: repeat(1,1fr);
-        text-align: center;
+  }
+  @media (max-width: 500px) {
+    .arrange--foot {
+      grid-template-columns: repeat(1, 1fr);
+      text-align: center;
     }
-}
-@media(max-width:368px){
-     .Social--foot{
-        max-width: 280px;
+  }
+  @media (max-width: 368px) {
+    .Social--foot {
+      max-width: 280px;
     }
-}
-
-`
+  }
+`;

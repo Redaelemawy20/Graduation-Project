@@ -20,8 +20,8 @@ export default function Digitaltransformation(props) {
       const caption = document.getElementById("caption");
       const section = document.getElementById("display");
       let height = window.pageYOffset;
-       console.log(height);
-       console.log( 'static',{firstHight})
+      //  console.log(height);
+      //  console.log( 'static',{firstHight})
       if (height >= `${firstHight}`) caption.classList.add("cap-ani");
       if (height >= `${secondHight}`) section.classList.add("sec-ani");
     });

@@ -2,6 +2,7 @@
 import React from "react";
 import { faAngleDown, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaHome } from "react-icons/fa"
 // import "./Nav.css";
 import Navstyle from "./Navstyle";
 import { FiX } from "react-icons/fi";
@@ -35,6 +36,9 @@ function Nav() {
     <Navstyle>
       <div className="un--list" id={isOpen ? "visable" : "unvisable"}>
         <ul className="Maa--Ul">
+        <li className="Main--list">
+        <Link to='/'><FaHome id="icon--home"/>Home</Link>
+        </li>
           <li id="Admins" className="Main--list">
             <a
               onClick={() => setDrop({ ...intial, admin: !Drop.admin })}

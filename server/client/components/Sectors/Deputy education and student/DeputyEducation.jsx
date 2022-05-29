@@ -71,10 +71,8 @@ export default function DeputyEducation() {
           ></FontAwesomeIcon>
         </span>
       ),
-      style: "icon",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
+     
+      
       dropdown: [
         <Link to="/RegisteryManagement">Registry Management</Link>,
         <Link to="/StudyAffairsAddminstration">

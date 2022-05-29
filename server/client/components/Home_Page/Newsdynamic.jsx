@@ -69,7 +69,7 @@ async function loadData(store, params = null) {
 
   return { data: result.data };
 }
-export default { element: <Newsdynamic />, loadData };
+export default { element: <Newsdynamic/>, loadData };
 const Singlenews = styled.div`
   .slide--news {
     width: 70%;
