@@ -1,11 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+//import styled from "styled-components";
 
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
 //import FaculitesPages from "./FaculitesPages.jsx";
 import faculitiesObj from "./faculitiesObj";
+import Newsstyle from "../Home_Page/Newsstyle.jsx";
+import FaculitesSectionStyle from "./FaculitesSectionStyle.jsx";
 export default function Faculties() {
   //let { id } = useParams();
   //console.log(id);
@@ -119,7 +121,7 @@ export default function Faculties() {
   //   });
   // }
   return (
-    <FaculitiesStyle>
+    <FaculitesSectionStyle>
       <div className="Title">
         <h1>Menofia University Faculties</h1>
       </div>
@@ -155,11 +157,16 @@ export default function Faculties() {
         </span>
       </div>
       {/* <FaculitesPages/> */}
-    </FaculitiesStyle>
+      <Newsstyle>
+      <div className="all--news">
+        <Link to="/Allfaculities">All Faculites</Link>
+      </div>
+      </Newsstyle>
+    </FaculitesSectionStyle>
   );
 }
-const FaculitiesStyle = styled.section`
-  padding: 1rem 0;
+/*const FaculitiesStyle = styled.section`
+  /* padding: 1rem 0;
   position: relative;
   min-width: 280px;
   a{
@@ -193,8 +200,8 @@ const FaculitiesStyle = styled.section`
     height: 210px;
 
     /* grid-template-columns: repeat(9, 1fr); */
-  }
-  .faculties--cont .faculty {
+  // }
+  /* .faculties--cont .faculty {
     text-align: center;
     width: 270px;
     margin: 0 10px;
@@ -249,14 +256,14 @@ const FaculitiesStyle = styled.section`
   }
   .move {
     /* transform: translateX(-1100px); */
-    transition: 15s;
+     /* transition: 15s;
   }
   .left {
     /* transform: translateX(-1050px); */
-    transition: 1s;
+    /*transition: 1s;
   }
   //probably
   .right {
     transition: 1s;
-  }
-`;
+  } 
+`;*/

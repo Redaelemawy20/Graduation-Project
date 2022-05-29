@@ -121,7 +121,7 @@ import GetEmail from "./components/Home_Page/Students/Getemail.jsx";
 import Registrationofforeignstudents from "./components/Home_Page/Students/Registrationofforeignstudents.jsx";
 /*******imports of dynamic routes faculity ********/
 import FaculitesPages from "./components/faculties/FaculitesPages.jsx";
-
+import AllFaculities from "./components/faculties/AllFaculities";
 export let routeObj = [
   {
     path: "/",
@@ -656,6 +656,10 @@ export let routeObj = [
         // path:"/faculity",
         element: <FaculitesPages />
        },
+       {
+         path:"/Allfaculities",
+         element:<AllFaculities/>
+       }
     ],
   },
 ];
