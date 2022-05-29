@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 import Header from "../components/Home_Page/Header";
 import Nav from "../components/Home_Page/Nav";
 import Cover from "../components/Home_Page/Cover";
@@ -10,11 +9,11 @@ import Addminstration from "../components/Home_Page/Addminstration";
 import Footer from "../components/Home_Page/Footer.jsx";
 import Digitaltransformation from "../components/Home_Page/Digitaltransformation.jsx";
 import Links from "../components/Home_Page/Links.jsx";
-import Faculties from "../components/faculties/Faculties.jsx";
+import Faculties from "../components/faculties/FacultiesSection.jsx";
 import { connect } from "react-redux";
 import { getData } from "../actions";
 import DataLoad from "../components/common/DataLoad";
-import ImmigrantsDepartment from "../components/Home_Page/ImmigrantsDepartment.jsx";
+
 import bb from "../components/Images/dig.jpg";
 import { MdAppRegistration, MdDesignServices } from "react-icons/md";
 import { SiSmartthings } from "react-icons/si";

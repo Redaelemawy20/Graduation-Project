@@ -21,16 +21,31 @@ export default styled.div`
     width: 100%;
     height: 85vh;
   }
-  .cover #vid {
-    position: relative;
-    width: 100%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
+  /**slider**/
+  .carousel-control-next,
+.carousel-control-prev {
+  margin: 250px 0;
+  
+}
+.carousel-control-prev-icon ,
+.carousel-control-next-icon{
+  background-color: black;
+}
+.carousel-dark .carousel-control-prev-icon,
+.carousel-dark .carousel-control-next-icon {
+  
+  filter: invert(0) grayscale(500);
+}
+.carousel-caption h5,.carousel-caption p{
+  color: white;
+}
+.carousel-indicators button{
+  background-color: white;
+
+}
+.carousel-dark .carousel-indicators [data-bs-target] {
+     background-color: white; 
+}
   .cover .trans--text {
     position: absolute;
     top: 90%;

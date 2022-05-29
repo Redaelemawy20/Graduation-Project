@@ -50,7 +50,7 @@ export default function Personalwebsitedata() {
               setValue(e.target.value);
             }}
           />
-          <button type="button" id="searchbtn" onClick={search} className={`${value.length>2?'active':""}`}>
+          <button type="button" id="searchbtn" onClick={search} className={`${value.length>=2?'active':""}`}>
             <ImSearch /> Search
           </button>
         </div>
