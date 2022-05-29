@@ -6,14 +6,7 @@ export default styled.div`
     --orange: #f6852b;
     --dr-Orange: #ff8c00;
   }
-  /* body {
-  margin: 0;
-  padding: 0;
-}
-/** {
-  box-sizing: border-box;
-} */
-
+  
   height: 85vh;
   min-width: 280px;
 
@@ -48,7 +41,7 @@ export default styled.div`
 }
   .cover .trans--text {
     position: absolute;
-    top: 90%;
+    top: 94%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -70,7 +63,7 @@ export default styled.div`
     margin: 0.3em 0.6em;
     font-size: 2rem;
     font-weight: 600;
-    width: 200px;
+    width: 150px;
     position: relative;
     font-style: italic;
   }
@@ -103,11 +96,11 @@ export default styled.div`
   } */
   #text {
     width: 100%;
-    height: 100px;
+    height: 70px;
     border-radius: 6px;
     background-color: var(--orange);
     /* background-color: rgba(255, 255, 255, 0.7); */
-    padding: 0 0.4em;
+    padding: 0.1em 0.4em;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
       rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -138,15 +131,15 @@ export default styled.div`
     }
     .cover .trans--text .organize {
       font-size: 1.3rem;
-      width: 150px;
+      width: 100px;
     }
     #text {
-      height: 80px;
+      height: 50px;
     }
   }
   @media (max-width: 901px) {
     .cover .trans--text {
-      top: 85%;
+    top: 91%;
     }
   }
   @media (max-width: 750px) {
@@ -157,14 +150,19 @@ export default styled.div`
       width: 70px;
     }
     #text {
-      height: 70px;
-      padding: 0;
+      height: 40px;
+      padding: 0 .2em;
     }
     .tool--tip {
-      top: -40px;
+      top: -40px !important;
     }
     .tool--tip a {
       font-size: 0.8rem !important;
+    }
+  }
+  @media (max-width:680px){
+    .cover .trans--text {
+    top:89% !important;
     }
   }
   @media (max-width: 400px) {
@@ -175,7 +173,7 @@ export default styled.div`
       width: 50px;
     }
     #text {
-      height: 50px;
+      height: 30px;
     }
     .tool--tip {
       top: -30px !important;
