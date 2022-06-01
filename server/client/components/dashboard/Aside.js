@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { GiThreeFriends } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
+import { MdTranslate } from "react-icons/md";
 import { can } from "../../reducers/authReducer";
 
 function Aside({ auth }) {
@@ -173,6 +174,20 @@ function Aside({ auth }) {
                     </Link>
                   </li>
                 </ul>
+              </li>
+            ) : (
+              ""
+            )}
+            {can(auth, "manage translations") ? (
+              <li className="nav-item">
+                <Link className="nav-link" to={`/dashboard/translations`}>
+                  <span className="nav-link-icon d-md-none d-lg-inline-block">
+                    <MdTranslate />
+                  </span>
+                  <span className="nav-link-title">
+                    Translations Management
+                  </span>
+                </Link>
               </li>
             ) : (
               ""

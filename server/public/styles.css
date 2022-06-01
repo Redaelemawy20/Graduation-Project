@@ -754,6 +754,19 @@ body{
   align-items: center;
   background-color: #f6f9fc;
 }
+html[dir="rtl"] .dropdown-menu.nav-dropdown.show,
+html[dir="rtl"] .dropdown-item.show {
+  right: 0 !important;
+  left: unset !important;
+}
+html[dir="rtl"] .dropdown-menu.dropdown-menu-end.show {
+  left: 0 !important;
+  right: auto;
+}
+html[dir="rtl"] .dropdown-menu-arrow.dropdown-menu-end:before {
+  right: 87%;
+  left: 0;
+}
 
 /*!**************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Addinstrations.css ***!

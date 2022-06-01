@@ -20,7 +20,7 @@ export default (req, store, results) => {
   const spinner = ReactDOMServer.renderToString(<FullPageReload />);
 
   const html = `
-              <html ${lang === "ar" ? 'dir= "rtl"' : ""}>
+              <html dir=${lang.direction ?? "ltr"}>
                 <head>
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta charSet='utf-8' />
@@ -29,6 +29,11 @@ export default (req, store, results) => {
                   <link rel="stylesheet" type="text/css" href="/ReactToastify.css" /> 
                   <link rel="stylesheet" type="text/css" href="/styles.css" /> 
                   <link rel="stylesheet" type="text/css" href="/dist/css/bootstrap.min.css" /> 
+                  <link rel="stylesheet" type="text/css" href="/tabler.min.css" />
+                  <link
+        rel="stylesheet"
+        href="/tabler-vendors.min.css"
+      />
                 </head>
                 <body >
                   <div id="root">
@@ -49,7 +54,7 @@ export default (req, store, results) => {
                   });
                 </script>
                 <script src="/bundle.js"></script>
-                
+                <script src="/tabler.min.js"></script>
               </html>`;
 
   return html;

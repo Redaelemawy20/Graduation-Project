@@ -99,6 +99,7 @@ import Universitymessage from "./components/Home_Page/About/Universitymessage";
 import Universitystrategy from "./components/Home_Page/About/Universitystrategy";
 import Universityvision from "./components/Home_Page/About/Universityvision";
 import ViewUser from "./Pages/ViewUser";
+import Translations from "./Pages/Translations";
 /********imports of staff members*******/
 import Biography from "./components/Home_Page/Staff Members/Biography.jsx";
 import Datarecording from "./components/Home_Page/Staff Members/Datarecording.jsx";
@@ -135,7 +136,7 @@ export let routeObj = [
         path: "/tour",
         element: <Tour />,
       },
-     
+
       {
         path: "/dashboard",
         element: <Dashboard />,
@@ -191,6 +192,10 @@ export let routeObj = [
           {
             path: "/dashboard/roles/:id/edit",
             ...EditRole,
+          },
+          {
+            path: "/dashboard/translations",
+            ...Translations,
           },
         ],
       },
@@ -651,15 +656,15 @@ export let routeObj = [
         element: <Registrationofforeignstudents />,
       },
       /******Routes of Faculites*****/
-       { 
-         path: "/faculity/:id",
+      {
+        path: "/faculity/:id",
         // path:"/faculity",
-        element: <FaculitesPages />
-       },
-       {
-         path:"/Allfaculities",
-         element:<AllFaculities/>
-       }
+        element: <FaculitesPages />,
+      },
+      {
+        path: "/Allfaculities",
+        element: <AllFaculities />,
+      },
     ],
   },
 ];

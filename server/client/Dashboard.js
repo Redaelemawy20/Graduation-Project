@@ -24,8 +24,8 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <script src="http://localhost:3000/tabler.min.js"></script>
-      <link rel="stylesheet" href="http://localhost:3000/tabler.min.css" />
+      
+     
       <link
         rel="stylesheet"
         href="http://localhost:3000/tabler-flags.min.css"
@@ -34,10 +34,7 @@ function Dashboard() {
         rel="stylesheet"
         href="http://localhost:3000/tabler-payments.min.css"
       />
-      <link
-        rel="stylesheet"
-        href="http://localhost:3000/tabler-vendors.min.css"
-      />
+      
     </>
   );
 }
