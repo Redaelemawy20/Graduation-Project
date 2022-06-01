@@ -8,7 +8,7 @@ import { FiLogIn } from "react-icons/fi";
 import Lamp from "../Images/lamp.png";
 import EgyFlag from "../Images/EG-Flag.png";
 import EngFlag from "../Images/EN-Flag.png";
-import "../Home_Page/Addinstrations.css";
+//import "../Home_Page/Addinstrations.css";
 import { connect } from "react-redux";
 import { fetchCurrentUser } from "../../actions";
 import httpService from "../../../services/httpService";
@@ -29,14 +29,14 @@ function Header({ auth, fetchCurrentUser, text }) {
       case false:
         return (
           <Link to="/login" id="log">
-            Login
+            {translate("header.login")}
             <FiLogIn className="Icon-log" />
           </Link>
         );
       default:
         return (
           <button to="/login" id="log" onClick={logout}>
-            Logout
+            {translate("header.logout")}
             <FiLogIn className="Icon-log" />
           </button>
         );
@@ -48,14 +48,16 @@ function Header({ auth, fetchCurrentUser, text }) {
         <div className="logo">
           <img src={logo} alt="logo" />
           <div className="dis-coll">
-            <p className="fName">{translate("header.welcome")}</p>
-            <p>{lName}</p>
+            <p className="fName">{translate("header.fName")}</p>
+
+            <p>{translate("header.lName")}</p>
           </div>
         </div>
         <div className="unorder">
           <div className="Caption--Ul">
             <p id="Caption">
-              The beacon of knowledge in the heart of the delta
+              {translate("header.caption")}
+              {/* The beacon of knowledge in the heart of the delta */}
               <img src={Lamp} alt="Lamp" />
             </p>
             <div className="dis--row">
@@ -63,12 +65,14 @@ function Header({ auth, fetchCurrentUser, text }) {
                 <li>{authStatus()}</li>
                 <li>
                   <a href="/api/locale?lang=ar">
-                    AR <img src={EgyFlag} alt="" className="flag" />
+                    {translate("header.lang1")}
+                    <img src={EgyFlag} alt="" className="flag" />
                   </a>
                 </li>
                 <li>
                   <a href="/api/locale?lang=en">
-                    EN <img src={EngFlag} alt="" className="flag" />
+                    {translate("header.lang2")}{" "}
+                    <img src={EngFlag} alt="" className="flag" />
                   </a>
                 </li>
 

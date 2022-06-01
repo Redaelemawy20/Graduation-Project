@@ -58,28 +58,6 @@ export default function NavSectors(props) {
                   ) : ""
                    
                   }
-                    
-                    {/* <li>
-                      <Link to="/DeputyEducation">
-                        Deputy Education and Student Sector
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/PostgraduateAndResearch">
-                        Deputy Postgraduate and Research Sector
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/CommunityAndEnvironment">
-                        Deputy Community Service and Environmental Development
-                        Sector
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/SecretaryGeneral">
-                        Sector of the Secretary General of the University
-                      </Link>
-                    </li> */}
                   </ul>
                 </div>
               </div>

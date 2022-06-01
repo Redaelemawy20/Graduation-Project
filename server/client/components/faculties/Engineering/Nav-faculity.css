@@ -77,29 +77,3 @@ ul {
   display: flex;
 }
 /*Slider*/
-.carousel-control-next,
-.carousel-control-prev {
-  margin: 250px 0;
-  
-}
-.carousel-control-prev-icon ,
-.carousel-control-next-icon{
-  background-color: black;
-}
-.carousel-dark .carousel-control-prev-icon,
-.carousel-dark .carousel-control-next-icon {
-  
-  filter: invert(0) grayscale(500);
-}
-.carousel-caption h5,.carousel-caption p{
-  color: white;
-}
-.carousel-indicators button{
-  background-color: white;
-
-}
-
-
-.carousel-dark .carousel-indicators [data-bs-target] {
-     background-color: white; 
-}

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Cards from "./Cards";
 import "./Statics.css";
-import "./Addinstrations.css";
+//import "./Addinstrations.css";
 import Newsstyle from "./Newsstyle.jsx";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";

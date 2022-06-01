@@ -12,6 +12,9 @@ export default (sequelize, DataTypes) => {
       this.hasMany(models.Feed, {
         onDelete: "CASCADE",
       });
+      this.hasMany(models.Lang, {
+        onDelete: "CASCADE",
+      });
       this.belongsTo(models.Role, {
         onDelete: "SET NULL",
       });

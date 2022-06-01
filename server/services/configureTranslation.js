@@ -1,10 +1,12 @@
 import fs from "fs";
 import path from "path";
 import util from "util";
+import db from "../models";
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 export default async (options) => {
-  const { loadpath, langs, ns, defaultLang } = options;
+  const { loadpath, ns, defaultLang } = options;
+  const langs = await db.Lang.findAll();
   Translation.currentLang = defaultLang;
   Translation.ns = ns;
   Translation.langs = langs;
@@ -15,19 +17,19 @@ export default async (options) => {
     });
   }
   for (let lang of langs) {
-    if (!fs.existsSync(path.resolve(loadpath, lang))) {
-      fs.mkdir(path.resolve(loadpath, lang), (err) => {
+    if (!fs.existsSync(path.resolve(loadpath, lang.value))) {
+      fs.mkdir(path.resolve(loadpath, lang.value), (err) => {
         if (err) throw err;
       });
     }
     for (let nameSpace of ns) {
       fs.writeFile(
-        path.resolve(loadpath, lang, `${nameSpace}.json`),
+        path.resolve(loadpath, lang.value, `${nameSpace}.json`),
         "",
         { flag: "a" },
         (err) => {
           if (err) throw err;
-          console.log(`${lang} -> ${nameSpace} created`);
+          console.log(`${lang.value} -> ${nameSpace} created`);
         }
       );
     }
@@ -35,15 +37,33 @@ export default async (options) => {
   await Translation.setTranslations();
 };
 class Translation {
-  static currentLang = "en";
+  static currentLang = {
+    value: "en",
+    countury: "US",
+    direction: "ltr",
+  };
+
   static loadpath = "locales";
   static ns = [];
   static langs = [];
   static translations = {};
+  static async setCurrentLang(lang) {
+    this.langs.find((l) => {
+      if (l.value === lang) {
+        this.currentLang = l;
+        return true;
+      }
+    });
+    await Translation.setTranslations();
+  }
   static async setTranslations() {
     for (let nameSpace of this.ns) {
       const data = await readFile(
-        path.resolve(this.loadpath, this.currentLang, `${nameSpace}.json`),
+        path.resolve(
+          this.loadpath,
+          this.currentLang.value,
+          `${nameSpace}.json`
+        ),
         "utf-8"
       );
       try {
@@ -57,15 +77,15 @@ class Translation {
     const allTranslations = {};
     for (let nameSpace of this.ns) {
       for (let lang of this.langs) {
-        allTranslations[lang] = allTranslations[lang] || {};
+        allTranslations[lang.value] = allTranslations[lang.value] || {};
         const data = await readFile(
-          path.resolve(this.loadpath, lang, `${nameSpace}.json`),
+          path.resolve(this.loadpath, lang.value, `${nameSpace}.json`),
           "utf-8"
         );
         try {
-          allTranslations[lang][nameSpace] = JSON.parse(data);
+          allTranslations[lang.value][nameSpace] = JSON.parse(data);
         } catch (error) {
-          allTranslations[lang][nameSpace] = {};
+          allTranslations[lang.value][nameSpace] = {};
         }
       }
     }
@@ -80,7 +100,7 @@ class Translation {
     const { key, nameSpace: ns } = payload;
     for (let lang of this.langs) {
       const data = await readFile(
-        path.resolve(this.loadpath, lang, `${ns}.json`),
+        path.resolve(this.loadpath, lang.value, `${ns}.json`),
         "utf-8"
       );
       let translations;
@@ -90,10 +110,10 @@ class Translation {
         translations = {};
       }
 
-      translations[key] = payload[lang];
+      translations[key] = payload[lang.value];
       try {
         await writeFile(
-          path.resolve(this.loadpath, lang, `${ns}.json`),
+          path.resolve(this.loadpath, lang.value, `${ns}.json`),
           JSON.stringify(translations),
           "utf-8"
         );
@@ -104,23 +124,29 @@ class Translation {
     }
   }
   static async addLanguage(lang) {
-    console.log("kdkdkdkdkdkkdkd");
-    if (!fs.existsSync(path.resolve(this.loadpath, lang))) {
-      fs.mkdir(path.resolve(loadpath, lang), (err) => {
+    if (!fs.existsSync(path.resolve(this.loadpath, lang.value))) {
+      fs.mkdir(path.resolve(this.loadpath, lang.value), (err) => {
+        console.log(err);
         if (err) throw err;
       });
     }
-    for (let nameSpace of ns) {
+    for (let nameSpace of this.ns) {
       fs.writeFile(
-        path.resolve(loadpath, lang, `${nameSpace}.json`),
+        path.resolve(this.loadpath, lang.value, `${nameSpace}.json`),
         "",
         { flag: "a" },
         (err) => {
+          console.log(err);
           if (err) throw err;
-          console.log(`${lang} -> ${nameSpace} created`);
+          console.log(`${lang.value} -> ${nameSpace} created`);
         }
       );
     }
+    this.langs.push(lang);
+    await db.Lang.create(lang);
+  }
+  static getLangs() {
+    return { all: this.langs, currentLang: this.currentLang };
   }
 }
 

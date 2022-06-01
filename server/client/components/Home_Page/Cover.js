@@ -7,6 +7,8 @@ import Slider from "./Slider";
 import cc from "../Images/front.jpg";
 import bb from "../Images/cover.jfif";
 import Coverstyle from "./Coverstyle";
+import vr360 from '../Images/vr-glasses.png'
+import {MdOutline360} from 'react-icons/md'
 export default function cover() {
   let homeSlide = {
     img1: { cc },
@@ -26,11 +28,15 @@ export default function cover() {
         </div>
         <div className="trans--text">
           <div className="organize">
+          
             <Link to="/tour" id="text">
-              Virtual Tour
-              <span className="right--Move">
+            <div className="tool--tip">
+            <Link to='/tour' >VAR 360°</Link>
+          </div>
+              <img src={vr360} alt='VR 360'/>
+              {/* <span className="right--Move">
                 <HiArrowNarrowRight className="iicon" />
-              </span>
+              </span> */}
             </Link>
           </div>
         </div>
