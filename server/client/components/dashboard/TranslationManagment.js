@@ -1,11 +1,13 @@
-import axios from "axios";
-import { set } from "lodash";
 import React from "react";
 import { toast } from "react-toastify";
 import httpService from "../../../services/httpService";
 const TranslationManagment = ({ translations }) => {
   const [state, setState] = React.useState(translations);
-  const [newLang, setNewLang] = React.useState("");
+  const [newLang, setNewLang] = React.useState({
+    value: "",
+    country: "",
+    direction: "ltr",
+  });
   const handleChange = ({ target: input }, ns, lang) => {
     const { name, value } = input;
     const newState = { ...state };
@@ -17,7 +19,7 @@ const TranslationManagment = ({ translations }) => {
     payload["key"] = key;
     payload["nameSpace"] = ns;
     state.langs.map((lang) => {
-      payload[lang] = state.allTranslations[lang][ns][key] || "";
+      payload[lang.value] = state.allTranslations[lang.value][ns][key] || "";
     });
     try {
       console.log(payload);
@@ -30,20 +32,17 @@ const TranslationManagment = ({ translations }) => {
     }
   };
   const addLanguage = async () => {
-    if (!newLang) return toast.error("lang can not be null");
+    if (!newLang.value) return toast.error("lang can not be null");
     const checkLang = state.langs.find((lg) => {
-      return lg === newLang;
+      return lg.value.toLowerCase() === newLang.value.toLowerCase();
     });
     if (checkLang) {
-      return toast.error(`${newLang} is aleardy added`);
+      return toast.error(`${newLang.value} is aleardy added`);
     }
     try {
-      const { data } = await axios.get(
-        "http://localhost:3000/translations/add",
-        {
-          lang: newLang,
-        }
-      );
+      const { data } = await httpService.post("/translations/add", {
+        lang: newLang,
+      });
       toast.success("language added successfully");
       console.log(data);
     } catch (error) {
@@ -60,7 +59,7 @@ const TranslationManagment = ({ translations }) => {
               {state.langs.map((lang) => (
                 <div className="badge bg bg-success text-capitalize  mx-1">
                   {" "}
-                  {lang}
+                  {lang.value}({lang.country})
                 </div>
               ))}
             </div>
@@ -106,15 +105,66 @@ const TranslationManagment = ({ translations }) => {
                       <label class="form-label">Name</label>
                       <input
                         type="text"
-                        value={newLang}
+                        value={newLang.value}
                         onChange={(e) => {
-                          setNewLang(e.currentTarget.value);
-                          console.log(newLang);
+                          setNewLang({ ...newLang, value: e.target.value });
                         }}
                         class="form-control"
                         name="example-text-input"
                         placeholder="Your Language name"
                       />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Country</label>
+                      <input
+                        type="text"
+                        value={newLang.country}
+                        onChange={(e) => {
+                          const lang = { ...newLang };
+                          lang.country = e.currentTarget.value;
+                          setNewLang(lang);
+                        }}
+                        class="form-control"
+                        name="example-text-input"
+                        placeholder="France, Spain, etc"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <div className="form-label">
+                        Language direction default (LTR)
+                      </div>
+                      <div>
+                        <label className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="direction"
+                            value="ltr"
+                            onChange={(e) => {
+                              const lang = { ...newLang };
+                              lang.direction = e.currentTarget.value;
+                              setNewLang(lang);
+                            }}
+                            checked={newLang.direction === "ltr"}
+                          />
+                          <span className="form-check-label">LTR</span>
+                        </label>
+                        <label className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            value="rtl"
+                            name="direction"
+                            onChange={(e) => {
+                              const lang = { ...newLang };
+                              lang.direction = e.currentTarget.value;
+                              setNewLang(lang);
+                            }}
+                            checked={newLang.direction === "rtl"}
+                          />
+                          <span className="form-check-label">RTL</span>
+                        </label>
+                      </div>
                     </div>
                   </div>
 
@@ -127,7 +177,6 @@ const TranslationManagment = ({ translations }) => {
                       Cancel
                     </a>
                     <button
-                      
                       class="btn btn-primary ms-auto"
                       data-bs-dismiss="modal"
                       onClick={addLanguage}
@@ -186,7 +235,7 @@ const TranslationManagment = ({ translations }) => {
             >
               <div className="divide-y">
                 {Object.keys(
-                  state.allTranslations[state.currentLanguage][nameSpace]
+                  state.allTranslations[state.currentLanguage.value][nameSpace]
                 ).map((key, index) => {
                   return (
                     <div key={index} className="card">
@@ -197,21 +246,25 @@ const TranslationManagment = ({ translations }) => {
                           {state.langs.map((lang, index) => (
                             <div className="col-md-6 mb-3">
                               <label class="form-label text-capitalize">
-                                value in {lang}{" "}
-                                {state.allTranslations[lang][nameSpace][key]
+                                value in {lang.value}({lang.country}){" "}
+                                {state.allTranslations[lang.value][nameSpace][
+                                  key
+                                ]
                                   ? ""
                                   : "(not set)"}
                               </label>
                               <input
                                 type="text"
                                 value={
-                                  state.allTranslations[lang][nameSpace][key]
+                                  state.allTranslations[lang.value][nameSpace][
+                                    key
+                                  ]
                                 }
                                 className="form-control col-md-6"
                                 placeholder="…"
                                 name={key}
                                 onChange={(e) =>
-                                  handleChange(e, nameSpace, lang)
+                                  handleChange(e, nameSpace, lang.value)
                                 }
                               />
                             </div>

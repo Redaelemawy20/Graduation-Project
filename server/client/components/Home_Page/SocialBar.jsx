@@ -5,23 +5,29 @@ import FaceBook from "../Images/FaceBook.png";
 import Instagram from "../Images/Instagram.png";
 import Twitter from "../Images/Twitter.png";
 import Mail from "../Images/Mail.png";
+import Youtube from "../Images/youtube.png";
 
 export default function SocialBar() {
   return (
     <SocialbarStyle>
       <a
         className="facebook"
-        target='_blank'
+        target="_blank"
         href="https://www.facebook.com/profile.php?id=100051927037785"
       >
         <img src={FaceBook} />
       </a>
-      <a className="instagram">
-        <img src={Instagram} />
+      <a
+        className="yotube"
+        href="https://www.youtube.com/channel/UCOgNbBHYkHsR4_wD6fOLH4g"
+        target="_blank"
+      >
+        <img src={Youtube} />
       </a>
-      <a 
-      target="_blank"
-      href="https://twitter.com/ar_uni?t=6d1p3faMXEc7V83Nu3kARw&s=09">
+      <a
+        href="https://twitter.com/ar_uni?t=6d1p3faMXEc7V83Nu3kARw&s=09"
+        target="_blank"
+      >
         <img src={Twitter} />
       </a>
       <a>
@@ -34,8 +40,8 @@ const SocialbarStyle = styled.div`
   width: 100%;
   padding: 0.4em;
   background-color: rgba(20, 116, 153, 0.5);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-end-end-radius: 5px;
+  border-start-end-radius: 5px;
   animation-name: Social--Animation;
   animation-duration: 1s;
   animation-timing-function: linear;

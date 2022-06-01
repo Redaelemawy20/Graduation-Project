@@ -2,6 +2,7 @@
 import React from "react";
 import { faAngleDown, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaHome } from "react-icons/fa"
 // import "./Nav.css";
 import Navstyle from "./Navstyle";
 import { FiX } from "react-icons/fi";
@@ -35,6 +36,9 @@ function Nav() {
     <Navstyle>
       <div className="un--list" id={isOpen ? "visable" : "unvisable"}>
         <ul className="Maa--Ul">
+        <li className="Main--list">
+        <Link to='/'><FaHome id="icon--home"/>Home</Link>
+        </li>
           <li id="Admins" className="Main--list">
             <a
               onClick={() => setDrop({ ...intial, admin: !Drop.admin })}
@@ -172,16 +176,22 @@ function Nav() {
                 <div className="admins--form">
                   <ul className="In--Unor">
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to='/Personalwebsitedata'>Personal website data</Link>
                     </li>
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to='/Biography'>Biography</Link>
                     </li>
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to='/Searchforfaculitymember'>Search for a faculty member</Link>
                     </li>
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to='/Electronicservices'>Electronic services</Link>
+                    </li>
+                    <li>
+                      <Link to='/Datarecording'>Data recording</Link>
+                    </li>
+                    <li>
+                      <Link to='/Email'>E-mail</Link>
                     </li>
                   </ul>
                 </div>
@@ -279,162 +289,64 @@ function Nav() {
                 <div className="admins--form">
                   <ul className="In--Unor">
                     <li>
-                      <a href="#">MF President Sector</a>
+                     <Link to='/Applyingtouniversitycities'>Applying to university cities</Link>
                     </li>
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to='/BachelorandBachelordegree'>Bachelor's and Bachelor's degree</Link>
                     </li>
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to='/Postgraduatestage'>Postgraduate stage</Link>
                     </li>
                     <li>
-                      <a href="#">MF President Sector</a>
+                      <Link to='/Graduates'>Graduates</Link>
+                    </li>
+                    <li>
+                      <Link to='/Arrivalstudents'>Arrival students</Link>
+                    </li>
+                    <li>
+                      <Link to='/Studentservices'>Student services</Link>
+                    </li>
+                    <li>
+                      <Link to='/Studentactivities'>Student activities</Link>
+                    </li>
+                    <li>
+                      <Link to='/Postgraduateresults'>Postgraduate results</Link>
+                    </li>
+                    <li>
+                      <Link to='/YouthCare'>Youth Care</Link>
+                    </li>
+                    <li>
+                      <Link to='/Examsresults'>Exams results</Link>
+                    </li>
+                    <li>
+                      <Link to='/GetEmail'>Get Email</Link>
+                    </li>
+                    <li>
+                      <Link to='/Registrationofforeignstudents'>Registration of foreign students</Link>
                     </li>
                   </ul>
                 </div>
               </div>
             </Collapse>
           </li>
-
-          {/* <li id="Egy--Uni" className="Main--list">
-              <a
-                onClick={() =>
-                  setDrop({ ...Drop, egyuniversities: !Drop.egyuniversities })
-                }
-                aria-controls="example-collapse-Egyption--Univ"
-                data-target="#example-collapse-Egyption--Univ"
-              >
-                Egyptian Universities
-                <span id="down">
-                  <FontAwesomeIcon
-                    icon={faAngleDown}
-                    className="downIcon"
-                  ></FontAwesomeIcon>
-                </span>
-              </a>
-              <Collapse in={Drop.egyuniversities}>
-                <div
-                  className="Drop--Down--Add"
-                  id="example-collapse-Egyption--Univ"
-                >
-                  <div className="admins--form">
-                    <ul className="In--Unor">
-                      <li>
-                        <a href="#">MF President Sector</a>
-                      </li>
-                      <li>
-                        <a href="#">MF President Sector</a>
-                      </li>
-                      <li>
-                        <a href="#">MF President Sector</a>
-                      </li>
-                      <li>
-                        <a href="#">MF President Sector</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </Collapse>
-            </li> */}
-          {/* <li id="Media" className="Main--list">
-              <a
-                onClick={() => setDrop({ ...Drop, media: !Drop.media })}
-                aria-controls="example-collapse-Media"
-                data-target="#example-collapse-Media"
-              >
-                Media
-                <span id="down">
-                  <FontAwesomeIcon
-                    icon={faAngleDown}
-                    className="downIcon"
-                  ></FontAwesomeIcon>
-                </span>
-              </a>
-              <Collapse in={Drop.media}>
-                <div className="Drop--Down--Add" id="example-collapse-Media">
-                  <div className="admins--form">
-                    <ul className="In--Unor">
-                      <li>
-                        <a href="#">MF President Sector</a>
-                      </li>
-                      <li>
-                        <a href="#">MF President Sector</a>
-                      </li>
-                      <li>
-                        <a href="#">MF President Sector</a>
-                      </li>
-                      <li>
-                        <a href="#">MF President Sector</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </Collapse>
-            </li> */}
-          {/* <li id="Arriv--Manage" className="Main--list">
-              <a>Arrivals Management</a>
-            </li> */}
-          {/* <li id="Digital-Trans" className="Main--list">
-              <a>Digital Transformation</a>
-            </li>*/}
         </ul>
-
         <div className="close--Icon">
           <FiX className="lock--Icon" onClick={() => showSideBar()} />
         </div>
       </div>
 
-      <p id="News">**Daily--News**</p>
+      <p id="News" >**Daily--News**</p>
 
       <FontAwesomeIcon
         icon={faBars}
         id="Show"
         onClick={
           () => showSideBar()
-
-          //console.log("I'm Show");
         }
       />
-      {/* <Ulhugestyle>
-        <ul>
-          <li>
-            <Link to="/UniversityPresident">University President Sector</Link>
-          </li>
-          <li>
-            <Link to="/UniversityPresident">University President Sector</Link>
-          </li>
-          <li>
-            <Link to="/UniversityPresident">University President Sector</Link>
-          </li>
-        </ul>
-      </Ulhugestyle> */}
+    
     </Navstyle>
   );
 }
 
 export default Nav;
-// const Ulhugestyle=styled.div`
-// width: 100%;
-// z-index: 1;
-// position: relative;
-// display:none;
-// ul{
-//   width: 90%;
-//   margin:-1px auto 0;
-//   display: grid;
-//   grid-template-columns: repeat(3,1fr);
-//   padding: 0;
-//   background-color: #cccbc6;
-//   padding:0.5rem 1rem ;
-// }
-// li{
-//   text-align: center;
-
-// }
-// /* @media(max-width:1000px){
-
-//   .un--list .Maa--Ul > li:hover  {
-//       display: flex;
-//     }
-// } */
-// `

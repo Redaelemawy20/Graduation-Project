@@ -5,13 +5,16 @@ import can from "../middlewares/can";
 const router = express.Router();
 
 router.get("/", TranslationController.index);
+
 router.post(
   "/update",
   can("manage translations"),
   TranslationController.update
 );
-router.get(
+router.post(
   "/add",
-  can("manage translations", TranslationController.addLanguage)
+  can("manage translations"),
+  TranslationController.addLanguage
 );
+router.get("/getLangs", TranslationController.getLangs);
 export default router;

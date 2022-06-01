@@ -5,12 +5,39 @@ import { FaSchool } from "react-icons/fa";
 import { GiNewspaper } from "react-icons/gi";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { MdOutlineEmojiEvents } from "react-icons/md";
-import { FiLogOut } from "react-icons/fi";
+import ReactCountryFlag from "react-country-flag";
 import { connect } from "react-redux";
-const Header = ({ auth }) => {
-  useEffect(() => {
-    console.log(auth);
-  }, [auth]);
+import { GrLanguage } from "react-icons/gr";
+import styled from "styled-components";
+import countryList from "react-select-country-list";
+import { BsFlag } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { fetchCurrentUser } from "../../actions";
+import httpService from "../../../services/httpService";
+import translate from "../../../translate";
+const Header = ({ auth, fetchCurrentUser, langs }) => {
+  const countries = React.useMemo(() => countryList().getData(), []);
+
+  async function logout() {
+    try {
+      await httpService.post("/auth/logout");
+      fetchCurrentUser();
+    } catch (error) {}
+  }
+  const getFlag = (lang) => {
+    console.log(lang);
+    let flag = countries.find((country) => {
+      return (
+        country.label.toLowerCase().startsWith(lang.country.toLowerCase()) ||
+        country.value.toLowerCase().startsWith(lang.country.toLowerCase())
+      );
+    });
+    return flag;
+  };
+
+  const hasDropDown = (link) => {
+    return link.dropDown && link.menu && link.menu.length;
+  };
   const navLinks = [
     {
       name: "Adminstration",
@@ -55,7 +82,6 @@ const Header = ({ auth }) => {
       icon: <FaSchool />,
       url: "/",
       dropDown: true,
-      
     },
     {
       name: "Students",
@@ -72,10 +98,66 @@ const Header = ({ auth }) => {
       icon: <MdOutlineEmojiEvents />,
     },
   ];
+  const authStatus = () => {
+    switch (auth) {
+      case null:
+        return <div> laoding... </div>;
+      case false:
+        return (
+          <Link to="/login" className="btn btn-primary px-4">
+            Login
+          </Link>
+        );
+      default:
+        return (
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link d-flex lh-1 text-reset p-0"
+              data-bs-toggle="dropdown"
+              aria-label="Open user menu"
+            >
+              <span
+                class="avatar avatar-sm"
+                style={{
+                  backgroundImage: `url(/files?file=${auth.avatar})`,
+                }}
+              ></span>
+              <div class="d-none d-xl-block ps-2">
+                <div>Super Admin</div>
+                <div class="mt-1 small text-muted">Full Stack</div>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+              <Link to={"/dashboard"} class="dropdown-item">
+                Dashboard
+              </Link>
+              <Link to="/dashboard/profile" class="dropdown-item">
+                Profile &amp; account
+              </Link>
+              <Link to="/dashboard/friends" class="dropdown-item">
+                Friends
+              </Link>
+              <div class="dropdown-divider"></div>
+              <Link
+                to={`/dashboard/users/${auth.id}/edit`}
+                class="dropdown-item"
+              >
+                Settings
+              </Link>
+              <button onClick={logout} class="dropdown-item">
+                Logout
+              </button>
+            </div>
+          </div>
+        );
+    }
+  };
+
   return (
     <>
-      <div className="sticky-top">
-        <header className="navbar  navbar-expand-md navbar-light d-print-none">
+      <NavStyle className="sticky-top">
+        <header className="navbar  navbar-expand-md navbar-gridiant d-print-none">
           <div className="container-xl">
             <button
               className="navbar-toggler"
@@ -91,21 +173,58 @@ const Header = ({ auth }) => {
                 className="d-flex flex-column align-items-center mx-2"
               >
                 <img src={logo} alt="logo" width="70px" />
-                Menofia University
+                {translate("header.fName")} {translate("header.lName")}
               </a>
             </h1>
             <div className="navbar-nav flex-row order-md-last">
-              <div className="nav-item d-none d-md-flex me-3">
+              <div className="nav-item  d-md-flex me-3">
                 <div className="btn-list">
-                  <a
-                    href=""
-                    className="btn btn-warning "
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <FiLogOut className="mx-2" />
-                    Logout
-                  </a>
+                  {langs && (
+                    <div className="dropdown">
+                      <button
+                        className="btn btn-link dropdown"
+                        data-bs-toggle="dropdown"
+                      >
+                        <ReactCountryFlag
+                          countryCode={getFlag(langs.currentLang).value}
+                          svg
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            marginInlineEnd: "10px",
+                          }}
+                        />
+                        <GrLanguage color="red" className="dropdown-toggle" />
+                      </button>
+                      <div className="dropdown-menu">
+                        {langs.all.map((lang) => {
+                          if (lang.value !== langs.currentLang.value)
+                            return (
+                              <a
+                                href={`/api/locale?lang=${lang.value}`}
+                                className="dropdown-item d-flex"
+                              >
+                                {getFlag(lang) ? (
+                                  <ReactCountryFlag
+                                    countryCode={getFlag(lang).value}
+                                    svg
+                                    style={{
+                                      width: "20px",
+                                      height: "20px",
+                                      marginInlineEnd: "10px",
+                                    }}
+                                  />
+                                ) : (
+                                  <BsFlag />
+                                )}
+
+                                <span>{lang.country}</span>
+                              </a>
+                            );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="d-none d-md-flex">
@@ -320,43 +439,7 @@ const Header = ({ auth }) => {
                   </div>
                 </div>
               </div>
-              <div class="nav-item dropdown">
-                <a
-                  href="#"
-                  class="nav-link d-flex lh-1 text-reset p-0"
-                  data-bs-toggle="dropdown"
-                  aria-label="Open user menu"
-                >
-                  <span
-                    class="avatar avatar-sm"
-                    style={{
-                      backgroundImage: `url(/files?file=${auth.avatar})`,
-                    }}
-                  ></span>
-                  <div class="d-none d-xl-block ps-2">
-                    <div>Super Admin</div>
-                    <div class="mt-1 small text-muted">Full Stack</div>
-                  </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <a href="#" class="dropdown-item">
-                    Set status
-                  </a>
-                  <a href="#" class="dropdown-item">
-                    Profile &amp; account
-                  </a>
-                  <a href="#" class="dropdown-item">
-                    Feedback
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                    Settings
-                  </a>
-                  <a href="#" class="dropdown-item">
-                    Logout
-                  </a>
-                </div>
-              </div>
+              {authStatus()}
             </div>
           </div>
         </header>
@@ -373,9 +456,15 @@ const Header = ({ auth }) => {
                     >
                       <a
                         className="nav-link"
-                        href={`${link.dropDown ? "#navbar" : link.url || "#"}`}
-                        data-bs-toggle={`${link.dropDown ? "dropdown" : ""}`}
-                        data-bs-auto-close={`${link.dropDown ? "outside" : ""}`}
+                        href={`${
+                          hasDropDown(link) ? "#navbar" : link.url || "#"
+                        }`}
+                        data-bs-toggle={`${
+                          hasDropDown(link) ? "dropdown" : ""
+                        }`}
+                        data-bs-auto-close={`${
+                          hasDropDown(link) ? "outside" : ""
+                        }`}
                         aria-expanded="false"
                       >
                         {link.icon && (
@@ -385,12 +474,12 @@ const Header = ({ auth }) => {
                         )}
 
                         {link.name}
-                        {link.dropDown && (
+                        {hasDropDown(link) && (
                           <span className="nav-link-toggle m-1"></span>
                         )}
                       </a>
-                      {link.dropDown ? (
-                        <div className="dropdown-menu">
+                      {hasDropDown(link) ? (
+                        <div className="dropdown-menu nav-dropdown">
                           {link.menu.map((dropDownLink, index) => (
                             <>
                               <div className="dropend">
@@ -761,7 +850,7 @@ const Header = ({ auth }) => {
             </div>
           </div>
         </div>
-      </div>
+      </NavStyle>
     </>
   );
 };
@@ -769,5 +858,17 @@ const Header = ({ auth }) => {
 function mapStateToProps({ auth }) {
   return { auth };
 }
-const Element = connect(mapStateToProps, null)(Header);
+const Element = connect(mapStateToProps, { fetchCurrentUser })(Header);
 export default Element;
+
+const NavStyle = styled.div`
+  .navbar-gridiant {
+    background: radial-gradient(
+      circle,
+      rgba(162, 162, 221, 1) 11%,
+      rgba(0, 212, 255, 1) 87%
+    );
+    background-size: 100% 100%;
+    color: white;
+  }
+`;

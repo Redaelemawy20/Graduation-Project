@@ -20,7 +20,7 @@ export default (req, store, results) => {
   const spinner = ReactDOMServer.renderToString(<FullPageReload />);
 
   const html = `
-              <html ${lang === "ar" ? 'dir= "rtl"' : ""}>
+              <html dir=${lang.direction ?? "ltr"}>
                 <head>
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta charSet='utf-8' />

@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Cards from "../Home_Page/Cards";
 import Header from "../Home_Page/Header";
-import bb from "../Images/news.jpg";
 import "../Home_Page/Statics.css";
 import "../Home_Page/Addinstrations.css";
 import Newsstyle from "../Home_Page/Newsstyle.jsx";

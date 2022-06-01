@@ -81,10 +81,7 @@ export default function UniversityPresident() {
           ></FontAwesomeIcon>
         </span>
       ),
-      style: "icon",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
+      
       dropdown: [
         <Link to="/OrganizationalStructure">Organizational Structure</Link>,
         <Link to="/SubDepartments">Sub-departments</Link>,
@@ -101,10 +98,7 @@ export default function UniversityPresident() {
           ></FontAwesomeIcon>
         </span>
       ),
-      style: "icon",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
+     
       dropdown: [
         <Link to="/Datacenter">Data Center</Link>,
         <Link to="/LegalAffairs">Legal Affairs</Link>,
@@ -121,9 +115,7 @@ export default function UniversityPresident() {
     },
     {
       listName: "President",
-      cliick: function () {
-        console.log("i'm clicked from Management");
-      },
+     
     },
   ];
 

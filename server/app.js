@@ -92,11 +92,16 @@ app.get("/api/locale", (req, res) => {
 app.get("/favicon.ico", (req, res) => {
   return res.send("no");
 });
+
 configureTranslation({
   loadpath: "locales",
-  langs: ["ar", "en", "fr"],
-  ns: ["translations", "header"],
-  defaultLang: "ar",
+
+  ns: ["translations", "header", "news"],
+  defaultLang: {
+    value: "en",
+    country: "US",
+    direction: "ltr",
+  },
 });
 // website & dashboard => react router
 app.get("/*", (req, res) => {
@@ -138,5 +143,6 @@ app.get("/*", (req, res) => {
 });
 app.listen(3000, () => {
   console.log("Listening on port 3000");
-  db.sequelize.sync();
+  db.sequelize.sync({});
+  //
 });

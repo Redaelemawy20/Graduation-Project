@@ -92,7 +92,7 @@ export default function Links() {
           return (
             <li key={index}>
               <a href={uniLink} target="_blank">
-                <FaUniversity /> {uniName} University
+                <FaUniversity className="Uni--Icon"/> {uniName} University
               </a>
             </li>
           );
@@ -115,12 +115,16 @@ const Linksstyle = styled.div`
     font-size: 1.1rem;
     padding: 2px;
   }
+  .Uni--Icon{
+    color:#f6852b ;
+  }
   a:hover {
     /* color:var(--orange) ; */
     /* padding-inline-start: 5px; */
     border-bottom: 2px solid var(--orange);
     /* transform: scale(1.3); */
   }
+  
   ul {
     margin: 0 auto;
     padding: 20px 0 10px 0;

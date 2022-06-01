@@ -24,7 +24,6 @@ async function update(req, res) {
   }
 }
 async function addLanguage(req, res) {
-  return res.send("kdkah");
   const { lang } = req.body;
   if (!lang) {
     return res.status(400).send("lang can not be null");
@@ -37,8 +36,13 @@ async function addLanguage(req, res) {
     return res.status(400).send({ message: "not added" });
   }
 }
+function getLangs(req, res) {
+  const langs = translationServiece.getLangs();
+  return res.send(langs);
+}
 export default {
   index,
   update,
   addLanguage,
+  getLangs,
 };
