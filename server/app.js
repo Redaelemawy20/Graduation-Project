@@ -5,6 +5,7 @@ import NewsRoutes from "./routes/news";
 import AuthRoutes from "./routes/auth";
 import UsersRoutes from "./routes/users";
 import RolesRoutes from "./routes/roles";
+import TranslationRoutes from "./routes/translations";
 import reactRenderer from "./services/reactRenderer";
 import createStore from "./createStore";
 import { routeObj } from "./client/Routes";
@@ -19,9 +20,7 @@ import { setLoading } from "./client/actions";
 import cookieParser from "cookie-parser";
 const db = require("./models");
 const SequelizeStore = sequelizestore(session.Store);
-import configureTranslation, {
-  translationServiece,
-} from "./services/configureTranslation";
+import configureTranslation from "./services/configureTranslation";
 import translation from "./middlewares/translation";
 const app = express();
 app.use(cors());
@@ -74,6 +73,7 @@ app.use("/api/news", NewsRoutes);
 app.use("/api/auth/", AuthRoutes);
 app.use("/api/user/", UsersRoutes);
 app.use("/api/role/", RolesRoutes);
+app.use("/api/translations/", TranslationRoutes);
 app.engine("ejs", require("express-ejs-extend"));
 
 app.set("view engine", "ejs");
@@ -92,11 +92,16 @@ app.get("/api/locale", (req, res) => {
 app.get("/favicon.ico", (req, res) => {
   return res.send("no");
 });
+
 configureTranslation({
   loadpath: "locales",
-  langs: ["ar", "en"],
+
   ns: ["translations", "header", "news"],
-  defaultLang: "ar",
+  defaultLang: {
+    value: "en",
+    country: "US",
+    direction: "ltr",
+  },
 });
 // website & dashboard => react router
 app.get("/*", (req, res) => {
@@ -138,6 +143,6 @@ app.get("/*", (req, res) => {
 });
 app.listen(3000, () => {
   console.log("Listening on port 3000");
-  db.sequelize.sync();
+  db.sequelize.sync({});
   //
 });
