@@ -159,6 +159,9 @@ export default function UniversityPresident() {
               <Cards key={index} item={item} />
             ))}
           </div>
+          <div className="all--news">
+        <Link to="/allnews">All News</Link>
+      </div>
         </Newsstyle>
       </div>
       <Footer />
