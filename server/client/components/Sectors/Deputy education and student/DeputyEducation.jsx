@@ -202,6 +202,9 @@ export default function DeputyEducation() {
             <Cards key={index} item={item} />
           ))}
         </div>
+        <div className="all--news">
+        <Link to="/allnews">All News</Link>
+      </div>
       </Newsstyle>
       <MedicalAffairs/>
       <Footer />
