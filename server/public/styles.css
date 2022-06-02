@@ -621,6 +621,120 @@ circle{
     }
 }
 
+/*!******************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/App.css ***!
+  \******************************************************************/
+.spinner {
+  animation: spin infinite 1.5s ease-in-out;
+
+  /*You can increase or decrease the timer (5s) to 
+     increase or decrease the speed of the spinner*/
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading-wrapper {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f9fc;
+}
+html[dir="rtl"] .dropdown-menu.nav-dropdown.show,
+html[dir="rtl"] .dropdown-item.show {
+  right: 0 !important;
+  left: unset !important;
+}
+html[dir="rtl"] .dropdown-menu.dropdown-menu-end.show {
+  left: 0 !important;
+  right: auto;
+}
+html[dir="rtl"] .dropdown-menu-arrow.dropdown-menu-end:before {
+  right: 87%;
+  left: 0;
+}
+.content{
+  animation-duration: 2s;
+  animation-timing-function:ease;
+ animation-iteration-count:1;
+} 
+/* Animation ltr */
+html[dir="ltr"] .top--left{
+  animation-name:top---left---Animation;
+  }
+  html[dir="ltr"] .top--right{
+    animation-name:top---right---Animation;
+  }
+  html[dir="ltr"] .bottom--right{
+    animation-name:bottom---right---Animation;
+ 
+  }
+  html[dir="ltr"] .bottom--left{
+    animation-name:bottom---left---Animation;
+ 
+  }
+
+/* Animation rtl */
+  html[dir="rtl"] .top--left{
+    animation-name:top---right---Animation;
+  }
+  html[dir="rtl"] .top--right{
+    animation-name:top---left---Animation;
+  }
+  html[dir="rtl"] .bottom--right{
+    animation-name:bottom---left---Animation;
+  }
+  html[dir="rtl"] .bottom--left{
+    animation-name:bottom---right---Animation;
+  }
+@keyframes top---left---Animation{
+  from{
+      transform:translate(-50px,-50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
+}
+@keyframes top---right---Animation{
+  from{
+      transform:translate(50px,-50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
+}
+@keyframes bottom---right---Animation{
+  from{
+      transform:translate(50px,50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
+}
+@keyframes bottom---left---Animation{
+  from{
+      transform:translate(-50px,50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
+}
+
 /*!*************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/Pages/Tour.css ***!
   \*************************************************************************/
@@ -724,50 +838,6 @@ body{
     padding-inline-start:.2em;
     padding-inline-end:.2em ;
 }
-/*!******************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/App.css ***!
-  \******************************************************************/
-.spinner {
-  animation: spin infinite 1.5s ease-in-out;
-
-  /*You can increase or decrease the timer (5s) to 
-     increase or decrease the speed of the spinner*/
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.loading-wrapper {
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f6f9fc;
-}
-html[dir="rtl"] .dropdown-menu.nav-dropdown.show,
-html[dir="rtl"] .dropdown-item.show {
-  right: 0 !important;
-  left: unset !important;
-}
-html[dir="rtl"] .dropdown-menu.dropdown-menu-end.show {
-  left: 0 !important;
-  right: auto;
-}
-html[dir="rtl"] .dropdown-menu-arrow.dropdown-menu-end:before {
-  right: 87%;
-  left: 0;
-}
-
 /*!**************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Addinstrations.css ***!
   \**************************************************************************************************/

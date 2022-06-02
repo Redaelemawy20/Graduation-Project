@@ -38,7 +38,7 @@ import ExamAddminstration from "./components/Sectors/Deputy education and studen
 import Aluminimanagement from "./components/Sectors/Deputy education and student/Aluminimanagement.jsx";
 import OpenEducation from "./components/Sectors/Deputy education and student/OpenEducation.jsx";
 import OrganizingRegulation from "./components/Sectors/Deputy education and student/OrganizingRegulation.jsx";
-import CallUs from "./components/Sectors/Deputy education and student/CallUs.jsx";
+import CallUs from "./components/Sectors/Deputy education and student/CallUsyouthCare.jsx";
 import OrganizationalStructureDeputy from "./components/Sectors/Deputy education and student/OrganizationalStructure.jsx";
 import SubCitiesAdminstration from "./components/Sectors/Deputy education and student/SubCitiesAdminstration.jsx";
 import SpecialUnits from "./components/Sectors/Deputy education and student/SpecialUnits.jsx";
