@@ -20,13 +20,13 @@ import { SiSmartthings } from "react-icons/si";
 import { FiActivity } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import httpService from "../../services/httpService";
-
+ import ScientificResearch from "../components/Home_Page/ScientificResearch";
 function HomePage({ data, getData, langs }) {
   const [languages, setLanguages] = React.useState(langs);
-  let headerHome = {
-    fName: "Menofia",
-    lName: "University",
-  };
+  // let headerHome = {
+  //   fName: "Menofia",
+  //   lName: "University",
+  // };
   let Digitaltransformations = {
     backgroundImage: bb,
     firstIcon: (
@@ -71,6 +71,7 @@ function HomePage({ data, getData, langs }) {
       {/* <Nav /> */}
       <Cover />
       <Addminstration />
+      <ScientificResearch/>
       <VideosAboutUni />
       <Statistics />
       <Faculties />

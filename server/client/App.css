@@ -38,3 +38,73 @@ html[dir="rtl"] .dropdown-menu-arrow.dropdown-menu-end:before {
   right: 87%;
   left: 0;
 }
+.content{
+  animation-duration: 2s;
+  animation-timing-function:ease;
+ animation-iteration-count:1;
+} 
+/* Animation ltr */
+html[dir="ltr"] .top--left{
+  animation-name:top---left---Animation;
+  }
+  html[dir="ltr"] .top--right{
+    animation-name:top---right---Animation;
+  }
+  html[dir="ltr"] .bottom--right{
+    animation-name:bottom---right---Animation;
+ 
+  }
+  html[dir="ltr"] .bottom--left{
+    animation-name:bottom---left---Animation;
+ 
+  }
+
+/* Animation rtl */
+  html[dir="rtl"] .top--left{
+    animation-name:top---right---Animation;
+  }
+  html[dir="rtl"] .top--right{
+    animation-name:top---left---Animation;
+  }
+  html[dir="rtl"] .bottom--right{
+    animation-name:bottom---left---Animation;
+  }
+  html[dir="rtl"] .bottom--left{
+    animation-name:bottom---right---Animation;
+  }
+@keyframes top---left---Animation{
+  from{
+      transform:translate(-50px,-50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
+}
+@keyframes top---right---Animation{
+  from{
+      transform:translate(50px,-50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
+}
+@keyframes bottom---right---Animation{
+  from{
+      transform:translate(50px,50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
+}
+@keyframes bottom---left---Animation{
+  from{
+      transform:translate(-50px,50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
+}
