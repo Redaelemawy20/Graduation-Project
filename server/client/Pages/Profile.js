@@ -13,7 +13,8 @@ const Profile = ({ auth }) => {
   const footerLinks = [
     {
       href: "",
-      onclick: () => {
+      onclick: (e) => {
+        e.preventDefault();
         navigate(`/dashboard/users/${auth.id}/edit`);
       },
       text: "Edit",
@@ -21,7 +22,8 @@ const Profile = ({ auth }) => {
     },
     {
       href: "",
-      onclick: () => {
+      onclick: (e) => {
+        e.preventDefault();
         navigate("/dashboard/profile/reset-password");
       },
       text: "Reset Password",

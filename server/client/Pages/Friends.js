@@ -22,8 +22,9 @@ const Friends = ({ auth, data }) => {
   }, []);
   const footerLinks = [
     {
-      href: "mailto:reda@sample.com?",
       text: "Email",
+
+      email: true,
       icon: <MdOutlineMailOutline fontSize={18} className="m-2" />,
     },
   ];
@@ -33,7 +34,8 @@ const Friends = ({ auth, data }) => {
     if (onlyIf(user))
       links.push({
         href: "",
-        onclick: () => {
+        onclick: (e) => {
+          e.preventDefault();
           navigate(`/dashboard/users/${user.id}/edit`);
         },
         text: "Edit",

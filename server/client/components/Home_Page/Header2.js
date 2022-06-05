@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../Images/logo.png";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import { FaSchool } from "react-icons/fa";
@@ -17,7 +17,10 @@ import httpService from "../../../services/httpService";
 import translate from "../../../translate";
 const Header = ({ auth, fetchCurrentUser, langs }) => {
   const countries = React.useMemo(() => countryList().getData(), []);
-
+  const [scroll, setScroll] = useState({
+    up: true,
+    latestScroll: 0,
+  });
   async function logout() {
     try {
       await httpService.post("/auth/logout");
@@ -25,7 +28,7 @@ const Header = ({ auth, fetchCurrentUser, langs }) => {
     } catch (error) {}
   }
   const getFlag = (lang) => {
-    console.log(lang);
+    // console.log(lang);
     let flag = countries.find((country) => {
       return (
         country.label.toLowerCase().startsWith(lang.country.toLowerCase()) ||
@@ -124,8 +127,8 @@ const Header = ({ auth, fetchCurrentUser, langs }) => {
                 }}
               ></span>
               <div class="d-none d-xl-block ps-2">
-                <div>Super Admin</div>
-                <div class="mt-1 small text-muted">Full Stack</div>
+                <div>{auth.name}</div>
+                <div class="mt-1 small text-muted">{auth.Role.name}</div>
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -154,10 +157,31 @@ const Header = ({ auth, fetchCurrentUser, langs }) => {
     }
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scroll]);
+
+  const handleScroll = () => {
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    console.log("called");
+    const delta = Math.abs(st - scroll.latestScroll);
+    if (delta > 100)
+      setScroll({ ...scroll, up: st < scroll.latestScroll, latestScroll: st });
+    console.log(scroll, st);
+  };
+
   return (
     <>
       <NavStyle className="sticky-top">
-        <header className="navbar  navbar-expand-md navbar-gridiant d-print-none">
+        <header
+          className={`navbar  navbar-expand-md navbar-gridiant d-print-none ${
+            scroll.up ? "d-block" : "d-none"
+          }`}
+        >
           <div className="container-xl">
             <button
               className="navbar-toggler"

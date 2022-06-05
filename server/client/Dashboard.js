@@ -24,17 +24,14 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      
-     
-      <link
+      {/* <link
         rel="stylesheet"
         href="http://localhost:3000/tabler-flags.min.css"
       />
       <link
         rel="stylesheet"
         href="http://localhost:3000/tabler-payments.min.css"
-      />
-      
+      /> */}
     </>
   );
 }

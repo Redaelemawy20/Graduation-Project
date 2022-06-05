@@ -4,11 +4,35 @@ const fs = require("fs");
 const File = require("../models").File;
 const Feed = require("../models").Feed;
 const User = require("../models").User;
+const NewsCategory = require("../models").NewsCategory;
 let options = require("../util/viewsOptions");
 
 options.activeMenu = "news";
 async function index(req, res) {
-  const allNews = await Feed.findAll({ include: User });
+  const { category } = req.query;
+  if (category) {
+    const news = await NewsCategory.findOne({
+      where: {
+        name: category,
+      },
+      include: {
+        model: Feed,
+        nested: true,
+      },
+    });
+    return res.send({ news: news ? news.Feeds : [] });
+  }
+
+  const allNews = await Feed.findAll({
+    include: [
+      {
+        model: User,
+      },
+      {
+        model: NewsCategory,
+      },
+    ],
+  });
   return res.send({
     ...options,
     title: "all news",
@@ -16,12 +40,10 @@ async function index(req, res) {
     news: allNews,
   });
 }
-function create(req, res) {
-  res.render("add-news", {
-    ...options,
-    title: "add news",
-    url: req.originalUrl,
-  });
+async function create(req, res) {
+  const newsCategories = await NewsCategory.findAll();
+
+  return res.send({ newsCategories });
 }
 async function store(req, res) {
   const { mainImage } = req.files;
@@ -29,9 +51,9 @@ async function store(req, res) {
   const imageFileName = mainImage ? mainImage[0].filename : "";
 
   const imagePath = path.join("news", "mainImage", imageFileName);
-  const { title, content, show } = req.body;
+  const { title, content, show, NewsCategoryId } = req.body;
   const feed_id = Date.now();
-  const newFead = Feed.build({
+  const newFeed = await Feed.create({
     feed_id,
     title,
     content,
@@ -40,8 +62,8 @@ async function store(req, res) {
     mainImage: imagePath,
   });
   try {
-    await newFead.save();
-    await saveFiles(req, newFead.id);
+    await newFeed.setNewsCategory(NewsCategoryId);
+    await saveFiles(req, newFeed.id);
     return res.send("feed saved success").status(200);
   } catch (error) {
     return res.send("faild to insert").status(500);
@@ -50,20 +72,28 @@ async function store(req, res) {
 
 async function edit(req, res) {
   const { id } = req.params;
-  const feed = await Feed.findByPk(id);
+  const feed = await Feed.findByPk(id, {
+    include: [
+      {
+        model: NewsCategory,
+      },
+    ],
+  });
   const files = await File.findAll({
     where: {
       FeedId: id,
     },
   });
-
+  const newsCategories = await NewsCategory.findAll();
   return res.send({
     ...options,
     title: "edit news",
     url: "/edit",
+    newsCategories,
     feed: {
       ...feed.dataValues,
       Files: files,
+      category: feed.NewsCategoryId,
       mainImage: {
         perview: "/files?file=" + feed.mainImage,
         data: feed.mainImage,

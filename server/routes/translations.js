@@ -16,5 +16,16 @@ router.post(
   can("manage translations"),
   TranslationController.addLanguage
 );
+router.post(
+  "/addNameSpace",
+  can("manage translations"),
+  TranslationController.addNameSpace
+);
+
+router.post(
+  "/addKey",
+  can("manage translations"),
+  TranslationController.addKey
+);
 router.get("/getLangs", TranslationController.getLangs);
 export default router;

@@ -50,12 +50,15 @@ const UserCard = ({ user, footer, active = false }) => {
       <div className="d-flex">
         {footer.map((link, index) => (
           <a
-            href={link.href}
+            href={
+              link.email
+                ? `mailto:${user.email}?subject=Menofia Unversity --&body=Dear ${user.name}, I hope your donig well`
+                : link.href
+            }
             className="card-btn"
             key={index}
             onClick={(e) => {
-              // e.preventDefault();
-              link.onclick && link.onclick();
+              link.onclick && link.onclick(e);
             }}
           >
             {link.icon}

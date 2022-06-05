@@ -159,7 +159,7 @@ export let routeObj = [
           },
           {
             path: "/dashboard/news/create",
-            element: <AddNews />,
+            ...AddNews,
           },
           {
             path: "/dashboard/news/:id/edit",

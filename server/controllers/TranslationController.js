@@ -40,9 +40,28 @@ function getLangs(req, res) {
   const langs = translationServiece.getLangs();
   return res.send(langs);
 }
+async function addNameSpace(req, res) {
+  const { nameSpace } = req.body;
+  if (!nameSpace) {
+    return res.status(400).send("nameSpace can not be null");
+  }
+  translationServiece.addNameSpace(nameSpace);
+  return res.send({ message: "suceess" });
+}
+
+async function addKey(req, res) {
+  const { key, nameSpace } = req.body;
+  if (!key || !nameSpace) {
+    return res.status(400).send("key and nameSpace can not be null");
+  }
+  translationServiece.addKey(nameSpace, key);
+  return res.send({ message: "suceess" });
+}
 export default {
   index,
   update,
   addLanguage,
   getLangs,
+  addNameSpace,
+  addKey,
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Home_Page/Header";
 import Nav from "../components/Home_Page/Nav";
 import Cover from "../components/Home_Page/Cover";
@@ -10,8 +10,6 @@ import Footer from "../components/Home_Page/Footer.jsx";
 import Digitaltransformation from "../components/Home_Page/Digitaltransformation.jsx";
 import Links from "../components/Home_Page/Links.jsx";
 import Faculties from "../components/faculties/FacultiesSection.jsx";
-import { connect } from "react-redux";
-import { getData } from "../actions";
 import DataLoad from "../components/common/DataLoad";
 import Header2 from "../components/Home_Page/Header2";
 import bb from "../components/Images/dig.jpg";
@@ -19,10 +17,12 @@ import { MdAppRegistration, MdDesignServices } from "react-icons/md";
 import { SiSmartthings } from "react-icons/si";
 import { FiActivity } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import httpService from "../../services/httpService";
 
-function HomePage({ data, getData, langs }) {
-  const [languages, setLanguages] = React.useState(langs);
+import translate from "../../translate";
+import httpService from "../../services/httpService";
+function HomePage({ data }) {
+  const languages = translate("__langs");
+
   let headerHome = {
     fName: "Menofia",
     lName: "University",
@@ -58,19 +58,19 @@ function HomePage({ data, getData, langs }) {
     firstHight: 3300,
     secondHight: 3400,
   };
+  const [state, setState] = useState(data);
   useEffect(async () => {
-    const langs = await getLangs();
-    setLanguages(langs);
-    getData();
+    const { data } = await getNews();
+    setState(data);
   }, []);
-  const listOfNews = data ? data.news : false;
-  return listOfNews ? (
+
+  return state ? (
     <>
       {/* <Header text={headerHome} /> */}
       <Header2 langs={languages} />
       {/* <Nav /> */}
       <Cover />
-      <Addminstration />
+      <Addminstration news={state.news} />
       <VideosAboutUni />
       <Statistics />
       <Faculties />
@@ -84,19 +84,16 @@ function HomePage({ data, getData, langs }) {
     <DataLoad />
   );
 }
-function mapStateToProps({ news }) {
-  return { data: news };
-}
-async function getLangs() {
-  const { data } = await httpService.get("/translations/getLangs");
-  return data;
+
+async function getNews() {
+  const { data } = await httpService.get("/news?category=Unveristy");
+  return { data };
 }
 async function loadData(store) {
-  store.dispatch(getData());
-  return { langs: await getLangs() };
+  return getNews();
 }
-const Element = connect(mapStateToProps, { getData })(HomePage);
+
 export default {
-  element: <Element />,
+  element: <HomePage />,
   loadData,
 };

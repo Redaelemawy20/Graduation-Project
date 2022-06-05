@@ -6,7 +6,7 @@ import DataLoad from "../components/common/DataLoad";
 import { toast } from "react-toastify";
 const EditNews = (props) => {
   let intial_data = null;
-  if (props.data) intial_data = props.data.feed;
+  if (props.data) intial_data = props.data;
   const { id } = useParams();
 
   const [data, setData] = useState(intial_data);
@@ -15,7 +15,7 @@ const EditNews = (props) => {
     let result = [];
     try {
       const { data } = await httpService.get(`/news/${id}/edit`);
-      setData(data.feed);
+      setData(data);
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +33,15 @@ const EditNews = (props) => {
     }
   };
 
-  return data ? <NewsForm data={data} onSave={handleSubmit} /> : <DataLoad />;
+  return data ? (
+    <NewsForm
+      data={data.feed}
+      onSave={handleSubmit}
+      newsCategories={data.newsCategories}
+    />
+  ) : (
+    <DataLoad />
+  );
 };
 async function loadData(store, params = null) {
   let result = [];

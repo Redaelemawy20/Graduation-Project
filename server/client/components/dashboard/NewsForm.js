@@ -7,7 +7,7 @@ import TextArea from "../common/TextArea";
 import File from "../common/File";
 import { useNavigate } from "react-router-dom";
 
-const NewsForm = ({ data, onSave }) => {
+const NewsForm = ({ data, onSave, newsCategories }) => {
   const temp = {
     id: "",
     feed_id: "",
@@ -17,6 +17,7 @@ const NewsForm = ({ data, onSave }) => {
     show: false,
     mainImage: { data: "", perview: "" },
     mainImageSrc: "",
+    category: 3,
     createdAt: "",
     updatedAt: "",
     Files: [],
@@ -32,10 +33,12 @@ const NewsForm = ({ data, onSave }) => {
   }, [data]);
   function getPayload() {
     let formData = new FormData();
-    const { mainImage, content, title, show, Files, feed_id } = state;
+    const { mainImage, content, title, show, Files, category, feed_id } = state;
+    console.log("cat", category);
     formData.append("feed_id", feed_id);
     formData.append("title", title);
     formData.append("content", content);
+    formData.append("NewsCategoryId", category);
     formData.append("mainImage", mainImage.data);
     formData.append("show", show);
     formData.append("deletedFiles", JSON.stringify(deletedFiles));
@@ -71,6 +74,7 @@ const NewsForm = ({ data, onSave }) => {
 
     // get request payload
     const payload = getPayload();
+
     // save form
     try {
       await onSave(payload, deletedFiles);
@@ -137,6 +141,21 @@ const NewsForm = ({ data, onSave }) => {
         error={errors.title}
         onChange={handleChange}
       />
+      <div class="m-3">
+        <div class="form-label">Select</div>
+        <select
+          class="form-select"
+          onChange={handleChange}
+          value={state.category}
+          name="category"
+        >
+          {newsCategories.map((category) => (
+            <option value={category.id} key={category.id}>
+              {category.name}
+            </option>
+          ))}
+        </select>
+      </div>
       <TextArea
         name="content"
         label="content"

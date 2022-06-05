@@ -6,8 +6,8 @@ import Newsstyle from "./Newsstyle.jsx";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-function Addminstration({ data }) {
-  const items = data.news.slice(0, 3);
+function Addminstration({ news }) {
+  const items = news.slice(0, 3);
   return (
     // <section className="news">
     <Newsstyle>
@@ -26,8 +26,5 @@ function Addminstration({ data }) {
     </Newsstyle>
   );
 }
-function mapStateToProps({ news }) {
-  return { data: news };
-}
-const Element = connect(mapStateToProps, null)(Addminstration);
-export default Element;
+
+export default Addminstration;

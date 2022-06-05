@@ -15,6 +15,9 @@ export default (sequelize, DataTypes) => {
       this.belongsTo(models.User, {
         onDelete: "CASCADE",
       });
+      this.belongsTo(models.NewsCategory, {
+        onDelete: "CASCADE",
+      });
     }
   }
   Feed.init(

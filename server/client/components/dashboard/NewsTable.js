@@ -17,31 +17,40 @@ const NewsTable = ({ news }) => {
     pageSize: 2,
   });
 
-  const columns = ["title", "auther", "content", "createdAt", "show"];
+  const columns = [
+    "title",
+    "auther",
+    "content",
+    "category",
+    "createdAt",
+    "show",
+  ];
   const navigate = useNavigate();
   useEffect(() => {
     setState(news);
   }, [news]);
-  console.log(news);
-  const rows = state.map((item) => {
+
+  const rows = state.map((item, index) => {
+    const userName = item.User ? item.User.name : "";
+    const category = item.NewsCategory ? item.NewsCategory.name : "-";
+    state[index].userName = userName;
+    state[index].category = category;
+
     return {
       ...item,
       title: (
         <>
           <span className="flag">
-            <img src={`/files?file=${item.mainImage}`} alt="" />
+            <img width={50} src={`/files?file=${item.mainImage}`} alt="" />
           </span>
           <a className="text-reset">{item.title} </a>
         </>
       ),
       content: <div className="content">{item.content}</div>,
-      auther: item.User ? (
-        <Link to={`/dashboard/users/${item.User.id}/view`}>
-          {item.User.name}
-        </Link>
-      ) : (
-        ""
+      auther: (
+        <Link to={`/dashboard/users/${item.User.id}/view`}>{userName}</Link>
       ),
+      category: item.NewsCategory ? item.NewsCategory.name : "-",
       show: item.show ? "visible" : "hidden",
     };
   });
@@ -91,8 +100,8 @@ const NewsTable = ({ news }) => {
   );
 };
 const Div = styled.div`
-  table .content {
-    width: 150px;
+  table td {
+    width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
