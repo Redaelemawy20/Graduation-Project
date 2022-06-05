@@ -26,7 +26,7 @@ export default function ScientificResearch() {
         })
         
        
-    }, [])
+    }, []);
   return (
     <ScientificResearchStyle>
      <div className="Title">
@@ -52,7 +52,7 @@ export default function ScientificResearch() {
                 </div>
             </div>
             <div id='bottom--left' className='content'>
-                <Link to='/'>scientific reports</Link>
+                <Link to='/'>Scientific reports</Link>
                 <div className='science--logo'>
                     <div className='science--icon'>
                     <TbReportAnalytics className='Sci---icons'/>

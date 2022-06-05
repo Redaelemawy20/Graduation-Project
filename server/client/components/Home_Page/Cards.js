@@ -29,7 +29,7 @@ export default function Cards(props) {
           <h6>Publiched in: {createdAt}</h6>
           <Link to={`/news/${id}`} id="explore">
             Explor
-            <HiOutlineArrowNarrowRight className="icon" />
+            <HiOutlineArrowNarrowRight className="EXplor--Icon" />
           </Link>
         </div>
       </div>
@@ -82,11 +82,11 @@ const Cardstyle = styled.div`
     font-weight: 500;
     color: var(--white);
   }
-  .news--card .news--text #explore .icon {
+  .news--card .news--text #explore .Explor--Icon {
     font-size: 1.4rem;
     padding-left: 0.2em;
   }
-  .news--card .news--text #explore:hover .icon {
+  .news--card .news--text #explore:hover .Explor--Icon {
     animation-name: Arrow--Right;
     animation-duration: 1s;
     animation-timing-function: linear;
@@ -102,6 +102,7 @@ const Cardstyle = styled.div`
     text-overflow: ellipsis;
     line-height: 25px;
     color: #212529;
+    font-size: 1.2rem;
   }
   .news--card .news--text h4 a {
     color: #212529;
@@ -126,6 +127,11 @@ const Cardstyle = styled.div`
     line-height: 24px;
     padding-top: 0.1em;
     margin-bottom: 0;
+    font-size: 0.95rem;
+  }
+
+  h6 {
+    font-size: 0.85rem;
   }
   @media (max-width: 992px) {
     width: 50%;
@@ -140,5 +146,13 @@ const Cardstyle = styled.div`
   @media (max-width: 450px) {
     width: 98%;
     padding: 1rem 0.2rem;
+  }
+  @keyframes Arrow--Right {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(12px);
+    }
   }
 `;

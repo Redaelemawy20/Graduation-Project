@@ -3,15 +3,22 @@ import styled from "styled-components";
 import IframePDf from "../Common/IframePDf";
 import Header2 from "../../Home_Page/Header2";
 import Footer from "../../Home_Page/Footer.jsx";
+import {FaHome} from 'react-icons/fa'
 //import TestPdf from "../Pdfs/Test.pdf";
 export default function RegisteryManagement() {
   const obj = {
     link: "http://localhost:3000/files?file=pdfs/Test.pdf",
   };
-
+let navLinks=[
+  {
+name:'Home',
+url:'/',
+icon:<FaHome/>,
+active:true,
+}]
   return (
     <RegisteryStyle>
-      <Header2 />
+      <Header2 navLinks={navLinks}/>
       <div className="content">
       <h1>Registration Department</h1>
         <h3>It specializes in the following:-</h3>

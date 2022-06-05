@@ -21,10 +21,17 @@ const IframePdfStyle = styled.div`
     max-width: 80%;
     height: 95vh;
     margin: 0 auto 50px;
+    padding: 0 60px 60px 0;
+    background-color: #323639;
   }
   iframe {
     width: 100%;
     height: 100%;
     /* border-radius:10px; */
   } 
+  @media(max-width:780px){
+    .frame{
+      padding: 0 5px 5px 0;
+    }
+  }
 `;
