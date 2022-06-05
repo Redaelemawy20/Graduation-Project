@@ -98,6 +98,7 @@ const Singlenews = styled.div`
     text-overflow: ellipsis;
     height: 100%;
     line-height: 1.4;
+    
   }
   img {
     width: 100%;

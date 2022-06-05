@@ -42,6 +42,9 @@ align-items: center;
 justify-content: center;
 
 }
+.circle .outer .inner h1{
+    font-size: 2rem !important;
+}
 
 circle{
     fill: none;

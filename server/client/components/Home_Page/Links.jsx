@@ -79,7 +79,7 @@ export default function Links() {
 
   return (
     <Linksstyle>
-      <div className="Title" id="vv">
+      <div className="Title">
         <h1>Egyptian Universities</h1>
       </div>
       <ul>

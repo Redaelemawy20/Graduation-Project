@@ -77,6 +77,7 @@ const SectionElectronicLibraryStyle = styled.div`
       padding: 20px;
       border-radius: 8px;
       background-color: rgba(99, 99, 99, 0.9);
+      font-size:1.3rem;
       //border: 2px solid #f6852b;
   }
   #sm{
@@ -117,6 +118,7 @@ const SectionElectronicLibraryStyle = styled.div`
   @media (max-width:625px){
       .main{
           grid-template-columns: repeat(1,1fr);
+          height: auto;
       }
       .Library{
         margin-inline-end: 0 !important;
@@ -134,12 +136,16 @@ const SectionElectronicLibraryStyle = styled.div`
       h3{
           
           margin-top: 30px;
+          font-size:1rem ;
       }
       a{
           top:220px;
       }
       #sm{
           top:30px;
+          margin:0;
+          width:fit-content;
+          left:20px;
       }
   }
 `;

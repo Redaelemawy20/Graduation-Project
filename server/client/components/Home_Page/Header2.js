@@ -1,10 +1,6 @@
 import React, { useEffect } from "react";
 import logo from "../Images/logo.png";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
-import { FaSchool } from "react-icons/fa";
-import { GiNewspaper } from "react-icons/gi";
-import { FaChalkboardTeacher, FaExclamationTriangle } from "react-icons/fa";
-import { MdOutlineEmojiEvents, MdScience } from "react-icons/md";
+
 import ReactCountryFlag from "react-country-flag";
 import { connect } from "react-redux";
 import { GrLanguage } from "react-icons/gr";
@@ -15,10 +11,9 @@ import { Link } from "react-router-dom";
 import { fetchCurrentUser } from "../../actions";
 import httpService from "../../../services/httpService";
 import translate from "../../../translate";
-import { BsFillFilePersonFill } from "react-icons/bs";
-import { GoPerson } from "react-icons/go";
 
-const Header = ({ auth, fetchCurrentUser, langs }) => {
+
+const Header = ({ auth, fetchCurrentUser, langs,navLinks }) => {
   const countries = React.useMemo(() => countryList().getData(), []);
 
   async function logout() {
@@ -41,192 +36,7 @@ const Header = ({ auth, fetchCurrentUser, langs }) => {
   const hasDropDown = (link) => {
     return link.dropDown && link.menu && link.menu.length;
   };
-  const navLinks = [
-    {
-      name: "Adminstration",
-      url: "/",
-      active: true,
-      dropDown: true,
-      icon: <MdOutlineAdminPanelSettings />,
-      menu: [
-        {
-          name: "University President Sector",
-          url: "/UniversityPresident",
-          dropDown: false,
-        },
-        {
-          name: "Deputy Education and Student Sector",
-          url: "/DeputyEducation",
-        },
-        {
-          name: "Deputy Community Service and Environmental Development Sector",
-          url: "/CommunityAndEnvironment",
-        },
-        {
-          name: "Sector of the Secretary General of the University",
-          url: "/SecretaryGeneral",
-        },
-        {
-          name: "Deputy Postgraduate and Research Sector",
-          url: "/PostgraduateAndResearch",
-          // dropDown: true,
-          // menu: [
-          //   {
-          //     name: "card-1",
-          //     url: "/",
-          //   },
-          //   {
-          //     name: "card-2",
-          //   },
-          // ],
-        },
-      ],
-    },
-    {
-      name: "About",
-      icon: <FaExclamationTriangle />,
-      // active:true,
-      url: "/",
-      dropDown: true,
-      menu: [
-        {
-          name: "Code of Conductand Ethics for the Public Work",
-          url: "/CodeofConductandEthicsforthePublicWork",
-          // dropDown:true,
-          // menu:[
-          //   {
-          //   name:'fv',
-          // url:'/'}
-          //]
-        },
-        {
-          name: "Formation of the university council",
-          url: "/Formationoftheuniversitycouncil",
-        },
-        {
-          name: "Former university presidents",
-          url: "/Formeruniversitypresidents",
-        },
-        {
-          name: "These are from Menoufia University",
-          url: "/ThesearefromMenoufiaUniversity",
-        },
-        {
-          name: "Undergraduate Student Charter",
-          url: "/UndergraduateStudentCharter",
-        },
-        {
-          name: "University goals",
-          url: "/Universitygoals",
-        },
-        {
-          name: "University inception",
-          url: "/Universityinception",
-        },
-        {
-          name: "University message",
-          url: "/Universitymessage",
-        },
-        {
-          name: "University strategy",
-          url: "./Universitystrategy",
-        },
-        {
-          name: "University vision",
-          url: "./Universityvision",
-        },
-      ],
-    },
-    {
-      name: "Staff Member",
-      icon: <BsFillFilePersonFill />,
-      url: "/",
-      dropDown: true,
-      menu: [
-        {
-          name: "Personal website data",
-          url: "/Personalwebsitedata",
-        },
-        {
-          name: "Biography",
-          url: "/Biography",
-        },
-        {
-          name: "Search for a faculty member",
-          url: "/Searchforfaculitymember",
-        },
-        {
-          name: "Electronic services",
-          url: "/Electronicservices",
-        },
-        {
-          name: "Data recording",
-          url: "/Datarecording",
-        },
-        {
-          name: "E-mail",
-          url: "/Email",
-        },
-      ],
-    },
-
-    {
-      name: "Students",
-      icon: <GoPerson />,
-      dropDown: true,
-      menu: [
-        {
-          name: "Applying to university cities",
-          url: "/Applyingtouniversitycities",
-        },
-        {
-          name: "Bachelor's and Bachelor's degree",
-          url: "/BachelorandBachelordegree",
-        },
-        {
-          name: "Postgraduate stage",
-          url: "/Postgraduatestage",
-        },
-        {
-          name: "Graduates",
-          url: "/Graduates",
-        },
-        {
-          name: "Arrival students",
-          url: "/Arrivalstudents",
-        },
-        {
-          name:"Student services",
-          url:"/Studentservices"
-        },
-        {
-          name:'Studentactivities',
-          url:"/Studentactivities"
-        },
-        {
-          name:'Postgraduate results',
-          url:"/Postgraduateresults"
-        },
-        {
-          name:'Youth Care',
-          url:'/YouthCare'
-        },
-        {
-          name:"Exams results",
-          url:'/Examsresults'
-        },
-        {
-          name:"Get Email",
-          url:"/GetEmail"
-        },
-        {
-          name:'Registration of foreign students',
-          url:'/Registrationofforeignstudents'
-        }
-
-      ],
-    },
-  ];
+  
   const authStatus = () => {
     switch (auth) {
       case null:

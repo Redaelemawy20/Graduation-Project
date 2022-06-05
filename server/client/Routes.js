@@ -9,7 +9,7 @@ import Login from "./Login/Login.jsx";
 /************imports of university president sector************/
 import UniversityPresident from "./components/Sectors/PresidentSector/UniversityPresident.jsx";
 import OrganizationalStructure from "./components/Sectors/PresidentSector/OrganizationalStructure.jsx";
-import SubDepartments from "./components/Sectors/PresidentSector/SubDepartments.jsx";
+import SubDepartments from "./components/Sectors/PresidentSector/SubDepartment/OfficeaAddminstration.jsx";
 import VisionandMessage from "./components/Sectors/PresidentSector/VisionandMessage.jsx";
 import DataCenter from "./components/Sectors/PresidentSector/DataCenter.jsx";
 import LegalAffairs from "./components/Sectors/PresidentSector/LegalAffairs.jsx";

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Statics.css";
+//import "./Statics.css";
 import "./VideosAboutUni.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +7,7 @@ import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
 export default function VideosAboutUni() {
   return (
     <div className="Statics" id="Videos">
-      <div className="Title" id="Videos--Title">
+      <div className="Title" >
         <h1>
           Videos About <span>University</span>
         </h1>

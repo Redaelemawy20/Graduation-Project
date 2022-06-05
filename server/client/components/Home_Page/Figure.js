@@ -14,8 +14,9 @@ export default class Figure extends Component {
   componentDidMount() {
     let listener = (event) => {
       const hight = window.pageYOffset;
+      
       const ani = document.getElementsByClassName("cir");
-      if (hight > 1600) {
+      if (hight > 2970) {
         Array.from(ani).forEach((element) => {
           element.classList.add("Animation");
         });
