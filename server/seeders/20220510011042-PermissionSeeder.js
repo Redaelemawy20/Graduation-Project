@@ -10,7 +10,7 @@ const permissions = [
   {
     name: "manage users",
     description:
-      "This role grant permissions for viewing, editing and creating news",
+      "This role grant permissions for viewing, editing and creating translations",
     createdAt: new Date(),
     updatedAt: new Date(),
   },
@@ -23,6 +23,13 @@ const permissions = [
   },
   {
     name: "manage events",
+    description:
+      "This role grant permissions for viewing, editing and roles events",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    name: "manage translations",
     description:
       "This role grant permissions for viewing, editing and roles events",
     createdAt: new Date(),

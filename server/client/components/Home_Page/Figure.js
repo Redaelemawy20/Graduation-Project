@@ -1,4 +1,3 @@
-
 import "./Figure.css";
 
 import React, { Component, useState } from "react";
@@ -14,8 +13,9 @@ export default class Figure extends Component {
   componentDidMount() {
     let listener = (event) => {
       const hight = window.pageYOffset;
+      console.log(hight);
       const ani = document.getElementsByClassName("cir");
-      if (hight > 1600) {
+      if (hight > 2970) {
         Array.from(ani).forEach((element) => {
           element.classList.add("Animation");
         });
@@ -64,7 +64,7 @@ export default class Figure extends Component {
             </linearGradient>
           </defs>
           <circle
-             className="cir"
+            className="cir"
             cx="85"
             cy="82"
             r="72"

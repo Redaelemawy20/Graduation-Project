@@ -6,6 +6,7 @@ padding: 1rem 0;
   a{
     text-decoration:none;
     padding-top:2px;
+    color:#0d6efd;
   }
   .controls {
     position: relative;
@@ -87,6 +88,13 @@ padding: 1rem 0;
     height: 150px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+  }
+  h5{
+    font-size:.975rem ;
+    margin: 4px auto;
+  }
+  h6{
+    font-size:.825rem ;
   }
   @media (max-width: 1245px) {
     .faculties--cont,.faculties--container--All {

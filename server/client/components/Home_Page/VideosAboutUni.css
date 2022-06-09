@@ -49,7 +49,7 @@
   font-size: 1.8rem;
   transition: 1s;
   position: absolute;
-  top: 18px;
+  top: 22px;
 }
 .Statics .Organize .Frames a:hover {
   color: var(--orange);

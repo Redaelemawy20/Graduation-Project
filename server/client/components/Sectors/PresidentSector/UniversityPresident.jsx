@@ -1,36 +1,39 @@
 import React from "react";
-import Header from "../../Home_Page/Header";
+//import Header from "../../Home_Page/Header";
 import Slider from "../../Home_Page/Slider";
 import "./UniversityPresident.css";
-import Navstyle from "../../Home_Page/Navstyle";
+import Header2 from "../../Home_Page/Header2";
 import cc from "../../Images/cover.jfif";
 import bb from "../../Images/front.jpg";
 import Cards from "../../Home_Page/Cards";
-import NavSectors from "../NavSectors.jsx";
+//import NavSectors from "../NavSectors.jsx";
 import { FaHome } from "react-icons/fa";
-import { FiX } from "react-icons/fi";
 // import { getOverlayDirection } from "react-bootstrap/esm/helpers";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import "../../Home_Page/Nav.css";
-import { VscThreeBars } from "react-icons/vsc";
+//import { VscThreeBars } from "react-icons/vsc";
 // import { IoIosArrowDown } from "react-icons/io";
 // import '../../Home_Page/Cover.css'
 import SocialBar from "../../Home_Page/SocialBar.jsx";
 import Footer from "../../Home_Page/Footer.jsx";
 import Coverstyle from "../../Home_Page/Coverstyle";
 import Newsstyle from "../../Home_Page/Newsstyle.jsx";
-export default function UniversityPresident() {
-  const [isOpen, setOpen] = useState(false);
-  const showSideBar = () => setOpen(!isOpen);
+import translate from "../../../../translate";
+import DataLoad from "../../common/DataLoad";
+import httpService from "../../../../services/httpService";
+
+function UniversityPresident({ data }) {
+  // const [isOpen, setOpen] = useState(false);
+  //  const showSideBar = () => setOpen(!isOpen);
   /******collapse*******/
 
-  let headerHome = {
-    fName: "President",
-    lName: "Sector",
-  };
+  // let headerHome = {
+  //   fName: "President",
+  //   lName: "Sector",
+  // };
   let president_Slide = {
     img1: { cc },
     img2: { bb },
@@ -61,68 +64,103 @@ export default function UniversityPresident() {
       img: bb,
     },
   ];
-  let nav = [
+  let navLinks = [
     {
       //listName: <Link to="/">Home</Link>,
-      listName: <Link to="/"><FaHome id="icon--home"/>Home</Link>,
+      name: "Home",
+      icon: <FaHome />,
+      url: "/",
+      active: true,
+      dropDown: false,
       // ficon: ,
       // style: "icon",
       // cliick: function () {
-       
+
       // },
     },
     {
-      listName: "Higher Management",
-      licon: (
-        <span id="down">
-          <FontAwesomeIcon
-            icon={faAngleDown}
-            className="downIcon"
-          ></FontAwesomeIcon>
-        </span>
-      ),
-      
-      dropdown: [
-        <Link to="/OrganizationalStructure">Organizational Structure</Link>,
-        <Link to="/SubDepartments">Sub-departments</Link>,
-        <Link to="/VisionandMessage">Vision and Message</Link>,
+      name: "Higher Management",
+      icon: <FaHome />,
+      dropDown: true,
+      menu: [
+        {
+          name: "Organizational Structure",
+          url: "/OrganizationalStructure",
+        },
+        {
+          name: "Sub-departments",
+
+          dropDown: true,
+          menu: [
+            {
+              name: "Office Addminstration",
+              url: "/SubDepartments",
+            },
+          ],
+        },
+        {
+          name: "Vision and Message",
+          url: "/VisionandMessage",
+        },
       ],
     },
     {
-      listName: "Affiliate Departments",
-      licon: (
-        <span id="down">
-          <FontAwesomeIcon
-            icon={faAngleDown}
-            className="downIcon"
-          ></FontAwesomeIcon>
-        </span>
-      ),
-     
-      dropdown: [
-        <Link to="/Datacenter">Data Center</Link>,
-        <Link to="/LegalAffairs">Legal Affairs</Link>,
-        <Link to="/OrganizationandManagement">
-          Organization and Management
-        </Link>,
-        <Link to="/PublicRelationandMedia">Public Relations and Media</Link>,
-        <Link to="/TechnicalInspection">Technical Inspection</Link>,
-        <Link to="/Planning">Planning</Link>,
-        <Link to="/Security">Security</Link>,
-        <Link to="/ProjectsManagement">Projects Management</Link>,
-        <Link to="/QulityAssurance">Quality Assurance</Link>,
+      name: "Affiliate Departments",
+      icon: <FaHome />,
+      dropDown: true,
+      menu: [
+        {
+          name: "Data Center",
+          url: "/Datacenter",
+        },
+        {
+          name: "Legal Affairs",
+          url: "/LegalAffairs",
+        },
+        {
+          name: "Organization and Management",
+          url: "/OrganizationandManagement",
+        },
+        {
+          name: "Public Relations and Media",
+          url: "/PublicRelationandMedia",
+        },
+        {
+          name: "Technical Inspection",
+          url: "/TechnicalInspection",
+        },
+        {
+          name: "Planning",
+          url: "/Planning",
+        },
+        {
+          name: "Security",
+          url: "/Security",
+        },
+        {
+          name: "Projects Management",
+          url: "/ProjectsManagement",
+        },
+        {
+          name: "Quality Assurance",
+          url: "/QualityAssurance",
+        },
       ],
     },
     {
-      listName: "President",
-     
+      name: "President",
     },
   ];
-
-  return (
+  const [state, setState] = useState(data);
+  const langs = translate("__langs");
+  useEffect(async () => {
+    const { data } = await getNews();
+    setState(data);
+  }, []);
+  return state ? (
     <>
-      <Header text={headerHome} />
-      <Navstyle>
+      <Header2 navLinks={navLinks} langs={langs} />
+      {/* <Navstyle>
         <div className="un--list" id={isOpen ? "visable" : "unvisable"}>
           <ul className="Maa--Ul">
             {nav.map((item, index) => (
@@ -136,7 +174,7 @@ export default function UniversityPresident() {
         <div className="Bar--Icon" id="Show">
           <VscThreeBars onClick={() => showSideBar()} />
         </div>
-      </Navstyle>
+      </Navstyle> */}
       <Coverstyle>
         <div className="cover">
           <Slider
@@ -155,13 +193,30 @@ export default function UniversityPresident() {
             <h1>Latest News</h1>
           </div>
           <div className="Addmins">
-            {news_Sectors.map((item, index) => (
+            {state.news.map((item, index) => (
               <Cards key={index} item={item} />
             ))}
+          </div>
+          <div className="all--news">
+            <Link to="/allnews">All News</Link>
           </div>
         </Newsstyle>
       </div>
       <Footer />
     </>
+  ) : (
+    <DataLoad />
   );
 }
+async function getNews() {
+  const { data } = await httpService.get("/news?category=presidant");
+  return { data };
+}
+async function loadData(store) {
+  return getNews();
+}
+
+export default {
+  element: <UniversityPresident />,
+  loadData,
+};

@@ -93,14 +93,6 @@ app.get("/favicon.ico", (req, res) => {
   return res.send("no");
 });
 
-configureTranslation({
-  loadpath: "locales",
-  defaultLang: {
-    value: "en",
-    country: "US",
-    direction: "ltr",
-  },
-});
 // website & dashboard => react router
 app.get("/*", (req, res) => {
   const axiosInstance = axios.create({
@@ -139,7 +131,16 @@ app.get("/*", (req, res) => {
     });
   }
 });
-app.listen(3000, () => {
+app.listen(3000, async () => {
   console.log("Listening on port 3000");
-  db.sequelize.sync({});
+  await db.sequelize.sync();
+  configureTranslation({
+    loadpath: "locales",
+    defaultLang: {
+      value: "en",
+      country: "US",
+      direction: "ltr",
+    },
+  });
 });
+//

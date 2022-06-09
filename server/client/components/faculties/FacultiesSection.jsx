@@ -46,7 +46,8 @@ export default function Faculties() {
     window.addEventListener("scroll", () => {
       console.log("scroll called");
       let height = window.pageYOffset;
-      if (height >= 2400) {
+      console.log(height);
+      if (height >= 3445) {
         for (let i = 0; i < facultiesArr.length; i++) {
           facultiesArr[i].classList.add("move");
           facultiesArr[i].style.transform = `translate(${-wid}px)`;

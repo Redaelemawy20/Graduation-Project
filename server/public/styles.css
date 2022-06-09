@@ -1,3 +1,276 @@
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/VideosAboutUni.css ***!
+  \**************************************************************************************************/
+:root {
+  --blue: #147499;
+  --white: #ffffff;
+  --orange: #f6852b;
+  --dr-Orange: #ff8c00;
+}
+#Videos {
+  /*background: linear-gradient(to bottom, #ece9e6, #ffffff); */
+  /*background-color: #e7eff9;*/
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+.Statics #Videos--Title {
+  width: 600px;
+  
+}
+.Statics #Org--Videos {
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 0px;
+  gap: 45px;
+}
+.Statics .Organize .Frames {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+}
+.Statics .Organize .Frames iframe {
+  height: 300px;
+  width: 95%;
+  padding-bottom: 14px;
+}
+.Statics .Organize .Frames:hover {
+  transform: scale(1.1);
+}
+.Statics .Organize .Frames a {
+  padding: 0.5em 2em;
+  font-size: 1.5rem;
+  width: 95%;
+  position: relative;
+  color: #000;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.Statics .Organize .Frames a .Icon {
+  padding-left: 3px;
+  font-size: 1.8rem;
+  transition: 1s;
+  position: absolute;
+  top: 22px;
+}
+.Statics .Organize .Frames a:hover {
+  color: var(--orange);
+}
+.Statics .Organize .Frames a:hover .Icon {
+  /*padding-left: 10px;*/
+  transform: translateX(10px);
+}
+
+ span {
+  animation-name: Move;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  
+}
+
+/*@keyframes Move {
+  0% {
+    padding-right: 100px;
+    opacity: 0;
+  }
+  10% {
+    padding-right: 90px;
+    opacity: 0.2;
+  }
+  40% {
+    padding-right: 50px;
+    opacity: 0.5;
+  }
+  100% {
+    padding-right: 0;
+    opacity: 1;
+  }
+}*/
+@media(max-width:1270px){
+    .Statics #Org--Videos{
+        grid-template-columns: repeat(2,1fr);
+        width: 94%;
+       
+    }
+    .Statics .Organize .Frames:hover {
+      transform: scale(1.1);
+    }
+}
+@media(max-width:700px){
+    .Statics #Org--Videos{
+        grid-template-columns: repeat(1,1fr);
+        padding: 5vh 0 2vh 0 ;
+
+       
+    }
+    /*.Statics .Organize .Frames:hover {
+       transform: scale(1.1);
+      }*/
+      .Statics #Videos--Title {
+        width: 400px;
+        padding-top: 2vh ;
+      }
+      h1{
+        font-size: 2rem;
+        
+
+      }
+}
+@media(max-width:420px){
+    .Statics #Videos--Title {
+        width: 270px;
+        font-size: 1.2rem;
+        
+      }
+}
+@media(max-width:300px){
+    .Statics .Organize .Frames:hover {
+        transform: scale(1);
+      }
+}
+
+
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Figure.css ***!
+  \******************************************************************************************/
+.Statics .Figures{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 3% 0;
+    margin: auto;
+}
+
+.circle{
+    position: relative;
+    width: 100%;
+    /*height: 400px;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+    
+    
+}
+.circle .outer{
+width: 164px;
+height: 164px;
+padding: 20px;
+border-radius: 50%;
+box-shadow: 6px 6px 6px -1px rgba(0,0,0,0.15),
+-6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+.circle .outer .inner{
+width: 126px;
+height: 126px;
+border-radius: 50%;
+box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+-0.5px -0.5px 0px rgba(255,255,255,1),
+0.5px 0.5px 0px rgba(0,0,0,0.15),
+0px 12px 10px -10px rgba(0,0,0,0.05);
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.circle .outer .inner h1{
+    font-size: 2rem !important;
+}
+
+circle{
+    fill: none;
+    stroke:var(--orange);
+    stroke-width: 20px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+   
+    
+    
+}
+.Animation{
+    animation: Rotate 2s linear forwards;
+}
+ .circle #circle{
+    position: absolute;
+}
+@keyframes Rotate{
+    
+    100%{
+        stroke-dashoffset: 0;
+    }
+}
+
+@media(max-width:450px){
+    .circle{
+        min-width:280px;
+    }
+}
+
+/*!*******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Statics.css ***!
+  \*******************************************************************************************/
+:root {
+  --blue: #147499;
+  --white: #ffffff;
+  --orange: #f6852b;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h1 {
+  font-size: 3rem;
+}
+.Statics {
+  width: 100%;
+  padding: 3% 0 6% 0;
+  min-width: 350px;
+}
+#Stc--bottom {
+  padding-bottom: 0;
+}
+.Title {
+  width: 350px;
+  margin: auto;
+  text-align: center;
+  border-bottom: 2px solid var(--orange);
+}
+.Statics .Organize {
+  width: 90%;
+  /*display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;*/
+  padding: 7% 0;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  min-width: 350px;
+}
+@media (max-width: 1100px) {
+  .Statics .Organize {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 450px) {
+  .Statics {
+    min-width: 280px;
+  }
+  .Statics .Organize {
+    grid-template-columns: repeat(1, 1fr);
+    min-width: 280px;
+  }
+  .Title {
+    width: 270px;
+  }
+}
+
 /*!******************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Header.css ***!
   \******************************************************************************************/
@@ -320,305 +593,125 @@ ul {
   }
 }
 
-/*!******************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/slider.css ***!
-  \******************************************************************************************/
-.back{
-    background-color: #ddd;
-    height: 100%;
-}
-.back .container--Slide{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-}
-.back .container--Slide .slider{
-    height: 100%;
-}
-.back .container .slider{
-    height: 600px;
-    width: 100%;
-}
-.carousel{
-    height: 100%;
-}
-.carousel-inner{
-    height: 100%;
-}
-.carousel-item{
-    height: 100%;
-}
-.carousel-item img{
-    height: 100%;
-}
-/*!*******************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Statics.css ***!
-  \*******************************************************************************************/
-:root {
-  --blue: #147499;
-  --white: #ffffff;
-  --orange: #f6852b;
-}
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-h1 {
-  font-size: 3rem;
-}
-.Statics {
-  width: 100%;
-  padding: 3% 0 6% 0;
-  min-width: 350px;
-}
-#Stc--bottom {
-  padding-bottom: 0;
-}
-.Title {
-  width: 350px;
-  margin: auto;
-  text-align: center;
-  border-bottom: 2px solid var(--orange);
-}
-.Statics .Organize {
-  width: 90%;
-  /*display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;*/
-  padding: 7% 0;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  min-width: 350px;
-}
-@media (max-width: 1100px) {
-  .Statics .Organize {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 450px) {
-  .Statics {
-    min-width: 280px;
-  }
-  .Statics .Organize {
-    grid-template-columns: repeat(1, 1fr);
-    min-width: 280px;
-  }
-  .Title {
-    width: 270px;
-  }
-}
+/*!******************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/App.css ***!
+  \******************************************************************/
+.spinner {
+  animation: spin infinite 1.5s ease-in-out;
 
-/*!**************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/VideosAboutUni.css ***!
-  \**************************************************************************************************/
-:root {
-  --blue: #147499;
-  --white: #ffffff;
-  --orange: #f6852b;
-  --dr-Orange: #ff8c00;
+  /*You can increase or decrease the timer (5s) to 
+     increase or decrease the speed of the spinner*/
 }
-#Videos {
-  /*background: linear-gradient(to bottom, #ece9e6, #ffffff); */
-  /*background-color: #e7eff9;*/
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+.Title{
+  width: fit-content;
+  margin: auto;
+  padding:.2em 1em;
+  border-bottom: 2px solid #f6852b;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
-.Statics #Videos--Title {
-  width: 600px;
-  
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-.Statics #Org--Videos {
-  grid-template-columns: repeat(3, 1fr);
-  padding-bottom: 0px;
-  gap: 45px;
-}
-.Statics .Organize .Frames {
+.loading-wrapper {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 9999;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  
+  background-color: #f6f9fc;
 }
-.Statics .Organize .Frames iframe {
-  height: 300px;
-  width: 95%;
-  padding-bottom: 14px;
+html[dir="rtl"] .dropdown-menu.nav-dropdown.show,
+html[dir="rtl"] .dropdown-item.show {
+  right: 0 !important;
+  left: unset !important;
 }
-.Statics .Organize .Frames:hover {
-  transform: scale(1.1);
+html[dir="rtl"] .dropdown-menu.dropdown-menu-end.show {
+  left: 0 !important;
+  right: auto;
 }
-.Statics .Organize .Frames a {
-  padding: 0.5em 2em;
-  font-size: 1.5rem;
-  width: 95%;
-  position: relative;
-  color: #000;
-  border: 1px solid black;
-  border-radius: 4px;
-  text-decoration: none;
+html[dir="rtl"] .dropdown-menu-arrow.dropdown-menu-end:before {
+  right: 87%;
+  left: 0;
 }
-.Statics .Organize .Frames a .Icon {
-  padding-left: 3px;
-  font-size: 1.8rem;
-  transition: 1s;
-  position: absolute;
-  top: 18px;
-}
-.Statics .Organize .Frames a:hover {
-  color: var(--orange);
-}
-.Statics .Organize .Frames a:hover .Icon {
-  /*padding-left: 10px;*/
-  transform: translateX(10px);
-}
-
- span {
-  animation-name: Move;
+.content{
   animation-duration: 2s;
-  animation-timing-function: linear;
-  
-}
-
-/*@keyframes Move {
-  0% {
-    padding-right: 100px;
-    opacity: 0;
+  animation-timing-function:ease;
+ animation-iteration-count:1;
+} 
+/* Animation ltr */
+html[dir="ltr"] .top--left{
+  animation-name:top---left---Animation;
   }
-  10% {
-    padding-right: 90px;
-    opacity: 0.2;
+  html[dir="ltr"] .top--right{
+    animation-name:top---right---Animation;
   }
-  40% {
-    padding-right: 50px;
-    opacity: 0.5;
+  html[dir="ltr"] .bottom--right{
+    animation-name:bottom---right---Animation;
+ 
   }
-  100% {
-    padding-right: 0;
-    opacity: 1;
+  html[dir="ltr"] .bottom--left{
+    animation-name:bottom---left---Animation;
+ 
   }
-}*/
-@media(max-width:1270px){
-    .Statics #Org--Videos{
-        grid-template-columns: repeat(2,1fr);
-        width: 94%;
-       
-    }
-    .Statics .Organize .Frames:hover {
-      transform: scale(1.1);
-    }
-}
-@media(max-width:700px){
-    .Statics #Org--Videos{
-        grid-template-columns: repeat(1,1fr);
-        padding: 5vh 0 2vh 0 ;
 
-       
-    }
-    /*.Statics .Organize .Frames:hover {
-       transform: scale(1.1);
-      }*/
-      .Statics #Videos--Title {
-        width: 400px;
-        padding-top: 2vh ;
-      }
-      h1{
-        font-size: 2rem;
-        
-
-      }
+/* Animation rtl */
+  html[dir="rtl"] .top--left{
+    animation-name:top---right---Animation;
+  }
+  html[dir="rtl"] .top--right{
+    animation-name:top---left---Animation;
+  }
+  html[dir="rtl"] .bottom--right{
+    animation-name:bottom---left---Animation;
+  }
+  html[dir="rtl"] .bottom--left{
+    animation-name:bottom---right---Animation;
+  }
+@keyframes top---left---Animation{
+  from{
+      transform:translate(-50px,-50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
 }
-@media(max-width:420px){
-    .Statics #Videos--Title {
-        width: 270px;
-        font-size: 1.2rem;
-        
-      }
+@keyframes top---right---Animation{
+  from{
+      transform:translate(50px,-50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
 }
-@media(max-width:300px){
-    .Statics .Organize .Frames:hover {
-        transform: scale(1);
-      }
+@keyframes bottom---right---Animation{
+  from{
+      transform:translate(50px,50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
 }
-
-
-/*!******************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Figure.css ***!
-  \******************************************************************************************/
-.Statics .Figures{
-    width: 90%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-    padding: 3% 0;
-    margin: auto;
-}
-
-.circle{
-    position: relative;
-    width: 100%;
-    /*height: 400px;*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 10px 0;
-    
-    
-}
-.circle .outer{
-width: 164px;
-height: 164px;
-padding: 20px;
-border-radius: 50%;
-box-shadow: 6px 6px 6px -1px rgba(0,0,0,0.15),
--6px -6px 10px -1px rgba(255, 255, 255, 0.7);
-}
-.circle .outer .inner{
-width: 126px;
-height: 126px;
-border-radius: 50%;
-box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
-inset -4px -4px 6px -1px rgba(255,255,255,0.7),
--0.5px -0.5px 0px rgba(255,255,255,1),
-0.5px 0.5px 0px rgba(0,0,0,0.15),
-0px 12px 10px -10px rgba(0,0,0,0.05);
-display: flex;
-align-items: center;
-justify-content: center;
-
-}
-
-circle{
-    fill: none;
-    stroke:var(--orange);
-    stroke-width: 20px;
-    stroke-dasharray: 472;
-    stroke-dashoffset: 472;
-   
-    
-    
-}
-.Animation{
-    animation: Rotate 2s linear forwards;
-}
- .circle #circle{
-    position: absolute;
-}
-@keyframes Rotate{
-    
-    100%{
-        stroke-dashoffset: 0;
-    }
-}
-
-@media(max-width:450px){
-    .circle{
-        min-width:280px;
-    }
+@keyframes bottom---left---Animation{
+  from{
+      transform:translate(-50px,50px);
+      opacity:0
+  } to{
+      transform:translate(0,0);
+      opacity:1 ;
+  }
 }
 
 /*!*************************************************************************!*\
@@ -717,6 +810,10 @@ text {
 body{
     text-align: center;
 }
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Addinstrations.css ***!
+  \**************************************************************************************************/
+
 /*!******************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Common.css ***!
   \******************************************************************************************/
@@ -724,51 +821,3 @@ body{
     padding-inline-start:.2em;
     padding-inline-end:.2em ;
 }
-/*!******************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/App.css ***!
-  \******************************************************************/
-.spinner {
-  animation: spin infinite 1.5s ease-in-out;
-
-  /*You can increase or decrease the timer (5s) to 
-     increase or decrease the speed of the spinner*/
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.loading-wrapper {
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f6f9fc;
-}
-html[dir="rtl"] .dropdown-menu.nav-dropdown.show,
-html[dir="rtl"] .dropdown-item.show {
-  right: 0 !important;
-  left: unset !important;
-}
-html[dir="rtl"] .dropdown-menu.dropdown-menu-end.show {
-  left: 0 !important;
-  right: auto;
-}
-html[dir="rtl"] .dropdown-menu-arrow.dropdown-menu-end:before {
-  right: 87%;
-  left: 0;
-}
-
-/*!**************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Addinstrations.css ***!
-  \**************************************************************************************************/
-

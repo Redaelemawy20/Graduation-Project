@@ -13,6 +13,7 @@ export default styled.div`
   .cover {
     width: 100%;
     height: 85vh;
+    position:relative;
   }
   /**slider**/
   .carousel-control-next,
@@ -41,7 +42,7 @@ export default styled.div`
 }
   .cover .trans--text {
     position: absolute;
-    top: 94%;
+    top: 84%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -52,6 +53,7 @@ export default styled.div`
     animation-timing-function: linear;
     z-index: 2;
     min-width: 280px;
+
   }
   .cover .Social {
     position: fixed;
@@ -126,7 +128,7 @@ export default styled.div`
 
   @media (max-width: 1024px) {
     .cover .trans--text {
-      /* top: 85%; */
+       top: 88%; 
       padding-right: 0;
     }
     .cover .trans--text .organize {
@@ -137,11 +139,11 @@ export default styled.div`
       height: 50px;
     }
   }
-  @media (max-width: 901px) {
-    .cover .trans--text {
+  /* @media (max-width: 901px) {
+    /* .cover .trans--text {
     top: 91%;
-    }
-  }
+    } */
+  /*} */
   @media (max-width: 750px) {
     .cover .trans--text .organize {
       font-size: 1rem;
@@ -162,7 +164,7 @@ export default styled.div`
   }
   @media (max-width:680px){
     .cover .trans--text {
-    top:89% !important;
+    top:92% !important;
     }
   }
   @media (max-width: 400px) {

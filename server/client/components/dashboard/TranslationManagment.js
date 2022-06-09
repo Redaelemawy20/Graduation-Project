@@ -18,7 +18,7 @@ const TranslationManagment = ({ translations, onReload, tab, setTab }) => {
     value: "",
   });
   const [activeTab, setActiveTab] = React.useState(
-    tab || state.nameSpaces[0].value
+    tab || translations.nameSpaces[0].value
   );
   console.log(tab, activeTab);
   const handleChange = ({ target: input }, ns, lang) => {

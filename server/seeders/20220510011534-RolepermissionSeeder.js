@@ -7,14 +7,14 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     const users = await queryInterface.sequelize.query(
-      "select * from roles where id = 1",
+      "select * from Roles where id = 1",
       {
         type: queryInterface.sequelize.QueryTypes.SELECT,
       }
     );
     const superAdmin = users[0];
     const permissions = await queryInterface.sequelize.query(
-      "select * from permissions",
+      "select * from Permissions",
       {
         type: queryInterface.sequelize.QueryTypes.SELECT,
       }
@@ -33,7 +33,7 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
     await queryInterface.sequelize.query(
-      "delete from rolespermissions where RoleId = 1",
+      "delete from RolesPermissions where RoleId = 1",
       {
         type: queryInterface.sequelize.QueryTypes.DELETE,
       }

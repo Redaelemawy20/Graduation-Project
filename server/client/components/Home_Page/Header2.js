@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../Images/logo.png";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
-import { FaSchool } from "react-icons/fa";
-import { GiNewspaper } from "react-icons/gi";
-import { FaChalkboardTeacher } from "react-icons/fa";
-import { MdOutlineEmojiEvents } from "react-icons/md";
+
 import ReactCountryFlag from "react-country-flag";
 import { connect } from "react-redux";
 import { GrLanguage } from "react-icons/gr";
@@ -15,7 +11,9 @@ import { Link } from "react-router-dom";
 import { fetchCurrentUser } from "../../actions";
 import httpService from "../../../services/httpService";
 import translate from "../../../translate";
-const Header = ({ auth, fetchCurrentUser, langs }) => {
+
+
+const Header = ({ auth, fetchCurrentUser, langs,navLinks }) => {
   const countries = React.useMemo(() => countryList().getData(), []);
   const [scroll, setScroll] = useState({
     up: true,
@@ -41,66 +39,7 @@ const Header = ({ auth, fetchCurrentUser, langs }) => {
   const hasDropDown = (link) => {
     return link.dropDown && link.menu && link.menu.length;
   };
-  const navLinks = [
-    {
-      name: "Adminstration",
-      url: "/",
-      active: true,
-      dropDown: true,
-      icon: <MdOutlineAdminPanelSettings />,
-      menu: [
-        {
-          name: "University President Sector",
-          url: "/",
-          dropDown: false,
-        },
-        {
-          name: "Deputy Education and Student Sector",
-          url: "/",
-        },
-        {
-          name: "Deputy Community Service and Environmental Development Sector",
-          link: "/",
-        },
-        {
-          name: "Sector of the Secretary General of the University",
-        },
-        {
-          name: "Deputy Postgraduate and Research Sector",
-          dropDown: true,
-          menu: [
-            {
-              name: "card-1",
-              url: "/",
-            },
-            {
-              name: "card-2",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Faculties",
-      icon: <FaSchool />,
-      url: "/",
-      dropDown: true,
-    },
-    {
-      name: "Students",
-      icon: <FaChalkboardTeacher />,
-      url: "/",
-    },
-
-    {
-      name: "News",
-      icon: <GiNewspaper />,
-    },
-    {
-      name: "Events",
-      icon: <MdOutlineEmojiEvents />,
-    },
-  ];
+  
   const authStatus = () => {
     switch (auth) {
       case null:

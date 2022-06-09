@@ -9,7 +9,7 @@ import Login from "./Login/Login.jsx";
 /************imports of university president sector************/
 import UniversityPresident from "./components/Sectors/PresidentSector/UniversityPresident.jsx";
 import OrganizationalStructure from "./components/Sectors/PresidentSector/OrganizationalStructure.jsx";
-import SubDepartments from "./components/Sectors/PresidentSector/SubDepartments.jsx";
+import SubDepartments from "./components/Sectors/PresidentSector/SubDepartment/OfficeaAddminstration.jsx";
 import VisionandMessage from "./components/Sectors/PresidentSector/VisionandMessage.jsx";
 import DataCenter from "./components/Sectors/PresidentSector/DataCenter.jsx";
 import LegalAffairs from "./components/Sectors/PresidentSector/LegalAffairs.jsx";
@@ -38,7 +38,7 @@ import ExamAddminstration from "./components/Sectors/Deputy education and studen
 import Aluminimanagement from "./components/Sectors/Deputy education and student/Aluminimanagement.jsx";
 import OpenEducation from "./components/Sectors/Deputy education and student/OpenEducation.jsx";
 import OrganizingRegulation from "./components/Sectors/Deputy education and student/OrganizingRegulation.jsx";
-import CallUs from "./components/Sectors/Deputy education and student/CallUs.jsx";
+import CallUs from "./components/Sectors/Deputy education and student/CallUsyouthCare.jsx";
 import OrganizationalStructureDeputy from "./components/Sectors/Deputy education and student/OrganizationalStructure.jsx";
 import SubCitiesAdminstration from "./components/Sectors/Deputy education and student/SubCitiesAdminstration.jsx";
 import SpecialUnits from "./components/Sectors/Deputy education and student/SpecialUnits.jsx";
@@ -209,7 +209,7 @@ export let routeObj = [
       },
       {
         path: "/UniversityPresident",
-        element: <UniversityPresident />,
+        ...UniversityPresident,
       },
       {
         path: "/OrganizationalStructure",
@@ -263,10 +263,7 @@ export let routeObj = [
         path: "/login",
         element: <Login />,
       },
-      {
-        path: "/UniversityPresident",
-        element: <UniversityPresident />,
-      },
+
       {
         path: "/OrganizationalStructure",
         element: <OrganizationalStructure />,
@@ -318,7 +315,7 @@ export let routeObj = [
       /***********Deputy education sector**********/
       {
         path: "/DeputyEducation",
-        element: <DeputyEducation />,
+        ...DeputyEducation,
       },
       {
         path: "/RegisteryManagement",
@@ -403,7 +400,7 @@ export let routeObj = [
       /***********postgraduate research sector************/
       {
         path: "/PostgraduateAndResearch",
-        element: <PostGraduateAndResearch />,
+        ...PostGraduateAndResearch,
       },
       {
         path: "/organizationalstructurepost",
@@ -520,7 +517,7 @@ export let routeObj = [
       /*******Community&Environment Routes*****/
       {
         path: "/CommunityAndEnvironment",
-        element: <CommunityAndEnvironment />,
+         ...CommunityAndEnvironment 
       },
       /*******SecretaryGeneral Routes******/
       {
