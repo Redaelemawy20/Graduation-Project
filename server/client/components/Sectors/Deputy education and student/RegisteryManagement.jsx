@@ -5,10 +5,11 @@ import Header2 from "../../Home_Page/Header2";
 import Footer from "../../Home_Page/Footer.jsx";
 import { FaHome } from "react-icons/fa";
 import translate from "../../../../translate";
+import client from "../../../../config/client";
 
 export default function RegisteryManagement() {
   const obj = {
-    link: "http://localhost:3000/files?file=pdfs/Test.pdf",
+    link: client.APP_URL + "/files?file=pdfs/Test.pdf",
   };
   let navLinks = [
     {

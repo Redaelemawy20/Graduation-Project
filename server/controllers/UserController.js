@@ -1,4 +1,5 @@
 import { Role, Permission, User } from "../models";
+import bycrypt from "bcryptjs";
 import { Op } from "sequelize";
 async function index(req, res) {
   const users = await User.findAll({
@@ -23,12 +24,14 @@ async function store(req, res) {
   }
   let avatar = null;
   if (req.file) avatar = req.file.filename;
+  const hashedPassword = await bycrypt.hash("password", 10);
+
   const userInserted = await User.create({
     name,
     email,
     avatar,
     bio,
-    password: "password",
+    password: hashedPassword,
   });
   await userInserted.setRole(role);
   return res.send("user added successfully");

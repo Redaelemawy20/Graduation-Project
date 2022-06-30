@@ -27,7 +27,7 @@ const UserForm = ({ data, onSave, auth }) => {
     const errors = {};
     let foundErrors;
     Object.keys(state.user).map((key) => {
-      if (!state.user[key] && key !== "bio") {
+      if (!state.user[key] && key !== "bio" && key !== "id") {
         errors[key] = key + " not allowed to be empty";
         foundErrors = true;
       }
@@ -66,11 +66,13 @@ const UserForm = ({ data, onSave, auth }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const errors = validateAll();
+
     if (errors) {
+      console.log(errors);
       setErrors(errors);
       return;
     }
-    console.log("saving");
+    console.log("saving...");
     try {
       await onSave(getPayload());
       navigate("/dashboard/users/");

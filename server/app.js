@@ -22,6 +22,7 @@ const db = require("./models");
 const SequelizeStore = sequelizestore(session.Store);
 import configureTranslation from "./services/configureTranslation";
 import translation from "./middlewares/translation";
+import client from "./config/client";
 const app = express();
 app.use(cors());
 
@@ -89,14 +90,11 @@ app.get("/api/locale", (req, res) => {
   res.cookie("lang", lang ?? "en");
   return res.redirect("/");
 });
-app.get("/favicon.ico", (req, res) => {
-  return res.send("no");
-});
 
 // website & dashboard => react router
 app.get("/*", (req, res) => {
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:3000/api",
+    baseURL: client.APP_URL + "/api",
     headers: {
       cookie: req.get("cookie") || "",
     },
@@ -132,7 +130,7 @@ app.get("/*", (req, res) => {
   }
 });
 app.listen(3000, async () => {
-  console.log("Listening on port 3000");
+  console.log("Listening on port 3000", process.NODE_ENV);
   await db.sequelize.sync();
   configureTranslation({
     loadpath: "locales",
