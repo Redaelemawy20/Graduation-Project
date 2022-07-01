@@ -101,9 +101,9 @@ const RegisteryStyle = styled.div`
   width:fit-content;
   margin:auto ;
 }
-.content h2{
+/* .content h2{
 
-}
+} */
 .content P{
   color: gray;
   font-weight:400;

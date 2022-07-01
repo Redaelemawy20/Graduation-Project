@@ -6,6 +6,7 @@ import Instagram from "../Images/Instagram.png";
 import Twitter from "../Images/Twitter.png";
 import Mail from "../Images/Mail.png";
 import Youtube from "../Images/youtube.png";
+import '../Home_Page/Common.css'
 
 export default function SocialBar() {
   return (
@@ -40,12 +41,19 @@ const SocialbarStyle = styled.div`
   width: 100%;
   padding: 0.4em;
   background-color: rgba(20, 116, 153, 0.5);
-  border-end-end-radius: 5px;
-  border-start-end-radius: 5px;
+
   animation-name: Social--Animation;
   animation-duration: 1s;
   animation-timing-function: linear;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  /* html[dir=ltr] {
+    border-start-start-radius: 5px;
+    border-end-start-radius: 5px;
+  }
+  html[dir="rtl"]{
+    border-end-end-radius:5px;
+    border-start-end-radius:5px;
+  } */
   a {
     width: 100%;
     height: 30px;
@@ -61,7 +69,7 @@ const SocialbarStyle = styled.div`
   }
   @keyframes Social--Animation {
     0% {
-      transform: translateX(-50px);
+      transform: translateX(50px);
     }
     100% {
       transform: translateX(0px);

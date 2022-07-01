@@ -60,6 +60,7 @@ export default styled.div`
     top: 45%;
     width: 40px;
     z-index: 2;
+    right:0;
   }
   .cover .trans--text .organize {
     margin: 0.3em 0.6em;

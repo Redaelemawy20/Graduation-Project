@@ -15,25 +15,55 @@ import { getData } from "../actions";
 import DataLoad from "../components/common/DataLoad";
 import Header2 from "../components/Home_Page/Header2";
 import bb from "../components/Images/dig.jpg";
-import { MdAppRegistration, MdDesignServices } from "react-icons/md";
 import { SiSmartthings } from "react-icons/si";
 import { FiActivity } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import httpService from "../../services/httpService";
 import ScientificResearch from "../components/Home_Page/ScientificResearch";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import { FaSchool } from "react-icons/fa";
 import { GiNewspaper } from "react-icons/gi";
-import { FaChalkboardTeacher, FaExclamationTriangle } from "react-icons/fa";
-import { MdOutlineEmojiEvents, MdScience } from "react-icons/md";
+
+import {
+  FaChalkboardTeacher,
+  FaExclamationTriangle,
+  FaGalacticRepublic,
+} from "react-icons/fa";
+import {
+  MdOutlineEmojiEvents,
+  MdScience,
+  MdLocalLibrary,
+  MdOutlineAdminPanelSettings,
+  MdAppRegistration,
+  MdDesignServices,
+} from "react-icons/md";
+import { TbReportAnalytics } from "react-icons/tb";
 import { BsFillFilePersonFill } from "react-icons/bs";
+import { SiCoop } from "react-icons/si";
 import { GoPerson } from "react-icons/go";
+import Navigator from "../components/Home_Page/Nanigatro/Navigator";
+import HeaderlinksObject from '../components/Home_Page/HeadellinksObject';
 function HomePage({ data, getData, langs }) {
   const [languages, setLanguages] = React.useState(langs);
   // let headerHome = {
   //   fName: "Menofia",
   //   lName: "University",
   // };
+  let Scientificresearch = {
+    title: "Scientific Reasearch",
+    height: 1400,
+    icon1: <MdLocalLibrary />,
+    name1: "Federation of Egyptian University Libraries",
+    url1: "/",
+    icon2: <SiCoop />,
+    name2: "Cooperation protocols and international agreements",
+    url2: "/",
+    icon3: <TbReportAnalytics />,
+    name3: "Scientific reports",
+    url3: "/",
+    icon4: <FaGalacticRepublic />,
+    name4: "Scientific publication repository",
+    url4: "/communications",
+  };
   let Digitaltransformations = {
     backgroundImage: bb,
     firstIcon: (
@@ -201,53 +231,125 @@ function HomePage({ data, getData, langs }) {
       menu: [
         {
           name: "Applying to university cities",
-          url: "/Applyingtouniversitycities",
+          url: "https://alzahraa.mans.edu.eg/studentApplications",
         },
         {
           name: "Bachelor's and Bachelor's degree",
-          url: "/BachelorandBachelordegree",
+          dropDown: true,
+          menu: [
+            {
+              name: "Study System",
+              url: "/studysystem",
+            },
+            {
+              name: "Open education",
+              url: "/OpenEducation",
+            },
+            {
+              name: "Bachelor",
+              url: "/bachelor",
+            },
+          ],
         },
         {
           name: "Postgraduate stage",
-          url: "/Postgraduatestage",
+          dropDown: true,
+          menu: [
+            {
+              name: "Entry Criteria",
+              url: "/entrycriteria",
+            },
+            {
+              name: "Electronic Services",
+              url: "/electronicservicesstudent",
+            },
+          ],
+          //url: "/Postgraduatestage",
         },
         {
-          name: "Graduates",
-          url: "/Graduates",
+          name: "Alumini",
+          dropDown: true,
+          menu: [
+            {
+              name: "Alumni welfare association",
+              url: "/aluminiwelfareassociation",
+            },
+            {
+              name: "Aluminidatabase",
+              url: "/aluminidatabase",
+            },
+            {
+              name: "SearchforAlumini",
+              url: "/searchforalumini",
+            },
+          ],
         },
         {
           name: "Arrival students",
           url: "/Arrivalstudents",
         },
         {
-          name:"Student services",
-          url:"/Studentservices"
+          name: "Student services",
+          dropDown: true,
+          menu: [
+            {
+              name: "Electronic Submission",
+              url: "/electronicsubmission",
+            },
+            {
+              name: "Health care",
+              url: "/healthcare",
+            },
+            {
+              name: "Stadium",
+              url: "/stadium",
+            },
+            {
+              name: "Social Solidarity",
+              url: "/socialsoladirity",
+            },
+            {
+              name: "Student Guide",
+              url: "/studentguide",
+            },
+            {
+              name: "Military Education",
+              url: "/militaryeducation",
+            },
+            {
+              name: "Summer Training",
+              url: "/summertraining",
+            },
+            {
+              name: "Information Technology club",
+              url: "/informationtecnologyclub",
+            },
+          ],
         },
         {
-          name:'Studentactivities',
-          url:"/Studentactivities"
+          name: "Student activities",
+          url: "/Studentactivities",
         },
         {
-          name:'Postgraduate results',
-          url:"/Postgraduateresults"
+          name: "Postgraduate results",
+          url: "/Postgraduateresults",
         },
         {
-          name:'Youth Care',
-          url:'/YouthCare'
+          name: "Youth Care",
+          url: "/YouthCare",
         },
         {
-          name:"Exams results",
-          url:'/Examsresults'
+          name: "Exams results",
+          url: "/Examsresults",
         },
         {
-          name:"Get Email",
-          url:"/GetEmail"
+          name: "Get Email",
+          url: "/GetEmail",
         },
         {
-          name:'Registration of foreign students',
-          url:'/Registrationofforeignstudents'
-        }
-
+          name: "Registration of foreign students",
+          url: "/Registrationofforeignstudents",
+        },
       ],
     },
   ];
@@ -264,7 +366,8 @@ function HomePage({ data, getData, langs }) {
       {/* <Nav /> */}
       <Cover />
       <Addminstration />
-      <ScientificResearch/>
+      <Navigator />
+      <ScientificResearch text={Scientificresearch} />
       <VideosAboutUni />
       <Statistics />
       <Faculties />

@@ -1,3 +1,23 @@
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Common.css ***!
+  \******************************************************************************************/
+.icon{
+    padding-inline-start:.2em;
+    padding-inline-end:.2em ;
+}
+html[dir="ltr"] .ifncGS{
+    border-start-start-radius: 5px;
+    border-end-start-radius: 5px;
+    
+  }
+  html[dir="rtl"] .ifncGS{
+    border-end-end-radius:5px;
+    border-start-end-radius:5px;
+  }
+
+  ul{
+    list-style: none;
+  }
 /*!**************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/VideosAboutUni.css ***!
   \**************************************************************************************************/
@@ -814,10 +834,3 @@ body{
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Addinstrations.css ***!
   \**************************************************************************************************/
 
-/*!******************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./client/components/Home_Page/Common.css ***!
-  \******************************************************************************************/
-.icon{
-    padding-inline-start:.2em;
-    padding-inline-end:.2em ;
-}

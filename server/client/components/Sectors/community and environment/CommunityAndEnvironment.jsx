@@ -3,10 +3,12 @@ import Slider from "../../Home_Page/Slider";
 import cc from "../../Images/cover.jfif";
 import bb from "../../Images/front.jpg";
 import Header2 from "../../Home_Page/Header2";
-import { FaExclamationTriangle } from "react-icons/fa";
+import { FaExclamationTriangle,FaDharmachakra } from "react-icons/fa";
 import { CgCommunity } from "react-icons/cg";
 import { MdManageAccounts } from "react-icons/md";
 import { BsJournalBookmarkFill } from "react-icons/bs";
+import { RiServiceFill } from "react-icons/ri";
+import { GrAchievement } from "react-icons/gr";
 import { SiCachet } from "react-icons/si";
 import SocialBar from "../../Home_Page/SocialBar.jsx";
 import Coverstyle from "../../Home_Page/Coverstyle.js";
@@ -17,6 +19,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Newsstyle from "../../Home_Page/Newsstyle.jsx";
 import Cards from "../../Home_Page/Cards";
 import { useState } from "react";
+import ScientificResearch from "../../Home_Page/ScientificResearch";
 import Footer from "../../Home_Page/Footer.jsx";
 //import Header from "../../Home_Page/Header";
 //import Newsstyle from "../../Home_Page/Newsstyle.jsx";
@@ -42,32 +45,46 @@ export default function CommunityAndEnvironment() {
       dropDown: true,
       menu: [
         {
-          name: " Organizational Structure",
-          url: "/organizationalstructurepost",
+          name: "Office",
+          url: "/OfficeCommunity",
         },
         {
-          name: "Vision and the Message",
-          url: "/visionandmessage",
+          name: "Agenda",
+          url: "/agenda",
         },
         {
-          name: "Sector Specializations",
-          url: "/sectorspecializations",
+          name: "Vission And Message",
+          url: "/vissionandmessagecommunity",
         },
         {
-          name: "Sector Achievements",
-          url: "/sectorachivements",
+          name: "Journal And Environment",
+          url: "/journalandenvironment",
         },
         {
-          name: "Sector Deputies",
-          url: "/sectordeputies",
+          name: "Inventorsand Creators Center",
+          url: "/inventorsandcreatorscenter",
         },
         {
-          name: "Study Council",
-          url: "/studycouncil",
-        },
-        {
-          name: "Committees and the office",
-          url: "/committeesoffice",
+          name: "Patent Office Contact",
+          dropDown: true,
+          menu: [
+            {
+              name: "Patents",
+              url: "/patents",
+            },
+            {
+              name: "Point of contact news",
+              url: "/pointofcontactNews",
+            },
+            {
+              name: "Communications",
+              url: "/communications",
+            },
+            {
+              name: "Achievements",
+              url: "/achievements",
+            },
+          ],
         },
       ],
     },
@@ -219,6 +236,22 @@ export default function CommunityAndEnvironment() {
     img2: { bb },
     Description: "Alaa",
   };
+  let comunity = {
+    title: "Services",
+    height: 1400,
+    icon1: <BsJournalBookmarkFill />,
+    name1: "Community development bulletins",
+    url1: "/",
+    icon2: <RiServiceFill />,
+    name2: "Community service association",
+    url2: "/",
+    icon3: <GrAchievement />,
+    name3: "Sector achievements",
+    url3: "/",
+    icon4: <FaDharmachakra />,
+    name4: "Skills development and employment",
+    url4: "/communications",
+  };
   return (
     <>
       <Header2 navLinks={navLinks} />
@@ -247,6 +280,7 @@ export default function CommunityAndEnvironment() {
           <Link to="/allnews">All News</Link>
         </div>
       </Newsstyle>
+      <ScientificResearch text={comunity} />
       <Footer />
     </>
   );

@@ -82,9 +82,21 @@ import Purchasingandwarehouse from "./components/Sectors/Post Graduate And Resea
 import Addminstrativeaffairsdepartment from "./components/Sectors/Post Graduate And Research/Scientific research/Addminstrativeaffairsdepartment.jsx";
 /***********imports of communityAndEnvironment sector********/
 import CommunityAndEnvironment from "./components/Sectors/community and environment/CommunityAndEnvironment.jsx";
+import OrganizationalStructureCommunity from "./components/Sectors/community and environment/AboutSector/Office.jsx";
+import Agenda from "./components/Sectors/community and environment/AboutSector/Agenda.jsx";
+import VissionandMessageCommunity from "./components/Sectors/community and environment/AboutSector/VissionAndMessage.jsx";
+import JournalAndEnvironment from "./components/Sectors/community and environment/AboutSector/JournalAndEnvironment.jsx";
+import InventorsandCreatorsCenter from "./components/Sectors/community and environment/AboutSector/InventorsandCreatorsCenter.jsx";
+import Patents from "./components/Sectors/community and environment/AboutSector/Patents.jsx";
+import PointofcontacNews from "./components/Sectors/community and environment/AboutSector/PointofcontactNews.jsx";
+import Comunications from "./components/Sectors/community and environment/AboutSector/Communications.jsx";
+import Achievements from "./components/Sectors/community and environment/AboutSector/Achievements.jsx";
+//import OrganizationalStructureCommunity from "./components/Sectors/community and environment/community service management/OrganizationalStructure";
+
 /***************imports of SecretaryGeneral sector***************/
 import SecretaryGeneral from "./components/Sectors/SecretaryGeneral.jsx";
 /**********imports of News********/
+
 import Allnews from "./components/News/Allnews.jsx";
 import Newsdynamic from "./components/Home_Page/Newsdynamic.jsx";
 /********imports of About University*******/
@@ -108,10 +120,9 @@ import Email from "./components/Home_Page/Staff Members/Email.jsx";
 import Personalwebsitedata from "./components/Home_Page/Staff Members/Personalwebsitedata.jsx";
 import Searchforfaculitymember from "./components/Home_Page/Staff Members/Searchforfaculitymember.jsx";
 /*******import of Students*******/
-import Applyingtouniversitycities from "./components/Home_Page/Students/Applyingtouniversitycities.jsx";
-import BachelorsandBachelorsdegree from "./components/Home_Page/Students/Bachelorsandbachelordegree.jsx";
+import Studysystem from "./components/Home_Page/Students/Studysystem.jsx";
 import Postgraduatestage from "./components/Home_Page/Students/Postgraduatestage.jsx";
-import Graduates from "./components/Home_Page/Students/Graduates.jsx";
+import Alumniwelfareassociation from "./components/Home_Page/Students/Alumniwelfareassociation.jsx";
 import Arrivalstudents from "./components/Home_Page/Students/Arrivalstudents.jsx";
 import Studentservices from "./components/Home_Page/Students/Studentservices.jsx";
 import Studentactivities from "./components/Home_Page/Students/Studentactivities.jsx";
@@ -120,6 +131,20 @@ import YouthCare from "./components/Home_Page/Students/Youthcare.jsx";
 import Examsresults from "./components/Home_Page/Students/Examsresults.jsx";
 import GetEmail from "./components/Home_Page/Students/Getemail.jsx";
 import Registrationofforeignstudents from "./components/Home_Page/Students/Registrationofforeignstudents.jsx";
+import Bachelor from "./components/Home_Page/Students/BachelorelectronicService.jsx";
+import EntryCriteriastudent from "./components/Home_Page/Students/EntryCriteria.jsx";
+import Electronicservicesstudent from "./components/Home_Page/Students/Electronicservices.jsx";
+import Electronicsubmission from "./components/Home_Page/Students/StudentServices/Electronicsubmission";
+import Socialsoladirity from "./components/Home_Page/Students/StudentServices/Socialsolidarity";
+import MilitaryEducation from "./components/Home_Page/Students/StudentServices/MilitaryEducation";
+import Summertraining from "./components/Home_Page/Students/StudentServices/Summertraining";
+import Healthcare from "./components/Home_Page/Students/StudentServices/Healthcare";
+import Stadium from "./components/Home_Page/Students/StudentServices/Stadium";
+import Studentguide from "./components/Home_Page/Students/StudentServices/Studentguide";
+import Informationtechnologyclub from "./components/Home_Page/Students/StudentServices/Informationtechnologyclub";
+import Aluminidatabase from "./components/Home_Page/Students/Aluminidatabase";
+import SearchforAlumini from "./components/Home_Page/Students/SearchforAlumini";
+import Displaypdf from "./components/Home_Page/Students/StudentServices/Displaypdf";
 /*******imports of dynamic routes faculity ********/
 import FaculitesPages from "./components/faculties/FaculitesPages.jsx";
 import AllFaculities from "./components/faculties/AllFaculities";
@@ -522,6 +547,43 @@ export let routeObj = [
         path: "/CommunityAndEnvironment",
         element: <CommunityAndEnvironment />,
       },
+      {
+        path: "/OfficeCommunity",
+        element: <OrganizationalStructureCommunity />,
+      },
+      {
+        path: "/agenda",
+        element: <Agenda />,
+      },
+      {
+        path: "/vissionandmessagecommunity",
+        element: <VissionandMessageCommunity />,
+      },
+      {
+        path: "/journalandenvironment",
+        element: <JournalAndEnvironment />,
+      },
+      {
+        path: "/inventorsandcreatorscenter",
+        element: <InventorsandCreatorsCenter />,
+      },
+      {
+        path: "/patents",
+        element: <Patents />,
+      },
+      {
+        path: "/pointofcontactNews",
+        element: <PointofcontacNews />,
+      },
+      {
+        path: "/communications",
+        element: <Comunications />,
+      },
+      {
+        path: "/achievements",
+        element: <Achievements />,
+      },
+      ,
       /*******SecretaryGeneral Routes******/
       {
         path: "/SecretaryGeneral",
@@ -608,20 +670,68 @@ export let routeObj = [
       },
       /******Routes of Students*****/
       {
-        path: "/Applyingtouniversitycities",
-        element: <Applyingtouniversitycities />,
+        path: "/studysystem",
+        element: <Studysystem />,
       },
       {
-        path: "/BachelorandBachelordegree",
-        element: <BachelorsandBachelorsdegree />,
+        path: "/bachelor",
+        element: <Bachelor />,
+      },
+      {
+        path: "/electronicsubmission",
+        element: <Electronicsubmission />,
+      },
+      {
+        path: "/electronicservicesstudent",
+        element: <Electronicservicesstudent />,
       },
       {
         path: "/Postgraduatestage",
         element: <Postgraduatestage />,
       },
       {
-        path: "/Graduates",
-        element: <Graduates />,
+        path: "/socialsoladirity",
+        element: <Socialsoladirity />,
+      },
+      {
+        path: "/militaryeducation",
+        element: <MilitaryEducation />,
+      },
+      {
+        path: "/summertraining",
+        element: <Summertraining />,
+      },
+      {
+        path: "/healthcare",
+        element: <Healthcare />,
+      },
+      {
+        path: "/stadium",
+        element: <Stadium />,
+      },
+      {
+        path: "/studentguide",
+        element: <Studentguide />,
+      },
+      {
+        path: "/informationtecnologyclub",
+        element: <Informationtechnologyclub />,
+      },
+      {
+        path: "/entrycriteria",
+        element: <EntryCriteriastudent />,
+      },
+      {
+        path: "/aluminiwelfareassociation",
+        element: <Alumniwelfareassociation />,
+      },
+      {
+        path: "/aluminidatabase",
+        element: <Aluminidatabase />,
+      },
+      {
+        path: "/searchforalumini",
+        element: <SearchforAlumini />,
       },
       {
         path: "/Arrivalstudents",
@@ -654,6 +764,11 @@ export let routeObj = [
       {
         path: "/Registrationofforeignstudents",
         element: <Registrationofforeignstudents />,
+      },
+      {
+        path: "/pdf/:id",
+        // path:"/faculity",
+        element: <Displaypdf />,
       },
       /******Routes of Faculites*****/
       {

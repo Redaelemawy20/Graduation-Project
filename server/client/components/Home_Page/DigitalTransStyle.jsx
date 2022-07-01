@@ -35,7 +35,7 @@ h1 + div {
 .links:hover {
   transform: scale(1.1);
 }
-.resize .digital-transformation .services {
+ .services {
   padding: 45px 0;
   display: grid;
   width: 90%;
@@ -52,7 +52,7 @@ h1 + div {
   justify-content: center;
   align-items: center;
 }
-.resize .digital-transformation .services > div .digital-icon {
+ .services > div .digital-icon {
   font-size: 7rem;
  
 }
@@ -85,7 +85,7 @@ a{
   }
 }
 @media (max-width:630px){
-  .resize .digital-transformation .services{
+   .services{
     grid-template-columns: repeat(2, 1fr);
     padding: 15px;
     height: 80%;
@@ -96,7 +96,7 @@ a{
 }
 @media (max-width:460px){
   height: fit-content;
-  .resize .digital-transformation .services{
+   .services{
     grid-template-columns: repeat(1,1fr);
   }
 }
