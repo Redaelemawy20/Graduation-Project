@@ -36,7 +36,7 @@ export default function () {
           <div>
             <h4>Quick links</h4>
             <p className="Quick--links">
-              <Link to="/">Arrivals Management</Link>
+              <Link to="/arrivalmanagement">Arrivals Management</Link>
               <Link to="/">Link2</Link>
               <a href="#">Link3</a>
               <a href="#">Link4</a>
@@ -92,8 +92,8 @@ const FooterStyle = styled.div`
     font-size: 1rem;
     /* color: var(--mainColor); */
   }
-  h4 {
-    color: #ffffff;
+  .arrange--foot h4 {
+    color: #ffffff; 
   }
   span {
     padding-inline-end: 3px;

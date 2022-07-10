@@ -4,13 +4,23 @@
   /*You can increase or decrease the timer (5s) to 
      increase or decrease the speed of the spinner*/
 }
-.Title{
+.Title {
   width: fit-content;
-  margin: auto;
-  padding:.2em 1em;
+  margin: 50px auto 30px;
+  padding: 0.2em 1em;
   border-bottom: 2px solid #f6852b;
-  font-size: 1.4rem;
   font-weight: 500;
+}
+.Title h1 {
+  font-size: 1.4rem;
+}
+@media (max-width: 768px) {
+  .Title {
+    max-width: 94%;
+  }
+  .Title h1 {
+    font-size: 1rem;
+  }
 }
 @keyframes spin {
   from {
@@ -45,73 +55,80 @@ html[dir="rtl"] .dropdown-menu-arrow.dropdown-menu-end:before {
   right: 87%;
   left: 0;
 }
-.content{
+.content {
   animation-duration: 2s;
-  animation-timing-function:ease;
- animation-iteration-count:1;
-} 
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+}
+/*Iframe PDF Display*******/
+.iFrame--Pdf {
+  width: 100%;
+  height: 100vh;
+}
 /* Animation ltr */
-html[dir="ltr"] .top--left{
-  animation-name:top---left---Animation;
-  }
-  html[dir="ltr"] .top--right{
-    animation-name:top---right---Animation;
-  }
-  html[dir="ltr"] .bottom--right{
-    animation-name:bottom---right---Animation;
- 
-  }
-  html[dir="ltr"] .bottom--left{
-    animation-name:bottom---left---Animation;
- 
-  }
+html[dir="ltr"] .top--left {
+  animation-name: top---left---Animation;
+}
+html[dir="ltr"] .top--right {
+  animation-name: top---right---Animation;
+}
+html[dir="ltr"] .bottom--right {
+  animation-name: bottom---right---Animation;
+}
+html[dir="ltr"] .bottom--left {
+  animation-name: bottom---left---Animation;
+}
 
 /* Animation rtl */
-  html[dir="rtl"] .top--left{
-    animation-name:top---right---Animation;
+html[dir="rtl"] .top--left {
+  animation-name: top---right---Animation;
+}
+html[dir="rtl"] .top--right {
+  animation-name: top---left---Animation;
+}
+html[dir="rtl"] .bottom--right {
+  animation-name: bottom---left---Animation;
+}
+html[dir="rtl"] .bottom--left {
+  animation-name: bottom---right---Animation;
+}
+@keyframes top---left---Animation {
+  from {
+    transform: translate(-50px, -50px);
+    opacity: 0;
   }
-  html[dir="rtl"] .top--right{
-    animation-name:top---left---Animation;
-  }
-  html[dir="rtl"] .bottom--right{
-    animation-name:bottom---left---Animation;
-  }
-  html[dir="rtl"] .bottom--left{
-    animation-name:bottom---right---Animation;
-  }
-@keyframes top---left---Animation{
-  from{
-      transform:translate(-50px,-50px);
-      opacity:0
-  } to{
-      transform:translate(0,0);
-      opacity:1 ;
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
   }
 }
-@keyframes top---right---Animation{
-  from{
-      transform:translate(50px,-50px);
-      opacity:0
-  } to{
-      transform:translate(0,0);
-      opacity:1 ;
+@keyframes top---right---Animation {
+  from {
+    transform: translate(50px, -50px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
   }
 }
-@keyframes bottom---right---Animation{
-  from{
-      transform:translate(50px,50px);
-      opacity:0
-  } to{
-      transform:translate(0,0);
-      opacity:1 ;
+@keyframes bottom---right---Animation {
+  from {
+    transform: translate(50px, 50px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
   }
 }
-@keyframes bottom---left---Animation{
-  from{
-      transform:translate(-50px,50px);
-      opacity:0
-  } to{
-      transform:translate(0,0);
-      opacity:1 ;
+@keyframes bottom---left---Animation {
+  from {
+    transform: translate(-50px, 50px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
   }
 }

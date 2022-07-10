@@ -1,0 +1,36 @@
+@keyframes animation {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.content {
+  width: 80%;
+  margin: 3rem auto;
+  animation-name: animation;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+}
+.links--icon {
+  margin-inline-end: 5px;
+  font-size: 1.5rem;
+  color: #f6852b;
+}
+.content h3{
+  color: #f6852b;
+}
+@media (max-width: 1200px) {
+  .content {
+    width: 90%;
+  }
+}
+@media(max-width:300px){
+  /* .content{
+    width: 100%;
+  } */
+}

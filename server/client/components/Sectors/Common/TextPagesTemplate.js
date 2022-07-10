@@ -2,23 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Header2 from "../../Home_Page/Header2";
 import { useEffect } from "react";
-import { FaHome } from "react-icons/fa";
 import Footer from "../../Home_Page/Footer.jsx";
 import { AiOutlineSlack } from "react-icons/ai";
+import navLinks from "../PresidentSector/NavLinksObjectofpresedentuniversity";
 import "../../../App.css";
 export default function TextPages(props) {
-  //const arrayProps=Array.from(props.text)
-  const{Title,lines,names}=props.text;
-  //console.log(props);
-  const navLinks = [
-    {
-      name: "Home",
-      url: "/",
-      active: true,
-      dropDown: false,
-      icon: <FaHome />,
-    },
-  ];
   
   useEffect(() => {
     // window.addEventListener("scroll", () => {
@@ -27,11 +15,10 @@ export default function TextPages(props) {
       document.getElementsByClassName("content--paragraph");
     const iconStartLine = document.getElementsByClassName("Icon--Line");
     const arrayIcons = Array.from(iconStartLine);
-    arrayIcons.forEach((item,index) => {
-      // for (let i = 0; i < arrayIcons.length; i++) {
-        setTimeout(() => {
+    arrayIcons.forEach((item, index) => {
+      setTimeout(() => {
         item.classList.add("rotate--Icon");
-        }, index * 1000);
+      }, index * 1000);
       //}
     });
     const arrayContent = Array.from(contentparagraph);
@@ -50,53 +37,51 @@ export default function TextPages(props) {
       <TextPagesStyle>
         <div className="content-paragraph">
           {/* {admistrationOffice.map((item, index) => { */}
-            {/* return ( */}
-              
-                <div className="Title">{Title}</div>
-                <div className="content--paragraph" id="content">
-                {
-                lines.map(item=>{
-                  return(
-                  <p>
-                    <div className="start--line--icon">
-                      <AiOutlineSlack className="Icon--Line" />
-                    </div>
-                    {item}
-                  </p>)
-                })}
-                  
-                  
-                </div>
-              
-            
+          {/* return ( */}
+          <div className="Title">
+            <h1>{props.text.Title}</h1>
+          </div>
+          <div className="content--paragraph" id="content">
+            {props.text.lines.map((item) => {
+              return (
+                <p>
+                  <div className="start--line--icon">
+                    <AiOutlineSlack className="Icon--Line" />
+                  </div>
+                  {item}
+                </p>
+              );
+            })}
+          </div>
         </div>
-        <div className="Editby--names">
-        {names.map(item=>{
-          return(
-            <div className=" display--persons">{item}</div>
-          )
-        })}
-          
-        </div>
+        {props.text.names ? (
+          <div className="Editby--names">
+            {props.text.names.map((item) => {
+              return <div className=" display--persons">{item}</div>;
+            })}
+          </div>
+        ) : (
+          ""
+        )}
       </TextPagesStyle>
       <Footer />
-      </>
-    
+    </>
   );
 }
 const TextPagesStyle = styled.div`
   margin: 50px 0;
-  .content--paragraph,.Editby--names {
+  .content--paragraph,
+  .Editby--names {
     width: 80%;
     margin: 50px auto;
     padding: 50px;
-    
   }
-  .content--paragraph{
-    border-radius:10px ;
-    color:gray ;
+  .content--paragraph {
+    border-radius: 10px;
+    color: gray;
     opacity: 0;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;  }
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
   .move {
     animation-name: paragraph--Animation;
     animation-duration: 2s;
@@ -104,18 +89,24 @@ const TextPagesStyle = styled.div`
     animation-timing-function: ease;
     opacity: 1;
   }
-  .person--Icon{
-    margin-inline-end:4px;
-    color:#f6852b ;
+  .person--Icon {
+    margin-top: 4px;
+    margin-inline-end: 4px;
+    color: #f6852b;
+    min-width: 16px;
   }
-  /* .display--persons{
-    display:flex ;
-  } */
+  a {
+    color: #f6852b;
+    text-decoration: none;
+  }
+  a:hover {
+    opacity: 0.7;
+  }
   p {
     opacity: 0;
     display: flex;
-    font-size:.95rem;
-    font-weight:400;
+    font-size: 0.95rem;
+    font-weight: 400;
   }
   .start--line--icon {
     color: #f6852b;
@@ -126,21 +117,21 @@ const TextPagesStyle = styled.div`
     transition: 5s;
     transition-timing-function: ease;
   }
-  span{
-    color:gray;
-    margin-top:30px;
-    display:flex;
-    font-size:.95rem;
+  span {
+    color: gray;
+    margin-top: 30px;
+    display: flex;
+    font-size: 0.95rem;
     color: #f6852b;
-    align-items:center;
+    align-items: center;
   }
-  h3{
-    display:flex;
-    align-items:center;
-    margin-top:.4em ;
+  h3 {
+    display: flex;
+    margin-top: 0.4em;
   }
   @media (max-width: 450px) {
-    .content--paragraph,.Editby--names {
+    .content--paragraph,
+    .Editby--names {
       width: 90%;
       padding: 25px 15px;
     }

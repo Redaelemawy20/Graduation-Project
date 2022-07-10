@@ -1,7 +1,7 @@
 import React from "react";
-import TextPages from "../../Common/TextPages";
-import {RiTeamFill} from 'react-icons/ri'
-import {BsFillPersonFill} from 'react-icons/bs'
+import TextPages from "../../Common/TextPagesTemplate";
+import { RiTeamFill } from "react-icons/ri";
+import { BsFillPersonFill } from "react-icons/bs";
 export default function OfficeAddminstration() {
   const adminstrationOffice = {
     Title: "Adminstration Office",
@@ -29,17 +29,36 @@ export default function OfficeAddminstration() {
       "Review the records of university hospitals and their units, as well as the minutes of the National liver Institute hospital and its units.",
     ],
     names: [
-      <h3><BsFillPersonFill className="person--Icon"/>Department Director: Mrs.  Manal Abdel Mohsen</h3>,
+      <h3>
+        <BsFillPersonFill className="person--Icon" />
+        Department Director: Mrs. Manal Abdel Mohsen
+      </h3>,
 
-      <span><RiTeamFill className="person--Icon"/>Department staff:</span>,
+      <span>
+        <RiTeamFill className="person--Icon" />
+        Department staff:
+      </span>,
 
-      <h3><BsFillPersonFill className="person--Icon"/>Mr. Mohamed Saad</h3>,
+      <h3>
+        <BsFillPersonFill className="person--Icon" />
+        Mr. Mohamed Saad
+      </h3>,
 
-      <h3><BsFillPersonFill className="person--Icon"/>Mr. Rafiq Al-Afandi</h3>,
+      <h3>
+        <BsFillPersonFill className="person--Icon" />
+        Mr. Rafiq Al-Afandi
+      </h3>,
 
-     ,<h3><BsFillPersonFill className="person--Icon"/>Mr. Sameh Al-Bambi</h3>
+      ,
+      <h3>
+        <BsFillPersonFill className="person--Icon" />
+        Mr. Sameh Al-Bambi
+      </h3>,
 
-      ,<h3><BsFillPersonFill className="person--Icon"/>Mr. Khaled Abul-Ghar</h3>
+      <h3>
+        <BsFillPersonFill className="person--Icon" />
+        Mr. Khaled Abul-Ghar
+      </h3>,
     ],
   };
 

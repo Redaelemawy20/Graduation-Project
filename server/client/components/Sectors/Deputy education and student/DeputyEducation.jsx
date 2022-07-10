@@ -1,15 +1,12 @@
 import React from "react";
 
 import Header2 from "../../Home_Page/Header2";
-import { MdOutlineCastForEducation } from "react-icons/md";
-import {IoTrophyOutline} from 'react-icons/io5';
-import {FaCity,FaUserGraduate} from 'react-icons/fa';
-import {VscTerminalUbuntu} from 'react-icons/vsc'
+
 import Slider from "../../Home_Page/Slider";
 import cc from "../../Images/cover.jfif";
 import bb from "../../Images/front.jpg";
 import Cards from "../../Home_Page/Cards";
-import { FaHome } from "react-icons/fa";
+import navLinks from "./DeputyNavLinksObject"
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "../../Home_Page/Footer.jsx";
@@ -29,110 +26,7 @@ import MedicalAffairs from "./MedicalAffairs/MedicalAffairs.jsx";
 export default function DeputyEducation() {
   const [isOpen, setOpen] = useState(false);
   const showSideBar = () => setOpen(!isOpen);
-  let navLinks = [
-    {
-      name: "Home",
-      icon: <FaHome />,
-      url: "/",
-      active: true,
-      dropDown: false,
-    },
-    {
-      name: "Education Affairs",
-      icon: <MdOutlineCastForEducation />,
-      dropDown: true,
-      menu: [
-        {
-          name: "Registry Management",
-          url: "/RegisteryManagement",
-        },
-        {
-          name: "StudyAffairs Addminstration",
-          url: "/StudyAffairsAddminstration",
-        },
-        {
-          name: "Exam administration",
-          url: "/ExamAddminstration",
-        },
-        {
-          name: "Alumni management",
-          url: "/Aluminimanagement",
-        },
-        {
-          name: "Open Education",
-          url: "/OpenEducation",
-        },
-        {
-          name: "Organizing Regulation",
-          url: "/OrganizingRegulation",
-        },
-        {
-          name: "Call Us",
-          url: "/CallUs",
-        },
-      ],
-    },
-    {
-      name:'University Cities',
-      icon:<FaCity/>,
-      dropDown:true,
-      menu:[
-        {
-          name:'Organizational Structure',
-          url:'/OrganizationalStructureDeputy'
-        },
-        {
-          name:'Sub-cities administrations',
-          url:'/SubCitiesAddminstration'
-        },
-        {
-          name:'Special units',
-          url:'/SpecialUnits'
-        },
-        {
-          name:'Services and Activities',
-          url:'/ServiceandActivities'
-        },
-        {
-          name:'Cities guide',
-          url:'/CitiesGuide'
-        }
-      ]
-    },
-    {
-      name:'Youth Care',
-      icon:<IoTrophyOutline/>,
-      dropDown:true,
-      menu:[
-        {
-          name:'Organizational Structure',
-          url:'/OrganizationalStructureYouth',
-        },
-        {
-          name:'Youth Welfare Departments',
-          url:'/YouthWelfareDep'
-        },
-        {
-          name:'Organizing Regulation',
-          url:'/OrganizingRegulationYouth'
-        },
-        {
-          name:'Call Us',
-          url:'/CallUsYouth'
-        }
-      ]
-    },
-    {
-      name: "Alumni Care Association",
-      icon:<VscTerminalUbuntu/>,
-      dropDown:false,
-    },
-    {
-    name:'Find a graduate',
-    icon:<FaUserGraduate/>, 
-    dropDown:false,
-    }
-  ];
+  
   let president_Slide = {
     img1: { cc },
     img2: { bb },
@@ -163,11 +57,11 @@ export default function DeputyEducation() {
       img: bb,
     },
   ];
-  
+
   return (
     <>
       <Header2 navLinks={navLinks} />
-      
+
       <Coverstyle>
         <div className="cover">
           <Slider
@@ -199,125 +93,124 @@ export default function DeputyEducation() {
   );
 }
 
-
 //--Old Nav--
 
 // let nav = [
-  //   {
-  //     listName: <Link to="/"><FaHome id="icon--home"/>Home</Link>,
-  //   },
-  //   {
-  //     listName: "Education Affairs",
-  //     licon: (
-  //       <span id="down">
-  //         <FontAwesomeIcon
-  //           icon={faAngleDown}
-  //           className="downIcon"
-  //         ></FontAwesomeIcon>
-  //       </span>
-  //     ),
+//   {
+//     listName: <Link to="/"><FaHome id="icon--home"/>Home</Link>,
+//   },
+//   {
+//     listName: "Education Affairs",
+//     licon: (
+//       <span id="down">
+//         <FontAwesomeIcon
+//           icon={faAngleDown}
+//           className="downIcon"
+//         ></FontAwesomeIcon>
+//       </span>
+//     ),
 
-  //     dropdown: [
-  //       <Link to="/RegisteryManagement">Registry Management</Link>,
-  //       <Link to="/StudyAffairsAddminstration">
-  //         Study affairs administration
-  //       </Link>,
-  //       <Link to="/ExamAddminstration">Exam administration</Link>,
-  //       <Link to="/Aluminimanagement">Alumni management</Link>,
-  //       <Link to="/OpenEducation">Open Eduction</Link>,
-  //       <Link to="/OrganizingRegulation">Organizing Regulation</Link>,
-  //       <Link to="/CallUs">Call Us</Link>,
-  //     ],
-  //   },
-  //   {
-  //     listName: "University Cities",
-  //     licon: (
-  //       <span id="down">
-  //         <FontAwesomeIcon
-  //           icon={faAngleDown}
-  //           className="downIcon"
-  //         ></FontAwesomeIcon>
-  //       </span>
-  //     ),
-  //     style: "icon",
-  //     },
-  //     dropdown: [
-  //       <Link to="/OrganizationalStructureDeputy">
-  //         Organizational Structure
-  //       </Link>,
-  //       <Link to="/SubCitiesAddminstration">Sub-cities administrations</Link>,
-  //       <Link to="/SpecialUnits">Special units</Link>,
-  //       <Link to="/ServiceandActivities">Services and Activities</Link>,
-  //       <Link to="/CitiesGuide">Cities guide</Link>,
-  //     ],
-  //   },
-  //   {
-  //     listName: "Youth Care",
-  //     licon: (
-  //       <span id="down">
-  //         <FontAwesomeIcon
-  //           icon={faAngleDown}
-  //           className="downIcon"
-  //         ></FontAwesomeIcon>
-  //       </span>
-  //     ),
+//     dropdown: [
+//       <Link to="/RegisteryManagement">Registry Management</Link>,
+//       <Link to="/StudyAffairsAddminstration">
+//         Study affairs administration
+//       </Link>,
+//       <Link to="/ExamAddminstration">Exam administration</Link>,
+//       <Link to="/Aluminimanagement">Alumni management</Link>,
+//       <Link to="/OpenEducation">Open Eduction</Link>,
+//       <Link to="/OrganizingRegulation">Organizing Regulation</Link>,
+//       <Link to="/CallUs">Call Us</Link>,
+//     ],
+//   },
+//   {
+//     listName: "University Cities",
+//     licon: (
+//       <span id="down">
+//         <FontAwesomeIcon
+//           icon={faAngleDown}
+//           className="downIcon"
+//         ></FontAwesomeIcon>
+//       </span>
+//     ),
+//     style: "icon",
+//     },
+//     dropdown: [
+//       <Link to="/OrganizationalStructureDeputy">
+//         Organizational Structure
+//       </Link>,
+//       <Link to="/SubCitiesAddminstration">Sub-cities administrations</Link>,
+//       <Link to="/SpecialUnits">Special units</Link>,
+//       <Link to="/ServiceandActivities">Services and Activities</Link>,
+//       <Link to="/CitiesGuide">Cities guide</Link>,
+//     ],
+//   },
+//   {
+//     listName: "Youth Care",
+//     licon: (
+//       <span id="down">
+//         <FontAwesomeIcon
+//           icon={faAngleDown}
+//           className="downIcon"
+//         ></FontAwesomeIcon>
+//       </span>
+//     ),
 
-  //     dropdown: [
-  //       <Link to="/OrganizationalStructureYouth">
-  //         Organizational Structure
-  //       </Link>,
-  //       <Link to="/YouthWelfareDep">Youth Welfare Departments</Link>,
-  //       <Link to="/OrganizingRegulationYouth">Organizing Regulation</Link>,
-  //       <Link to="/CallUsYouth">Call Us</Link>,
-  //     ],
-  //   },
-  //   /*{
-  //     listName: "Medical Affairs",
-  //     licon: (
-  //       <span id="down">
-  //         <FontAwesomeIcon
-  //           icon={faAngleDown}
-  //           className="downIcon"
-  //         ></FontAwesomeIcon>
-  //       </span>
-  //     ),
-  //     style: "icon",
-  //     cliick: function () {
-  //       console.log("i'm clicked from Management");
-  //     },
-  //     dropdown: [
-  //       <Link to="/organizationalstrucure">Organizational Structure</Link>,
-  //       <Link to="/aboutaddminstration">About Addminstration</Link>,
-  //       <Link to="/subdepartments">Sub-departments</Link>,
-  //       <Link to="/callusmedical">Call Us</Link>,
-  //     ],
-  //   },*/
-  //   {
-  //     listName: "Alumni Care Association",
-  //     cliick: function () {
-  //       console.log("i'm clicked from Management");
-  //     },
-  //   },
-  //   {
-  //     listName: "Find a graduate",
-  //     cliick: function () {
-  //       console.log("i'm clicked from Management");
-  //     },
-  //   },
-  // ];
-  //JSX
-  //  <Navstyle>
-  //       <div className="un--list" id={isOpen ? "visable" : "unvisable"}>
-  //         <ul className="Maa--Ul">
-  //           {nav.map((item, index) => (
-  //             <NavSectors key={index} item={item} />
-  //           ))}
-  //         </ul>
-  //         <div className="close--Icon">
-  //           <FiX className="lock--Icon" onClick={() => showSideBar()} />
-  //         </div>
-  //       </div>
-  //       <div className="Bar--Icon" id="Show">
-  //         <VscThreeBars onClick={() => showSideBar()} />
-  //       </div>
-  //     </Navstyle>
+//     dropdown: [
+//       <Link to="/OrganizationalStructureYouth">
+//         Organizational Structure
+//       </Link>,
+//       <Link to="/YouthWelfareDep">Youth Welfare Departments</Link>,
+//       <Link to="/OrganizingRegulationYouth">Organizing Regulation</Link>,
+//       <Link to="/CallUsYouth">Call Us</Link>,
+//     ],
+//   },
+//   /*{
+//     listName: "Medical Affairs",
+//     licon: (
+//       <span id="down">
+//         <FontAwesomeIcon
+//           icon={faAngleDown}
+//           className="downIcon"
+//         ></FontAwesomeIcon>
+//       </span>
+//     ),
+//     style: "icon",
+//     cliick: function () {
+//       console.log("i'm clicked from Management");
+//     },
+//     dropdown: [
+//       <Link to="/organizationalstrucure">Organizational Structure</Link>,
+//       <Link to="/aboutaddminstration">About Addminstration</Link>,
+//       <Link to="/subdepartments">Sub-departments</Link>,
+//       <Link to="/callusmedical">Call Us</Link>,
+//     ],
+//   },*/
+//   {
+//     listName: "Alumni Care Association",
+//     cliick: function () {
+//       console.log("i'm clicked from Management");
+//     },
+//   },
+//   {
+//     listName: "Find a graduate",
+//     cliick: function () {
+//       console.log("i'm clicked from Management");
+//     },
+//   },
+// ];
+//JSX
+//  <Navstyle>
+//       <div className="un--list" id={isOpen ? "visable" : "unvisable"}>
+//         <ul className="Maa--Ul">
+//           {nav.map((item, index) => (
+//             <NavSectors key={index} item={item} />
+//           ))}
+//         </ul>
+//         <div className="close--Icon">
+//           <FiX className="lock--Icon" onClick={() => showSideBar()} />
+//         </div>
+//       </div>
+//       <div className="Bar--Icon" id="Show">
+//         <VscThreeBars onClick={() => showSideBar()} />
+//       </div>
+//     </Navstyle>

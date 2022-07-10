@@ -7,7 +7,7 @@ import cc from "../../Images/cover.jfif";
 import bb from "../../Images/front.jpg";
 import Cards from "../../Home_Page/Cards";
 //import NavSectors from "../NavSectors.jsx";
-import { FaHome } from "react-icons/fa";
+
 // import { getOverlayDirection } from "react-bootstrap/esm/helpers";
 //import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,6 +21,7 @@ import SocialBar from "../../Home_Page/SocialBar.jsx";
 import Footer from "../../Home_Page/Footer.jsx";
 import Coverstyle from "../../Home_Page/Coverstyle";
 import Newsstyle from "../../Home_Page/Newsstyle.jsx";
+import navLinks from "./NavLinksObjectofpresedentuniversity"
 export default function UniversityPresident() {
   // const [isOpen, setOpen] = useState(false);
   //  const showSideBar = () => setOpen(!isOpen);
@@ -60,93 +61,7 @@ export default function UniversityPresident() {
       img: bb,
     },
   ];
-  let navLinks = [
-    {
-      //listName: <Link to="/">Home</Link>,
-      name: "Home",
-      icon: <FaHome />,
-      url: "/",
-      active: true,
-      dropDown: false,
-      // ficon: ,
-      // style: "icon",
-      // cliick: function () {
-
-      // },
-    },
-    {
-      name: "Higher Management",
-      icon: <FaHome />,
-      dropDown: true,
-      menu: [
-        {
-          name: "Organizational Structure",
-          url: "/OrganizationalStructure",
-        },
-        {
-          name: "Sub-departments",
-         
-          dropDown:true,
-          menu:[
-            {
-            name:'Office Addminstration',
-            url: "/SubDepartments",
-            }
-          ]
-        },
-        {
-          name: "Vision and Message",
-          url: "/VisionandMessage",
-        },
-      ],
-    },
-    {
-      name: "Affiliate Departments",
-      icon: <FaHome />,
-      dropDown: true,
-      menu: [
-        {
-          name: "Data Center",
-          url: "/Datacenter",
-        },
-        {
-          name: "Legal Affairs",
-          url: "/LegalAffairs",
-        },
-        {
-          name: "Organization and Management",
-          url: "/OrganizationandManagement",
-        },
-        {
-          name: "Public Relations and Media",
-          url: "/PublicRelationandMedia",
-        },
-        {
-          name: "Technical Inspection",
-          url: "/TechnicalInspection",
-        },
-        {
-          name: "Planning",
-          url: "/Planning",
-        },
-        {
-          name: "Security",
-          url: "/Security",
-        },
-        {
-          name: "Projects Management",
-          url: "/ProjectsManagement",
-        },
-        {
-          name: "Quality Assurance",
-          url: "/QualityAssurance",
-        },
-      ],
-    },
-    {
-      name: "President",
-    },
-  ];
+  
 
   return (
     <>

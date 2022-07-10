@@ -10,16 +10,22 @@ import Login from "./Login/Login.jsx";
 import UniversityPresident from "./components/Sectors/PresidentSector/UniversityPresident.jsx";
 import OrganizationalStructure from "./components/Sectors/PresidentSector/OrganizationalStructure.jsx";
 import SubDepartments from "./components/Sectors/PresidentSector/SubDepartment/OfficeaAddminstration.jsx";
+import CitizensServiceDepartment from "./components/Sectors/PresidentSector/SubDepartment/CitizensServiceDepartment";
+import CentralStatisticsDepartment from "./components/Sectors/PresidentSector/SubDepartment/CentralStatisticsDepartment";
+import Managementofqualityassurancedevelopmentandevaluation from './components/Sectors/PresidentSector/SubDepartment/Managementofqualityassurancedevelopmentandevaluation'
 import VisionandMessage from "./components/Sectors/PresidentSector/VisionandMessage.jsx";
+import TranslationDepartment from "./components/Sectors/PresidentSector/SubDepartment/TranslationDepartment";
 import DataCenter from "./components/Sectors/PresidentSector/DataCenter.jsx";
-import LegalAffairs from "./components/Sectors/PresidentSector/LegalAffairs.jsx";
+import LegalAffairs from "./components/Sectors/PresidentSector/LegalAffairs/LegalAffairs.jsx";
 import OrganizationandManagement from "./components/Sectors/PresidentSector/OrganizationandManagement.jsx";
-import PublicRelationsandmedia from "./components/Sectors/PresidentSector/PublicRelationsandmedia.jsx";
-import TechnicalInspection from "./components/Sectors/PresidentSector/TechnicalInspection.jsx";
+//import PublicRelationsandmedia from "./components/Sectors/PresidentSector/PublicRelationsandmedia.jsx";
+import TechnicalInspection from "./components/Sectors/PresidentSector/Technical Inspection/TechnicalInspectionOS.jsx";
 import Planning from "./components/Sectors/PresidentSector/Planning.jsx";
 import Security from "./components/Sectors/PresidentSector/Security.jsx";
 import ProjectsManagement from "./components/Sectors/PresidentSector/ProjectsManagement.jsx";
 import QulityAssurance from "./components/Sectors/PresidentSector/QulityAssurance.jsx";
+import SecretariatDepartment from "./components/Sectors/PresidentSector/SubDepartment/SecretariatDepartment";
+import CalluslegalAffairs from './components/Sectors/PresidentSector/LegalAffairs/Callus'
 import App from "./App";
 import AddUser from "./Pages/AddUser";
 import Users from "./Pages/Users";
@@ -30,6 +36,15 @@ import Roles from "./Pages/Roles";
 import Profile from "./Pages/Profile";
 import ResetPassword from "./Pages/ResetPassword";
 import Friends from "./Pages/Friends";
+import AdvisorsDepartment from "./components/Sectors/PresidentSector/SubDepartment/AdvisorsDepartment";
+import AdministrationIssues from "./components/Sectors/PresidentSector/Organization and Management/AdministrationIssues";
+import OStructureManagement from "./components/Sectors/PresidentSector/Organization and Management/OStructureManagement";
+import Departmentalcompetences from "./components/Sectors/PresidentSector/Organization and Management/Departmentalcompetences";
+import VissionandmessageManageandOrganize from "./components/Sectors/PresidentSector/Organization and Management/VissionandmessageManageandOrganize";
+import CallusOrganizeandManage from "./components/Sectors/PresidentSector/Organization and Management/CallusOrganizeandManage";
+import OSrelationandmedia from "./components/Sectors/PresidentSector/Public relations and media/OSrelationandmedia";
+import Managementcompetences from "./components/Sectors/PresidentSector/Public relations and media/Managementcompetences";
+import VissionandMessagerelationandmedia from './components/Sectors/PresidentSector/Public relations and media/VissionandMessagerelationandmedia';
 /**************imports of deputy education sector *************/
 import DeputyEducation from "./components/Sectors/Deputy education and student/DeputyEducation.jsx";
 import RegisteryManagement from "./components/Sectors/Deputy education and student/RegisteryManagement.jsx";
@@ -52,6 +67,15 @@ import OrganizationalStructureMedical from "./components/Sectors/Deputy educatio
 import AboutAddminstration from "./components/Sectors/Deputy education and student/MedicalAffairs/AboutAddminstration.jsx";
 import SubDepartmentsMedical from "./components/Sectors/Deputy education and student/MedicalAffairs/SubDepartments.jsx";
 import CallUsMedical from "./components/Sectors/Deputy education and student/MedicalAffairs/CallUsMedical.jsx";
+import Searchforgraduate from "./components/Sectors/Deputy education and student/Searchforgraduate";
+import AlumniCareAssociation from "./components/Sectors/Deputy education and student/AlumniCareAssociation/AlumniCareAssociation";
+import Mainpage from "./components/Sectors/Deputy education and student/AlumniCareAssociation/Mainpage";
+import CommitteesofAssociation from "./components/Sectors/Deputy education and student/AlumniCareAssociation/CommitteesofAssociation";
+import Bylaws from "./components/Sectors/Deputy education and student/AlumniCareAssociation/Bylaws";
+import Meetinglectures from "./components/Sectors/Deputy education and student/AlumniCareAssociation/Meetinglectures";
+import Associationmembership from "./components/Sectors/Deputy education and student/AlumniCareAssociation/Associationmembership";
+import BoardDirectors from "./components/Sectors/Deputy education and student/AlumniCareAssociation/BoardodDirectors";
+
 /*************imports of postgraduate sector************/
 import PostGraduateAndResearch from "./components/Sectors/Post Graduate And Research/PostGraduateAndResearch.jsx";
 import OrganizationalStructurePost from "./components/Sectors/Post Graduate And Research/About Sector/OrganizationalStructure.jsx";
@@ -96,7 +120,6 @@ import Achievements from "./components/Sectors/community and environment/AboutSe
 /***************imports of SecretaryGeneral sector***************/
 import SecretaryGeneral from "./components/Sectors/SecretaryGeneral.jsx";
 /**********imports of News********/
-
 import Allnews from "./components/News/Allnews.jsx";
 import Newsdynamic from "./components/Home_Page/Newsdynamic.jsx";
 /********imports of About University*******/
@@ -119,6 +142,7 @@ import Electronicservices from "./components/Home_Page/Staff Members/Electronics
 import Email from "./components/Home_Page/Staff Members/Email.jsx";
 import Personalwebsitedata from "./components/Home_Page/Staff Members/Personalwebsitedata.jsx";
 import Searchforfaculitymember from "./components/Home_Page/Staff Members/Searchforfaculitymember.jsx";
+import DisplayPdfstaff from "./components/Home_Page/Staff Members/DisplayPdfStaff";
 /*******import of Students*******/
 import Studysystem from "./components/Home_Page/Students/Studysystem.jsx";
 import Postgraduatestage from "./components/Home_Page/Students/Postgraduatestage.jsx";
@@ -143,11 +167,26 @@ import Stadium from "./components/Home_Page/Students/StudentServices/Stadium";
 import Studentguide from "./components/Home_Page/Students/StudentServices/Studentguide";
 import Informationtechnologyclub from "./components/Home_Page/Students/StudentServices/Informationtechnologyclub";
 import Aluminidatabase from "./components/Home_Page/Students/Aluminidatabase";
-import SearchforAlumini from "./components/Home_Page/Students/SearchforAlumini";
 import Displaypdf from "./components/Home_Page/Students/StudentServices/Displaypdf";
 /*******imports of dynamic routes faculity ********/
 import FaculitesPages from "./components/faculties/FaculitesPages.jsx";
 import AllFaculities from "./components/faculties/AllFaculities";
+/************Footer imports***********/
+import ArrivalManagement from "./components/Home_Page/ArrivalManagement";
+/*******Scientific Research imports*****/
+import CooperationProtocols from "./components/Home_Page/ScientificReesearch/CoorperationProtocols";
+import PdfMicrosoft from "./components/Home_Page/ScientificReesearch/PdfMicrosoft";
+import MicrosoftAgreement from "./components/Home_Page/ScientificReesearch/MicrosoftAgreement";
+import DisplayPdf from "./components/Home_Page/ScientificReesearch/DisplayPdf";
+import ScientificReports from "./components/Home_Page/ScientificReesearch/ScientificReports";
+import Mostimportantbusiness from "./components/Sectors/PresidentSector/Public relations and media/Mostimportantbusiness";
+import Callusrationalandmedai from "./components/Sectors/PresidentSector/Public relations and media/Callusrationalandmedai";
+import ManagementCompetanceTechnical from "./components/Sectors/PresidentSector/Technical Inspection/ManagementCompetanceTechnical";
+import VissionandMessage from "./components/Sectors/PresidentSector/Public relations and media/VissionandMessagerelationandmedia";
+import VissionandMessageTech from "./components/Sectors/PresidentSector/Technical Inspection/VissionandMessageTech";
+import MostimportantWorks from "./components/Sectors/PresidentSector/Technical Inspection/MostimportantWorks";
+import CallusTech from "./components/Sectors/PresidentSector/Technical Inspection/CallusTech";
+
 export let routeObj = [
   {
     path: "/",
@@ -248,22 +287,22 @@ export let routeObj = [
         path: "/VisionandMessage",
         element: <VisionandMessage />,
       },
-      {
-        path: "/Datacenter",
-        element: <DataCenter />,
-      },
-      {
-        path: "/Legalaffairs",
-        element: <LegalAffairs />,
-      },
-      {
-        path: "/Organizationandmanagement",
-        element: <OrganizationandManagement />,
-      },
-      {
-        path: "/PublicRelationandMedia",
-        element: <PublicRelationsandmedia />,
-      },
+      // {
+      //   path: "/Datacenter",
+      //   element: <DataCenter />,
+      // },
+      // {
+      //   path: "/Legalaffairs",
+      //   element: <LegalAffairs />,
+      // },
+      // {
+      //   path: "/Organizationandmanagement",
+      //   element: <OrganizationandManagement />,
+      // },
+      // {
+      //   path: "/PublicRelationandMedia",
+      //   element: <PublicRelationsandmedia />,
+      // },
       {
         path: "/TechnicalInspection",
         element: <TechnicalInspection />,
@@ -288,6 +327,7 @@ export let routeObj = [
         path: "/login",
         element: <Login />,
       },
+      /******Routes of university president sector******/
       {
         path: "/UniversityPresident",
         element: <UniversityPresident />,
@@ -299,6 +339,30 @@ export let routeObj = [
       {
         path: "/SubDepartments",
         element: <SubDepartments />,
+      },
+      {
+        path: "/secretariedepartment",
+        element: <SecretariatDepartment />,
+      },
+      {
+        path: "/citizensservicedepartment",
+        element: <CitizensServiceDepartment />,
+      },
+      {
+        path:"/translitiondepartment",
+        element:<TranslationDepartment/>
+      },
+      {
+        path:'/managementofqualityassurancedevelopmentandevaluation',
+        element:<Managementofqualityassurancedevelopmentandevaluation/>
+      },
+      {
+        path:'/advisordepartment',
+        element:<AdvisorsDepartment/>
+      },
+      {
+        path:'/centralstatistics',
+        element:<CentralStatisticsDepartment/>
       },
       {
         path: "/VisionandMessage",
@@ -313,16 +377,68 @@ export let routeObj = [
         element: <LegalAffairs />,
       },
       {
-        path: "/Organizationandmanagement",
-        element: <OrganizationandManagement />,
+        path:'/CalluslegalAffairs',
+        element:<CalluslegalAffairs/>
       },
       {
-        path: "/PublicRelationandMedia",
-        element: <PublicRelationsandmedia />,
+        path:'/Administrationissues',
+        element:<AdministrationIssues/>
+      },
+      {
+        path:'/OSManagementandorganizing',
+        element:<OStructureManagement/>
+      },
+      {
+        path:'/Departmentalcompetences',
+        element:<Departmentalcompetences/>
+      },
+      {
+       path:'/vissionandmessagemanageandorganize',
+       element:<VissionandmessageManageandOrganize/>
+      },
+      {
+       path:'/CallusOrganizeandManage',
+       element:<CallusOrganizeandManage/>
+      },
+      {
+       path:'/osrelationandmedia',
+       element:<OSrelationandmedia/>
+      },
+      {
+        path:'/managementcompetance',
+        element:<Managementcompetences/>
+      },
+      {
+        path:'/vmrelationandmedia',
+        element:<VissionandMessagerelationandmedia/>
+      },
+      {
+        path:'/mostimportantandbusiness',
+        element:<Mostimportantbusiness/>
+      },
+      {
+        path:'/callusrationalmedia',
+        element:<Callusrationalandmedai/>
       },
       {
         path: "/TechnicalInspection",
         element: <TechnicalInspection />,
+      },
+      {
+        path:'/managementcompetanceTech',
+        element:<ManagementCompetanceTechnical/>
+      },
+      {
+        path:'/VissionandMessageTech',
+        element:<VissionandMessageTech/>
+      },
+      {
+        path:'/ImportantworksTech',
+        element:<MostimportantWorks/>
+      },
+      {
+        path:'/CallusTech',
+        element:<CallusTech/>
       },
       {
         path: "/Planning",
@@ -424,6 +540,38 @@ export let routeObj = [
       {
         path: "/callusmedical",
         element: <CallUsMedical />,
+      },
+      {
+        path: "/Searchforgraduate",
+        element: <Searchforgraduate />,
+      },
+      {
+        path: "/AlumniCare",
+        element: <AlumniCareAssociation />,
+      },
+      {
+        path: "/mainpage",
+        element: <Mainpage />,
+      },
+      {
+        path: "/commiteesofAssociation",
+        element: <CommitteesofAssociation />,
+      },
+      {
+        path: "/bylaws",
+        element: <Bylaws />,
+      },
+      {
+        path: "/meetinglecture",
+        element: <Meetinglectures />,
+      },
+      {
+        path: "/associationmembership",
+        element: <Associationmembership />,
+      },
+      {
+        path: "/boarddirection",
+        element: <BoardDirectors />,
       },
       /***********postgraduate research sector************/
       {
@@ -539,7 +687,7 @@ export let routeObj = [
         element: <Purchasingandwarehouse />,
       },
       {
-        path: "addminstrativeaffairsdepartment",
+        path: "/addminstrativeaffairsdepartment",
         element: <Addminstrativeaffairsdepartment />,
       },
       /*******Community&Environment Routes*****/
@@ -668,6 +816,31 @@ export let routeObj = [
         path: "/Searchforfaculitymember",
         element: <Searchforfaculitymember />,
       },
+      {
+        path: "/staffmemberpdfs/:id",
+        element: <DisplayPdfstaff />,
+      },
+      /*******Routes of Scientific Researcch*****/
+      {
+        path: "/cooperationprotocols",
+        element: <CooperationProtocols />,
+      },
+      {
+        path: "/pdfmicrosoft",
+        element: <PdfMicrosoft />,
+      },
+      {
+        path: "/microsoftagreement",
+        element: <MicrosoftAgreement />,
+      },
+      {
+        path: "/coorperationprotocols/:id",
+        element: <DisplayPdf />,
+      },
+      {
+        path: "/scientificreports",
+        element: <ScientificReports />,
+      },
       /******Routes of Students*****/
       {
         path: "/studysystem",
@@ -730,10 +903,6 @@ export let routeObj = [
         element: <Aluminidatabase />,
       },
       {
-        path: "/searchforalumini",
-        element: <SearchforAlumini />,
-      },
-      {
         path: "/Arrivalstudents",
         element: <Arrivalstudents />,
       },
@@ -766,7 +935,7 @@ export let routeObj = [
         element: <Registrationofforeignstudents />,
       },
       {
-        path: "/pdf/:id",
+        path: "/pdf/display",
         // path:"/faculity",
         element: <Displaypdf />,
       },
@@ -779,6 +948,11 @@ export let routeObj = [
       {
         path: "/Allfaculities",
         element: <AllFaculities />,
+      },
+      /*******Routes Footer******/
+      {
+        path: "/arrivalmanagement",
+        element: <ArrivalManagement />,
       },
     ],
   },

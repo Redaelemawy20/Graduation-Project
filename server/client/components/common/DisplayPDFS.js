@@ -6,23 +6,21 @@ import { BsFileEarmarkPdfFill } from "react-icons/bs";
 
 //import electronicservicesObject from "../Home_Page/Students/StudentServices/ElectronicservicesObject";
 export default function DisplayPDFS(props) {
-const electronicservicesObject=props.text;
+  const electronicservicesObject = props.text;
   return (
     <DisplayPDFSStyle>
-      <DigitalTransStyle style={
-        {marginTop:0}
-      }>
+      <DigitalTransStyle style={{ marginTop: 0 }}>
         <div className="services">
           {electronicservicesObject.map((item) => {
-            let id = item.id;
+            {/* let id = item.id; */}
             return (
               <div>
                 <p className="digital-icon">
-                  <Link to={`/pdf/${id}`}>
+                  <Link to={`/pdf/display?fileName=${item.fileName}`}>
                     <BsFileEarmarkPdfFill />
                   </Link>
                 </p>
-                <Link to={`/pdf/${id}`}>
+                <Link to={`/pdf/display?fileName=${item.fileName}`}>
                   <p className="links">{item.name}</p>
                 </Link>
               </div>
@@ -57,7 +55,7 @@ const DisplayPDFSStyle = styled.div`
     padding: 0 10px;
   }
   .services > div {
-    margin:15px 5px;
+    margin: 15px 5px;
   }
   .services > div > p:hover {
     transform: scale(1.1);

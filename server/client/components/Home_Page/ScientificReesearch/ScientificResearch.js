@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import "../.././App.css";
+import "../../../App.css";
 import { Link } from "react-router-dom";
-import { SiCoop } from "react-icons/si";
-import { MdLocalLibrary } from "react-icons/md";
-import { TbReportAnalytics } from "react-icons/tb";
-import { FaGalacticRepublic } from "react-icons/fa";
+// import { SiCoop } from "react-icons/si";
+// import { MdLocalLibrary } from "react-icons/md";
+// import { TbReportAnalytics } from "react-icons/tb";
+// import { FaGalacticRepublic } from "react-icons/fa";
 import { useEffect } from "react";
 export default function ScientificResearch(props) {
   const {
@@ -49,7 +49,7 @@ export default function ScientificResearch(props) {
       </div>
       <section className="scientific--research">
         <div id="top--left" className="content">
-          <Link to="/">{name1}</Link>
+          <a href={`${url1}`}>{name1}</a>
           <div className="science--logo">
             <div className="science--icon">
               <span className="Sci---icons">{icon1}</span>
@@ -58,7 +58,7 @@ export default function ScientificResearch(props) {
           </div>
         </div>
         <div id="top--right" className="content">
-          <Link to="/">{name2}</Link>
+          <Link to={`${url2}`}>{name2}</Link>
           <div className="science--logo">
             <div className="science--icon">
               <span className="Sci---icons">{icon2}</span>
@@ -66,7 +66,7 @@ export default function ScientificResearch(props) {
           </div>
         </div>
         <div id="bottom--left" className="content">
-          <Link to="/">{name3}</Link>
+          <Link to={`${url3}`}>{name3}</Link>
           <div className="science--logo">
             <div className="science--icon">
               <span className="Sci---icons">{icon3}</span>
@@ -74,7 +74,7 @@ export default function ScientificResearch(props) {
           </div>
         </div>
         <div id="bottom--right" className="content">
-          <Link to={`${url4}`}>{name4}</Link>
+          <a href={`${url4}`}>{name4}</a>
           <div className="science--logo">
             <div className="science--icon">
               <span className="Sci---icons">{icon4}</span>
